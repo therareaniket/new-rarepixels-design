@@ -4,31 +4,32 @@ import { Strichpunkt_Sans } from "next/font/google";
 import "./globals.css";
 
 const strichpunktSans = Strichpunkt_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // 400: Regular, 500: Medium, 600: Semi Bold, 700: Bold
-  variable: "--font-strichpunkt",      // Optional: defines a CSS variable
-  display: "swap",
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-strichpunkt",
+    display: "swap",
+    adjustFontFallback: false,
 });
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+	variable: "--font-geist-sans",
+	subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+	variable: "--font-geist-mono",
+	subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "RarePixels Design | Thinking of an Idea is Easy but Make them Happen is Rare",
-  description: "Unleash the full potential of your brand with RarePixels Design LLP, a creative powerhouse offering unparalleled UI/UX design, web and mobile app development, and branding solutions. Our skilled team of digital enthusiasts has consistently elevated businesses of all sizes. With an unmatched ability to envision and construct engaging user experiences, we bring your digital vision to life confidently, propelling your brand to new heights.",
+	title: "RarePixels Design | Thinking of an Idea is Easy but Make them Happen is Rare",
+	description: "Unleash the full potential of your brand with RarePixels Design LLP, a creative powerhouse offering unparalleled UI/UX design, web and mobile app development, and branding solutions. Our skilled team of digital enthusiasts has consistently elevated businesses of all sizes. With an unmatched ability to envision and construct engaging user experiences, we bring your digital vision to life confidently, propelling your brand to new heights.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  return (
-    <html lang="en" className={`${strichpunktSans.variable} h-full antialiased`} >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
+	return (
+		<html lang="en" className={`${strichpunktSans.variable} h-full antialiased`} >
+			<body className="min-h-full flex flex-col">{children}</body>
+		</html>
+	);
 }
