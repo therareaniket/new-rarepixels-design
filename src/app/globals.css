@@ -30,7 +30,7 @@
 
 @theme { --font-sans: var(--font-strichpunkt), sans-serif; }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 .section { padding: 150px 0; }
 .container { max-width: calc(1600px + 40px); margin: 0 auto; padding: 0 20px; }
 ::selection { background-color: var(--primary); color: var(--white); }
@@ -43,3 +43,49 @@ h3, .h3 { font-size: 38px; line-height: 46px; }
 h4, .h4 { font-size: 32px; line-height: 40px; }
 h5, .h5 { font-size: 28px; line-height: 34px; }
 h6, .h6 { font-size: 22px; line-height: 32px; }
+
+
+
+
+
+/* RESPOSNIVE FOR GLOBAL CSS */
+
+@media (max-width: 1799px) {}
+
+@media (max-width: 1599px) {}
+
+@media (max-width: 1599px) and (max-height: 750px) {}
+
+@media (max-width: 1439px) {}
+
+@media (max-width: 1359px) {}
+
+/* Low Height Resolution for small laptops */
+@media (max-width: 1359px) and (max-height: 600px) {}
+
+@media (max-width: 1199px) {}
+
+/* Very-Small size laptop */
+@media (max-width: 1024px) and (max-height: 760px) {}
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 991px) {}
+
+@media (max-width: 839px) {}
+
+@media (max-width: 767px) {}
+
+@media (max-width: 639px) {}
+
+@media (max-width: 575px) {}
+
+@media (max-width: 479px) {}
+
+@media (max-width: 439px) {}
+
+@media (max-width: 400px) {}
+
+@media (max-width: 374px) {}
+
+@media (max-width: 359px) {}

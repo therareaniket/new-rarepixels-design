@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Strichpunkt_Sans } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Globle/Footer/Footer";
+import Header from "@/components/Globle/Header/Header";
 
 const strichpunktSans = Strichpunkt_Sans({
     subsets: ["latin"],
@@ -9,16 +10,6 @@ const strichpunktSans = Strichpunkt_Sans({
     variable: "--font-strichpunkt",
     display: "swap",
     adjustFontFallback: false,
-});
-
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +20,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
 		<html lang="en" className={`${strichpunktSans.variable} h-full antialiased`} >
-			<body className="min-h-full flex flex-col">{children}</body>
+			<body className="min-h-full flex flex-col">
+				<Header />
+
+				{children}
+				
+				<Footer />
+			</body>
 		</html>
 	);
 }
