@@ -23,9 +23,6 @@
 }
 
 
-
-
-
 /* CUSTOM GLOBLE CSS */
 
 @theme { --font-sans: var(--font-strichpunkt), sans-serif; }
@@ -57,28 +54,32 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 */
 
 @media (max-width: 1799px) {
-    container { max-width: calc(1360px + 36px); }   .section   { padding: 130px 0px; }
+	.container { max-width: calc(1360px + 36px); }   
+	.section   { padding: 100px 0px; }
+	.container-sm { max-width: calc(1224px + 36px);  }
 
-    h1, .h1   { font-size: 62px; line-height: 70px; }
-    h2, .h2   { font-size: 44px; line-height: 52px; }
-    h3, .h3   { font-size: 38px; line-height: 46px; }
-    h4, .h4   { font-size: 32px; line-height: 40px; }
-    h5, .h5   { font-size: 28px; line-height: 36px; }
-    h6, .h6   { font-size: 22px; line-height: 30px; }
+	h1, .h1{ font-size: 60px; line-height: 68px; }
+	h2, .h2{ font-size: 44px; line-height: 50px; }
+	h3, .h3{ font-size: 36px; line-height: 44px; }
+	h4, .h4{ font-size: 32px; line-height: 40px; }
+	h5, .h5{ font-size: 28px; line-height: 36px; }
+	h6, .h6{ font-size: 22px; line-height: 30px; }
     .text-20  { font-size: 20px; line-height: 28px; }
     .text-18  { font-size: 18px; line-height: 26px; }
     .text-16  { font-size: 16px; line-height: 22px; }
 }
 
 @media (max-width: 1599px) {
-    .container { max-width: calc(1248px + 36px); }   .section   { padding: 110px 0px; }
+    .container { max-width: calc(1248px + 36px); }   
+	.section   { padding: 90px 0px; }
+	.container-sm { max-width: calc(1123px + 36px); }
 
-    h1, .h1   { font-size: 62px; line-height: 70px; }
-    h2, .h2   { font-size: 44px; line-height: 52px; }
-    h3, .h3   { font-size: 34px; line-height: 42px; }
-    h4, .h4   { font-size: 32px; line-height: 40px; }
-    h5, .h5   { font-size: 28px; line-height: 36px; }
-    h6, .h6   { font-size: 22px; line-height: 30px; }
+	h1, .h1 { font-size: 52px; line-height: 60px; }
+	h2, .h2 { font-size: 42px; line-height: 50px; }
+	h3, .h3 { font-size: 34px; line-height: 44px; }
+	h4, .h4 { font-size: 30px; line-height: 48px; }
+	h5, .h5 { font-size: 26px; line-height: 34px; }
+	h6, .h6 { font-size: 20px; line-height: 28px; }
     .text-20  { font-size: 20px; line-height: 28px; }
     .text-18  { font-size: 18px; line-height: 26px; }
     .text-16  { font-size: 16px; line-height: 22px; }
@@ -87,27 +88,30 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 @media (max-width: 1599px) and (max-height: 750px) {}
 
 @media (max-width: 1439px) {
-    .container { max-width: calc(1056px + 36px); }   .section   { padding: 110px 0px; }
+	.container { max-width: calc(1056px + 36px); }   
+	.container-sm { max-width: calc(950px + 36px); }
 
-    h1, .h1   { font-size: 60px; line-height: 68px; }
-    h2, .h2   { font-size: 40px; line-height: 48px; }
-    h3, .h3   { font-size: 34px; line-height: 42px; }
-    h4, .h4   { font-size: 32px; line-height: 40px; }
-    h5, .h5   { font-size: 28px; line-height: 36px; }
-    h6, .h6   { font-size: 22px; line-height: 30px; }
+	h1, .h1 { font-size: 46px; line-height: 54px; }
+	h2, .h2 { font-size: 36px; line-height: 44px; }
+	h3, .h3 { font-size: 30px; line-height: 38px; }
+	h4, .h4 { font-size: 28px; line-height: 36px; }
+	h5, .h5 { font-size: 24px; line-height: 32px; }
+	h6, .h6 { font-size: 20px; line-height: 28px; }
     .text-20  { font-size: 20px; line-height: 28px; }
     .text-18  { font-size: 18px; line-height: 26px; }
     .text-16  { font-size: 16px; line-height: 22px; }
 }
 
 @media (max-width: 1359px) {
-    .container { max-width: calc(960px + 36px); }   .section   { padding: 90px 0px; }
+	.container { max-width: calc(960px + 36px); }   
+	.section   { padding: 80px 0px; }
+	.container-sm { max-width: calc(864px + 36px); }
 
-    h1, .h1   { font-size: 58px; line-height: 66px; }
-    h2, .h2   { font-size: 38px; line-height: 46px; }
-    h3, .h3   { font-size: 32px; line-height: 40px; }
-    h4, .h4   { font-size: 30px; line-height: 38px; }
-    h5, .h5   { font-size: 26px; line-height: 34px; }
+	h1, .h1 { font-size: 40px; line-height: 48px; }
+	h2, .h2 { font-size: 32px; line-height: 40px; }
+	h3, .h3 { font-size: 24px; line-height: 32px; }
+	h4, .h4 { font-size: 26px; line-height: 34px; }
+	h5, .h5 { font-size: 22px; line-height: 30px; }
     h6, .h6   { font-size: 20px; line-height: 28px; }
     .text-20  { font-size: 18px; line-height: 26px; }
     .text-18  { font-size: 16px; line-height: 24px; }
