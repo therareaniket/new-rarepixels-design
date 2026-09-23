@@ -88,6 +88,7 @@
 }
 
 @media (max-width: 479px) {
+    .link-title { margin-bottom: 0; }
     .mm-pages-link ul { gap: 16px; }
     .mm-pages-link li { width: calc(50% - 8px); }
     .mm-contact-socials { width: 100%; gap: 30px; }

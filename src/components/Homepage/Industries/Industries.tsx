@@ -83,7 +83,7 @@ const industriesData: Industry[] = [
 
 const Industries = () => {
     return (
-        <section className="section industries-section">
+        <section className="section industries-section bg-[#F7F2EC]">
             <div className="container industries-container">
                 <div className="hm-industries-title text-center">
                     <h2 className="font-semibold"> Industries We Serve </h2>

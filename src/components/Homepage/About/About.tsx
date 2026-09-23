@@ -19,9 +19,8 @@ const About = () => {
                     </div>
 
                     <div className="hm-abt-content-wrapper flex justify-between items-center mt-[60px]">
-                        <div className="hm-abt-logo w-[273] h-[349] bg-[#ED0180] ml-[65px]">
-                            {/* <Image src={`${CDN_URL.replace(/\/$/, '')}/images/homepage/about/rare-logo-white.png`} alt="industriespixels" width={273} height={349}></Image> */}
-                            {/* <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/about/rare-logo-white.png" alt="rare-logo" width={273} height={349}></Image> */}
+                        <div className="hm-abt-logo w-[273] h-[349] ml-[65px]">
+                            <Image src={`${CDN_URL}/images/homepage/about/abt-rpd-logo.png`} alt="header-logo" width={273} height={349} priority />
                         </div>
 
                         <div className="hm-abt-pointers w-[822px] flex flex-wrap gap-[30px]">
