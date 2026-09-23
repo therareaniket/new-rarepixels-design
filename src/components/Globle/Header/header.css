@@ -33,14 +33,15 @@
     .mm-contact li a {  font-size: 16px; line-height: 22px; margin-bottom: 4px; }
 }
 
-@media (max-width: 1359px) {}
+@media (max-width: 1359px) {
+    .mega-menu { overflow-y: auto; }
+    .mega-menu .container { height: auto; }
+}
 
 /* Low Height Resolution for small laptops */
 @media (max-width: 1359px) and (max-height: 600px) {}
 
 @media (max-width: 1199px) {
-    .mega-menu { overflow-y: auto; }
-    .mega-menu .container { height: auto; }
     .mm-pages-link li a, .sub-service-list { width: 370px; }
     .mm-services-link { flex-wrap: wrap; gap: 20px; }
     .mm-socials { width: 230px; }
@@ -89,8 +90,12 @@
 @media (max-width: 479px) {
     .mm-pages-link ul { gap: 16px; }
     .mm-pages-link li { width: calc(50% - 8px); }
-    .mm-contact-socials { width: 100%; gap: 12px; }
-    .mm-slogan-cta { margin-bottom: 40px; }
+    .mm-contact-socials { width: 100%; gap: 30px; }
+    .mm-slogan-cta { margin-bottom: 50px; }
+    .mm-pixels-t { left: 30px; }
+    .mm-pixels-tr { top: 100px; width: 20%; }
+    .mm-pixels-bl { bottom: -60%; }
+    .mm-pixels-br { bottom: -100%; }
 }
 
 @media (max-width: 439px) {
