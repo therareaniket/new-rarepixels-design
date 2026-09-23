@@ -88,7 +88,7 @@ const Industries = () => {
                 <div className="hm-industries-title text-center">
                     <h2 className="font-semibold"> Industries We Serve </h2>
 
-                    <p className="text-18 font-normal flex flex-col mt-[14px]">
+                    <p className="text-18 font-normal mt-[14px]">
                         <span>Every industry is different.</span>
                         <span> But the need to earn trust, create memorable experiences, and stay relevant isn&apos;t. </span>
                     </p>
