@@ -1,41 +1,103 @@
 .nav-cont-wrapper { background-color: rgba(242, 242, 242, 0.6); backdrop-filter: blur(20px); }
-
+.mm-icon { font-size: 24px; }
+.mm-pages-link li:hover .link-icon { background-color: var(--primary); color: var(--white); transition: all 0.3s ease-in-out; }
+.mm-contact li:hover a, .mm-contact li:hover a > * { color: var(--primary); }
+.mm-socials li:hover .mm-social-icon { color: var(--primary); transition: all 0.3s ease-in-out; }
+.mm-social-icon { font-size: 24px; }
 
 /* RESPOSNIVE */
 
 @media (max-width: 1799px) {}
 
-@media (max-width: 1599px) {}
+@media (max-width: 1599px) {
+    .mm-pages-link li a, .sub-service-list { width: 300px; }
+    .link-subtitle, .sub-service-list li { font-size: 14px; line-height: 22px; }
+}
 
-@media (max-width: 1599px) and (max-height: 750px) {}
+@media (max-width: 1599px) and (max-height: 750px) {
+    .mega-menu-content { margin-top: 10px; }
+    .close-btn { margin-top: 10px; padding: 6px 10px; font-size: 15px; }
+    .mm-services-link { margin: 25px 0; padding: 25px 0; }
+    .mm-contact li a {  font-size: 16px; line-height: 22px; margin-bottom: 4px; }
+}
 
-@media (max-width: 1439px) {}
+@media (max-width: 1439px) {    
+    .mm-pages-link li a, .sub-service-list { width: 280px; }
+    .link-icon { width: 48px; height: 48px; border-radius: 16px; }
+    .mm-cta { font-size: 14px; margin-left: 10px; }
+    .mm-slogan-cta a { padding: 8px 16px; }
+
+    .mega-menu-content { margin-top: 10px; }
+    .close-btn { margin-top: 10px; padding: 6px 10px; font-size: 15px; }
+    .mm-services-link { margin: 25px 0; padding: 25px 0; }
+    .mm-contact li a {  font-size: 16px; line-height: 22px; margin-bottom: 4px; }
+}
 
 @media (max-width: 1359px) {}
 
 /* Low Height Resolution for small laptops */
 @media (max-width: 1359px) and (max-height: 600px) {}
 
-@media (max-width: 1199px) {}
+@media (max-width: 1199px) {
+    .mega-menu { overflow-y: auto; }
+    .mega-menu .container { height: auto; }
+    .mm-pages-link li a, .sub-service-list { width: 370px; }
+    .mm-services-link { flex-wrap: wrap; gap: 20px; }
+    .mm-socials { width: 230px; }
+    .mm-contact { width: 260px; }
+    .mm-socials ul { gap: 16px; }
+    .mm-contact-socials { gap: 40px; }
+    .mm-slogan-cta { margin-bottom: 20px; }
+}
 
 /* Very-Small size laptop */
-@media (max-width: 1024px) and (max-height: 760px) {}
+@media (max-width: 1024px) and (max-height: 770px) {  }
 
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+    .mm-pages-link li a, .sub-service-list { width: 340px; }
+    .mm-pixels-t { left: 100px; }
+    .mm-slogan-cta { margin-bottom: 30px; }
+    /* .mm-slogan-cta { display: flex; align-items: center; gap: 40px; margin-bottom: 40px; } */
+    .mm-slogan-cta p { margin-bottom: 20px; }
+    .mm-contact-socials { flex-direction: column-reverse; gap: 30px; margin-bottom: 20px; }
+    .mm-socials, .mm-contact { width: 285px; }
+}
 
 @media (max-width: 991px) {}
 
-@media (max-width: 839px) {}
+@media (max-width: 839px) {
+    .mm-pages-link li a, .sub-service-list { width: 290px; }
+}
 
 @media (max-width: 767px) {}
 
-@media (max-width: 639px) {}
+@media (max-width: 639px) {
+    .mega-menu-content { margin-top: 30px; }
+    .link-icon { width: 40px; height: 40px; }
+    .mm-service-title { height: 40px; }
+    .link-subtitle { display: none; }
+    .mm-pages-link li a { width: 140px; align-items: center; }
+    .mm-pages-link ul { justify-content: start; gap: 16px 50px; }
+    .sub-service-list { width: 258px; }
+    .mm-connect-us { flex-direction: column; }
+}
 
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+    .sub-service-list { width: 300px; }
+}
 
-@media (max-width: 479px) {}
+@media (max-width: 479px) {
+    .mm-pages-link ul { gap: 16px; }
+    .mm-pages-link li { width: calc(50% - 8px); }
+    .mm-contact-socials { width: 100%; gap: 12px; }
+    .mm-slogan-cta { margin-bottom: 40px; }
+}
 
-@media (max-width: 439px) {}
+@media (max-width: 439px) {
+    .mega-menu-content { margin-top: 20px; }
+    .sub-service-list { width: 100%; }
+    .close-btn { margin-top: 0; font-size: 14px; line-height: 20px; }
+}
 
 @media (max-width: 400px) {}
 
