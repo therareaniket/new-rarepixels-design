@@ -21,7 +21,7 @@ const industriesData: Industry[] = [
         firstParagraph: "Complex products fail when users don't understand them.",
         secondParagraph: "The best software makes sense at a glance and feels natural from the start.",
         thirdParagraph: "We design intuitive SaaS platforms that improve adoption, reduce friction, and keep users coming back.",
-        video: "images/homepage/industries/technology-and-saas.mp4",
+        video: "/images/homepage/industries/technology-and-saas.mp4",
     },
     {
         id: 2,
@@ -45,7 +45,7 @@ const industriesData: Industry[] = [
         firstParagraph: "The shortest path from browsing to buying wins.",
         secondParagraph: "Every unnecessary click is a missed opportunity.",
         thirdParagraph: "We build shopping experiences that remove friction, increase confidence, and turn visitors into loyal customers.",
-        video: "/images/homepage/industries/retail.mp4",
+        video: "/images/homepage/industries/e-commerce.mp4",
     },
     {
         id: 5,
@@ -53,7 +53,7 @@ const industriesData: Industry[] = [
         firstParagraph: "Properties attract attention. Experiences create decisions.",
         secondParagraph: "People invest in confidence before they invest in property.",
         thirdParagraph: "We craft digital experiences that showcase value, build trust, and encourage meaningful enquiries.",
-        video: "/images/homepage/industries/finance.mp4",
+        video: "/images/homepage/industries/real-estate.mp4",
     },
     {
         id: 6,
@@ -61,7 +61,7 @@ const industriesData: Industry[] = [
         firstParagraph: "Learning works best when technology stays out of the way.",
         secondParagraph: "Great learning platforms feel effortless for every learner.",
         thirdParagraph: "We design engaging educational experiences that improve accessibility, participation, and long-term engagement.",
-        video: "/images/homepage/industries/finance.mp4",
+        video: "/images/homepage/industries/education-industry.mp4",
     },
     {
         id: 7,
@@ -69,7 +69,7 @@ const industriesData: Industry[] = [
         firstParagraph: "The future moves fast. Great experiences help people keep up.",
         secondParagraph: "Innovation succeeds when people know how to use it.",
         thirdParagraph: "We simplify advanced technologies through intuitive interfaces that make innovation feel approachable.",
-        video: "/images/homepage/industries/finance.mp4",
+        video: "/images/homepage/industries/ai-industry.mp4",
     },
     {
         id: 8,
@@ -77,7 +77,7 @@ const industriesData: Industry[] = [
         firstParagraph: "Great brands satisfy long before the first purchase.",
         secondParagraph: "People remember experiences before they remember products.",
         thirdParagraph: "We create brands and digital experiences that spark curiosity, build loyalty, and keep customers coming back.",
-        video: "/images/homepage/industries/finance.mp4",
+        video: "/images/homepage/industries/food-industry.mp4",
     },
 ];
 
@@ -98,7 +98,7 @@ const Industries = () => {
                     {industriesData.map((industry) => (
                         <div className="industries-cards flex justify-between gap-[60px] items-stretch" key={industry.id} >
                             <div className="relative industries-video-wrapper">
-                                <div className="industries-card-left rounded-br-[100px] bg-[red]"> <video className="industries-video" src={`${CDN_URL}${industry.video}`} autoPlay playsInline muted width={1000} height={600}></video> </div>
+                                <div className="industries-card-left rounded-br-[100px]"> <video className="industries-video" src={`${CDN_URL}${industry.video}`} autoPlay loop playsInline muted width={1000} height={600}></video> </div>
 
                                 <Image className="industries-pixel-1" src={`${CDN_URL}/images/homepage/industries/industries-pixel-desktop-1.svg`} alt="industriespixels" width={170} height={150}></Image>
                                 <Image className="industries-pixel-2" src={`${CDN_URL}/images/homepage/industries/industries-pixel-desktop-2.svg`} alt="industriespixels" width={132} height={100}></Image>
