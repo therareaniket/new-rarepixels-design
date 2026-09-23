@@ -47,47 +47,189 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 .text-18 { font-size: 18px; line-height: 24px; }
 
 
-
-
-
 /* RESPOSNIVE FOR GLOBAL CSS */
 
-@media (max-width: 1799px) {}
+/*
+    * rarepixels
+    * Date: 2026-09-23
+    * Generated: 2026-09-23T04:47:34.822Z
+    * Responsive Design System — RarePixels
+*/
 
-@media (max-width: 1599px) {}
+@media (max-width: 1799px) {
+    container { max-width: calc(1360px + 36px); }   .section   { padding: 130px 0px; }
+
+    h1, .h1   { font-size: 62px; line-height: 70px; }
+    h2, .h2   { font-size: 44px; line-height: 52px; }
+    h3, .h3   { font-size: 38px; line-height: 46px; }
+    h4, .h4   { font-size: 32px; line-height: 40px; }
+    h5, .h5   { font-size: 28px; line-height: 36px; }
+    h6, .h6   { font-size: 22px; line-height: 30px; }
+    .text-20  { font-size: 20px; line-height: 28px; }
+    .text-18  { font-size: 18px; line-height: 26px; }
+    .text-16  { font-size: 16px; line-height: 22px; }
+}
+
+@media (max-width: 1599px) {
+    .container { max-width: calc(1248px + 36px); }   .section   { padding: 110px 0px; }
+
+    h1, .h1   { font-size: 62px; line-height: 70px; }
+    h2, .h2   { font-size: 44px; line-height: 52px; }
+    h3, .h3   { font-size: 34px; line-height: 42px; }
+    h4, .h4   { font-size: 32px; line-height: 40px; }
+    h5, .h5   { font-size: 28px; line-height: 36px; }
+    h6, .h6   { font-size: 22px; line-height: 30px; }
+    .text-20  { font-size: 20px; line-height: 28px; }
+    .text-18  { font-size: 18px; line-height: 26px; }
+    .text-16  { font-size: 16px; line-height: 22px; }
+}
 
 @media (max-width: 1599px) and (max-height: 750px) {}
 
-@media (max-width: 1439px) {}
+@media (max-width: 1439px) {
+    .container { max-width: calc(1056px + 36px); }   .section   { padding: 110px 0px; }
 
-@media (max-width: 1359px) {}
+    h1, .h1   { font-size: 60px; line-height: 68px; }
+    h2, .h2   { font-size: 40px; line-height: 48px; }
+    h3, .h3   { font-size: 34px; line-height: 42px; }
+    h4, .h4   { font-size: 32px; line-height: 40px; }
+    h5, .h5   { font-size: 28px; line-height: 36px; }
+    h6, .h6   { font-size: 22px; line-height: 30px; }
+    .text-20  { font-size: 20px; line-height: 28px; }
+    .text-18  { font-size: 18px; line-height: 26px; }
+    .text-16  { font-size: 16px; line-height: 22px; }
+}
+
+@media (max-width: 1359px) {
+    .container { max-width: calc(960px + 36px); }   .section   { padding: 90px 0px; }
+
+    h1, .h1   { font-size: 58px; line-height: 66px; }
+    h2, .h2   { font-size: 38px; line-height: 46px; }
+    h3, .h3   { font-size: 32px; line-height: 40px; }
+    h4, .h4   { font-size: 30px; line-height: 38px; }
+    h5, .h5   { font-size: 26px; line-height: 34px; }
+    h6, .h6   { font-size: 20px; line-height: 28px; }
+    .text-20  { font-size: 18px; line-height: 26px; }
+    .text-18  { font-size: 16px; line-height: 24px; }
+    .text-16  { font-size: 14px; line-height: 22px; }
+}
 
 /* Low Height Resolution for small laptops */
-@media (max-width: 1359px) and (max-height: 600px) {}
+@media (max-width: 1359px) and (max-height: 600px) {
+    .section   { padding: 80px 0px; }
+}
 
-@media (max-width: 1199px) {}
+@media (max-width: 1199px) {
+    .container { max-width: calc(800px + 36px); }   .section   { padding: 80px 0px; }
+    h1, .h1   { font-size: 56px; line-height: 64px; }
+    h2, .h2   { font-size: 36px; line-height: 42px; }
+    h3, .h3   { font-size: 32px; line-height: 40px; }
+    h4, .h4   { font-size: 30px; line-height: 38px; }
+    h5, .h5   { font-size: 26px; line-height: 34px; }
+    h6, .h6   { font-size: 20px; line-height: 28px; }
+    .text-20  { font-size: 18px; line-height: 26px; }
+    .text-18  { font-size: 16px; line-height: 24px; }
+    .text-16  { font-size: 14px; line-height: 22px; }
+}
 
 /* Very-Small size laptop */
 @media (max-width: 1024px) and (max-height: 760px) {}
 
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+    .container { max-width: calc(704px + 36px); }   .section   { padding: 80px 0px; }
+}
 
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+    .container { max-width: calc(704px + 36px); }   .section   { padding: 80px 0px; }
+    h1, .h1   { font-size: 54px; line-height: 62px; }
+    h2, .h2   { font-size: 34px; line-height: 42px; }
+    h3, .h3   { font-size: 30px; line-height: 38px; }
+    h4, .h4   { font-size: 28px; line-height: 36px; }
+    h5, .h5   { font-size: 24px; line-height: 32px; }
+    h6, .h6   { font-size: 20px; line-height: 28px; }
+    .text-20  { font-size: 18px; line-height: 26px; }
+    .text-18  { font-size: 16px; line-height: 24px; }
+    .text-16  { font-size: 14px; line-height: 22px; }
+}
 
-@media (max-width: 839px) {}
+@media (max-width: 839px) {
+    .container { max-width: calc(640px + 36px); }   .section   { padding: 60px 0px; }
+    h1, .h1   { font-size: 52px; line-height: 60px; }
+    h2, .h2   { font-size: 32px; line-height: 40px; }
+    h3, .h3   { font-size: 28px; line-height: 36px; }
+    h4, .h4   { font-size: 26px; line-height: 34px; }
+    h5, .h5   { font-size: 24px; line-height: 32px; }
+    h6, .h6   { font-size: 20px; line-height: 28px; }
+    .text-20  { font-size: 18px; line-height: 26px; }
+    .text-18  { font-size: 16px; line-height: 24px; }
+    .text-16  { font-size: 14px; line-height: 22px; }
+}
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+    .container { max-width: calc(608px + 36px); }   .section   { padding: 60px 0px; }
+}
 
-@media (max-width: 639px) {}
+@media (max-width: 639px) {
+    .container { max-width: calc(560px + 36px); }   .section   { padding: 60px 0px; }
+    
+    h1, .h1   { font-size: 48px; line-height: 56px; }
+    h2, .h2   { font-size: 32px; line-height: 40px; }
+    h3, .h3   { font-size: 28px; line-height: 36px; }
+    h4, .h4   { font-size: 26px; line-height: 34px; }
+    h5, .h5   { font-size: 24px; line-height: 32px; }
+    h6, .h6   { font-size: 20px; line-height: 28px; }
+    .text-20  { font-size: 18px; line-height: 26px; }
+    .text-18  { font-size: 16px; line-height: 24px; }
+    .text-16  { font-size: 14px; line-height: 22px; }
+}
 
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+    .container { max-width: calc(528px + 36px); }   .section   { padding: 50px 0px; }
+    h1, .h1   { font-size: 44px; line-height: 52px; }
+    h2, .h2   { font-size: 30px; line-height: 38px; }
+    h3, .h3   { font-size: 28px; line-height: 36px; }
+    h4, .h4   { font-size: 26px; line-height: 34px; }
+    h5, .h5   { font-size: 24px; line-height: 32px; }
+    h6, .h6   { font-size: 20px; line-height: 28px; }
+    .text-20  { font-size: 18px; line-height: 26px; }
+    .text-18  { font-size: 16px; line-height: 24px; }
+    .text-16  { font-size: 14px; line-height: 22px; }
+}
 
-@media (max-width: 479px) {}
+@media (max-width: 479px) {
+    .container { width: 100%; max-width: 100%; }  .section   { padding: 50px 0px; }
+    h1, .h1   { font-size: 42px; line-height: 50px; }
+    h2, .h2   { font-size: 28px; line-height: 36px; }
+    h3, .h3   { font-size: 26px; line-height: 34px; }
+    h4, .h4   { font-size: 24px; line-height: 32px; }
+    h5, .h5   { font-size: 22px; line-height: 30px; }
+    h6, .h6   { font-size: 20px; line-height: 28px; }
+    .text-20  { font-size: 18px; line-height: 26px; }
+    .text-18  { font-size: 16px; line-height: 22px; }
+    .text-16  { font-size: 14px; line-height: 22px; }
+}
 
-@media (max-width: 439px) {}
+@media (max-width: 439px) {
+    .container { width: 100%; max-width: 100%; }  .section   { padding: 40px 0px; }
+    h1, .h1   { font-size: 40px; line-height: 48px; }
+    h2, .h2   { font-size: 28px; line-height: 36px; }
+    h3, .h3   { font-size: 26px; line-height: 34px; }
+    h4, .h4   { font-size: 24px; line-height: 32px; }
+    h5, .h5   { font-size: 22px; line-height: 30px; }
+    h6, .h6   { font-size: 18px; line-height: 26px; }
+    .text-20  { font-size: 16px; line-height: 24px; }
+    .text-18  { font-size: 14px; line-height: 20px; }
+    .text-16  { font-size: 12px; line-height: 18px; }
+}
 
-@media (max-width: 400px) {}
+@media (max-width: 400px) {
+    .container { width: 100%; max-width: 100%; }  .section   { padding: 40px 0px; }
+}
 
-@media (max-width: 374px) {}
+@media (max-width: 374px) {
+    .container { width: 100%; max-width: 100%; }  .section   { padding: 40px 0px; }
+}
 
-@media (max-width: 359px) {}
+@media (max-width: 359px) {
+    .container { width: 100%; max-width: 100%; }  .section   { padding: 40px 0px; }
+}
