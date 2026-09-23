@@ -86,9 +86,10 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 	h4, .h4 { font-size: 30px; line-height: 48px; }
 	h5, .h5 { font-size: 26px; line-height: 34px; }
 	h6, .h6 { font-size: 20px; line-height: 28px; }
-    .text-20  { font-size: 20px; line-height: 28px; }
-    .text-18  { font-size: 18px; line-height: 26px; }
-    .text-16  { font-size: 16px; line-height: 22px; }
+
+	.text-16 { font-size: 14px; line-height: 22px; }
+	.text-18 { font-size: 16px; line-height: 22px; }
+	.text-20{ font-size: 18px; line-height: 24px; }
 }
 
 @media (max-width: 1599px) and (max-height: 750px) { 
@@ -121,7 +122,7 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 	h4, .h4 { font-size: 26px; line-height: 34px; }
 	h5, .h5 { font-size: 22px; line-height: 30px; }
     h6, .h6   { font-size: 20px; line-height: 28px; }
-    .text-18  { font-size: 16px; line-height: 24px; }
+    .text-18  { font-size: 14px; line-height: 20px; }
     .text-16  { font-size: 14px; line-height: 22px; }
 }
 
@@ -138,7 +139,6 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
     h4, .h4   { font-size: 30px; line-height: 38px; }
     h5, .h5   { font-size: 26px; line-height: 34px; }
     h6, .h6   { font-size: 20px; line-height: 28px; }
-    .text-18  { font-size: 16px; line-height: 24px; }
     .text-16  { font-size: 14px; line-height: 22px; }
 }
 
@@ -147,7 +147,7 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 }
 
 /* Very-Small size laptop */
-@media (max-width: 1024px) and (max-height: 760px) {
+@media (max-width: 1024px) and (max-height: 770px) {
     .container { max-width: calc(930px + 36px); }
 }
 

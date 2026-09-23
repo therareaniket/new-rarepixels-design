@@ -55,27 +55,29 @@
 
 @media (max-width: 1199px) { 
     .industries-cards { flex-direction: column; }
-    .industries-card-right { flex: 0 0 200px; }
+    .industries-card-right { flex: none; height: max-content; gap: 25px; }
     .hm-industries-title p { display: flex; flex-direction: column; } 
 }
 
 @media (max-width: 1024px) { 
-    .industries-card-right { flex: 0 0 190px; }
 }
 
-@media (max-width: 1024px) and (max-height: 768px) { 
+@media (max-width: 1024px) and (max-height: 770px) { 
     .industries-cards { flex-direction: row; }
     .industries-card-right h3 { font-size: 40px; line-height: 48px; }
     .industries-card-right p { font-size: 12px; line-height: 18px; gap: 6px; }
-    .industries-card-right { flex: 0 0 295px; }
+    .industries-card-right { flex: 0 0 295px; height: 100%; }
     .industries-cards { gap: 30px; }
 }
 
 
-@media (max-width: 991px) { }
+@media (max-width: 991px) { 
+    .industries-cards { flex-direction: column; gap: 30px; }
+    .industries-card-right { flex: none; height: max-content; gap: 20px; }
+    .hm-industries-title p { display: flex; flex-direction: column; } 
+}
 
 @media (max-width: 839px) { 
-    .industries-card-right { flex: 0 0 165px; }
     .industries-card-right p { gap: 6px; }
     .industries-cards { gap: 25px; }
     .industries-card-right h3 { font-size: 42px; line-height: 50px; }
@@ -85,18 +87,16 @@
 
 @media (max-width: 639px) { 
     .industries-card-right h3 { font-size: 38px; line-height: 46px; }
-    .industries-card-right { flex: 0 0 160px; }
 }
 
 @media (max-width: 575px) { 
-    .industries-card-right { width: 100%; flex: 0 0 190px; }
+    .industries-card-right { width: 100%;  gap: 15px;}
     .industries-pixel-3 { width: 30px; }
     .industries-card-left { border-bottom-right-radius: 80px; }
 }
 
 @media (max-width: 479px) { 
     .industries-card-right h3 { font-size: 34px; line-height: 40px; }
-    .industries-card-right { flex: 0 0 180px; }
     .industries-card-wrapper { margin-top: 20px; }
     .industries-pixel-1 { width: 85px; }
     .industries-pixel-2 { width: 75px; }
@@ -104,20 +104,16 @@
 
 @media (max-width: 439px) { 
     .industries-card-right h3 { font-size: 30px; line-height: 36px; }
-    .industries-card-right { flex: 0 0 190px; }
     .industries-card-right p { gap: 4px; }
 }
 
 @media (max-width: 400px) { 
-    .industries-cards { flex-direction: column; }
-    .industries-card-right { flex: 0 0 150px; }
     .industries-pixel-1 { width: 65px; }
     .industries-pixel-2 { width: 55px; }
     .industries-pixel-3 { width: 25px; }
 }
 
 @media (max-width: 374px) { 
-    .industries-card-right { flex: 0 0 210px; }
     .industries-card-right h3 { font-size: 28px; line-height: 36px; }
 }
 
