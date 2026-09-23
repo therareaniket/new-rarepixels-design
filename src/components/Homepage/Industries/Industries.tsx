@@ -3,7 +3,7 @@
 import Image from "next/image";
 import "./industries.css";
 
-const CDN_URL = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS_CDN;
+const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 
 type Industry = {
     id: number;
