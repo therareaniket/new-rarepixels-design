@@ -33,6 +33,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 .section { padding: 150px 0; }
 .container { max-width: calc(1600px + 40px); margin: 0 auto; padding: 0 20px; }
+.container-sm { max-width: 1476px; margin: 0 auto; padding: 0 18px; }
 ::selection { background-color: var(--primary); color: var(--white); }
 
 /* TEXT UTILS */
@@ -106,9 +107,10 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 	h4, .h4 { font-size: 28px; line-height: 36px; }
 	h5, .h5 { font-size: 24px; line-height: 32px; }
 	h6, .h6 { font-size: 20px; line-height: 28px; }
-    .text-20 { font-size: 18px; line-height: 26px; }
-    .text-18  { font-size: 18px; line-height: 26px; }
-    .text-16  { font-size: 16px; line-height: 22px; }
+
+	.text-20 { font-size: 16px; line-height: 22px; }
+	.text-18 { font-size: 14px; line-height: 20px; }
+	.text-16 { font-size: 12px; line-height: 24px; }
 }
 
 @media (max-width: 1359px) {
@@ -121,9 +123,9 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 	h3, .h3 { font-size: 24px; line-height: 32px; }
 	h4, .h4 { font-size: 26px; line-height: 34px; }
 	h5, .h5 { font-size: 22px; line-height: 30px; }
-    h6, .h6   { font-size: 20px; line-height: 28px; }
-    .text-18  { font-size: 14px; line-height: 20px; }
-    .text-16  { font-size: 14px; line-height: 22px; }
+
+	.text-20 { font-size: 16px; line-height: 20px; }
+	.text-14 { font-size: 12px; line-height: 20px; }
 }
 
 /* Low Height Resolution for small laptops */
@@ -160,7 +162,7 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
     h5, .h5   { font-size: 24px; line-height: 32px; }
     h6, .h6   { font-size: 20px; line-height: 28px; }
     .text-20  { font-size: 18px; line-height: 26px; }
-    .text-18  { font-size: 16px; line-height: 24px; }
+    /* .text-18  { font-size: 16px; line-height: 24px; } */
     .text-16  { font-size: 14px; line-height: 22px; }
 }
 
@@ -173,7 +175,7 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
     h5, .h5   { font-size: 24px; line-height: 32px; }
     h6, .h6   { font-size: 20px; line-height: 28px; }
     .text-20  { font-size: 18px; line-height: 26px; }
-    .text-18  { font-size: 16px; line-height: 24px; }
+    /* .text-18  { font-size: 16px; line-height: 24px; } */
     .text-16  { font-size: 14px; line-height: 22px; }
 }
 
@@ -191,8 +193,11 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
     h5, .h5   { font-size: 24px; line-height: 32px; }
     h6, .h6   { font-size: 20px; line-height: 28px; }
     .text-20  { font-size: 18px; line-height: 26px; }
-    .text-18  { font-size: 16px; line-height: 24px; }
+    /* .text-18  { font-size: 16px; line-height: 24px; } */
     .text-16  { font-size: 14px; line-height: 22px; }
+
+
+    .website-subtitle-mt { margin-top: 14px !important; }
 }
 
 @media (max-width: 575px) {
@@ -204,7 +209,7 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
     h5, .h5   { font-size: 24px; line-height: 32px; }
     h6, .h6   { font-size: 20px; line-height: 28px; }
     .text-20  { font-size: 18px; line-height: 26px; }
-    .text-18  { font-size: 16px; line-height: 24px; }
+    /* .text-18  { font-size: 16px; line-height: 24px; } */
     .text-16  { font-size: 14px; line-height: 22px; }
 }
 
@@ -217,7 +222,7 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
     h5, .h5   { font-size: 22px; line-height: 30px; }
     h6, .h6   { font-size: 20px; line-height: 28px; }
     .text-20  { font-size: 18px; line-height: 26px; }
-    .text-18  { font-size: 16px; line-height: 22px; }
+    /* .text-18  { font-size: 16px; line-height: 22px; } */
     .text-16  { font-size: 14px; line-height: 22px; }
 }
 
@@ -230,7 +235,7 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
     h5, .h5   { font-size: 22px; line-height: 30px; }
     h6, .h6   { font-size: 18px; line-height: 26px; }
     .text-20  { font-size: 16px; line-height: 24px; }
-    .text-18  { font-size: 14px; line-height: 20px; }
+    /* .text-18  { font-size: 14px; line-height: 20px; } */
     .text-16  { font-size: 12px; line-height: 18px; }
 }
 
@@ -245,3 +250,5 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 @media (max-width: 359px) {
     .container { width: 100%; max-width: 100%; }  .section { padding: 40px 0px; }
 }
+
+.website-subtitle-mt { margin-top: 20px; } 

@@ -40,8 +40,7 @@
   .hm-testimonial-title { width: 635px; }
 }
 
-@media (max-width: 1024px) {
-}
+@media (max-width: 1024px) {}
 
 @media (max-width: 1024px) and (max-height: 770px) {  
     .hm-testimonial-wrapper { flex-direction: row; }

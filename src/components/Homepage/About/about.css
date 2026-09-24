@@ -44,6 +44,7 @@
     .hm-abt-wrapper { padding: 20px; }
     .hm-abt-card { width: 360px; height: 185px; }
     .hm-abt-card-text { width: 300px; }
+    .hm-abt-logo { width: 190px; }
 }
 
 @media (max-width: 1359px) and (max-height: 600px) { }
@@ -74,7 +75,8 @@
 @media (max-width: 991px) { 
     .hm-abt-content-wrapper { flex-direction: column; width: 100%; }
     .hm-abt-card h3 { width: 70%; }
-    .hm-abt-card { height: 275px; }
+    /* .hm-abt-card { height: 275px; } */
+    .hm-abt-card { height: 245px; }
 }
 
 @media (max-width: 839px) { 
