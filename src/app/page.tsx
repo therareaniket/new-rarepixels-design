@@ -1,4 +1,6 @@
 import About from "@/components/Homepage/About/About";
+import Blog from "@/components/Homepage/Blog/Blog";
+import FAQ from "@/components/Homepage/FAQ/FAQ";
 import Hero from "@/components/Homepage/Hero/Hero";
 import Industries from "@/components/Homepage/Industries/Industries";
 import Testimonials from "@/components/Homepage/Testimonials/Testimonials";
@@ -11,7 +13,9 @@ export default function Home() {
             <Testimonials />
             <About />
             <Industries />
-            {/* <WhyChooseUs /> */}
+            <WhyChooseUs />
+            <Blog />
+            <FAQ />
         </>
     );
 }

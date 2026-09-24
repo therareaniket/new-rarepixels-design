@@ -3,11 +3,11 @@
 import Image from "next/image"
 import "./why-choose-us.css"
 
-const CDN_URL = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS_CDN;
+const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 
 const WhyChooseUs = () => {
     return (
-        <section className="section bg-[red]">
+        <section className="section bg-[#01030D]">
             <div className="container">
                 <div className="hm-why-choose-us-title">
                     <h2 className="text-semibold text-[white]">Why Choose Us</h2>
@@ -15,8 +15,8 @@ const WhyChooseUs = () => {
                     <p className="text-18 text-normal text-[#C6C6C6] w-[780px] website-subtitle-mt">We bring together strategy, design, technology, and creativity to build experiences that are easy to use, hard to ignore, and built to perform.</p>
                 </div>
 
-                <div className="container-sm why-choose-small-container relative">
-                    <div className="hm-why-choose-us-pointers flex justify-between items-center mt-[60px] relative ">
+                <div className="container-sm why-choose-small-container relative ">
+                    <div className="hm-why-choose-us-pointers flex justify-between items-center mt-[60px] relative z-[2]">
                         <div className="why-choose-pointer-left flex flex-col gap-[120px]">
                             <div className="why-pointer w-[370px]">
                                 <h3 className="h6 font-semibold text-[white] mb-[20px]">Built, Not Borrowed</h3>

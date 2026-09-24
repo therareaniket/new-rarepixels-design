@@ -70,7 +70,6 @@
     .industries-cards { gap: 30px; }
 }
 
-
 @media (max-width: 991px) { 
     .industries-cards { flex-direction: column; gap: 30px; }
     .industries-card-right { flex: none; height: max-content; gap: 20px; }
