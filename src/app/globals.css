@@ -62,7 +62,7 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
 */
 
 @media (max-width: 1799px) {
-	.container { max-width: calc(1360px + 36px); }   
+	.container { max-width: calc(1360px + 36px); }
 	.section   { padding: 100px 0px; }
 	.container-sm { max-width: calc(1224px + 36px);  }
 
@@ -252,4 +252,4 @@ h6, .h6 { font-size: 22px; line-height: 32px; }
     .container { width: 100%; max-width: 100%; }  .section { padding: 40px 0px; }
 }
 
-.website-subtitle-mt { margin-top: 20px; } 
+.website-subtitle-mt { margin-top: 20px; }

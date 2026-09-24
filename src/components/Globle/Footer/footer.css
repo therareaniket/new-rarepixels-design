@@ -92,9 +92,9 @@
 		--abt-hero-target-height: 480px;
 	}
 
-	.container { max-width: calc(1360px + 36px); }   
+	.container-1 { max-width: calc(1360px + 36px); }   
 	.section   { padding: 100px 0px; }
-	.container-sm { max-width: calc(1224px + 36px);  }
+	.container-1-sm { max-width: calc(1224px + 36px);  }
 
 	h1, .h1{ font-size: 60px; line-height: 68px; }
 	h2, .h2{ font-size: 44px; line-height: 50px; }
@@ -451,9 +451,9 @@
 
 	.project-list { height: 430px; }
 
-	.container { max-width: calc(1248px + 36px); }   
+	.container-1 { max-width: calc(1248px + 36px); }   
 	.section   { padding: 90px 0px; }
-	.container-sm { max-width: calc(1123px + 36px); }
+	.container-1-sm { max-width: calc(1123px + 36px); }
 
 	.industries-section { padding: 80px 0; }
 
@@ -880,8 +880,8 @@
 	}
 	.project-list { height: auto; }
 
-	.container { max-width: calc(1056px + 36px); }   
-	.container-sm { max-width: calc(950px + 36px); }
+	.container-1 { max-width: calc(1056px + 36px); }   
+	.container-1-sm { max-width: calc(950px + 36px); }
 
 	h1, .h1 { font-size: 46px; line-height: 54px; }
 	h2, .h2 { font-size: 36px; line-height: 44px; margin-bottom: 16px; }
@@ -1042,7 +1042,7 @@
 	.process-section-title p { width: 80%; }
 
 	/* about page */
-	/* .about-hero-section-desktop .container { margin-top: 10px; } */
+	/* .about-hero-section-desktop .container-1 { margin-top: 10px; } */
 	.town { top: 150px; }
 	.town h2 { font-size: 15.5vw; line-height: 165px; }
 	.about-video-text-practice { height: 345px; }
@@ -1253,146 +1253,6 @@
 }
 
 @media (max-width: 1359px) {
-	:root { 
-		--project-card-width: 650px; 
-		--project-card-gap: 40px; 
-
-		--card-1-start-width: 42px;
-    	--card-2-start-width: 40px;
-    	--card-3-start-width: 45px;
-
-		--card-1-width: 169px;
-    	--card-2-width: 190px;
-    	--card-3-width: 230px;
-
-		--abt-hero-target-height: 300px;
-	}
-	.project-video { height: 400px; object-fit: cover; }
-
-	.container { max-width: calc(960px + 36px); }   
-	.section   { padding: 80px 0px; }
-	.container-sm { max-width: calc(864px + 36px); }
-
-	h1, .h1 { font-size: 40px; line-height: 48px; }
-	h2, .h2 { font-size: 32px; line-height: 40px; }
-	h3, .h3 { font-size: 24px; line-height: 32px; }
-	h4, .h4 { font-size: 26px; line-height: 34px; }
-	h5, .h5 { font-size: 22px; line-height: 30px; }
-
-	.text-80 { font-size: 54px; line-height: 62px; margin-bottom: 20px; }
-	.text-20 { font-size: 16px; line-height: 20px; }
-	.text-14 { font-size: 12px; line-height: 20px; }
-
-	.hm-services-subtitle.show{ padding-top: 8px; }
-	.home-brain{ width: 300px; object-fit: contain; }
-	.home-heart{ width: 240px; object-fit: contain; }
-	.hm-services-title img{ width: 18px; }
-	.hm-services-content-wrapper{ width: 280px; margin-bottom: 15px; }
-	.hm-hero-row-1-wrapper{ margin-top: 70px; }
-	.hm-hero-text-left h1{ margin-bottom: 16px; }
-	.hm-hero-subtitle{ padding-bottom: 25px; }
-	.hm-hero-text-left{ width: 360px; }
-	.hm-hero-paragraph-wrapper{ gap: 12px; padding-bottom: 20px; }
-	.hm-hero-row-1-wrapper { margin-top: 40px; }
-	.hm-hero-sticky-inner { padding-top: 70px; }
-	.hm-hero-text-left { width: 400px; }
-
-	/* testimonial */
-	.hm-testimonial-left-text h2{ width: 350px; }
-	.hm-testimonial-left-text p { width: 560px; }
-
-	.testimonial-client-text{ font-size: 12px; line-height: 20px; }
-	/* .testimonialreview-main{ height: 290px; } */
-	.testimonial-image-2{ width: 80px; height: 80px; bottom: 40px; }
-	.testimonial-image-3{ width: 60px; height: 60px; top: 40px; }
-
-	.tst-swiper-arrow-wrapper{ margin-top: 35px; }
-
-	/* About Section */
-	.hm-about-main{ padding: 20px; }
-	.hm-abt-card-title{ width: 242px; }
-	.hm-abt-card{ width: 300px; height: 250px; }
-	.hm-abt-pointers-right{ width: 625px; }
-	.hm-abt-card-title .h6{ width: 80%; }
-	.testimonial-stats{ width: 120px; }
-	
-	/* services */
-	.services-text .h6{ font-size: 14px; line-height: 22px; }
-	.services-detail-text p:first-child{ height: 80px; }
-	.services-card{ width: 225px; height: 360px; }
-	.services-art-board{ width: 200px; height: 200px; }
-	
-
-	.industries-image-wrapper{ width: 645px; }
-	.industries-text-wrapper{ min-width: 280px; width: 280px; }
-	.industries-text-wrapper > span{ font-size: 40px; line-height: 50px; }
-	.industry-item { gap: 40px; }
-
-	.abt-section-wrapper {
-		-webkit-mask-image: linear-gradient(to top, #0000, #000 0% 100%, #0000), linear-gradient(to right, #0000, #000 0% 100%, #0000);
-		mask-image: linear-gradient(to top, #0000, #000 0% 100%, #0000), linear-gradient(to right, #0000, #000 0% 100%, #0000);
-	}
-
-	.why-choose-us-card { width: 265px; }
-	.why-choose-us-hand-image { width: 250px; bottom: 30px; }
-	.why-choose-us-pointer-cards { gap: 45px; }
-	.why-choose-us-card .h6 { margin-bottom: 14px; }
-	.wc-bg-lines { height: 125%; }
-	.wc-svg-lines-wrapper { height: 470px; }
-
-	.stats-card .h1 { font-size: 44px; line-height: 52px; }
-	.stats-card-1, .stats-card-2, .stats-card-3, .stats-card-4, .stats-card-7{ width: 240px; height: 310px; padding: 15px; }
-	.stats-card-5{ width: 240px; }
-	.stats-card-6{ width: 480px; height: 310px; padding: 15px; }
-	.stats-global-text-wrapper{ width: 460px; }
-	.stats-element-art-board{ width: 200px; height: 105px; }
-
-	.faq-accordion{ width: 800px; border-radius: 12px; }
-	.faq-accordion-title{ padding: 0; }
-	.accordion-number{ width: 40px; height: 40px; border-radius: 15px; }
-	.hm-faq-title{ width: 550px; }
-	.faq-content { padding-left: 10px; padding-top: 15px; }
-
-	.hm-blog-author-icon-wrapper{ flex-direction: column; gap: 15px; align-items: flex-start; }
-	.hm-blog-social, .hm-blog-social-icons{ font-size: 18px; }
-	.blog-card-right-3, .hm-blog-card-left, .blog-card-right-2{ width: 470px; }
-	.blog-card-right-3{ flex-direction: column; gap: 20px; }
-	.blog-card-3-left{ width: 100%; height: 200px; }
-	.blog-card-3-right{ width: 100%; }
-
-	.hm-blog-wrapper, .hm-blog-card-right{ gap: 20px; }
-	.hm-blog-image{ margin-bottom: 20px; }
-
-	.blog-card-2-text{ width: 100%; }
-
-	.blog-card-2-text h3{ margin-bottom: 10px; }
-
-	.blog-card-right-2{ flex-direction: column; align-items: flex-start; gap: 15px; }
-	.hm-blog-image{ height: 410px; }
-
-	.teams-pixels-bottom-right{ width: 125px; }
-	.teams-pixels-top-left{ width: 90px; }
-	.teams-pixels-bottom-left{ width: 140px; }
-	.teams-section-title{ width: 265px; }
-	.teams-author-image { width: 296px; right: -280px; }
-	.teams-section-wrapper{ padding-left: 20px; gap: 20px; }
-
-	.teams-pixels-top-right { width: 85px; }
-	.website-header-logo { width: 110px; }
-	.nav-hamburger img { width: 20px; height: 20px; }
-	.mode-theme-btn img { width: 22px; height: 22px; }
-
-	.hm-abt-card-wrapper { align-items: flex-start; }
-	.hm-abt-logo-left { margin-top: 20px; margin-left: 0; }
-	.blog-desk-title { -webkit-line-clamp: 2; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden; margin-bottom: 12px; }
-	.header-mega-menu { height: calc(100vh - 100px); overflow-y:  scroll; }
-
-	.header-mega-links-wrapper { width: 270px; }
-	.header-pages-link-wrapper ul { gap: 40px; }
-	.menu-link-icon, .mega-links-icon { width: 36px; height: 36px; font-size: 16px; }
-
-	.industries-card-wrapper { gap: 100px; }
-
 	.footer-quote-right h2 { font-size: 58px; line-height: 66px; margin-bottom: 5px; }
 	.footer-quote-right { width: 525px; }
 	.footer-quote-right p { margin-bottom: 30px; }
@@ -1408,220 +1268,6 @@
 	.footer-vr-line { height: 155px; }
 
 	.footer-quote-right .h6 { font-size: 18px; line-height: 26px; }
-
-	.process-pointer-text p { padding-top: 10px; }
-	.process-pointer-text { width: 340px; }
-	.process-pointer-wrapper { height: 455px; }
-	.process-section-title { width: 570px; }
-	.process-section-title p { width: 100%; }
-
-	.process-element { width: 220px; height: 220px; }
-	.process-element img{ width: 100%; height: 100%; object-fit: contain; }
-
-	/* about page */
-
-	.about-hero-mask-title { font-size: 322px; height: 200px; margin-top: 30px; }
-	.about-hero-section-title h1 { width: 400px; }
-
-	.text-80 { font-size: 58px; line-height: 66px; margin-bottom: 20px; }
-	.abt-mis-vis-title-desktop-left { width: 610px; }
-	.abt-mis-vis-content-desktop { width: 850px; }
-	.abt-mis-vis-content-left { width: 430px; }
-	.abt-mis-vis-content-right { width: 350px; height: 350px; }
-	.abt-mis-vis-quote-desktop { width: 195px; }
-
-	/* about page */
-
-	.about-hero-mask-title { font-size: 322px; height: 200px; }
-	.about-hero-section-title h1 { width: 400px; }
-
-	.abt-timeline-title-left { width: 465px; }
-	.abt-timeline-title-right { width: 335px; }
-	.abt-timeline-content-right { width: 335px; }
-	.abt-timeline-title-left h3 { margin-top: 20px; }
-	.abt-timeline-content-right span  { font-size: 60px; line-height: 68px; }
-	.abt-timeline-content-left { width: 200px; height: 200px; }
-	.abt-timeline-content-wrapper { gap: 50px; }
-	.abt-timeline-content-right h6 { margin-top: 20px; }
-	.timeline-hr { margin-top: 30px; margin-bottom: 20px; }
-	.desktop-dot-target { right: 280px; }
-
-	.town h2 { font-size: 15vw; }
-
-
-	.abt-mis-vis-title-desktop-left { width: 610px; }
-	.abt-mis-vis-content-desktop { width: 850px; }
-	.abt-mis-vis-content-left { width: 430px; }
-	.abt-mis-vis-content-right { width: 350px; height: 350px; }
-	.abt-mis-vis-quote-desktop { width: 195px; }
-
-	.abt-mis-vis-title-desktop-right { width: 150px; }
-
-	.abt-our-values-right p { width: 533px; }
-	.our-values-image { width: 420px; }
-	.abt-our-values-pointer { width: 375px; }
-	.abt-our-values-pointer-left { width: 36px; height: 36px; }
-	.abt-our-values-pointer-right { width: calc( 100% - 46px ); }
-	.abt-our-values-pointer-right h3 { line-height: 28px; }
-
-	.why-rare-pointers { width: 310px; }
-	.why-rare-desktop-tree-image { width: 340px; }
-
-	.why-rare-point-1 { left: 10px; top: -40px; }
-	.why-rare-point-2 { right: 10px; top: -60px; }
-	.why-rare-point-3 { bottom: 10px; }
-	.why-rare-point-4 { bottom: 40px; }
-	.why-rare-desktop-content { margin-top: 70px; }
-
-	.abt-card-text h2 { font-size: 20px; }
-	.abt-rpd-card-1 { width: 40px; }
-	.abt-rpd-card-2 { width: 40px; }
-	.abt-rpd-card-3 { width: 46px; }
-
-	.abt-rpd-card span { font-size: 66px; line-height: 56px; }
-	.rare-logo { width: 46px; }
-	.rpd-card-title-1 { gap: 5px; }
-	/* .abt-rpd-card-2 .abt-card-text h2 { margin-bottom: 10px; } */
-
-	/* .abt-rpd-card-2 .abt-card-text .abt-card-text h2 { margin-bottom: 10px; } */
-
-	.abt-life-rpd-desktop-title h2 { margin-bottom: 15px; }
-	
-	/* .rpd-card-1, .rpd-card-6, .rpd-card-7 { width: 320px; height: 314px; }
-	.rpd-card-2 { width: 320px; height: 277px; }
-	.rpd-card-3 { width: 280px; height: 254px; }
-	.rpd-card-4 { width: 280px; height: 323px; }
-	.rpd-card-5 { width: 280px; height: 274px; }
-	.rpd-card-8 { width: 320px; height: 209px; } */
-
-	.life-at-rpd-desktop-card-wrapper.desktop .rpd-card-1 {
-    	--card-start-x: -150px;
-    	--card-start-y: 0;
-    	--card-start-scale: 1.2;
-    	--card-start-height: 314px;
-    	--card-end-height: 290px;
-
-    	width: 320px;
-	}
-
-	.life-at-rpd-desktop-card-wrapper.desktop .rpd-card-2 {
-    	--card-start-x: -120;
-    	--card-start-y: 80;
-    	--card-start-scale: 1.2;
-    	--card-start-height: 277px;
-    	--card-end-height: 280px;
-
-    	width: 320px;
-	}
-
-	.life-at-rpd-desktop-card-wrapper.desktop .rpd-card-3 {
-    	--card-start-x: 0;
-    	--card-start-y: -200;
-    	--card-start-scale: 1.2;
-    	--card-start-height: 286px;
-    	--card-end-height: 260px;
-
-    	width: 280px;
-	}
-
-	.life-at-rpd-desktop-card-wrapper.desktop .rpd-card-4 {
-    	--card-start-x: 0;
-    	--card-start-y: -70;
-    	--card-start-scale: 1.4;
-    	--card-start-height: 363px;
-    	--card-end-height: 320px;
-
-    	width: 280px;
-	}
-
-	.life-at-rpd-desktop-card-wrapper.desktop .rpd-card-5 {
-    	--card-start-x: 0;
-    	--card-start-y: 100;
-    	--card-start-scale: 1.2;
-    	--card-start-height: 308px;
-    	--card-end-height: 280px;
-
-    	width: 280px;
-	}
-
-	.life-at-rpd-desktop-card-wrapper.desktop .rpd-card-6 {
-    	--card-start-x: 100;
-    	--card-start-y: -120;
-    	--card-start-scale: 1.2;
-    	--card-start-height: 344px;
-    	--card-end-height: 300px;
-
-    	width: 320px;
-	}
-
-	.life-at-rpd-desktop-card-wrapper.desktop .rpd-card-7 {
-    	--card-start-x: 150;
-    	--card-start-y: -30;
-    	--card-start-scale: 1.2;
-    	--card-start-height: 344px;
-    	--card-end-height: 300px;
-
-    	width: 320px;
-	}
-
-	.life-at-rpd-desktop-card-wrapper.desktop .rpd-card-8 {
-    	--card-start-x: 100;
-    	--card-start-y: 100;
-    	--card-start-scale: 1.2;
-    	--card-start-height: 229px;
-    	--card-end-height: 210px;
-
-    	width: 320px;
-	}
-
-	.life-at-rpd-desktop-card-wrapper { height: 891px; }
-
-	.rpd-card-col-3 { transform: translateY(-160px); }
-
-	.abt-card-text { width: 200px; height: 220px; }
-	.abt-rpd-card-1 .abt-card-text, .abt-rpd-card-3 .abt-card-text { height: 220px; }
-	.abt-time-line-desktop-sticky { height: 600vh; }
-	.abt-rpd-section-desktop { height: 1000vh; }
-
-	.about-hero-txt { font-size: 230px; line-height: 230px; }
-	.speed-chart { width: 100%; }
-
-	/* TIMELINE SECTION */
-	.details-info-text { width: 840px; }
-
-	/* CONTACT PAGE */
-
-	.contact-hero-title { font-size: 64px; line-height: 78px; width: 520px; }
-	.contact-hero-wrapper { padding-bottom: 0; }
-	.cnct-hero-bg-image { top: -50px; }
-
-	.contact-form-right { width: 475px; }
-	.contact-form-right span input { width: 245px; }
-	.contact-form-left { width: 400px; }
-	.contact-prefer-title h4 { width: 255px; }
-	.cnct-prefer-to-talk { height: 375px; }
-	.cnct-prefer-left p { width: 165px; }
-	.cnct-upload-button { padding: 12px 28px; }
-	.contact-prefer-title span { font-size: 22px; line-height: 22px; }
-	.cnct-form-checkbox { gap: 15px 20px; }
-	.cnct-form-left-text { margin-top: 16px; margin-bottom: 20px; }
-
-	.cnct-what-happens span { font-size: 110px; line-height: 95px; }
-	.cnct-what-happens-text { width: 235px; }
-	.cnct-what-happens.active { width: 395px; }
-	.cnct-what-happens { width: 132px; }
-
-	.cnct-what-happens-text h3 { margin-bottom: 12px; }
-
-	.contact-form-left { width: 390px; }
-
-	/* .inquiry-form-contact-fields textarea { width: 50%; height: 29px; } */
-
-	/* .cnct-project-detail textarea { height: 40px; } */
-	.cnct-upload-button { margin: 30px 0; }
-	.inquiry-form-contact-fields { margin-top: 0; }
-	.faq-accordion-wrapper { margin-top: 40px; }
-
 }
 
 
