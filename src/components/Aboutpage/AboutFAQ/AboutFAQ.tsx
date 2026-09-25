@@ -11,10 +11,12 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 
+import './aboutfaq.css'
+
 const faqs = [
     {
-        question: "What services does RarePixels offer?",
-        answer: "We offer a complete range of digital solutions including UI/UX design, web and app development, brand identity, and performance-focused digital experiences."
+        question: "What does RarePixels do?",
+        answer: "RarePixels is a creative digital agency that combines UI/UX design, web and app development, branding, and social media to build digital experiences that help businesses grow."
     },
     {
         question: "What industries does RarePixels work with?",
@@ -26,37 +28,36 @@ const faqs = [
     },
     {
         question: "Do you offer both design and development services?",
-        answer: "Yes. We handle everything from research and UI/UX design to custom web and app development."
+        answer: "Yes. We handle everything from research and UI/UX design to custom web and app development, ensuring every product is designed and built under one roof."
     },
     {
         question: "Can RarePixels help build a brand from scratch?",
-        answer: "Absolutely. We create complete brand identities, visual systems, messaging, and digital experiences."
+        answer: "Absolutely. We create complete brand identities, visual systems, messaging, and digital experiences that help businesses stand out from day one."
     },
-    {
-        question: "Do you manage social media for businesses?",
-        answer: "Yes. We create content strategies, creative assets, and campaigns that help brands grow."
-    },
-    {
-        question: "How do you approach a new project?",
-        answer: "Every project begins with understanding your business, users, and goals."
-    },
-    {
-        question: "Can RarePixels redesign an existing website or product?",
-        answer: "Yes. We redesign websites and products to improve usability, performance, and business results."
-    },
-    {
-        question: "Do you work with businesses outside India?",
-        answer: "Yes. We collaborate with businesses across multiple countries."
-    },
-    {
-        question: "How do I get started with RarePixels?",
-        answer: "Simply reach out through our contact page and we'll discuss the right approach."
-    }
+    // {
+    //     question: "Do you manage social media for businesses?",
+    //     answer: "Yes. We create content strategies, creative assets, and campaigns that help brands grow."
+    // },
+    // {
+    //     question: "How do you approach a new project?",
+    //     answer: "Every project begins with understanding your business, users, and goals."
+    // },
+    // {
+    //     question: "Can RarePixels redesign an existing website or product?",
+    //     answer: "Yes. We redesign websites and products to improve usability, performance, and business results."
+    // },
+    // {
+    //     question: "Do you work with businesses outside India?",
+    //     answer: "Yes. We collaborate with businesses across multiple countries."
+    // },
+    // {
+    //     question: "How do I get started with RarePixels?",
+    //     answer: "Simply reach out through our contact page and we'll discuss the right approach."
+    // }
 ];
 
-import './faq.css'
 
-const FAQ = () => {
+const AboutFAQ = () => {
 
     const [expanded, setExpanded] = useState(false);
     const [showAll, setShowAll] = useState(false);
@@ -98,8 +99,9 @@ const FAQ = () => {
             });
         }
     };
+
     return (
-        <section className='section' style={{ paddingTop: 0 }}>
+        <section className='section'>
             <div className="container">
                 <div className="faq-title">
                     <div className="hm-faq-title">
@@ -160,12 +162,11 @@ const FAQ = () => {
                             </Accordion>
 
                             <div className="faq-btn-wrapper-arrow flex gap-[20px] justify-end mt-[30px]">
-                                <button type="button" className="expand-faq" onClick={handleToggle} >
-                                    {/* <Image src="/images/faq-down-arrow.svg" alt="faq" width={30} height={52} className={expanded ? 'rotate-180 transition-all' : 'transition-all'} /> */}
+                                {/* <button type="button" className="expand-faq" onClick={handleToggle} >
                                     <span className="text-18 text-normal text-[#ED0180]">
                                         {expanded ? "Less FAQs" : "More FAQs"}
                                     </span>
-                                </button>
+                                </button> */}
 
                                 <Link href="#" title="Start Your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] flex items-center gap-[6]">Ask Your Queries <span><Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/faq/settings_voice.svg" alt="faq-mic" width={10} height={10}></Image></span></Link>
                             </div>
@@ -176,4 +177,5 @@ const FAQ = () => {
         </section >
     )
 }
-export default FAQ
+
+export default AboutFAQ

@@ -51,7 +51,7 @@ const Header = () => {
                                     </li>
 
                                     <li>
-                                        <Link href="#" className="w-[330px] flex gap-[10px]">
+                                        <Link href="/About" className="w-[330px] flex gap-[10px]">
                                             <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-info"></span></span>
 
                                             <div className="link-info">
@@ -122,7 +122,7 @@ const Header = () => {
 
                                             <div className="link-info">
                                                 <p className="link-title text-18 font-medium mb-[4px]">Contact</p>
-                                                <p className="link-subtitle text-[#585858]">Let's create something meaningful</p>
+                                                <p className="link-subtitle text-[#585858]">Let&apos;s create something meaningful</p>
                                             </div>
                                         </Link>
                                     </li>
