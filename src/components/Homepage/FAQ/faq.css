@@ -65,6 +65,8 @@
 
 @media (max-width: 400px) { }
 
-@media (max-width: 374px) { }
+@media (max-width: 374px) {
+    .accordion-item-wrapper { gap: 10px; }
+}
 
 @media (max-width: 359px) { }

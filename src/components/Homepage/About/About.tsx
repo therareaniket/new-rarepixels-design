@@ -32,7 +32,7 @@ const About = () => {
 
                                     <p className="text-18 font-normal flex flex-col gap-[18px] mt-[10px] ">
                                         <span>Great experiences don&apos;t happen by accident.</span>
-                                        <span>We believe every interaction should feel natural, every journey should feel effortless, and every decision should help users move forward with confidence.</span>
+                                        <span>We believe every interaction should feel natural, every journey should feel effortless, and every decision should help users go forward with confidence.</span>
                                     </p>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ const About = () => {
                                 <span className="w-[8px] h-[8px] mt-[12px] bg-[#ED0180] flex"></span>
 
                                 <div className="hm-abt-card-text w-[338] text-[white]">
-                                    <h3 className="h6 font-semibold text-[#ED0180]">Technology Built Around Growth</h3>
+                                    <h3 className="h6 font-semibold text-[#ED0180]">Technology Built For Growth</h3>
 
                                     <p className="text-18 font-normal flex flex-col gap-[18px] mt-[10px] ">
                                         <span>Technology should support ambition, not limit it.</span>

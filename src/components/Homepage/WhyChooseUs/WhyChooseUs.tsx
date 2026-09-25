@@ -58,11 +58,11 @@ const WhyChooseUs = () => {
                         <div className="why-choose-us-bg-eclipse">
                             <div className=" why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-1 w-[354]" viewBox="0 0 354 212" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="177" cy="177" r="176" stroke="url(#paint0_linear_4268_7206)" stroke-width="2" />
+                                    <circle cx="177" cy="177" r="176" stroke="url(#paint0_linear_4268_7206)" strokeWidth="2" />
                                     <defs>
                                         <linearGradient id="paint0_linear_4268_7206" x1="177" y1="0" x2="177" y2="239.494" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#0C0C0C" />
-                                            <stop offset="1" stop-color="#01030D" />
+                                            <stop stopColor="#0C0C0C" />
+                                            <stop offset="1" stopColor="#01030D" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -70,11 +70,11 @@ const WhyChooseUs = () => {
 
                             <div className="why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-2 w-[490]" viewBox="0 0 490 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="245" cy="245" r="243.5" stroke="url(#paint0_linear_4268_7205)" stroke-width="3" />
+                                    <circle cx="245" cy="245" r="243.5" stroke="url(#paint0_linear_4268_7205)" strokeWidth="3" />
                                     <defs>
                                         <linearGradient id="paint0_linear_4268_7205" x1="245" y1="0" x2="245" y2="331.504" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#0C0C0C" />
-                                            <stop offset="1" stop-color="#01030D" />
+                                            <stop stopColor="#0C0C0C" />
+                                            <stop offset="1" stopColor="#01030D" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -82,11 +82,11 @@ const WhyChooseUs = () => {
 
                             <div className="why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-3 w-[625]" viewBox="0 0 625 348" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="312.5" cy="312.5" r="310.5" stroke="url(#paint0_linear_4268_7204)" stroke-width="4" />
+                                    <circle cx="312.5" cy="312.5" r="310.5" stroke="url(#paint0_linear_4268_7204)" strokeWidth="4" />
                                     <defs>
                                         <linearGradient id="paint0_linear_4268_7204" x1="312.5" y1="0" x2="312.5" y2="422.836" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#0C0C0C" />
-                                            <stop offset="1" stop-color="#01030D" />
+                                            <stop stopColor="#0C0C0C" />
+                                            <stop offset="1" stopColor="#01030D" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -94,11 +94,11 @@ const WhyChooseUs = () => {
 
                             <div className="why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-4 w-[760]" viewBox="0 0 760 415" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="380" cy="380" r="377.5" stroke="url(#paint0_linear_4268_7203)" stroke-width="5" />
+                                    <circle cx="380" cy="380" r="377.5" stroke="url(#paint0_linear_4268_7203)" strokeWidth="5" />
                                     <defs>
                                         <linearGradient id="paint0_linear_4268_7203" x1="380" y1="0" x2="380" y2="514.169" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#0C0C0C" />
-                                            <stop offset="1" stop-color="#01030D" />
+                                            <stop stopColor="#0C0C0C" />
+                                            <stop offset="1" stopColor="#01030D" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -106,11 +106,11 @@ const WhyChooseUs = () => {
 
                             <div className="why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-5 w-[896]" viewBox="0 0 896 483" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="448" cy="448" r="445" stroke="url(#paint0_linear_4268_7202)" stroke-width="6" />
+                                    <circle cx="448" cy="448" r="445" stroke="url(#paint0_linear_4268_7202)" strokeWidth="6" />
                                     <defs>
                                         <linearGradient id="paint0_linear_4268_7202" x1="448" y1="0" x2="448" y2="606.178" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#0C0C0C" />
-                                            <stop offset="1" stop-color="#01030D" />
+                                            <stop stopColor="#0C0C0C" />
+                                            <stop offset="1" stopColor="#01030D" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -118,11 +118,11 @@ const WhyChooseUs = () => {
 
                             <div className=" why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-6 w-[1026]" viewBox="0 0 1026 546" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="513" cy="513" r="509.5" stroke="url(#paint0_linear_4268_7209)" stroke-width="7" />
+                                    <circle cx="513" cy="513" r="509.5" stroke="url(#paint0_linear_4268_7209)" strokeWidth="7" />
                                     <defs>
                                         <linearGradient id="paint0_linear_4268_7209" x1="513" y1="0" x2="513" y2="694.128" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#0C0C0C" />
-                                            <stop offset="1" stop-color="#01030D" />
+                                            <stop stopColor="#0C0C0C" />
+                                            <stop offset="1" stopColor="#01030D" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -130,11 +130,11 @@ const WhyChooseUs = () => {
 
                             <div className=" why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-7 w-[1164]" viewBox="0 0 1164 616" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="582" cy="582" r="578" stroke="url(#paint0_linear_4268_7207)" stroke-width="8" />
+                                    <circle cx="582" cy="582" r="578" stroke="url(#paint0_linear_4268_7207)" strokeWidth="8" />
                                     <defs>
                                         <linearGradient id="paint0_linear_4268_7207" x1="582" y1="0" x2="582" y2="787.49" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#0C0C0C" />
-                                            <stop offset="1" stop-color="#01030D" />
+                                            <stop stopColor="#0C0C0C" />
+                                            <stop offset="1" stopColor="#01030D" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -142,11 +142,11 @@ const WhyChooseUs = () => {
 
                             <div className="eclipse-8 why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-8 w-[1300]" viewBox="0 0 1300 684" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="650" cy="650" r="645.5" stroke="url(#paint0_linear_4268_7208)" stroke-width="9" />
+                                    <circle cx="650" cy="650" r="645.5" stroke="url(#paint0_linear_4268_7208)" strokeWidth="9" />
                                     <defs>
                                         <linearGradient id="paint0_linear_4268_7208" x1="650" y1="0" x2="650" y2="879.499" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#0C0C0C" />
-                                            <stop offset="1" stop-color="#01030D" />
+                                            <stop stopColor="#0C0C0C" />
+                                            <stop offset="1" stopColor="#01030D" />
                                         </linearGradient>
                                     </defs>
                                 </svg>

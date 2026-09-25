@@ -5,6 +5,7 @@ import Hero from "@/components/Homepage/Hero/Hero";
 import Industries from "@/components/Homepage/Industries/Industries";
 import InquiryForm from "@/components/Homepage/InquiryForm/InquiryForm";
 import Projects from "@/components/Homepage/Projects/Projects";
+import Services from "@/components/Homepage/Services/Services";
 import Statistics from "@/components/Homepage/Statistics/Statistics";
 import Testimonials from "@/components/Homepage/Testimonials/Testimonials";
 import WhyChooseUs from "@/components/Homepage/WhyChooseUs/WhyChooseUs";
@@ -15,6 +16,7 @@ export default function Home() {
             <Hero />
             <Testimonials />
             <About />
+            <Services />
             <Industries />
             <WhyChooseUs />
             <Projects />

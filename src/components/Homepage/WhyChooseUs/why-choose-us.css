@@ -124,7 +124,7 @@
     .why-pointer { width: 100%; padding-bottom: 15px; margin-bottom: 15px;  border-bottom: 1px solid #313131; }
     .why-pointer-5 { border-bottom: 0 !important; padding-bottom: 0 !important; margin-bottom: 0 !important; }
     .why-choose-pointer-right, .why-choose-pointer-left { gap: 0; }
-    .why-choose-small-container { display: flex; flex-direction: column-reverse; position: static; }
+    .why-choose-small-container { display: flex; flex-direction: column-reverse; position: static; margin-top: 20px; }
     .why-choose-us-hand-img img { width: 240px; }
 
     .eclipse-1 { width: 110px; }
@@ -135,6 +135,7 @@
     .eclipse-6 { width: 485px; }
     .eclipse-7 { width: 580px; }
     .eclipse-8 { width: 660px; }
+
 }
 
 @media (max-width: 839px) { 

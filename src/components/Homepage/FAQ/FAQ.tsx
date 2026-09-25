@@ -99,7 +99,7 @@ const FAQ = () => {
         }
     };
     return (
-        <section className='section' style={{ paddingTop: 0 }}>
+        <section className='section'>
             <div className="container">
                 <div className="faq-title">
                     <div className="hm-faq-title">

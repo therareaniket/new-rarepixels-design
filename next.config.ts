@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
 
   experimental: {
+    inlineCss: true,
     optimizePackageImports: [
       'lucide-react',
       'recharts',

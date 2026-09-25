@@ -144,16 +144,13 @@
 }
 
 @media (max-width: 479px) { 
-    .stats-card-2 .stast-card-image, .stats-card-3 .stast-card-image, .stats-card-4 .stast-card-image, .stats-card-7 .stast-card-image { height: 120px; margin: 10px 0; }
+    .stats-card-2 .stast-card-image, .stats-card-3 .stast-card-image, .stats-card-4 .stast-card-image, .stats-card-7 .stast-card-image { height: 180px; margin: 10px 0; }
 }
 
-@media (max-width: 439px) { 
-}
+@media (max-width: 439px) {}
 
-@media (max-width: 400px) { 
-}
+@media (max-width: 400px) {}
 
-@media (max-width: 374px) { 
-}
+@media (max-width: 374px) {}
 
-@media (max-width: 359px) { }
+@media (max-width: 359px) {}

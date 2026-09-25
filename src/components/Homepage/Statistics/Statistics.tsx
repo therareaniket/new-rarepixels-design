@@ -18,7 +18,7 @@ const Statistics = () => {
 						<div className="stats-card stats-card-2 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">27+</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Specialised Solutions Crafted</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#021357]">
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Every solution is purpose-built. Never recycled. Always intentional. </p>
@@ -27,7 +27,7 @@ const Statistics = () => {
 						<div className="stats-card stats-card-3 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">8+</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Industries Transformed Globally</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#021357]">
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">From startups to enterprises. Solutions shaped for every sector.</p>
@@ -36,7 +36,7 @@ const Statistics = () => {
 						<div className="stats-card stats-card-4 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px] ">98%</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Client Trust Retained</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#021357]">
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Relationships built on results. Trust earned through consistency.</p>
@@ -54,7 +54,7 @@ const Statistics = () => {
 								<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">7</h3>
 								<p className="font-normal text-18 text-[white] uppercase">Global Markets Served</p>
 							</div>
-							<div className="stast-card-image rounded-[20] w-[100%] h-[320] border border border-[#021357] mt-[20px] mb-[20px]">
+							<div className="stast-card-image rounded-[20] w-[100%] h-[320] border border border-[#C6C6C6] mt-[20px] mb-[20px]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6] w-[272px] absolute right-[20px] bottom-[20px]">Ideas built without borders. Creating impact across markets.</p>
@@ -63,7 +63,7 @@ const Statistics = () => {
 						<div className="stats-card stats-card-7 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">95%</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Projects Delivered With Precision</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#021357]">
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Precision in every milestone. Delivered when it matters most.</p>
@@ -83,7 +83,7 @@ const Statistics = () => {
 						<div className="stats-card stats-card-2 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">27+</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Specialised Solutions Crafted</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#021357]">
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Every solution is purpose-built. Never recycled. Always intentional. </p>
@@ -94,7 +94,7 @@ const Statistics = () => {
 						<div className="stats-card stats-card-3 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">8+</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Industries Transformed Globally</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#021357]">
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">From startups to enterprises. Solutions shaped for every sector.</p>
@@ -103,7 +103,7 @@ const Statistics = () => {
 						<div className="stats-card stats-card-4 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px] ">98%</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Client Trust Retained</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#021357]">
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Relationships built on results. Trust earned through consistency.</p>
@@ -119,7 +119,7 @@ const Statistics = () => {
 						<div className="stats-card stats-card-7 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">95%</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Projects Delivered With Precision</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#021357]">
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Precision in every milestone. Delivered when it matters most.</p>
@@ -132,7 +132,7 @@ const Statistics = () => {
 								<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">7</h3>
 								<p className="font-normal text-18 text-[white] uppercase">Global Markets Served</p>
 							</div>
-							<div className="stast-card-image rounded-[20] w-[100%] h-[320] border border border-[#021357] mt-[20px] mb-[20px]">
+							<div className="stast-card-image rounded-[20] w-[100%] h-[320] border border border-[#C6C6C6] mt-[20px] mb-[20px]">
 
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6] w-[272px] absolute right-[20px] bottom-[20px]">Ideas built without borders. Creating impact across markets.</p>
