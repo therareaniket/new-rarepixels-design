@@ -85,19 +85,21 @@
     .hm-abt-content-wrapper { flex-direction: column; width: 100%; gap: 30px; }
     .hm-abt-card h3 { width: 70%; }
     /* .hm-abt-card { height: 275px; } */
-    .hm-abt-card { height: 245px; }
+    .hm-abt-card { height: 230px; }
 }
 
 @media (max-width: 839px) { 
+    .hm-abt-card { height: 250px; }
+}
+
+@media (max-width: 767px) { }
+
+@media (max-width: 639px) { 
     .hm-abt-pointers { flex-direction: column; width: 100%; }
     .hm-abt-card h3 { width: 100%; }
     .hm-abt-card { width: 100%; height: auto; padding: 15px; }
     .hm-abt-card-text { width: 100%; }
 }
-
-@media (max-width: 767px) { }
-
-@media (max-width: 639px) { }
 
 @media (max-width: 575px) { 
     .hm-abt-title-wrapper p { gap: 12px; }
