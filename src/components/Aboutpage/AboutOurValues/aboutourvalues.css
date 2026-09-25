@@ -1,0 +1,92 @@
+/*  custom */
+
+.abt-our-values-pointer { padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid #C6C6C6; }
+.abt-our-values-pointer:nth-child(4) { padding-bottom: 0; margin-bottom: 0; border: none; }
+
+/* responsive */
+
+@media (max-width: 1799px) { 
+    .website-subtitle-mt { width: 710px; }
+    .abt-our-values-pointer { width: 530px; }
+    .abt-our-values-text { width: 460px; }
+    .abt-our-values-pointer { margin-bottom: 20px; padding-bottom: 20px; }
+    .our-values-icon { width: 48px; height: 48px; }
+}
+
+@media (max-width: 1599px) { 
+    .abt-our-values-left { width: 650px; }
+    .website-subtitle-mt { width: 100%; }
+    .abt-our-values-gif { width: 100%; height: 400px; margin-top: 40px; }
+    .abt-our-values-pointer  { width: 510px; }
+    .abt-our-values-text { width: 445px; }
+    .our-values-icon { width: 46px; height: 46px; }
+}
+
+@media (max-width: 1599px) and (max-height: 750px) {}
+
+@media (max-width: 1439px) { 
+    .abt-our-values-left { width: 580px; }
+    .abt-our-values-pointer { padding-bottom: 18px; margin-bottom: 18px; }
+    .our-values-icon { width: 44px; height: 44px; }
+}
+
+@media (max-width: 1359px) { }
+
+@media (max-width: 1359px) and (max-height: 600px) { }
+
+@media (max-width: 1199px) { 
+    .abt-our-values-left { width: 450px; }
+    .abt-our-values-pointer { width: 450px; }
+    .abt-our-values-gif { height: 340px; }
+    .abt-our-values-text { width: 375px; }
+    .our-values-icon { width: 40px; height: 40px; }
+    .abt-our-values-pointer { padding-bottom: 15px; margin-bottom: 15px; }
+}
+
+@media (max-width: 1024px) {  
+    .abt-our-values-left, .abt-our-values-pointer { width: 430px; }
+    .abt-our-values-text { width: 370px; }
+}
+
+@media (max-width: 1024px) and (max-height: 770px) { }
+
+@media (max-width: 991px) { 
+    .abt-our-values-wrapper { flex-direction: column; align-items: flex-start; }
+    .abt-our-values-left, .abt-our-values-right  { width: 100%; }
+    .abt-our-values-pointer { width: 90%; margin: 0 auto; margin-bottom: 20px; padding-bottom: 20px; }
+    .abt-our-values-text { width: calc(100% - 60px); }
+    .abt-our-values-gif { width: 80%; margin: 30px auto; }
+}
+
+@media (max-width: 839px) { 
+    .abt-our-values-gif { height: 300px; }
+}
+
+@media (max-width: 767px) { 
+    .abt-our-values-gif { width: 90%; }
+    .abt-our-values-pointer { margin-bottom: 15px; padding-bottom: 15px; }
+    .our-values-icon { width: 36px; height: 36px; }
+    .abt-our-values-text { width: calc(100% - 56px); }
+}
+
+@media (max-width: 639px) { 
+    .abt-our-values-gif { width: 100%; }
+    .abt-our-values-pointer { width: 100%; }
+    .our-values-icon { width: 32px; height: 32px; border-radius: 8px; }
+    .abt-our-values-text { width: calc( 100% - 52px ); }
+}
+
+@media (max-width: 575px) { }
+
+@media (max-width: 479px) { }
+
+@media (max-width: 439px) { }
+
+@media (max-width: 400px) { 
+    .abt-our-values-pointer { gap: 15px; }
+    .abt-our-values-text { width: calc(100% - 47px); }
+}
+
+@media (max-width: 374px) { }
+
+@media (max-width: 359px) { }
