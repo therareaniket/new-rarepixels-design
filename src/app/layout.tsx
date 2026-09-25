@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Strichpunkt_Sans, Geist } from "next/font/google";
+import { Strichpunkt_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Globle/Footer/Footer";
 import Header from "@/components/Globle/Header/Header";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const strichpunktSans = Strichpunkt_Sans({
     subsets: ["latin"],
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
-		<html lang="en" className={cn("h-full", "antialiased", strichpunktSans.variable, "font-sans", geist.variable)} >
+		<html lang="en" className={cn("h-full", "antialiased", strichpunktSans.variable, "font-sans" )} >
 			<body className="min-h-full flex flex-col">
 				<Header />
 

@@ -51,22 +51,30 @@
 @media (max-width: 1359px) and (max-height: 600px) { }
 
 @media (max-width: 1199px) { 
-    .hm-abt-content-wrapper { flex-direction: column; gap: 30px; margin-top: 30px; }
+    /* .hm-abt-content-wrapper { flex-direction: column; gap: 30px; margin-top: 30px; }
     .hm-abt-logo { margin: 0; }
     .hm-abt-pointers { width: 100%; }
-    .hm-abt-card { width: calc( 50% - 10px ); }
-    .hm-abt-card-text { width: 310px; }
+    .hm-abt-card { width: calc( 50% - 10px ); height: 165px; }
+    .hm-abt-card-text { width: 390px; } */
+
+    .hm-abt-pointers { width: 640px; }
+    .hm-abt-card { width: 310px; height: 220px; }
+    .hm-abt-logo { margin-left: 30px; }
 }
 
 @media (max-width: 1024px) { 
-    .hm-abt-card-text { width: 260px; }
-    .hm-abt-card { height: 225px; }
+        .hm-abt-content-wrapper { flex-direction: column; width: 100%; gap: 30px; }
+    .hm-abt-card h3 { width: 70%; }
+    /* .hm-abt-card { height: 275px; } */
+    .hm-abt-card { width: calc(50% - 10px); height: 190px; }
+    .hm-abt-pointers { width: 100%; }
+    .hm-abt-card-text { width: 375px; }
 }
 
 @media (max-width: 1024px) and (max-height: 770px) { 
     .hm-abt-content-wrapper { flex-direction: row; }
     .hm-abt-pointers { width: 630px; }
-    .hm-abt-card { padding: 15px; width: 305px; height: 215px; }
+    .hm-abt-card { padding: 15px; width: 305px; height: 240px; }
     .hm-abt-card-text {width: 255px; }
 
     .hm-abt-logo { margin-left: 30px; }
@@ -74,7 +82,7 @@
 
 
 @media (max-width: 991px) { 
-    .hm-abt-content-wrapper { flex-direction: column; width: 100%; }
+    .hm-abt-content-wrapper { flex-direction: column; width: 100%; gap: 30px; }
     .hm-abt-card h3 { width: 70%; }
     /* .hm-abt-card { height: 275px; } */
     .hm-abt-card { height: 245px; }

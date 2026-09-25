@@ -110,7 +110,7 @@ const FAQ = () => {
                         </p>
                     </div>
 
-                    <div className="container-sm ">
+                    <div className="faq-small-container container-sm ">
                         <div className={`faq-expand-wrapper mt-[60px] ${expanded ? "expanded" : ""}`}>
                             <Accordion defaultValue={["faq-1"]} className="faq-accordion-wrapper flex flex-col gap-[20px]" >
                                 {faqs.slice(0, 5).map((faq, index) =>
@@ -137,44 +137,43 @@ const FAQ = () => {
 
                                 {showAll &&
                                     faqs.slice(5).map((faq, index) => (
-                                        <div className="accordion-item-wrapper extra-faq flex gap-[20px] " key={index + 5} >
-                                            <span className="accordion-number text-18 font-semibold flex text-[#A5B4A5] items-center justify-center w-[52px] h-[52px] bg-[#F5F8F5] rounded-[20px] ">
+                                        <div className="accordion-item-wrapper extra-faq flex gap-[20px]" key={index + 5} >
+                                            <span className="accordion-number text-18 font-semibold flex text-[#A5B4A5] items-center justify-center w-[52px] h-[52px] shrink-0 bg-[#F5F8F5] rounded-[20px]">
                                                 {index + 6}
                                             </span>
 
-                                            <AccordionItem value={`faq-${index + 6}`} className="faq-accordion flex justify-between w-[100%] bg-[#F5F8F5] rounded-[20px]" >
-                                                <AccordionTrigger className="faq-accordion-title ">
-                                                    <h3 className="h6 font-semibold text-black ]">
+                                            <AccordionItem  value={`faq-${index + 6}`} className="faq-accordion w-full bg-[#F5F8F5] rounded-[20px]" >
+                                                <AccordionTrigger className="faq-accordion-title w-full">
+                                                    <h3 className="h6 font-semibold text-black text-left">
                                                         {faq.question}
                                                     </h3>
                                                 </AccordionTrigger>
 
                                                 <AccordionContent className="faq-content">
-                                                    <p className="text-18 text-rg text-black">
+                                                    <p className="text-18 font-normal text-black">
                                                         {faq.answer}
                                                     </p>
                                                 </AccordionContent>
                                             </AccordionItem>
                                         </div>
-                                    ))
-                                }
+                                    ))}
                             </Accordion>
 
-                        <div className="faq-btn-wrapper-arrow flex gap-[20px] justify-end mt-[30px]">
-                            <button type="button" className="expand-faq" onClick={handleToggle} >
-                                {/* <Image src="/images/faq-down-arrow.svg" alt="faq" width={30} height={52} className={expanded ? 'rotate-180 transition-all' : 'transition-all'} /> */}
-                                <span className="text-18 text-normal text-[#ED0180]">
-                                    {expanded ? "Less FAQs" : "More FAQs"}
-                                </span>
-                            </button>
-                            
-                            {/* <Link href="#" title="Ask Your Queries" className="link-padding site-radius-30 btn-bg-primary hm-hero-redirect-link faq-btn website-btn" >
+                            <div className="faq-btn-wrapper-arrow flex gap-[20px] justify-end mt-[30px]">
+                                <button type="button" className="expand-faq" onClick={handleToggle} >
+                                    {/* <Image src="/images/faq-down-arrow.svg" alt="faq" width={30} height={52} className={expanded ? 'rotate-180 transition-all' : 'transition-all'} /> */}
+                                    <span className="text-18 text-normal text-[#ED0180]">
+                                        {expanded ? "Less FAQs" : "More FAQs"}
+                                    </span>
+                                </button>
+
+                                {/* <Link href="#" title="Ask Your Queries" className="link-padding site-radius-30 btn-bg-primary hm-hero-redirect-link faq-btn website-btn" >
                                 <span className="text-20 text-medium text-white">
                                     Ask Your Queries
                                 </span>
                                 <Image src="/images/global/faq-mic.svg"  alt="arrow-for-navigation"  width={24}  height={24} />
                             </Link> */}
-                        </div>
+                            </div>
                         </div>
                     </div>
                 </div>

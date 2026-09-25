@@ -38,14 +38,14 @@
 
 @media (max-width: 991px) { 
     .accordion-number { width: 42px; height: 42px; }
+    .hm-faq-title p { width: 80%; }
 }
 
 @media (max-width: 839px) { }
 
 @media (max-width: 767px) { }
 
-@media (max-width: 639px) { 
-    
+@media (max-width: 639px) {    
     .faq-accordion-title h3 { font-size: 16px; line-height: 24px; }
 }
 
@@ -58,6 +58,7 @@
     .faq-content { padding: 0 20px 18px; }
     .accordion-number { width: 46px; height: 42px; }
     .hm-faq-title p { width: 100%; }
+    .faq-small-container.container-sm { margin: 0; padding: 0; }
 }
 
 @media (max-width: 439px) { }
