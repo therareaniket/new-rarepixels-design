@@ -75,7 +75,11 @@
 
 @media (max-width: 479px) { }
 
-@media (max-width: 439px) { }
+@media (max-width: 439px) { 
+    .hm-inquiry-field h3 { display: flex; flex-direction: column; gap: 10px; }
+    .cnct-form-checkbox { gap: 10px 15px; }
+
+}
 
 @media (max-width: 400px) { }
 
