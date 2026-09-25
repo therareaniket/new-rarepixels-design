@@ -57,6 +57,7 @@
     .faq-accordion-title h3 { font-size: 14px; line-height: 22px; }
     .faq-content { padding: 0 20px 18px; }
     .accordion-number { width: 46px; height: 42px; }
+    .hm-faq-title p { width: 100%; }
 }
 
 @media (max-width: 439px) { }

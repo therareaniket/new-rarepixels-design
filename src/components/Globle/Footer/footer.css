@@ -53,8 +53,6 @@
 .quick-link-only-title, .services-only-title, .only-for-mobile-three-column { display: none; }
 
 
-
-
 @media (max-width: 1799px) {
 	.brand-quote a span{ font-size: 14px; }
 	.footer-links { width: 555px; }
@@ -104,17 +102,20 @@
 
 @media (max-width: 1199px) {
     .footer-quote-right { width: 75%; }
-	.footer-detail-wrapper { flex-direction: column; margin: 30px 0; padding: 30px 0; }
-	.footer-links { width: 100%; gap: 50px; margin-bottom: 0; }
-	.footer-contact { justify-content: flex-start; gap: 50px; }
+	.footer-links { width: 100%; gap: 30px; justify-content: space-between; margin-bottom: 0; }
+	.footer-contact { justify-content: space-between; gap: 50px; }
 	.footer-links-wrapper { width: 100%; }
-	.footer-links { justify-content: space-between;}
 	.footer-address-wrapper { gap: 30px; width: 320px; }
-	.footer-contact { justify-content: space-between; }
 	.rare-pixels-company-logo { margin: 0 30px; }
-	.footer-social-wrapper { flex-direction: column; gap: 20px; }
-} 
 
+    .footer-detail-wrapper { flex-direction: row; margin: 30px 0; padding: 30px 0; }
+    .footer-vr-line { height: 170px; margin: 0 35px; }
+    .footer-add-country {  flex-direction: row; gap: 15px; }
+    .footer-address-wrapper { flex-direction: column; width: 200px; gap: 10px; }
+    .footer-address { width: 100%; }
+    .footer-quote-right { width: 60%; }
+    .footer-social-wrapper { flex-direction: row; gap: 50px; }
+} 
 
 @media (max-width: 1024px) {
     .footer-detail-wrapper { flex-direction: row; }
@@ -136,6 +137,11 @@
     .footer-links { gap: 30px; }
     .footer-quote-right { width: 60%; }
     .footer-social-wrapper { flex-direction: row; gap: 50px; }
+}
+
+@media (max-width: 991px) {
+    .footer-detail-wrapper { flex-direction: column; }
+    .footer-vr-line { height: 1px; width: 100%; margin: 30px 0; }
 }
 
 @media (max-width: 839px) {	
@@ -239,7 +245,6 @@
     .footer-title p { font-size: 18px; }
 }
 
-
 @media (max-width: 439px) {
     .footer-quote-right h2 { font-size: 48px; line-height: 56px; }
     .footer-links { justify-content: start; }
@@ -267,8 +272,6 @@
     .footer-link-col:not(:last-child) ul li { width: calc(33% - 10px); }
     .only-for-mobile-three-column { display: block; }
     .footer-link-col .services-only-title, .quick-link-only-title, .footer-title p { font-size: 18px; }
-
-
 }
 
 @media (max-width: 374px) {

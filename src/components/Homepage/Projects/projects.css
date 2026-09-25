@@ -1,0 +1,66 @@
+@media (max-width: 1799px) {
+    .project-list { width: 870px; height: 480px; }
+}
+
+@media (max-width: 1599px) {
+    .project-list { width: 840px; height: 460px; }
+}
+
+@media (max-width: 1599px) and (max-height: 750px) {}
+
+@media (max-width: 1439px) {
+    .projects-list { margin-top: 30px; }
+    .project-list { width: 780px; height: 430px; }
+    .project-titles h2 { margin-bottom: 10px; }
+}
+
+@media (max-width: 1359px) {
+    .project-list { width: 690px; height: 380px; }
+}
+
+/* Low Height Resolution for small laptops */
+@media (max-width: 1359px) and (max-height: 600px) {
+    .project-list { width: 655px; height: 360px; }
+    .projects-list { gap: 30px; }
+}
+
+@media (max-width: 1199px) {
+    .project-list { width: 655px; height: 360px; }
+}
+
+@media (max-width: 1024px) { 
+    .project-list { width: 480px; height: 600px; }
+}
+
+/* Very-Small size laptop */
+@media (max-width: 1024px) and (max-height: 770px) { .project-list { width: 655px; height: 360px; } }
+
+@media (max-width: 991px) { .project-list { width: 440px; height: 550px; } }
+
+@media (max-width: 839px) {}
+
+@media (max-width: 767px) {
+    .projects-list { gap: 30px; }
+    .project-list { width: 380px; height: 475px; }
+}
+
+@media (max-width: 639px) {
+    .project-list { width: 340px; height: 425px; }
+}
+
+@media (max-width: 575px) {}
+
+@media (max-width: 479px) {}
+
+@media (max-width: 439px) {
+    .project-list { width: 320px; height: 400px; }
+}
+
+@media (max-width: 400px) {
+    .project-list { width: 280px; height: 350px; border-radius: 20px; }
+    .projects-list { gap: 20px; }
+}
+
+@media (max-width: 374px) {}
+
+@media (max-width: 359px) {}
