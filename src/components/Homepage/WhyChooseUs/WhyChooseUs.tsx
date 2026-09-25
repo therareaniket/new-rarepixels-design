@@ -37,11 +37,13 @@ const WhyChooseUs = () => {
 
                                 <p className="text-18 font-normal text-[#C6C6C6]">A vision means little without execution. From first sketch to final launch, every detail is delivered with precision, consistency, and care.</p>
                             </div>
+
                             <div className="why-pointer w-[370px]">
                                 <h3 className="h6 font-semibold text-[white] mb-[20px]">Partners In The Process</h3>
 
                                 <p className="text-18 font-normal text-[#C6C6C6]">We work alongside you, not around you. The best outcomes come from trust, collaboration, and relationships that grow beyond a single project.</p>
                             </div>
+                            
                             <div className="why-pointer why-pointer-5 w-[370px]">
                                 <h3 className="h6 font-semibold text-[white] mb-[20px]">Measured By Impact</h3>
 

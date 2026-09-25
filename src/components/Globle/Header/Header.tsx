@@ -40,7 +40,7 @@ const Header = () => {
                             <div className="mm-pages-link">
                                 <ul className="w-[100%] flex justify-between items-center flex-wrap gap-y-[30px]">
                                     <li>
-                                        <Link href="#" className="w-[330px] flex gap-[10px]">
+                                        <Link href="/" className="w-[330px] flex gap-[10px]">
                                             <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-other_houses"></span></span>
 
                                             <div className="link-info">
