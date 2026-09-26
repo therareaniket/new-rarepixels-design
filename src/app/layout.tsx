@@ -26,8 +26,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
 		<html lang="en" className={cn("h-full", "antialiased", strichpunktSans.variable, "font-sans", )} >
-			<head><link rel="preload" href="../stylesheets/icons.css" as="font" type="font/ttf" crossOrigin="anonymous" /></head>
-
 			<body className="min-h-full flex flex-col">
 				<Header />
 

@@ -29,7 +29,7 @@ const industriesData: Industry[] = [
         firstParagraph: "Trust isn't optional when every click involves confidence.",
         secondParagraph: "Financial decisions begin with credibility, long before transactions happen.",
         thirdParagraph: "We create secure, intuitive digital experiences that inspire confidence and simplify complex financial journeys.",
-        video: "/images/homepage/industries/finance.mp4",
+        video: "",
     },
     {
         id: 3,
@@ -37,7 +37,7 @@ const industriesData: Industry[] = [
         firstParagraph: "When people need clarity most, every interaction matters.",
         secondParagraph: "Healthcare experiences should reduce uncertainty, not create it.",
         thirdParagraph: "We design patient-first platforms that make information accessible, interactions seamless, and care easier to navigate.",
-        video: "/images/homepage/industries/healthcare.mp4",
+        video: "",
     },
     {
         id: 4,
@@ -45,7 +45,7 @@ const industriesData: Industry[] = [
         firstParagraph: "The shortest path from browsing to buying wins.",
         secondParagraph: "Every unnecessary click is a missed opportunity.",
         thirdParagraph: "We build shopping experiences that remove friction, increase confidence, and turn visitors into loyal customers.",
-        video: "/images/homepage/industries/e-commerce.mp4",
+        video: "",
     },
     {
         id: 5,
@@ -53,7 +53,7 @@ const industriesData: Industry[] = [
         firstParagraph: "Properties attract attention. Experiences create decisions.",
         secondParagraph: "People invest in confidence before they invest in property.",
         thirdParagraph: "We craft digital experiences that showcase value, build trust, and encourage meaningful enquiries.",
-        video: "/images/homepage/industries/real-estate.mp4",
+        video: "",
     },
     {
         id: 6,
@@ -61,7 +61,7 @@ const industriesData: Industry[] = [
         firstParagraph: "Learning works best when technology stays out of the way.",
         secondParagraph: "Great learning platforms feel effortless for every learner.",
         thirdParagraph: "We design engaging educational experiences that improve accessibility, participation, and long-term engagement.",
-        video: "/images/homepage/industries/education-industry.mp4",
+        video: "",
     },
     {
         id: 7,
@@ -69,7 +69,7 @@ const industriesData: Industry[] = [
         firstParagraph: "The future moves fast. Great experiences help people keep up.",
         secondParagraph: "Innovation succeeds when people know how to use it.",
         thirdParagraph: "We simplify advanced technologies through intuitive interfaces that make innovation feel approachable.",
-        video: "/images/homepage/industries/ai-industry.mp4",
+        video: "",
     },
     {
         id: 8,
@@ -77,7 +77,7 @@ const industriesData: Industry[] = [
         firstParagraph: "Great brands satisfy long before the first purchase.",
         secondParagraph: "People remember experiences before they remember products.",
         thirdParagraph: "We create brands and digital experiences that spark curiosity, build loyalty, and keep customers coming back.",
-        video: "/images/homepage/industries/food-industry.mp4",
+        video: "",
     },
 ];
 

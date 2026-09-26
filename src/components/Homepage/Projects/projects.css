@@ -1,3 +1,6 @@
+.projects-controller { margin: 0 auto; margin-top: 30px; }
+.project-list video { object-fit: cover !important;  }
+
 @media (max-width: 1799px) {
     .project-list { width: 870px; height: 480px; }
 }
