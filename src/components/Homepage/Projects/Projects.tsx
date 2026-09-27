@@ -14,11 +14,11 @@ const Projects = () => {
 
 				<div className="projects-list w-max mt-[50px] flex gap-[40px] overflow-hidden">
 					<div className="project-list w-[1000px] h-[550px] rounded-[30px] overflow-hidden">
-						<video src={`${CDN_URL}/images/homepage/projects/autobot-project.mp4`} autoPlay loop playsInline muted></video>
+						<video src={`${CDN_URL}/images/homepage/projects/autobot-project.mp4`} autoPlay loop playsInline muted width={1000} height={560}></video>
 					</div>
 
 					<div className="project-list w-[1000px] h-[550px] rounded-[30px] overflow-hidden">
-						<video src={`${CDN_URL}/images/homepage/projects/lalita-project.mp4`} loop playsInline muted></video>
+						<video src={`${CDN_URL}/images/homepage/projects/lalita-project.mp4`} loop playsInline muted width={1000} height={560}></video>
 					</div>
 
 					<div className="project-list w-[1000px] h-[550px] border-1 rounded-[30px]"></div>
