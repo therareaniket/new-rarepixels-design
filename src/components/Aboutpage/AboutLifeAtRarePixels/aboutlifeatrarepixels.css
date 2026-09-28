@@ -1,0 +1,61 @@
+/*  custom */
+
+.life-at-rarepixels-col-3 { transform: translateY(-205px); }
+
+/* responsive */
+
+@media (max-width: 1799px) { 
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { width: 445px; height: 424px; }
+    .abt-life-card-2 { width: 445px; height: 374px; }
+    .abt-life-card-3 { width: 400px; height: 363px; }
+    .abt-life-card-4 { width: 400px; height: 461px; }
+    .abt-life-card-8 { width: 445px; height: 282px; }
+    .abt-life-card-5 { width: 400px; height: 391px; }
+}
+
+@media (max-width: 1599px) { 
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { width: 394px; height: 387px; }
+    .abt-life-card-2{ width: 394px; height: 341px; }
+    .abt-life-card-3 { width: 394px; height: 357px; }
+    .abt-life-card-4 { width: 394px; height: 454px; }
+    .abt-life-card-5 { width: 394px; height: 385px; }
+    .abt-life-card-8 { width: 394px; height: 258px; }
+
+    .life-at-rarepixels-col-3 { transform: translateY(-175px); }
+}
+
+@media (max-width: 1599px) and (max-height: 750px) {}
+
+@media (max-width: 1439px) { 
+    .life-at-rarepixels-card-wrapper { gap: 20px; }
+}
+
+@media (max-width: 1359px) { }
+
+@media (max-width: 1359px) and (max-height: 600px) { }
+
+@media (max-width: 1199px) { }
+
+@media (max-width: 1024px) {  }
+
+@media (max-width: 1024px) and (max-height: 770px) { }
+
+@media (max-width: 991px) { }
+
+@media (max-width: 839px) { }
+
+@media (max-width: 767px) { }
+
+@media (max-width: 639px) { }
+
+@media (max-width: 575px) { }
+
+@media (max-width: 479px) { }
+
+@media (max-width: 439px) { }
+
+@media (max-width: 400px) { }
+
+@media (max-width: 374px) { }
+
+@media (max-width: 359px) { }

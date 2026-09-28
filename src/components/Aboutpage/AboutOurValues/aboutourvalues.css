@@ -6,7 +6,7 @@
 /* responsive */
 
 @media (max-width: 1799px) { 
-    .website-subtitle-mt { width: 710px; }
+    .abt-our-values-title .website-subtitle-mt { width: 710px; }
     .abt-our-values-pointer { width: 530px; }
     .abt-our-values-text { width: 460px; }
     .abt-our-values-pointer { margin-bottom: 20px; padding-bottom: 20px; }
@@ -15,7 +15,7 @@
 
 @media (max-width: 1599px) { 
     .abt-our-values-left { width: 650px; }
-    .website-subtitle-mt { width: 100%; }
+    .abt-our-values-title .website-subtitle-mt { width: 100%; }
     .abt-our-values-gif { width: 100%; height: 400px; margin-top: 40px; }
     .abt-our-values-pointer  { width: 510px; }
     .abt-our-values-text { width: 445px; }
