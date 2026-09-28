@@ -60,7 +60,7 @@ const Testimonials = () => {
 		<section className='section hm-testimonial-section py-[60px]'>
 			<div className="container">
 				<div className="hm-testimonial-title w-[850px] max-w-full">
-					<h2 className="font-semibold text-3xl">Proof Over Promises</h2>
+					<h2 className="font-semibold">Proof Over Promises</h2>
 					<p className="text-18 font-normal website-subtitle-mt">
 						Anybody can talk about creativity. Our clients tell the story better. Behind every successful outcome is a partnership built on trust, collaboration, and shared ambition.
 					</p>

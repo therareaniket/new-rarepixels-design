@@ -1,11 +1,47 @@
 "use client";
 
-import Image from "next/image";
 import './about.css'
+import PixelImageCanvas from "@/animations/PixelImageReveal";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useLayoutEffect } from 'react';
 
 const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 
 const About = () => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    useLayoutEffect(() => {
+        if(typeof window !== 'undefined' && window.innerWidth >= 640) {
+
+            gsap.set(".hm-abt-card:nth-child(1)", { xPercent: 50, yPercent: 50 } )
+            gsap.set(".hm-abt-card:nth-child(2)", { xPercent: -50, yPercent: 50 } )
+            gsap.set(".hm-abt-card:nth-child(3)", { xPercent: 50, yPercent: -50 } )
+            gsap.set(".hm-abt-card:nth-child(4)", { xPercent: -50, yPercent: -50 } )
+            
+            gsap.fromTo(".hm-abt-card", 
+                { opacity: 0, scale: 0.5, }, 
+                { opacity: 1, scale: 1, xPercent: 0, yPercent: 0, duration: 1, stagger: 0.5,
+                    scrollTrigger: {
+                        trigger: ".hm-abt-content-wrapper",
+                        start: "top 60%",
+                    }
+                } 
+            )
+        } else {
+            gsap.fromTo(".hm-abt-card", 
+                { opacity: 0, scale: 0.5, y: 100 }, 
+                { opacity: 1, scale: 1, y: 0, duration: 0.8, delay: 0.3, stagger: 0.5,
+                    scrollTrigger: {
+                        trigger: ".hm-abt-pointers",
+                        start: "top 70%",
+                    }
+                } 
+            )
+        }
+    }, []);
+
     return (
         <section className="section bg-[#040E36]">
             <div className="container">
@@ -18,13 +54,14 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="hm-abt-content-wrapper flex justify-between items-center mt-[60px]">
+                    <div className="hm-abt-content-wrapper flex justify-between items-center mt-[60px] overflow-hidden">
                         <div className="hm-abt-logo w-[273] h-[349] ml-[65px]">
-                            <Image src={`${CDN_URL}/images/homepage/about/abt-rpd-logo.png`} alt="header-logo" width={273} height={349} priority />
+                            <PixelImageCanvas src={`${CDN_URL}/images/homepage/about/abt-rpd-logo.png`} alt="rarepixels-R-logo" />
                         </div>
+                        
 
                         <div className="hm-abt-pointers w-[822px] flex flex-wrap gap-[30px]">
-                            <div className="hm-abt-card w-[396px] h-[250px]  flex p-[20px] gap-[10px] rounded-[20px] ">
+                            <div className="hm-abt-card w-[396px] h-[250px] flex p-[20px] gap-[10px] rounded-[20px] ">
                                 <span className="w-[8px] h-[8px] mt-[12px] bg-[#ED0180] flex"></span>
 
                                 <div className="hm-abt-card-text w-[338] text-[white]">
@@ -37,7 +74,7 @@ const About = () => {
                                 </div>
                             </div>
 
-                            <div className="hm-abt-card w-[396px] h-[250px]  flex p-[20px] gap-[10px] rounded-[20px] ">
+                            <div className="hm-abt-card w-[396px] h-[250px] flex p-[20px] gap-[10px] rounded-[20px] ">
                                 <span className="w-[8px] h-[8px] mt-[12px] bg-[#ED0180] flex"></span>
 
                                 <div className="hm-abt-card-text w-[338] text-[white]">
@@ -50,7 +87,7 @@ const About = () => {
                                 </div>
                             </div>
 
-                            <div className="hm-abt-card w-[396px] h-[250px]  flex p-[20px] gap-[10px] rounded-[20px] ">
+                            <div className="hm-abt-card w-[396px] h-[250px] flex p-[20px] gap-[10px] rounded-[20px] ">
                                 <span className="w-[8px] h-[8px] mt-[12px] bg-[#ED0180] flex"></span>
 
                                 <div className="hm-abt-card-text w-[338] text-[white]">
@@ -63,7 +100,7 @@ const About = () => {
                                 </div>
                             </div>
 
-                            <div className="hm-abt-card w-[396px] h-[250px]  flex p-[20px] gap-[10px] rounded-[20px] ">
+                            <div className="hm-abt-card w-[396px] h-[250px] flex p-[20px] gap-[10px] rounded-[20px] ">
                                 <span className="w-[8px] h-[8px] mt-[12px] bg-[#ED0180] flex"></span>
 
                                 <div className="hm-abt-card-text w-[338] text-[white]">

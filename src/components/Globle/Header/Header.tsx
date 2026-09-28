@@ -4,12 +4,15 @@ import "./header.css"
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from 'next/navigation';
+
 
 const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 
 const Header = () => {
     const [megaMenuOpen, setMegaMenuOpen] = useState(false);
     const toggleMegaMenu = () => { setMegaMenuOpen((prev) => !prev); };
+    const closeMegaMenu = () => { setTimeout(() => { setMegaMenuOpen(false); }, 100); };
 
     useEffect(() => {
         if (megaMenuOpen) { document.body.style.overflow = "hidden"; } 
@@ -17,15 +20,25 @@ const Header = () => {
         return () => { document.body.style.overflow = "unset";};
     }, [megaMenuOpen]);
 
+    const pathname = usePathname();
+    const isActive = (href: string) => pathname === href;
+    const linkStyle = (href: string) => ({
+        color: isActive(href) ? '#ED0180' : undefined,
+    });
+    const linkStyleIcon = (href: string) => ({
+        background: isActive(href) ? '#ED0180' : undefined,
+        color: isActive(href) ? 'white' : undefined,
+    });
+
     return (
         <header>
             <div className="container overflow-hidden">
                 <div className="nav-cont-wrapper fixed top-[20px] z-[98] w-max flex items-center gap-[80px] py-[10px] px-[20px] rounded-full">
-                    <Link href="/">
+                    <Link href="/" className="navbar-logo" >
                         <Image src={`${CDN_URL}/images/global/header/rare-pixels-logo.svg`} alt="header-logo" width={174} height={28} priority />
                     </Link>
 
-                    <button onClick={toggleMegaMenu} className="cursor-pointer" type="button">
+                    <button onClick={toggleMegaMenu} className="cursor-pointer bento-menu" type="button">
                         <Image src={`${CDN_URL}/images/global/header/header-bento-menu.svg`} alt="header-logo" width={24} height={24} priority />
                     </button>
                 </div>
@@ -40,29 +53,29 @@ const Header = () => {
                             <div className="mm-pages-link">
                                 <ul className="w-[100%] flex justify-between items-center flex-wrap gap-y-[30px]">
                                     <li>
-                                        <Link href="/" className="w-[330px] flex gap-[10px]">
-                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-other_houses"></span></span>
+                                        <Link href="/" onClick={closeMegaMenu} className="w-[330px] flex gap-[10px]">
+                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]" style={linkStyleIcon('/')}><span className="mm-icon icon-other_houses"></span></span>
 
                                             <div className="link-info">
-                                                <p className="link-title text-18 font-medium mb-[4px]">Home</p>
+                                                <p className="link-title text-18 font-medium mb-[4px]" style={linkStyle('/')}>Home</p>
                                                 <p className="link-subtitle text-[#585858]">Explore ideas built for impact</p>
                                             </div>
                                         </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="/About" className="w-[330px] flex gap-[10px]">
-                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-info"></span></span>
+                                        <Link href="/About" onClick={closeMegaMenu} className="w-[330px] flex gap-[10px]">
+                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]" style={linkStyleIcon('/About')}><span className="mm-icon icon-info"></span></span>
 
                                             <div className="link-info">
-                                                <p className="link-title text-18 font-medium mb-[4px]">About</p>
+                                                <p className="link-title text-18 font-medium mb-[4px]" style={linkStyle('/About')}>About</p>
                                                 <p className="link-subtitle text-[#585858]">The thinking behind RarePixels</p>
                                             </div>
                                         </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="#" className="w-[330px] flex gap-[10px]">
+                                        <Link href="#" onClick={closeMegaMenu} className="w-[330px] flex gap-[10px]">
                                             <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-conversion_path"></span></span>
 
                                             <div className="link-info">
