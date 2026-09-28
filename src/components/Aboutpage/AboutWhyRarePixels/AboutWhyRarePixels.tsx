@@ -8,9 +8,9 @@ const AboutWhyRarePixels = () => {
         <section className='section bg-[#040E36]'>
             <div className="container">
                 <div className="abt-why-rare-title w-[575px]">
-                    <h2 className='font-semibold text-[white]'>Why You Would Love To Work At RarePixels</h2>
+                    <h2 className='font-semibold text-[white]'>Why You’d Love to Work at RarePixels</h2>
 
-                    <p className='text-18 font-normal text-[#c6c6c6] website-subtitle-mt'>A journey shaped by creativity, collaboration, and continuous growth, reflecting the milestones, experiences, and values that have defined RarePixels from day one.</p>
+                    <p className='text-18 font-normal text-[#c6c6c6] website-subtitle-mt'>A place where curiosity is encouraged, ideas are heard, and good work is built together. At RarePixels, we care about what we create, how we work, and the people we grow with.</p>
                 </div>
 
                 <div className="abt-rare-tree-wrapper pt-[195px] relative">
@@ -62,8 +62,8 @@ const AboutWhyRarePixels = () => {
                             <span className='w-[8px] h-[8px] rounded-[1px] bg-[#E8DB7D] mt-[10px]'></span>
 
                             <div className="abt-tree-text w-[338px]">
-                                <h3 className='h6 text-[#E8DB7D] font-semibold mb-[10px]'>Creative, Chill Environment</h3>
-                                <p className='text-18 font-normal text-[#FFFFFF]'>We take the work seriously not ourselves. Our studio is built on creative freedom, good energy, and a culture where ideas flow without ego getting in the way.</p>
+                                <h3 className='h6 text-[#E8DB7D] font-semibold mb-[10px]'>Make. Experiment. Repeat.</h3>
+                                <p className='text-18 font-normal text-[#FFFFFF]'> We encourage experimentation, curiosity, and the freedom to try something different, learn from it, and make it better.</p>
                             </div>
                         </div>
 
@@ -71,8 +71,8 @@ const AboutWhyRarePixels = () => {
                             <span className='w-[8px] h-[8px] rounded-[1px] bg-[#CDC9C4] mt-[10px]'></span>
 
                             <div className="abt-tree-text w-[338px]">
-                                <h3 className='h6 text-[#CDC9C4] font-semibold mb-[10px]'>Trust Over Timelines</h3>
-                                <p className='text-18 font-normal text-[#FFFFFF]'>We hire people we believe in, then let them do their thing. No micromanagement, no hand-holding just clear goals and the autonomy to reach them your way.</p>
+                                <h3 className='h6 text-[#CDC9C4] font-semibold mb-[10px]'>Own Your Craft</h3>
+                                <p className='text-18 font-normal text-[#FFFFFF]'> We trust people to take ownership of what they create, pay attention to the details, and keep raising their own creative bar.</p>
                             </div>
                         </div>
 
@@ -80,8 +80,8 @@ const AboutWhyRarePixels = () => {
                             <span className='w-[8px] h-[8px] rounded-[1px] bg-[#ED0180] mt-[10px]'></span>
 
                             <div className="abt-tree-text w-[338px]">
-                                <h3 className='h6 text-[#ED0180] font-semibold mb-[10px]'>Ideas Over Hierarchy</h3>
-                                <p className='text-18 font-normal text-[#FFFFFF]'>The best idea wins, regardless of who it comes from. Whether you&apos;re a junior designer or a senior strategist, your voice has weight here.</p>
+                                <h3 className='h6 text-[#ED0180] font-semibold mb-[10px]'>Speak Up. Ideas Welcome.</h3>
+                                <p className='text-18 font-normal text-[#FFFFFF]'> Everyone gets a voice at RarePixels. We encourage questions, honest opinions, healthy debates, and ideas that challenge the obvious.</p>
                             </div>
                         </div>
 
@@ -89,8 +89,8 @@ const AboutWhyRarePixels = () => {
                             <span className='w-[8px] h-[8px] rounded-[1px] bg-[#C6D9C6] mt-[10px]'></span>
 
                             <div className="abt-tree-text w-[338px]">
-                                <h3 className='h6 text-[#C6D9C6] font-semibold mb-[10px]'>People Before Processes</h3>
-                                <p className='text-18 font-normal text-[#FFFFFF]'>Systems exist to support people, not the other way around. We adapt, we listen, and we make sure the humans on our team always come first.</p>
+                                <h3 className='h6 text-[#C6D9C6] font-semibold mb-[10px]'>Grow Without Losing Yourself</h3>
+                                <p className='text-18 font-normal text-[#FFFFFF]'> We want people to learn, explore new skills, take on challenges, and grow professionally without losing the personality that makes them unique.</p>
                             </div>
                         </div>
                     </div>

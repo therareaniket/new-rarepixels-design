@@ -4,7 +4,7 @@ import './aboutlifeatrarepixels.css'
 
 const AboutLifeAtRarePixels = () => {
     return (
-        <section className="section" style={{ paddingBottom: 0 }}>
+        <section className="section">
             <div className="container">
                 <div className="life-at-rare-title">
                     <h2 className="text-80 font-semibold">Life at RarePixels</h2>

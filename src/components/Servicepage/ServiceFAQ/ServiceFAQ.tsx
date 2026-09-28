@@ -11,28 +11,28 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import './aboutfaq.css'
+import './servicefaq.css'
 
 const faqs = [
     {
-        question: "What makes RarePixels different from a typical creative agency?",
-        answer: " We look beyond the brief. We combine strategy, creativity, and technology to understand the real problem before creating the solution. The goal is not simply to make something look good, but to make it work, connect, and create value."
+        question: "What services does Rare Pixels Design offer?",
+        answer: "Rare Pixels Design offers five core services - UI/UX design, custom web and app development, brand identity design, social media management, and graphics and print media design. Each service is delivered across multiple specializations, totaling 27 expert services across design and technology. Every service is purpose built no templates, no off-the-shelf solutions."
     },
     {
-        question: "How does RarePixels approach a new project?",
-        answer: "Every project starts with understanding. We explore the business, audience, challenges, and goals before deciding what needs to be created. From there, we shape the right direction and bring it to life through thoughtful design and execution."
+        question: "Do you offer all services together or individually?",
+        answer: "Both. Many clients come to us for a single service — a brand identity, a platform build, or a social media strategy. Others engage us across multiple disciplines simultaneously. We are equally effective working on a single focused brief or as a full-service partner across design, engineering, and brand."
     },
     {
-        question: "Who works behind the pixels at RarePixels?",
-        answer: "RarePixels is a multidisciplinary team of designers, developers, strategists, branding specialists, and creative thinkers. Led by Founder Bina and Co-founder Yogesh, we bring different perspectives together to create stronger work."
+        question: "How do you approach a project that needs multiple services? ",
+        answer: "We assign a dedicated project lead who coordinates across all disciplines. When a project spans design, development, and brand — the teams work in parallel with shared goals and a unified strategy. The client has one point of contact throughout, not multiple agency relationships to manage. "
     },
     {
-        question: "What does RarePixels believe in?",
-        answer: "We believe every business has an idea worth building and a story worth telling. Whether it’s through branding, UI/UX, web and app development, or social media, we bring strategy, creativity, and technology together to turn that idea into something meaningful. We don’t believe in one-size-fits-all solutions rather that we understand, challenge, create, and refine until every piece works together to move the brand forward."
+        question: "Do you work with businesses outside India?",
+        answer: "Yes. We work with clients across India, the USA, the UK, and the Middle East. With studios in Ahmedabad, India and Pennsylvania, USA — we cover multiple time zones and are experienced in delivering across international markets. "
     },
     {
-        question: "What kind of brands does RarePixels work with?",
-        answer: "We work with ambitious businesses, growing brands, and teams looking to build, rethink, or evolve their digital presence. Whether it's a new idea or an established brand ready for its next chapter, we focus on finding what makes it worth remembering."
+        question: "How long does a typical project take? ",
+        answer: "Timeline depends entirely on the service and scope. A brand identity project typically takes 4–6 weeks. A website design and development project takes 8–12 weeks. A custom SaaS platform or web application takes 12–20 weeks. We provide a specific timeline in every proposal."
     },
     // {
     //     question: "Do you manage social media for businesses?",
@@ -57,7 +57,7 @@ const faqs = [
 ];
 
 
-const AboutFAQ = () => {
+const ServiceFAQ = () => {
 
     const [expanded, setExpanded] = useState(false);
     const [showAll, setShowAll] = useState(false);
@@ -178,4 +178,4 @@ const AboutFAQ = () => {
     )
 }
 
-export default AboutFAQ
+export default ServiceFAQ

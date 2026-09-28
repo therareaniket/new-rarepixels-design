@@ -13,7 +13,7 @@ import Image from "next/image";
 
 const AboutTeams = () => {
     return (
-        <section className="section" style={{ paddingTop: 0 }}>
+        <section className="section">
             <div className="container-sm ">
                 <div className="teams-container relative">
                 <div className="abt-teams-wrapper w-[1200px] m-auto flex justify-between items-end">

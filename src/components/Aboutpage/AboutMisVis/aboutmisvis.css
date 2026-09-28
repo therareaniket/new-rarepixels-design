@@ -9,16 +9,16 @@
     .abt-quote-image { width: 270px; }
     .abt-mis-title { padding-top: 65px; width: 900px; }
     .abt-mis-vis-copyright-img { width: 230px; height: auto; margin-right: 45px; }
-    .abt-mis-vis-content-wrapper { width: 1110px; } 
+    .abt-mis-vis-content-wrapper { width: 1255px; } 
     .abt-mis-gif { width: 500px; height: 545px; }
 }
 
 @media (max-width: 1599px) { 
     .abt-mis-title { width: 839px; padding-top: 50px; padding-left: 30px; }
     .abt-quote-image { width: 245px; }
-    .abt-mis-vis-content-wrapper { width: 1030px; }
+    .abt-mis-vis-content-wrapper { width: 1135px; }
 
-    .mis-vis-text { width: 470px; }
+    .mis-vis-text { width: 550px; }
     .abt-mis-gif { width: 485px; height: 515px; }
 }
 
@@ -29,16 +29,16 @@
     .abt-mis-title p { margin-top: 20px; }
     .abt-quote-image { width: 220px; }
     .abt-mis-vis-copyright-img { width: 185px; }
-    .abt-mis-vis-content-wrapper { width: 900px; }
-    .mis-vis-text { width: 400px; }
+    .abt-mis-vis-content-wrapper { width: 1050px; }
+    .mis-vis-text { width: 495px; }
     .mis-vis-text p:nth-child(2) { margin: 20px 0; }
     .abt-mis-gif { width: 465px; height: 500px; }
 }
 
 @media (max-width: 1359px) { 
     .abt-mis-gif { width: 350px; height: 390px; }
-    .abt-mis-vis-content-wrapper { width: 850px; }
-    .mis-vis-text { width: 445px; }
+    .abt-mis-vis-content-wrapper { width: 1045px; }
+    .mis-vis-text { width: 610px; }
     .abt-quote-image { width: 200px; }
 }
 
