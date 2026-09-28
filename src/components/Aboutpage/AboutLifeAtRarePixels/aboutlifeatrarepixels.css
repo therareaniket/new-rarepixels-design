@@ -1,6 +1,7 @@
 /*  custom */
 
 .life-at-rarepixels-col-3 { transform: translateY(-205px); }
+.life-at-tablet { display: none; }
 
 /* responsive */
 
@@ -28,31 +29,94 @@
 
 @media (max-width: 1439px) { 
     .life-at-rarepixels-card-wrapper { gap: 20px; }
+    .life-at-rarepixels-col { gap: 20px; }
+
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { width: 370px; height: 370px; }
+    .abt-life-card-2{ width: 370px; height: 326px; }
+    .abt-life-card-3 { width: 370px; height: 342px; }
+    .abt-life-card-4 { width: 370px; height: 434px; }
+    .abt-life-card-5 { width: 370px; height: 369px; }
+    .abt-life-card-8 { width: 370px; height: 258px; }
 }
 
 @media (max-width: 1359px) { }
 
 @media (max-width: 1359px) and (max-height: 600px) { }
 
-@media (max-width: 1199px) { }
+@media (max-width: 1199px) { 
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { width: 305px; height: 299px; }
+    .abt-life-card-2{ width: 305px; height: 264px; }
+    .abt-life-card-3 { width: 305px; height: 276px; }
+    .abt-life-card-4 { width: 305px; height: 351px; }
+    .abt-life-card-5 { width: 305px; height: 298px; }
+    .abt-life-card-8 { width: 305px; height: 199px; }
 
-@media (max-width: 1024px) {  }
+    .life-at-rarepixels-card-wrapper { margin-top: 40px; }
+    .life-at-rarepixels-col-3 { transform: translateY(-160px); }
+    .life-at-rarepixels-col-1 { margin-top: 45px; }
+}
+
+@media (max-width: 1024px) {  
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { width: 295px; height: 290px; }
+    .abt-life-card-2{ width: 295px; height: 255px; }
+    .abt-life-card-3 { width: 295px; height: 267px; }
+    .abt-life-card-4 { width: 295px; height: 340px; }
+    .abt-life-card-5 { width: 295px; height: 289px; }
+    .abt-life-card-8 { width: 295px; height: 199px; }
+}
 
 @media (max-width: 1024px) and (max-height: 770px) { }
 
-@media (max-width: 991px) { }
+@media (max-width: 991px) { 
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { width: 220px; height: 216px; }
+    .abt-life-card-2{ width: 220px; height: 190px; }
+    .abt-life-card-3 { width: 220px; height: 180px; }
+    .abt-life-card-4 { width: 220px; height: 253px; }
+    .abt-life-card-5 { width: 220px; height: 215px; }
+    .abt-life-card-8 { width: 220px; height: 144px; }
 
-@media (max-width: 839px) { }
+    .life-at-rarepixels-col-3 { transform: translateY(0); }
+    .life-at-rarepixels-col-1 { margin-top: 0; }
+    .life-at-rarepixels-card-wrapper { margin-top: 25px; }
+    .life-at-rare-title h2 { margin-bottom: 10px; font-size: 40px; line-height: 48px; }
+    .life-at-rare-title .website-subtitle-mt { margin-top: 10px; }
+}
+
+@media (max-width: 839px) { 
+    .life-at-desktop { display: none; }
+    .life-at-tablet { display: flex; } 
+    .life-at-rarepixels-col { width: calc(50% - 10px); }
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { width: 100%; height: 270px; }
+    .abt-life-card-2{ width: 100%; height: 210px; }
+    .abt-life-card-3 { width: 100%; height: 250px; }
+    .abt-life-card-4 { width: 100%; }
+    .abt-life-card-8 { width: 100%; height: 220px; }
+    .abt-life-card-5 { width: 100%; }
+}
 
 @media (max-width: 767px) { }
 
 @media (max-width: 639px) { }
 
-@media (max-width: 575px) { }
+@media (max-width: 575px) { 
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { height: 250px; }
+    .abt-life-card-8 { height: 200px; }
+}
 
-@media (max-width: 479px) { }
+@media (max-width: 479px) { 
+    .life-at-tablet { flex-direction: column; }
+    .life-at-rarepixels-col { width: 100%; }
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { width: 100%; height: 400px; }
+    .abt-life-card-2 { height: 350px; }
+    .abt-life-card-3 { height: 300px; }
+    .life-at-rare-title p { font-size: 22px; line-height: 30px; }
+}
 
-@media (max-width: 439px) { }
+@media (max-width: 439px) { 
+    .life-at-rare-title p { font-size: 20px; line-height: 28px; }
+    .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { height: 360px; }
+    .abt-life-card-2 { height: 320px; }
+}
 
 @media (max-width: 400px) { }
 

@@ -68,10 +68,12 @@
     .abt-mis-vis-copyright-img { display: none; }
 }
 
-@media (max-width: 839px) { }
+@media (max-width: 839px) { 
+    .abt-mis-title .text-80 { font-size: 40px; line-height: 48px; }
+}
 
 @media (max-width: 767px) { 
-    .abt-mis-title .text-80 { font-size: 50px; line-height: 54px; }
+    /* .abt-mis-title .text-80 { font-size: 50px; line-height: 54px; } */
 }
 
 @media (max-width: 639px) { 
