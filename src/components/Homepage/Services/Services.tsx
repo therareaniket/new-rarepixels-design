@@ -72,7 +72,7 @@ const Services = () => {
                 }
             });
 
-            gsap.fromTo('.serv-card:nth-child(2)', { y: 800, scale: 0.6, rotate: -10 }, {
+            gsap.fromTo('.serv-card:nth-child(2)', { y: 400, scale: 0.6, rotate: -10 }, {
                 y: 0,
                 scale: 1,
                 rotate: 0,
@@ -84,7 +84,7 @@ const Services = () => {
                 }
             });
 
-            gsap.fromTo('.serv-card:nth-child(3)', { y: 1200, scale: 0.6, rotate: 30 }, {
+            gsap.fromTo('.serv-card:nth-child(3)', { y: 400, scale: 0.6, rotate: 30 }, {
                 y: 0,
                 scale: 1,
                 rotate: 0,
@@ -96,7 +96,7 @@ const Services = () => {
                 }
             });
 
-            gsap.fromTo('.serv-card:nth-child(4)', { y: 1600, scale: 0.6, rotate: -40, }, {
+            gsap.fromTo('.serv-card:nth-child(4)', { y: 400, scale: 0.6, rotate: -40, }, {
                 y: 0,
                 scale: 1,
                 rotate: 0,

@@ -1,8 +1,58 @@
 "use client";
 
+import PieYellow from '@/components/Globle/stats-graph/PieYellow';
 import './statistics.css'
+import { useEffect, useRef } from 'react';
+import RadarChart from '@/components/Globle/stats-graph/RadarChart';
+import SpeedChart from '@/components/Globle/stats-graph/SpeedChart';
+import GlobalMap from '@/components/Globle/stats-graph/GlobalMap';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import PieGray from '@/components/Globle/stats-graph/PieGray';
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Statistics = () => {
+
+	const mapRef = useRef<HTMLDivElement>(null);
+	const tabletMapRef = useRef<HTMLDivElement>(null);
+
+	const animateMap = ( mapContainer: HTMLDivElement | null, triggerElement: HTMLElement | string ) => {
+  		if (!mapContainer) return;
+
+		const countries = gsap.utils.toArray<SVGPathElement>( mapContainer.querySelectorAll(".map-country-fill"));
+		countries.forEach((country) => { country.setAttribute("fill", "transparent"); });
+
+		gsap.set(countries, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%",});
+
+  		ScrollTrigger.create({ trigger: triggerElement, start: "top 80%", once: true,
+
+		onEnter: () => {
+			gsap.delayedCall(4, () => {
+				const tl = gsap.timeline();
+
+				countries.forEach((country) => {
+				const fillColor = country.dataset.fill;
+
+					tl.to(country, { opacity: 1, scale: 1, duration: 0.01, ease: "back.out(2.2)",
+						onStart: () => {
+							if (fillColor) {
+								country.setAttribute("fill", fillColor);
+								country.setAttribute("stroke", "transparent");
+								country.setAttribute("stroke-width", "0.083871");
+							}
+						},
+					});
+				});
+			});
+		},
+	});};
+
+	useEffect(() => { 
+		animateMap( mapRef.current, ".stats-card-6");
+		animateMap( tabletMapRef.current, ".stats-tablet-card-7");
+	}, []);
+	
 	return (
 		<section className="section bg-[#040E36]">
 			<div className="container">
@@ -18,8 +68,8 @@ const Statistics = () => {
 						<div className="stats-card stats-card-2 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">27+</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Specialised Solutions Crafted</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
-
+							<div className="rounded-[20px] w-[357px] mt-[20px] mb-[20px]">
+								<PieYellow />
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Every solution is purpose-built. Never recycled. Always intentional. </p>
 						</div>
@@ -27,8 +77,8 @@ const Statistics = () => {
 						<div className="stats-card stats-card-3 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">8+</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Industries Transformed Globally</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
-
+							<div className="rounded-[20] w-[357px] mt-[20px] mb-[20px]">
+								<RadarChart />
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">From startups to enterprises. Solutions shaped for every sector.</p>
 						</div>
@@ -36,8 +86,8 @@ const Statistics = () => {
 						<div className="stats-card stats-card-4 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px] ">98%</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Client Trust Retained</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
-
+							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px]">
+								<SpeedChart />
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Relationships built on results. Trust earned through consistency.</p>
 						</div>
@@ -54,8 +104,8 @@ const Statistics = () => {
 								<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">7</h3>
 								<p className="font-normal text-18 text-[white] uppercase">Global Markets Served</p>
 							</div>
-							<div className="stast-card-image rounded-[20] w-[100%] h-[320] border border border-[#C6C6C6] mt-[20px] mb-[20px]">
-
+							<div className="stast-card-image rounded-[20] w-[100%] h-[320] mt-[20px] mb-[20px]">
+								<GlobalMap ref={mapRef} />
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6] w-[272px] absolute right-[20px] bottom-[20px]">Ideas built without borders. Creating impact across markets.</p>
 						</div>
@@ -63,8 +113,8 @@ const Statistics = () => {
 						<div className="stats-card stats-card-7 w-[397px] h-[428px] p-[20px] border-l border-[#424242]">
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">95%</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Projects Delivered With Precision</p>
-							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
-
+							<div className="rounded-[20] w-[357px] mt-[20px] mb-[20px]">
+								<PieGray />
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Precision in every milestone. Delivered when it matters most.</p>
 						</div>
@@ -104,7 +154,7 @@ const Statistics = () => {
 							<h3 className="font-semibold text-[white] mb-[6px] font-[64px] ">98%</h3>
 							<p className="stats-subtitle font-normal text-18 text-[white] uppercase">Client Trust Retained</p>
 							<div className="stast-card-image rounded-[20] w-[357px] h-[200] mt-[20px] mb-[20px] border border border-[#C6C6C6]">
-
+								
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Relationships built on results. Trust earned through consistency.</p>
 						</div>

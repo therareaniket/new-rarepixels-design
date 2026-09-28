@@ -1,0 +1,93 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart as CustomRadarChart } from "recharts"
+import { Card, CardContent } from "@/components/ui/card"
+import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart"
+
+gsap.registerPlugin(ScrollTrigger)
+
+const chartData = [
+  { month: "Tech & SaaS", desktop: 8 },
+  { month: "FinTech", desktop: 6 },
+  { month: "Healthcare", desktop: 8 },
+  { month: "E-commerce", desktop: 10 },
+  { month: "Real Estate", desktop: 7 },
+  { month: "Education", desktop: 8 },
+  { month: "AI Emerging", desktop: 9 },
+  { month: "Food", desktop: 7 },
+]
+
+const chartConfig = {
+  desktop: {
+    label: "Solution",
+    color: "#ED0180",
+  },
+} satisfies ChartConfig
+
+export default function RadarChart() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isInView, setIsInView] = useState(false)
+
+  // Set the delay to 2 seconds
+  const ANIMATION_DELAY = 2
+
+  useEffect(() => {
+    const element = containerRef.current
+    if (!element) return
+
+    const trigger = ScrollTrigger.create({
+      trigger: element,
+      start: "top 80%",
+      once: true,
+      onEnter: () => {
+        // Delayed trigger for Recharts state
+        gsap.delayedCall( window.innerWidth > 479 ? ANIMATION_DELAY : 0.2 , () => {
+          setIsInView(true)
+        })
+
+        // Fade in opacity with 2s delay
+        gsap.to(element, {
+          opacity: 1,
+          duration: 0.6,
+          delay: window.innerWidth > 479 ? ANIMATION_DELAY : 0.2 ,
+          ease: "power2.out",
+        })
+      },
+    })
+
+    return () => {
+      trigger.kill()
+    }
+  }, [])
+
+  return (
+    <Card className="impact-1 ring-0 p-0">
+      <CardContent className="p-0 flex items-center justify-center">
+        {/* Set initial opacity-0 to eliminate flash of content */}
+        <div ref={containerRef} className="custom-pie-wrapper opacity-0 stast-card-image w-full h-[200]">
+          <ChartContainer config={chartConfig} className="custom-radar-container">
+            <CustomRadarChart data={chartData}>
+              {/* <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+              <PolarAngleAxis dataKey="month" /> */}
+              <PolarGrid />
+              <Radar
+                key={isInView ? "in-view" : "hidden"}
+                dataKey="desktop"
+                fill="var(--color-desktop)"
+                fillOpacity={0.6}
+                dot={{ r: 4, fillOpacity: 1, fill: "#Ed0180" }}
+                isAnimationActive={isInView}
+                animationDuration={1000}
+                animationEasing="ease-out"
+                animationBegin={0}
+              />
+            </CustomRadarChart>
+          </ChartContainer>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
