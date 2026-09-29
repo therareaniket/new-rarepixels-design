@@ -1,11 +1,66 @@
 "use client"
 
-import Image from "next/image"
 import "./why-choose-us.css"
+import Image from "next/image"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useLayoutEffect } from "react";
 
 const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 
 const WhyChooseUs = () => {
+
+    gsap.registerPlugin(ScrollTrigger);
+    
+    useLayoutEffect(() => {
+        if(typeof window !== 'undefined' && window.innerWidth >= 1024 && window.innerHeight >= 800) {
+
+            gsap.set(".why-pointer-1", { xPercent: 50, yPercent: 50 } )
+            gsap.set(".why-pointer-2", { xPercent: 50, yPercent: -50 } )
+            gsap.set(".why-pointer-3", { xPercent: -50, yPercent: 50 } )
+            gsap.set(".why-pointer-4", { xPercent: -50, yPercent: 0 } )
+            gsap.set(".why-pointer-5", { xPercent: -50, yPercent: -50 } )
+            
+            gsap.fromTo(".why-pointer", 
+                { opacity: 0, scale: 0.5, }, 
+                { opacity: 1, scale: 1, xPercent: 0, yPercent: 0, duration: 0.5, delay: 1, stagger: 0.5,
+                    scrollTrigger: {
+                        trigger: ".why-choose-small-container",
+                        start: "top 40%",
+                    }
+                } 
+            )
+        } 
+        else {
+            gsap.fromTo(".why-pointer", 
+                { opacity: 0, scale: 0.5, y: 100 }, 
+                { opacity: 1, scale: 1, y: 0, duration: 0.8, delay: 0.3, stagger: 0.5,
+                    scrollTrigger: {
+                        trigger: ".hm-why-choose-us-pointers",
+                        start: "top 60%",
+                    }
+                } 
+            )
+        }
+
+        
+        gsap.fromTo(".why-choose-us-hand-img", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 1,
+            scrollTrigger: {
+                trigger: ".why-choose-small-container",
+                start: "top 40%",
+            }}
+        );
+
+        gsap.to(".why-choose-eclipse", {
+            "--clip-right": "100%",
+            duration: 2,
+            scrollTrigger: {
+                trigger: ".why-choose-small-container",
+                start: "top 40%",
+            }
+        });
+    }, []);
+
     return (
         <section className="section bg-[#01030D]">
             <div className="container">
@@ -18,13 +73,13 @@ const WhyChooseUs = () => {
                 <div className="container-sm why-choose-small-container relative ">
                     <div className="hm-why-choose-us-pointers flex justify-between items-center mt-[60px] relative z-[2]">
                         <div className="why-choose-pointer-left flex flex-col gap-[120px]">
-                            <div className="why-pointer w-[370px]">
+                            <div className="why-pointer why-pointer-1 w-[370px]">
                                 <h3 className="h6 font-semibold text-[white] mb-[20px]">Built, Not Borrowed</h3>
 
                                 <p className="text-18 font-normal text-[#C6C6C6]">We don&apos;t believe in templates or recycled thinking. Every solution is created from the ground up to fit your business, your users, and your ambitions.</p>
                             </div>
 
-                            <div className="why-pointer w-[370px]">
+                            <div className="why-pointer why-pointer-2 w-[370px]">
                                 <h3 className="h6 font-semibold text-[white] mb-[20px]">Simplicity With Purpose</h3>
 
                                 <p className="text-18 font-normal text-[#C6C6C6]">Great experiences feel effortless. We remove complexity, sharpen every interaction, and design with clarity at the center of every decision.</p>
@@ -32,18 +87,18 @@ const WhyChooseUs = () => {
                         </div>
 
                         <div className="why-choose-pointer-right flex flex-col gap-[120px]">
-                            <div className="why-pointer w-[370px]">
+                            <div className="why-pointer why-pointer-3 w-[370px]">
                                 <h3 className="h6 font-semibold text-[white] mb-[20px]">Ideas That Get Built</h3>
 
                                 <p className="text-18 font-normal text-[#C6C6C6]">A vision means little without execution. From first sketch to final launch, every detail is delivered with precision, consistency, and care.</p>
                             </div>
 
-                            <div className="why-pointer w-[370px]">
+                            <div className="why-pointer why-pointer-4 w-[370px]">
                                 <h3 className="h6 font-semibold text-[white] mb-[20px]">Partners In The Process</h3>
 
                                 <p className="text-18 font-normal text-[#C6C6C6]">We work alongside you, not around you. The best outcomes come from trust, collaboration, and relationships that grow beyond a single project.</p>
                             </div>
-                            
+
                             <div className="why-pointer why-pointer-5 w-[370px]">
                                 <h3 className="h6 font-semibold text-[white] mb-[20px]">Measured By Impact</h3>
 
@@ -53,12 +108,12 @@ const WhyChooseUs = () => {
                     </div>
 
                     <div className="why-choose-image-wrapper">
-                        <div className="why-choose-us-hand-img">
-                            <Image src={`${CDN_URL}/images/homepage/why-choose-us/why-choose-us-hand.png`} alt="why-choose-us-hand-image" width={412} height={684} className="why-choose-hand absolute bottom-[0] left-[50%] translate-x-[-50%] z-[2]" />
+                        <div className="why-choose-us-hand-img relative z-[10]">
+                            <Image src={`${CDN_URL}/images/homepage/why-choose-us/why-choose-us-hand.png`} alt="why-choose-us-hand-image" width={412} height={684} className="why-choose-hand absolute bottom-[0] left-[50%] translate-x-[-50%]" />
                         </div>
 
                         <div className="why-choose-us-bg-eclipse">
-                            <div className=" why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
+                            <div className="why-choose-eclipse absolute bottom-[0] left-[50%] translate-x-[-50%]">
                                 <svg className="eclipse-1 w-[354]" viewBox="0 0 354 212" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="177" cy="177" r="176" stroke="url(#paint0_linear_4268_7206)" strokeWidth="2" />
                                     <defs>

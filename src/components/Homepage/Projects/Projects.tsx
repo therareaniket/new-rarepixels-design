@@ -85,7 +85,7 @@ export default function Projects() {
 
 				<div className="active-project-title-controller w-[1000px] mt-[30px] flex justify-between">
 					<div className="active-project-name">
-						<span className="h4 font-semibold text-black">
+						<span className="h4 font-medium text-black">
 							{PROJECT_DATA[activeIndex].title}
 						</span>
 					</div>

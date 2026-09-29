@@ -22,7 +22,7 @@ const About = () => {
             
             gsap.fromTo(".hm-abt-card", 
                 { opacity: 0, scale: 0.5, }, 
-                { opacity: 1, scale: 1, xPercent: 0, yPercent: 0, duration: 1, stagger: 0.5,
+                { opacity: 1, scale: 1, xPercent: 0, yPercent: 0, duration: 0.5, stagger: 0.5,
                     scrollTrigger: {
                         trigger: ".hm-abt-content-wrapper",
                         start: "top 60%",

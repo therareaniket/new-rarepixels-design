@@ -1,5 +1,6 @@
 .project-list video { width: 100%; height: 100%; object-fit: cover; }
-.active-project-name .h4 { line-height: 1; }
+.active-project-name { display: flex; align-items: center; background-color: #EDEDED; padding: 6px 18px; border-radius: 30px; }
+.active-project-name .h4 { line-height: 1; margin-bottom: 0; }
 
 @media (max-width: 1799px) {
     .project-list { width: 870px; height: 480px; }
