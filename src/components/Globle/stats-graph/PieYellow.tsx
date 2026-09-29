@@ -56,7 +56,7 @@ export default function PieYellow() {
   }, [])
 
   return (
-    <Card className="impact-1 flex flex-col shadow-none t p-0 border-0 ring-0 bg-transparent">
+    <Card className="impact-1 flex flex-col shadow-none t p-0 border-0 ring-0">
       <CardContent className="flex-1 p-0 flex items-center justify-center">
         {/* Added h-[200px] and w-full directly to ensure dimensions are never 0 on mount */}
         <div ref={containerRef} className="opacity-0 w-full stast-card-image h-[200px] p-0">

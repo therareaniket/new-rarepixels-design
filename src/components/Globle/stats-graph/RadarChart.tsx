@@ -44,7 +44,7 @@ export default function RadarChart() {
       once: true,
       onEnter: () => {
         // Delayed trigger for Recharts state
-        gsap.delayedCall( window.innerWidth > 479 ? ANIMATION_DELAY : 0.2 , () => {
+        gsap.delayedCall( window.innerWidth > 768 ? ANIMATION_DELAY : 0.2 , () => {
           setIsInView(true)
         })
 
@@ -52,7 +52,7 @@ export default function RadarChart() {
         gsap.to(element, {
           opacity: 1,
           duration: 0.6,
-          delay: window.innerWidth > 479 ? ANIMATION_DELAY : 0.2 ,
+          delay: window.innerWidth > 768 ? ANIMATION_DELAY : 0.2 ,
           ease: "power2.out",
         })
       },
@@ -68,7 +68,7 @@ export default function RadarChart() {
       <CardContent className="p-0 flex items-center justify-center">
         {/* Set initial opacity-0 to eliminate flash of content */}
         <div ref={containerRef} className="custom-pie-wrapper opacity-0 stast-card-image w-full h-[200]">
-          <ChartContainer config={chartConfig} className="custom-radar-container">
+          <ChartContainer config={chartConfig} className="custom-radar-container w-full h-full">
             <CustomRadarChart data={chartData}>
               {/* <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
               <PolarAngleAxis dataKey="month" /> */}

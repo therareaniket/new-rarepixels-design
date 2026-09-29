@@ -5,7 +5,6 @@ import { Pie, PieChart } from "recharts"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart"
 
-// Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
 const chartData = [
@@ -42,46 +41,42 @@ export default function PieGray() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
 
-  // Configure your delay duration in seconds
-  const ANIMATION_DELAY = 5
-
+  const ANIMATION_DELAY = typeof window !== 'undefined' && window.innerWidth < 1025 && window.innerHeight >900 ? 4 : 5;
+  
   useEffect(() => {
     const element = containerRef.current
     if (!element) return
 
     const trigger = ScrollTrigger.create({
       trigger: element,
-      start: "top 80%", // Triggers when the top of the chart hits 80% down the viewport
-      once: true, // Only trigger the animation once
+      start: "top 80%",
+      once: true,
       onEnter: () => {
-        // Delayed trigger for Recharts state
-        gsap.delayedCall(window.innerWidth > 479 ? ANIMATION_DELAY : 0.2, () => {
+        gsap.delayedCall(window.innerWidth > 768 ? ANIMATION_DELAY : 0.2, () => {
           setIsInView(true)
         })
 
-        // Fade in opacity with delay
         gsap.to(element, {
           opacity: 1,
           duration: 0.6,
-          delay: window.innerWidth > 479 ? ANIMATION_DELAY : 0.2,
+          delay: window.innerWidth > 768 ? ANIMATION_DELAY : 0.2,
           ease: "power2.out",
         })
       },
     })
 
     return () => {
-      trigger.kill() // Cleanup on unmount
+      trigger.kill()
     }
   }, [])
 
   return (
     <Card className="impact-1 flex flex-col ring-0 p-0">
-      <CardContent className="flex-1 pb-0 flex items-center justify-center">
+      <CardContent className="flex-1 pb-0 flex items-center justify-center pb-[20px]">
         {/* Set initial opacity-0 to prevent flash */}
         <div ref={containerRef} className="custom-pie-wrapper opacity-0 stast-card-image w-full h-[200]">
-          <ChartContainer config={chartConfig} className="custom-pie-container">
+          <ChartContainer config={chartConfig} className="custom-pie-container w-full h-full">
             <PieChart>
-              {/* <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} /> */}
               <Pie
                 key={isInView ? "in-view" : "hidden"}
                 data={chartData}
