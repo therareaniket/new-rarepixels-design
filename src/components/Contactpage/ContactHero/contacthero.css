@@ -1,6 +1,7 @@
 /*  custom */
 
 .contact-title-left h1 { font-size: 98px; line-height: 108px; }
+.contact-title-left h1 span { display: block; }
 
 /* responsive */
 @media (max-width: 1799px) { 

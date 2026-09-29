@@ -83,21 +83,24 @@ export default function Projects() {
 					</div>
 				</div>
 
-				<div className="active-project-title-controller w-[1000px] mt-[30px] flex justify-between">
+				<div className="active-project-title-controller w-[1000px] mt-[30px] flex items-center justify-between">
 					<div className="active-project-name">
 						<span className="h4 font-medium text-black">
 							{PROJECT_DATA[activeIndex].title}
 						</span>
 					</div>
 
-					<div className="projects-controller w-max p-[6px] bg-[#EDEDED] flex items-center rounded-full " style={{ display: "flex" }}>
+					<div className="projects-controller w-max p-[2px] bg-[#EDEDED] flex items-center rounded-full " style={{ display: "flex" }}>
 						<button className="hover:cursor-pointer hover:bg-white px-[14px] py-[6px] transform scale-x-[-1] rounded-full leading-1 transition-all" 
 							type="button" 
 							aria-label="previous-button"
 							onClick={handlePrev}
 							disabled={activeIndex === 0}
 							style={{ cursor: activeIndex === 0 ? "not-allowed" : "pointer", opacity: activeIndex === 0 ? 0.5 : 1 }}>
-							<span className="icon-hero-cta-arrow"></span>
+							<svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.775 20L0 18.225L8.225 10L0 1.775L1.775 0L11.775 10L1.775 20Z" fill="#1C1B1F"/>
+                            </svg>
+
 						</button>
 
 						<button className="hover:cursor-pointer hover:bg-white px-[14px] py-[6px] rounded-full leading-1 transition-all" 
@@ -106,7 +109,9 @@ export default function Projects() {
 							onClick={handleNext}
 							disabled={activeIndex === PROJECT_DATA.length - 1}
 							style={{ cursor: activeIndex === PROJECT_DATA.length - 1 ? "not-allowed" : "pointer", opacity: activeIndex === PROJECT_DATA.length - 1 ? 0.5 : 1 }}>
-							<span className="icon-hero-cta-arrow"></span>
+							<svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.775 20L0 18.225L8.225 10L0 1.775L1.775 0L11.775 10L1.775 20Z" fill="#1C1B1F"/>
+                                </svg>
 						</button>
 					</div>
 				</div>
@@ -149,9 +154,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(({ project, ind
     const handleClick = () => { if (!isActive) { onSetActive(index); }};
 
     return (
-        <div ref={ref} onClick={handleClick}
-            className={`project-list w-[1000px] h-[550px] rounded-[30px] relative overflow-hidden flex-shrink-0 cursor-pointer ${isActive ? "active" : ""}`}>
-            
+        <div ref={ref} onClick={handleClick} className={`project-list w-[1000px] h-[550px] rounded-[30px] relative overflow-hidden flex-shrink-0 cursor-pointer ${isActive ? "active" : ""}`}>
 			<video  ref={videoRef}  className="project-video w-full h-full object-cover"  src={project.videoSrc}  poster={project.thumbNail}  loop  muted  playsInline />
 
             {!isVideoPlaying && (

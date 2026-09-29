@@ -10,7 +10,7 @@ const ContactHero = () => {
             <div className="container">
                 <div className="contact-title-wrapper pt-[60px] pb-[40px] flex items-center justify-between">
                     <div className="contact-title-left">
-                        <h1 className="font-semibold w-[838px]">Something Great In Mind? Let&apos;s Build It</h1>
+                        <h1 className="font-semibold w-[838px]">Something Great In Mind? <span>Let&apos;s Build It</span></h1>
                     </div>
 
                     <div className="contact-hero-image w-[560px] h-[485px]">
