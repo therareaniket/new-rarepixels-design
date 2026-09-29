@@ -17,7 +17,7 @@ export default function SpeedChart() {
   const circumference = Math.PI * radius;
 
   const clampedValue = Math.min(Math.max(value, 0), 100);
-  
+
   const strokeDashoffset = circumference - (clampedValue / 100) * circumference;
 
   const needleAngle = -90 + (clampedValue / 100) * 180;
@@ -59,7 +59,7 @@ export default function SpeedChart() {
   }, []);
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center justify-center w-full max-w-[360px] mx-auto p-4 opacity-0" >
+    <div ref={containerRef} className=" flex flex-col items-center justify-center w-full max-w-[360px] mx-auto opacity-0" >
       <div className="relative w-full aspect-[2/1.2] flex justify-center items-center">
         <svg viewBox={`0 0 ${size} ${size / 2 + 50}`} className="w-full h-auto overflow-visible">
           <path d={`M ${center - radius} ${center} A ${radius} ${radius} 0 0 1 ${center + radius} ${center}`} fill="none" stroke="#dddddd" strokeWidth={strokeWidth} strokeLinecap="butt" />

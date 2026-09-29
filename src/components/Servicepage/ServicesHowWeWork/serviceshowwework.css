@@ -1,40 +1,79 @@
 /*  custom */
 
+.services-how-work-card { border-radius: 20px 0 20px 20px; }
+.services-step-number { position: relative; border-radius: 20px 20px 0 0; }
+
+.services-step-number-1::before { content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FBF9E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FBF9E9; background: transparent; }
+.services-step-number-2::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
+.services-step-number-3::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #F5F8F5; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #F5F8F5; background: transparent; }
+.services-step-number-4::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #D5D8E2; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #D5D8E2; background: transparent; }
+.services-step-number-5::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FBF9E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FBF9E9; background: transparent; }
+.services-step-number-6::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
 
 /* responsive */
-@media (max-width: 1799px) { }
+@media (max-width: 1799px) { 
+    .services-how-work-card { padding: 40px; }
+}
 
-@media (max-width: 1599px) { }
+@media (max-width: 1599px) { 
+    .services-step-number { width: 170px; }
+    .services-how-work-card-wrapper { margin-top: 40px; }
+}
 
 @media (max-width: 1599px) and (max-height: 750px) {}
 
 @media (max-width: 1439px) { }
 
-@media (max-width: 1359px) { }
+@media (max-width: 1359px) { 
+    .services-how-work-card-wrapper { margin-top: 0; }
+    .services-how-work-card p { width: 800px; }
+}
 
 @media (max-width: 1359px) and (max-height: 600px) { }
 
-@media (max-width: 1199px) { }
+@media (max-width: 1199px) { 
+    .services-step-number { width: 150px; }
+    .services-how-work-card { padding: 30px; }
+    .services-how-work-card h5 { margin-bottom: 10px; }
+    .services-how-work-card-wrapper { gap: 20px; }
+    .services-how-we-work-title p { width: 530px; }
+}
 
 @media (max-width: 1024px) {  }
 
 @media (max-width: 1024px) and (max-height: 770px) { }
 
-@media (max-width: 991px) { }
+@media (max-width: 991px) { 
+    .services-how-work-card p { width: 100%; }
+}
 
-@media (max-width: 839px) { }
+@media (max-width: 839px) { 
+    .services-how-work-card .h5 { margin-top: 16px; margin-bottom: 10px; } 
+    .services-how-we-work-title p { width: 460px; }
+}
 
 @media (max-width: 767px) { }
 
 @media (max-width: 639px) { }
 
-@media (max-width: 575px) { }
+@media (max-width: 575px) { 
+    .services-how-work-card .h5 { font-size: 18px; line-height: 26px; }
+    .services-how-we-work-title p { width: 100%; }
+    .services-how-work-card-wrapper { margin-top: 30px; }
+}
 
-@media (max-width: 479px) { }
+@media (max-width: 479px) { 
+    .services-how-work-card .h5 { margin-top: 14px; }
+    .services-step-number { width: max-content; padding: 15px 30px; border-radius: 16px 16px 0 0; }
+}
 
-@media (max-width: 439px) { }
+@media (max-width: 439px) { 
+    .services-how-work-card { padding: 20px; }
+}
 
-@media (max-width: 400px) { }
+@media (max-width: 400px) { 
+    .services-how-work-card .h5 { font-size: 16px; line-height: 24px; }
+}
 
 @media (max-width: 374px) { }
 

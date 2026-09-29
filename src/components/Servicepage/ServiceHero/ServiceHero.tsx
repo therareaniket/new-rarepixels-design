@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import './servicehero.css'
 
 const ServiceHero = () => {
@@ -20,7 +21,9 @@ const ServiceHero = () => {
                             <div className="services-stat services-stat-1">
                                 <div className='se-stats-title flex items-center gap-[20px]'>
                                     <h2 className='text-[#ED0180]'>100+</h2>
-                                    <div className='w-[32px] h-[32px] bg-[red]'></div>
+                                    <div className='w-[32px] h-[32px]'>
+                                        <Image className='services-gif' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/services-listing/hero/services-stat-bar.gif" alt='services-bar' width={32} height={32}></Image>
+                                    </div>
                                 </div>
 
                                 <p className='text-18 font-medium text-[white] w-[156px] mt-[6px]'>Brands Transformed</p>
@@ -29,7 +32,9 @@ const ServiceHero = () => {
                             <div className="services-stat services-stat-2">
                                 <div className='se-stats-title flex items-center gap-[20px]'>
                                     <h2 className='text-[#ED0180]'>50+</h2>
-                                    <div className='w-[32px] h-[32px] bg-[red]'></div>
+                                    <div className='w-[32px] h-[32px]'>
+                                        <Image className='services-gif' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/services-listing/hero/services-stat-clock.gif" alt='services-bar' width={32} height={32}></Image>
+                                    </div>
                                 </div>
 
                                 <p className='text-18 font-medium text-[white] w-[200px] mt-[6px]'>Bespoke Digital Products Engineered </p>

@@ -1,6 +1,6 @@
 /*  custom */
 
-.services-video { width: 100%; height: 100%; object-fit: contain; }
+.services-video, .services-gif { width: 100%; height: 100%; object-fit: contain; }
 
 /* responsive */
 @media (max-width: 1799px) { 

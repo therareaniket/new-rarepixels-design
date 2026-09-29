@@ -74,7 +74,7 @@ export default function PieGray() {
     <Card className="impact-1 flex flex-col ring-0 p-0">
       <CardContent className="flex-1 pb-0 flex items-center justify-center pb-[20px]">
         {/* Set initial opacity-0 to prevent flash */}
-        <div ref={containerRef} className="custom-pie-wrapper opacity-0 stast-card-image w-full h-[200]">
+        <div ref={containerRef} className="custom-pie-wrapper opacity-0 stast-card-image w-full ">
           <ChartContainer config={chartConfig} className="custom-pie-container w-full h-full">
             <PieChart>
               <Pie

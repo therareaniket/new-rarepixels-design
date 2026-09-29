@@ -32,11 +32,11 @@ const AboutTeams = () => {
                         >
                             <SwiperSlide className="flex items-end w-[100%]">
                                 <div className="abt-author-wrapper w-[100%] flex items-end">
-                                    <div className="abt-author-story w-[400px] h-[max-content]">
-                                        <p className='text-18 font-normal text-[white]'>At RarePixels, great work starts with great people. We are a multidisciplinary team of designers, developers, strategists, branding specialists, and creative thinkers who share a passion for building meaningful digital experiences.</p>
+                                    <div className="abt-author-story w-[400px] bg-[#ED0180] h-[max-content]">
+                                        <p className='text-18 font-normal text-[white]'>At RarePixels, Bina brings together creativity, curiosity, and a sharp eye for what makes an experience meaningful. She believes great work starts by understanding the problem, asking the right questions, and finding a better way forward. Her approach blends creative thinking with purpose, shaping the vision and the culture behind RarePixels.</p>
                                         <div className='teams-authorname pt-[20px] mt-[20px]'>
                                             <h3 className='h5 font-semibold text-[white]'>Bina Yogesh</h3>
-                                            <p className='text-18 font-normal text-[white]'>Founder, Creative Director</p>
+                                            <p className='text-18 font-normal text-[white]'>Founder</p>
                                         </div>
                                     </div>
 
@@ -48,11 +48,11 @@ const AboutTeams = () => {
 
                             <SwiperSlide className="flex items-end w-[100%]">
                                 <div className="abt-author-wrapper w-[100%] flex items-end">
-                                    <div className="abt-author-story w-[400px] h-[max-content]">
-                                        <p className='text-18 font-normal text-[white]'>At RarePixels, great work starts with great people. We are a multidisciplinary team of designers, developers, strategists, branding specialists, and creative thinkers who share a passion for building meaningful digital experiences.</p>
+                                    <div className="abt-author-story w-[400px] bg-[#040E36] h-[max-content]">
+                                        <p className='text-18 font-normal text-[white]'>Yogesh brings a balance of strategic thinking, execution, and a constant drive to make things better. He believes ideas become valuable when they are thoughtfully built and made to work in the real world. From shaping solutions to pushing projects forward, he plays a key role in turning the RarePixels vision into meaningful work.</p>
                                         <div className='teams-authorname pt-[20px] mt-[20px]'>
-                                            <h3 className='h5 font-semibold text-[white]'>Bina Yogesh</h3>
-                                            <p className='text-18 font-normal text-[white]'>Founder, Creative Director</p>
+                                            <h3 className='h5 font-semibold text-[white]'>Yogesh</h3>
+                                            <p className='text-18 font-normal text-[white]'>Co-founder</p>
                                         </div>
                                     </div>
 
