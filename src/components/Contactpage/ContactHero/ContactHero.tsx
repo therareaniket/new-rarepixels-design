@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import './contacthero.css';
 
 
@@ -12,7 +13,9 @@ const ContactHero = () => {
                         <h1 className="font-semibold w-[838px]">Something Great In Mind? Let&apos;s Build It</h1>
                     </div>
 
-                    <div className="contact-hero-image w-[560px] h-[485px] bg-[red]"></div>
+                    <div className="contact-hero-image w-[560px] h-[485px]">
+                        <Image className='w-[100%] h-[100%] object-contain' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/hero/contact-hero-svg.svg" alt='contact-hero' width={560} height={485}></Image>
+                    </div>
                 </div>
 
                 <div className="contact-hero-bg-lines absolute top-[50%] translate-y-[-50%] left-[0] z-[-1]">

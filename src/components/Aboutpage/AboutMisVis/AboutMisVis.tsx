@@ -23,7 +23,7 @@ const AboutMisVis = () => {
 
                 <div className="abt-mis-vis-content-wrapper flex items-center justify-between mt-[60px] w-[1415px] m-[auto]">
                     <div className="abt-mis-gif w-[520px] h-[580px]">
-                        <video className='abt-mis-video' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-mis-vis/door-animation.mp4" loop autoPlay muted playsInline width={528} height={580}></video>
+                        <video className='abt-mis-video' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-mis-vis/vision-mission-door.mp4" loop autoPlay muted playsInline width={528} height={580}></video>
                     </div>
 
                     <div className="mis-vis-text w-[650px]">
