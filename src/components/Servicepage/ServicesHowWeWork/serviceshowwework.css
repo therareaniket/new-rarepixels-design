@@ -1,14 +1,33 @@
 /*  custom */
-
-.services-how-work-card { border-radius: 20px 0 20px 20px; }
+.services-how-we-work { position: absolute; width: 100%; }
+.services-how-work-card { border-radius: 20px 0 20px 20px; padding-top: var(--card-padding-top); }
 .services-step-number { position: relative; border-radius: 20px 20px 0 0; }
+.services-how-we-work-1 .services-how-work-card, .services-how-we-work-1 .services-step-number { background-color: #FBF9E9; }
+.services-how-we-work-2 .services-how-work-card, .services-how-we-work-2 .services-step-number { background-color: #FCD4E9; }
+.services-how-we-work-3 .services-how-work-card, .services-how-we-work-3 .services-step-number { background-color: #F5F8F5; }
+.services-how-we-work-4 .services-how-work-card, .services-how-we-work-4 .services-step-number { background-color: #D5D8E2; }
+.services-how-we-work-5 .services-how-work-card, .services-how-we-work-5 .services-step-number  { background-color: #FBF9E9; }
+.services-how-we-work-6 .services-how-work-card, .services-how-we-work-6 .services-step-number  { background-color: #FCD4E9; }
 
-.services-step-number-1::before { content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FBF9E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FBF9E9; background: transparent; }
-.services-step-number-2::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
-.services-step-number-3::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #F5F8F5; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #F5F8F5; background: transparent; }
-.services-step-number-4::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #D5D8E2; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #D5D8E2; background: transparent; }
-.services-step-number-5::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FBF9E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FBF9E9; background: transparent; }
-.services-step-number-6::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
+.services-how-we-work-1 .services-step-number::before { content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FBF9E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FBF9E9; background: transparent; }
+.services-how-we-work-2 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
+.services-how-we-work-3 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #F5F8F5; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #F5F8F5; background: transparent; }
+.services-how-we-work-4 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #D5D8E2; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #D5D8E2; background: transparent; }
+.services-how-we-work-5 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FBF9E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FBF9E9; background: transparent; }
+.services-how-we-work-6 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
+
+.service-section { position: relative; height: calc(100vh * 8); }
+.service-inner { position: sticky; top: 0; height: max-content; }
+
+.services-how-work-card-wrapper { --card-movement-distance: 320px; --card-padding-top: 60px; --collapsed-card-padding-top: 20px; height: 690px; }
+
+.services-how-we-work-2 { top: 66px; }
+.services-how-we-work-3 { top: calc(66px * 2); }
+.services-how-we-work-4 { top: calc(66px * 3); }
+.services-how-we-work-5 { top: calc(66px * 4); }
+.services-how-we-work-6 { top: calc(66px * 5); }
+
+.services-how-work-card .h1 { font-size: 40px; line-height: 48px; }
 
 /* responsive */
 @media (max-width: 1799px) { 

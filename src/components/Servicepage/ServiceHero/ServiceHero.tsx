@@ -7,7 +7,7 @@ const ServiceHero = () => {
     return (
         <section className="section bg-[#000000]">
             <div className="container">
-                <div className="servcies-hero-wrapper flex justify-between items-center">
+                <div className="servcies-hero-wrapper flex flex-row-reverse justify-between items-center">
                     <div className="services-hero-left w-[790] h-[760px]">
                         <video className='services-video' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/services-listing/services-hero-video.mp4" autoPlay muted loop playsInline width={790} height={760}></video>
                     </div>
