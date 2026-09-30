@@ -1,0 +1,83 @@
+/* custom */
+
+.abt-video-text { text-align: center; }
+.abt-video-text h1 { 
+    font-size: 350px; 
+    line-height: 350px; 
+    /* background-image: url('https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/rarepixels-footer-logo.svg');  */
+    background-size: cover;
+    background-position: center;
+    --webkit-background-clip: text;
+    --webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* color: transparent; */
+    color: #ED0180;
+}
+
+/* responsive */
+
+@media (max-width: 1799px) { 
+    .abt-video-text h1 { font-size: 322px; line-height: 322px; }
+    .abt-hero-title p { width: 590px; }
+}
+
+@media (max-width: 1599px) { 
+    .abt-video-text h2 { width: 520px; }
+    .abt-hero-title p { width: 530px; }
+    .abt-video-text h1 { font-size: 290px; line-height: 290px; }
+}
+
+@media (max-width: 1599px) and (max-height: 750px) {}
+
+@media (max-width: 1439px) { 
+    .abt-video-text h1 { font-size: 274px; line-height: 274px; }
+    .abt-hero-title p { width: 440px; }
+    .abt-video-text h2 { width: 450px; }
+}
+
+@media (max-width: 1359px) { 
+    .abt-video-text h1 { font-size: 240px; line-height: 240px; }
+    .abt-video-text h2 { width: 390px; }
+    .abt-hero-title p { width: 405px; }
+}
+
+@media (max-width: 1359px) and (max-height: 600px) { }
+
+@media (max-width: 1199px) { 
+    .abt-video-text h1 { font-size: 206px; line-height: 206px; }
+}
+
+@media (max-width: 1024px) { 
+    .abt-video-text h1 { font-size: 200px; line-height: 200px; }
+}
+
+@media (max-width: 1024px) and (max-height: 770px) { }
+
+@media (max-width: 991px) { 
+    .abt-video-text h1 { font-size: 169px; line-height: 169px; }
+    .abt-hero-title { flex-direction: column; gap: 30px; } 
+    .abt-video-text h2 { width: 100%; }
+    .abt-hero-title p { width: 100%; gap: 15px; } 
+}
+
+@media (max-width: 839px) { 
+    .abt-video-text h1 { font-size: 154px; line-height: 154px; }
+}
+
+@media (max-width: 767px) { 
+    .abt-video-text h1 { font-size: 126px; line-height: 129px; }
+}
+
+@media (max-width: 639px) { }
+
+@media (max-width: 575px) { }
+
+@media (max-width: 479px) { }
+
+@media (max-width: 439px) { }
+
+@media (max-width: 400px) { }
+
+@media (max-width: 374px) { }
+
+@media (max-width: 359px) { }

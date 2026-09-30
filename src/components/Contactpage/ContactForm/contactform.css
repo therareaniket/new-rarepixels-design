@@ -11,13 +11,12 @@
 .hm-inquiry-detail input { font-size: 18px; line-height: 18px; margin-bottom: 10px; padding-bottom: 5px; width: 250px; color: #979595; }
 .hm-inquiry-text-area textarea { color: #979595; }
 
-.hm-inquiry-tablet{ display: none; }
-
 
 /* responsive */
 @media (max-width: 1799px) { 
     .contact-form-right { width: 690px; }
     .hm-inquiry-text-area textarea { width: 100%; }
+    .skip-the-form-image { width: 150px; }
 }
 
 @media (max-width: 1599px) { 
@@ -34,6 +33,10 @@
 @media (max-width: 1439px) {
     .contact-form-right { width: 580px; }
     .contact-cta-left { width: 250px; }
+    .skip-the-form-image { margin-bottom: 7px; width: 125px; }
+    .cnct-form-checkbox { gap: 15px; }
+    .cnct-form-checkbox-option label { padding: 8px 16px; }
+    .contact-cta { margin-top: 35px; }
 }
 
 @media (max-width: 1359px) { }
@@ -44,15 +47,18 @@
     .cnct-form-checkbox-option label { padding: 8px 15px; }
     .cnct-form-checkbox { gap: 12px; }
     .contact-form-right { width: 520px; }
-    .contact-form-left { width: 390px; }
+    .contact-form-left { width: 410px; }
     .contact-cta { margin-top: 40px; } 
-    .contact-cta-left p { width: 185px; }
-    .contact-cta-phone { width: 160px; height: 160px; }
+    .contact-cta-left p { width: 240px; }
+    .contact-cta-phone { width: 120px; height: 120px; }
     .cnct-upload { font-size: 18px; line-height: 26px; }
+    .cnct-upload-icon { width: 26px; height: 26px; } 
 }
 
 @media (max-width: 1024px) { 
     .contact-form-right { width: 502px; }
+    .contact-form-left { width: 380px; }
+    .contact-cta { padding: 20px; }
 }
 
 @media (max-width: 1024px) and (max-height: 770px) { }
@@ -64,6 +70,11 @@
     .contact-cta-left p { width: 70%; margin-top: 10px; margin-bottom: 25px; }
     .contact-form-right { width: 100%; }
 
+    .contact-cta-phone { width: 160px; height: 160px; }
+    .cnct-upload { gap: 10px; padding: 8px 16px; }
+    .cnct-upload-icon { width: 18px; height: 18px; }
+    .hm-inquiry-detail { margin-bottom: 30px; }
+
 }
 
 @media (max-width: 839px) { 
@@ -74,6 +85,7 @@
 
 @media (max-width: 639px) { 
     .contact-cta-left p { width: 65%; }
+    .contact-cta-phone { width: 140px; height: auto; }
 }
 
 @media (max-width: 575px) { 
@@ -88,9 +100,15 @@
 
 @media (max-width: 479px) { }
 
-@media (max-width: 439px) { }
+@media (max-width: 439px) { 
+    .hm-inquiry-detail input { width: 193px; }
+    .hm-inquiry-detail { gap: 8px; }
+    .hm-inquiry-text-area textarea { margin-top: 6px; margin-left: 0; }
+}
 
-@media (max-width: 400px) { }
+@media (max-width: 400px) { 
+    .hm-inquiry-detail input { width: 167px; }
+}
 
 @media (max-width: 374px) { }
 
