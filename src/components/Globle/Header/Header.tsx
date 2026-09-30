@@ -11,15 +11,38 @@ const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 
 const Header = () => {
     const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
     const toggleMegaMenu = () => { setMegaMenuOpen((prev) => !prev); };
     const closeMegaMenu = () => { setTimeout(() => { setMegaMenuOpen(false); }, 100); };
 
+    // HEADER SCROLL HIDE & SHOW
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const heroHeight = window.innerHeight - 70;
+
+            if (currentScrollY > heroHeight) {
+                if (currentScrollY > lastScrollY) { setIsVisible(false); } 
+                else { setIsVisible(true); }
+            } else { setIsVisible(true); }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
+
+    // MEGAMENU OPEN & CLOSE
     useEffect(() => {
         if (megaMenuOpen) { document.body.style.overflow = "hidden"; } 
         else { document.body.style.overflow = "unset"; }
         return () => { document.body.style.overflow = "unset";};
     }, [megaMenuOpen]);
 
+    // ACTIVE LINK PATH CHANGE
     const pathname = usePathname();
     const isActive = (href: string) => pathname === href;
     const linkStyle = (href: string) => ({
@@ -31,9 +54,9 @@ const Header = () => {
     });
 
     return (
-        <header>
+        <header className={`fixed top-0 z-[98] w-max py-[20px] transition-transform duration-500 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}>
             <div className="container overflow-hidden">
-                <div className="nav-cont-wrapper fixed top-[20px] z-[98] w-max flex items-center gap-[80px] py-[10px] px-[20px] rounded-full">
+                <div className="nav-cont-wrapper w-full flex items-center justify-between">
                     <Link href="/" className="navbar-logo" >
                         <Image src={`${CDN_URL}/images/global/header/rare-pixels-logo.svg`} alt="header-logo" width={174} height={28} priority />
                     </Link>
@@ -45,7 +68,7 @@ const Header = () => {
             </div>
 
             {megaMenuOpen && (
-                <nav aria-label="Mega Menu" className="mega-menu fixed left-0 bg-white w-[100%] h-[100vh] py-[20px] z-[99]">
+                <nav aria-label="Mega Menu" className="mega-menu fixed top-0 left-0 bg-white w-[100%] h-[100vh] py-[20px] z-[99]">
                     <div className="container overflow-hidden h-[100%] relative z-[2]">
                         <button onClick={toggleMegaMenu} className="close-btn cursor-pointer rounded-full bg-[#ED0180] text-white p-[10px] mt-[20px] ml-[100%] translate-x-[-100%] font-semibold" type="button">CLOSE</button>
 

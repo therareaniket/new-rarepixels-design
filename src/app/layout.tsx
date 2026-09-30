@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Globle/Footer/Footer";
 import Header from "@/components/Globle/Header/Header";
 import { cn } from "@/lib/utils";
+import RefreshToTop from "@/lib/RefreshToTop";
 
 
 const strichpunktSans = Strichpunkt_Sans({
@@ -27,6 +28,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
 		<html lang="en" className={cn("h-full", "antialiased", strichpunktSans.variable, "font-sans", )} >
 			<body className="min-h-full flex flex-col">
+				<RefreshToTop />
+
 				<Header />
 
 				<main>

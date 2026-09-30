@@ -1,7 +1,8 @@
-.services { position: relative; height: 210vh; }
+.services { position: relative; height: 240vh; }
 .sticky-wrapper { position: sticky; top: 0; }
 
 @media (max-width: 1799px) {
+    .services { position: relative; height: 220vh; }
     .serv-card { width: 325px; height: 410px; padding: 26px; }
 }
 
@@ -9,13 +10,16 @@
     .serv-card { width: 300px;  height: 350px; padding: 25px; }    
 }
 
-@media (max-width: 1599px) and (max-height: 750px) {}
+@media (max-width: 1599px) and (max-height: 750px) {
+    .services { position: relative; height: 240vh; }
+}
 
 @media (max-width: 1439px) {
     .serv-card { width: 278px; height: 310px; padding: 22px; }
     .serv-bg-svg { width: 100%; display: flex; align-items: center; justify-content: center; }
     .card-heading .h6 { font-size: 18px; line-height: 26px; }
     .card-subtitles { margin-top: 20px; }
+    .services { position: relative; height: 240vh; }
 }
 
 @media (max-width: 1359px) {}

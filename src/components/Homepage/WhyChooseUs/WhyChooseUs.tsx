@@ -51,14 +51,14 @@ const WhyChooseUs = () => {
             }}
         );
 
-        gsap.to(".why-choose-eclipse", {
-            "--clip-right": "100%",
-            duration: 2,
-            scrollTrigger: {
-                trigger: ".why-choose-small-container",
-                start: "top 40%",
-            }
-        });
+        // gsap.to(".why-choose-eclipse", {
+        //     "--clip-right": "100%",
+        //     duration: 2,
+        //     scrollTrigger: {
+        //         trigger: ".why-choose-small-container",
+        //         start: "top 40%",
+        //     }
+        // });
     }, []);
 
     return (

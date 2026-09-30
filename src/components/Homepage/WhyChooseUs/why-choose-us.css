@@ -1,4 +1,4 @@
-.why-choose-eclipse { --clip-right: 0%; }
+/* .why-choose-eclipse { --clip-right: 0%; }
 
 .why-choose-eclipse::before { 
     content: "";
@@ -10,7 +10,7 @@
     background-color: black;
     color: white;
     clip-path: inset(0 var(--clip-right) 0 0);
-}
+} */
 
 
 @media (max-width: 1799px) {

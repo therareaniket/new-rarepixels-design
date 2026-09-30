@@ -1,4 +1,4 @@
-.nav-cont-wrapper { background-color: rgba(242, 242, 242, 0.6); backdrop-filter: blur(20px); }
+header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filter: blur(20px); }
 .mm-icon { font-size: 24px; }
 .mm-pages-link li:hover { color: var(--primary); transition: color 0.3s ease-in-out; }
 .mm-pages-link li:hover .link-icon { background-color: var(--primary); color: var(--white); transition: all 0.3s ease-in-out; }
@@ -11,8 +11,8 @@
 @media (max-width: 1799px) {}
 
 @media (max-width: 1599px) {
+    header { padding: 16px 0; }
     .navbar-logo { width: 150px; }
-    .nav-cont-wrapper { gap: 60px; }
     .mm-pages-link li a, .sub-service-list { width: 300px; }
     .link-subtitle, .sub-service-list li { font-size: 14px; line-height: 22px; }
 }
@@ -62,6 +62,7 @@
 }
 
 @media (max-width: 1024px) {
+    .navbar-logo { width: 170px; }
     .mm-pages-link ul { justify-content: space-between; gap: 26px; }
     .mm-pages-link li a, .sub-service-list { width: 290px; }
     .mm-pixels-t { left: 100px; }
@@ -97,7 +98,6 @@
 @media (max-width: 479px) {
     .navbar-logo { width: 120px; }
     .bento-menu { width: 18px; height: 18px; }
-    .nav-cont-wrapper { gap: 30px; padding: 10px 16px; }
     .link-title { margin-bottom: 0; }
     .mm-pages-link ul { gap: 16px; }
     .mm-pages-link li { width: calc(50% - 8px); }
