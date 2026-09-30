@@ -16,19 +16,17 @@ export default function Home() {
     return (
         <>
             <Hero />
+            <Testimonials />
+            <About />
+            <Services />
             <IndustriesUpdated />
-            {/* <Testimonials /> */}
-            {/* <About /> */}
-            {/* <Services /> */}
-            {/* <Industries /> */}
-            {/* <IndustriesUpdated /> */}
-            {/* <WhyChooseUs /> */}
+            <WhyChooseUs />
             {/* <Process /> */}
-            {/* <Projects /> */}
-            {/* <Statistics /> */}
-            {/* <Blog /> */}
-            {/* <FAQ /> */}
-            {/* <InquiryForm /> */}
+            <Projects />
+            <Statistics />
+            <Blog />
+            <FAQ />
+            <InquiryForm />
         </>
     );
 }
