@@ -28,7 +28,7 @@ const Statistics = () => {
   		ScrollTrigger.create({ trigger: triggerElement, start: "top 80%", once: true,
 
 		onEnter: () => {
-			gsap.delayedCall(window.innerWidth <= 768 ? 0.2 : window.innerWidth < 1025 && window.innerHeight > 900 ? 5.5 : 4, () => {
+			gsap.delayedCall(window.innerWidth <= 768 ? 0.2 : window.innerWidth < 1025 && window.innerHeight > 900 ? 4 : 4, () => {
 				const tl = gsap.timeline();
 
 				countries.forEach((country) => {
@@ -160,7 +160,20 @@ const Statistics = () => {
 						</div>
 					</div>
 
-					<div className="stats-tablet-card-row stats-tablet-card-row-3 flex">
+					<div className=" stats-tablet-card-row-4 flex">
+						<div className="stats-card stats-card-6 stats-tablet-card-7 relative w-[794px] h-[428px] p-[20px] border-l border-[#424242]">
+							<div className="map-card-text absolute bottom-[20px] left-[20px]">
+								<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">7</h3>
+								<p className="font-normal text-18 text-[white] uppercase">Global Markets Served</p>
+							</div>
+							<div className="stast-card-image rounded-[20] w-[100%] h-[320] mt-[20px] mb-[20px]">
+								<GlobalMap ref={tabletMapRef} />
+							</div>
+							<p className="text-18 font-normal text-[#C6C6C6] w-[272px] absolute right-[20px] bottom-[20px]">Ideas built without borders. Creating impact across markets.</p>
+						</div>
+					</div>
+
+					<div className="stats-tablet-card-row stats-tablet-card-row-3 flex border-t border-[#424242]">
 						<div className="stats-card  stats-card-5 w-[409px] flex flex-col justify-end h-[100%] pb-[20px]">
 							<p className="font-normal text-18 text-[#C6C6C6] mt-[20px] w-[349px]">The greatest measure of our work is seeing brands grow with confidence, products perform with purpose, and clients choose to build with us again.</p>
 							<p className="font-normal text-18 text-[#C6C6C6] mt-[20px] w-[349px]">Behind every percentage is a business that trusted us, a challenge we solved, and a partnership that continues to grow.</p>
@@ -173,19 +186,6 @@ const Statistics = () => {
 								<PieGray />
 							</div>
 							<p className="text-18 font-normal text-[#C6C6C6]">Precision in every milestone. Delivered when it matters most.</p>
-						</div>
-					</div>
-
-					<div className=" stats-tablet-card-row-4 flex">
-						<div className="stats-card stats-card-6 stats-tablet-card-7 relative w-[794px] h-[428px] p-[20px] border-l border-[#424242]">
-							<div className="map-card-text absolute bottom-[20px] left-[20px]">
-								<h3 className="font-semibold text-[white] mb-[6px] font-[64px]">7</h3>
-								<p className="font-normal text-18 text-[white] uppercase">Global Markets Served</p>
-							</div>
-							<div className="stast-card-image rounded-[20] w-[100%] h-[320] mt-[20px] mb-[20px]">
-								<GlobalMap ref={tabletMapRef} />
-							</div>
-							<p className="text-18 font-normal text-[#C6C6C6] w-[272px] absolute right-[20px] bottom-[20px]">Ideas built without borders. Creating impact across markets.</p>
 						</div>
 					</div>
 				</div>

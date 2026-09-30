@@ -13,7 +13,7 @@ const WhyChooseUs = () => {
     gsap.registerPlugin(ScrollTrigger);
     
     useLayoutEffect(() => {
-        if(typeof window !== 'undefined' && window.innerWidth >= 1024 && window.innerHeight >= 800) {
+        if(typeof window !== 'undefined' && window.innerWidth >= 1024 && window.innerHeight <= 800) {
 
             gsap.set(".why-pointer-1", { xPercent: 50, yPercent: 50 } )
             gsap.set(".why-pointer-2", { xPercent: 50, yPercent: -50 } )

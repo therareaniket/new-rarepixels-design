@@ -1,11 +1,11 @@
 /* custom */
 
 .stats-card h3 { font-size: 64px; line-height: 72px; }
-.stats-card-2 { background-color: rgba(247, 243, 211, 0.1); }
+/* .stats-card-2 { background-color: rgba(247, 243, 211, 0.1); }
 .stats-card-3 { background-color: rgba(252, 212, 233, 0.1); }
 .stats-card-4 { background-color: rgba(245, 248, 245, 0.1); }
 .stats-card-6 { background-color: rgba(213, 216, 226, 0.1); }
-.stats-card-7 { background-color: rgba(253, 252, 251, 0.1); }
+.stats-card-7 { background-color: rgba(253, 252, 251, 0.1); } */
 .stats-tablet-structure { display: none; }
 
 
@@ -75,8 +75,8 @@
     .stats-card-6 { width: 100%; height: 370px; }
     .stats-card-2 .stast-card-image, .stats-card-3 .stast-card-image, .stats-card-4 .stast-card-image, .stats-card-7 .stast-card-image { height: 200px; }
     .stats-card-6 .stast-card-image { height: 285px; }
-    .stats-card-1 { background-color: #fdfcfb1a; padding: 20px; }
-    .stats-card-5 { background-color: #f7f3d31a; padding: 20px; }
+    .stats-card-1 { padding: 20px; }
+    .stats-card-5 { padding: 20px; }
     .stats-card-3, .stats-card-6 { border-left: none; }
     .stats-subtitle { height: 25px; }
     .stats-tablet-card-7.stats-card-6 { height: 470px; }
@@ -109,8 +109,8 @@
     .stats-card-6 { width: 100%; height: 390px; }
     .stats-card-2 .stast-card-image, .stats-card-3 .stast-card-image, .stats-card-4 .stast-card-image, .stats-card-7 .stast-card-image { height: 200px; }
     .stats-card-6 .stast-card-image { height: 285px; }
-    .stats-card-1 { background-color: #fdfcfb1a; padding: 20px; }
-    .stats-card-5 { background-color: #f7f3d31a; padding: 20px; }
+    .stats-card-1 { padding: 20px; }
+    .stats-card-5 { padding: 20px; }
     .stats-card-3, .stats-card-6 { border-left: none; }
     .stats-subtitle { height: 25px; }
     .stats-tablet-card-7.stats-card-6 { height: 390px; }
@@ -141,6 +141,7 @@
 
 @media (max-width: 575px) { 
     .stats-tablet-card-row { flex-direction: column; } 
+    .stats-tablet-card-row-3 { border: none; flex-direction: column-reverse; }
     .stats-card-1, .stats-card-2, .stats-card-3, .stats-card-4, .stats-card-5, .stats-card-6, .stats-card-7 { width: 100%; height: max-content; }
     .stats-card { border: 1px solid #3b3b3b; border-radius: 20px; margin-bottom: 20px; } 
     .stats-subtitle { height: max-content; }

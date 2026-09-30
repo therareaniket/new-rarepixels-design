@@ -41,7 +41,7 @@ export default function PieGray() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
 
-  const ANIMATION_DELAY = typeof window !== 'undefined' && window.innerWidth < 1025 && window.innerHeight >900 ? 4 : 5;
+  const ANIMATION_DELAY = typeof window !== 'undefined' && window.innerWidth < 1025 && window.innerHeight >900 ? 5 : 5;
   
   useEffect(() => {
     const element = containerRef.current

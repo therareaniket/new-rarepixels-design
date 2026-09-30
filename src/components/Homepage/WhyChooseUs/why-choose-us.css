@@ -113,15 +113,15 @@
     .why-choose-us-hand-img img { width: 275px; }
     .why-choose-image-wrapper { position: static; height: max-content; margin: 0; }
     .why-choose-small-container { position: relative !important; }
-    
-    .eclipse-1 { width: 140px; }
-    .eclipse-2 { width: 240px; }
-    .eclipse-3 { width: 340px; }
-    .eclipse-4 { width: 440px; }
-    .eclipse-5 { width: 540px; }
-    .eclipse-6 { width: 640px; }
-    .eclipse-7 { width: 740px; }
-    .eclipse-8 { width: 840px; }
+        
+    .eclipse-1 { width: 140px; display: none; }
+    .eclipse-2 { width: 240px; display: none; }
+    .eclipse-3 { width: 340px; display: none; }
+    .eclipse-4 { width: 440px; display: none; }
+    .eclipse-5 { width: 540px; display: none; }
+    .eclipse-6 { width: 640px; display: none; }
+    .eclipse-7 { width: 740px; display: none; }
+    .eclipse-8 { width: 840px; display: none; }
 }
 
 @media (max-width: 991px) { 

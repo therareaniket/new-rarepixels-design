@@ -76,7 +76,7 @@ export default function Projects() {
                 </div>
 
 				<div className="projects-lists-wrapper overflow-hidden">
-					<div className="projects-list flex mt-[50px] gap-[40px] w-max">
+					<div className="projects-list flex mt-[50px] gap-[30px] w-max">
 						{PROJECT_DATA.map((project, index) => (
 							<ProjectCard key={project.id} ref={(el) => { cardRefs.current[index] = el; }} project={project} index={index} isActive={index === activeIndex} onSetActive={handleSetActive}/>
 						))}
@@ -154,7 +154,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(({ project, ind
     const handleClick = () => { if (!isActive) { onSetActive(index); }};
 
     return (
-        <div ref={ref} onClick={handleClick} className={`project-list w-[1000px] h-[550px] rounded-[30px] relative overflow-hidden flex-shrink-0 cursor-pointer ${isActive ? "active" : ""}`}>
+        <div ref={ref} onClick={handleClick} className={`project-list w-[1000px] h-[550px] rounded-[20px] relative overflow-hidden flex-shrink-0 cursor-pointer ${isActive ? "active" : ""}`}>
 			<video  ref={videoRef}  className="project-video w-full h-full object-cover"  src={project.videoSrc}  poster={project.thumbNail}  loop  muted  playsInline />
 
             {!isVideoPlaying && (
