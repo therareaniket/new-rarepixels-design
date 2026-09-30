@@ -3,6 +3,7 @@ import Blog from "@/components/Homepage/Blog/Blog";
 import FAQ from "@/components/Homepage/FAQ/FAQ";
 import Hero from "@/components/Homepage/Hero/Hero";
 import Industries from "@/components/Homepage/Industries/Industries";
+import IndustriesUpdated from "@/components/Homepage/IndustriesUpdated/IndustriesUpdated";
 import InquiryForm from "@/components/Homepage/InquiryForm/InquiryForm";
 import Process from "@/components/Homepage/Process/Process";
 import Projects from "@/components/Homepage/Projects/Projects";
@@ -15,17 +16,19 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <Testimonials />
-            <About />
-            <Services />
+            <IndustriesUpdated />
+            {/* <Testimonials /> */}
+            {/* <About /> */}
+            {/* <Services /> */}
             {/* <Industries /> */}
-            <WhyChooseUs />
+            {/* <IndustriesUpdated /> */}
+            {/* <WhyChooseUs /> */}
             {/* <Process /> */}
-            <Projects />
-            <Statistics />
-            <Blog />
-            <FAQ />
-            <InquiryForm />
+            {/* <Projects /> */}
+            {/* <Statistics /> */}
+            {/* <Blog /> */}
+            {/* <FAQ /> */}
+            {/* <InquiryForm /> */}
         </>
     );
 }
