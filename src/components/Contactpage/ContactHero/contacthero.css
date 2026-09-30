@@ -1,7 +1,15 @@
+@keyframes hero-rocket {
+    0% { transform: translate( 0px, 0px ) }
+    100% { transform: translate(50px, 50px) }
+}
+
+
 /*  custom */
 
 .contact-title-left h1 { font-size: 98px; line-height: 108px; }
 .contact-title-left h1 span { display: block; }
+
+.contact-hero-image { animation: hero-rocket 10s ease linear infinite; }
 
 /* responsive */
 @media (max-width: 1799px) { 
@@ -43,41 +51,42 @@
 @media (max-width: 991px) { 
     .contact-title-wrapper { flex-direction: column; gap: 30px; }
     .contact-title-left h1 { font-size: 58px; line-height: 66px; width: 100%; }
-    .contact-hero-bg-lines {  top: 32%; transform: translateX(-100px); rotate: -17deg; }
+    .contact-hero-bg-lines { top: 60%;  left: 60%; transform: translateX(-50%) rotate3d(0, 0, 1, -17deg); scale: 1.4;}
 }
 
 @media (max-width: 839px) { 
-    .contact-title-left h1 { font-size: 54px; line-height: 62px; }
+    .contact-title-left h1 { font-size: 52px; line-height: 60px; }
+    .contact-hero-bg-lines { scale: 1.5; }
 }
 
 @media (max-width: 767px) { 
-    .contact-hero-bg-lines { width: 1%; top: 74%; }
-    .contact-title-left h1 { font-size: 52px; line-height: 60px; }
+    .contact-title-left h1 { font-size: 48px; line-height: 56px; }
 }
 
 @media (max-width: 639px) { 
-    .contact-title-left h1 { font-size: 50px; line-height: 58px; }
-}
-
-@media (max-width: 575px) { 
     .contact-title-left h1 { font-size: 44px; line-height: 52px; }
 }
 
+@media (max-width: 575px) { 
+    .contact-title-left h1 { font-size: 36px; line-height: 44px; }
+    .contact-hero-bg-lines { scale: 1.7; stroke-width: 3; }
+}
+
 @media (max-width: 479px) { 
-    .contact-hero-image { width: 80%; height: auto; }
-    .contact-title-left h1 { font-size: 40px; line-height: 48px; }
+    .contact-hero-image { width: 70%; height: auto; }
+    .contact-title-left h1 { font-size: 32px; line-height: 40px; }
+    .contact-title-wrapper { gap: 15px; }
 }
 
 @media (max-width: 439px) { 
-    .contact-title-left h1 { font-size: 36px; line-height: 44px; }
+    .contact-title-left h1 { font-size: 30px; line-height: 38px; }
+    .contact-title-wrapper { padding-top: 40px; }
 }
 
 @media (max-width: 400px) { 
-    .contact-title-left h1 { font-size: 34px; line-height: 42px; }
 }
 
 @media (max-width: 374px) { 
-    .contact-title-left h1 { font-size: 32px; line-height: 40px; }
 }
 
 @media (max-width: 359px) { }

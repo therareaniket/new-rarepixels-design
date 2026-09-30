@@ -1,8 +1,180 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react'
 import './contactwhathappen.css'
 
+const cards = [
+    {
+        number: '01',
+        title: 'We Read The Room',
+        description: "Your message doesn't disappear into an inbox. We actually read it, understand the context, and look at what you're trying to achieve before we come back to you.",
+    },
+    {
+        number: '02',
+        title: 'You Hear From a Human',
+        description: "Within 24 hours, you'll hear back from a real member of the RarePixels team. No bots. No copy-paste replies. Just a thoughtful response to what you actually told us.",
+    },
+    {
+        number: '03',
+        title: "Let's Talk it Through",
+        description: "If there's a potential fit, we get on a 30-minute discovery call. You bring the challenge. We bring questions, ideas, and an honest perspective. No pressure. No hard sell.",
+    },
+    {
+        number: '04',
+        title: 'Your Project, Your Proposal',
+        description: "If we're the right fit, we build a proposal around your project, not a recycled template. Scope, timelines, investment, and approach, all shaped around what you actually need.",
+    },
+]
+
+const CARD_DURATION = 3000
+const CLICK_AUTOPLAY_DELAY = 3000
+
 const ContactWhatHappen = () => {
+
+    const sectionRef = useRef<HTMLElement | null>(null)
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+    const [activeCard, setActiveCard] = useState<number | null>(null)
+    const [highestOpenedCard, setHighestOpenedCard] = useState(-1)
+    const [animationStarted, setAnimationStarted] = useState(false)
+    const [manualInteraction, setManualInteraction] = useState(false)
+    const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 991px)').matches)
+
+    useEffect(() => {
+        const section = sectionRef.current
+
+        if (!section) return
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting) return
+
+                setAnimationStarted(true)
+                setActiveCard(0)
+
+                if (isMobile) {
+                    setHighestOpenedCard(0)
+                }
+
+                observer.unobserve(entry.target)
+            },
+            {
+                threshold: 0.4,
+            }
+        )
+
+        observer.observe(section)
+
+        return () => observer.disconnect()
+    }, [isMobile])
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 991px)')
+
+        const handleBreakpointChange = (
+            event: MediaQueryListEvent
+        ) => {
+            setIsMobile(event.matches)
+            setActiveCard(0)
+            setHighestOpenedCard(0)
+            setManualInteraction(false)
+        }
+
+        mediaQuery.addEventListener(
+            'change',
+            handleBreakpointChange
+        )
+
+        return () => {
+            mediaQuery.removeEventListener(
+                'change',
+                handleBreakpointChange
+            )
+        }
+    }, [])
+
+    useEffect(() => {
+        if (!isMobile) return
+        if (!animationStarted) return
+        if (manualInteraction) return
+
+        let animationFrameId: number | null = null
+
+        const handleCardActivation = () => {
+            if (animationFrameId !== null) { cancelAnimationFrame(animationFrameId) }
+
+            animationFrameId = requestAnimationFrame(() => {
+                const activationPoint = window.innerHeight * 0.65
+
+                let reachedCard = 0
+
+                cardRefs.current.forEach((card, index) => {
+                    if (!card) return
+                    const cardTop = card.getBoundingClientRect().top
+                    if (cardTop <= activationPoint) { reachedCard = index }
+                })
+
+                setHighestOpenedCard((previousHighest) => {
+                    const nextHighest = Math.max(previousHighest, reachedCard)
+                    if (nextHighest !== previousHighest) { setActiveCard(nextHighest) }
+                    return nextHighest
+                })
+            })
+        }
+
+        handleCardActivation()
+
+        window.addEventListener('scroll', handleCardActivation, {
+            passive: true,
+        })
+
+        window.addEventListener('resize', handleCardActivation)
+
+        return () => {
+            window.removeEventListener('scroll', handleCardActivation)
+            window.removeEventListener('resize', handleCardActivation)
+
+            if (animationFrameId !== null) { cancelAnimationFrame(animationFrameId) }
+        }
+    }, [isMobile, animationStarted, manualInteraction,])
+
+    useEffect(() => {
+        if (!animationStarted) return
+        if (isMobile) return;
+
+        const delay = manualInteraction
+            ? CLICK_AUTOPLAY_DELAY
+            : CARD_DURATION
+
+        const timeout = window.setTimeout(() => {
+            setActiveCard((currentCard) => {
+                const nextCard = currentCard === null || currentCard >= cards.length - 1 ? 0 : currentCard + 1
+                if (isMobile) {
+                    setHighestOpenedCard((previousHighest) =>
+                        Math.max(previousHighest, nextCard)
+                    )
+                }
+
+                return nextCard
+            })
+
+            setManualInteraction(false)
+        }, delay)
+
+        return () => {
+            window.clearTimeout(timeout)
+        }
+    }, [activeCard, animationStarted, manualInteraction, isMobile,])
+
+    const handleCardClick = (index: number) => {
+        setAnimationStarted(true)
+        setManualInteraction(true)
+
+        setActiveCard(index)
+    }
+
     return (
-        <section className='section bg-[#01030D]'>
+        <section ref={sectionRef} className='section bg-[#01030D]'>
             <div className="container">
                 <div className="cnct-what-happen-title w-[478px]">
                     <h2 className='font-semibold text-[white]'>You Hit Send. We Get To Work.</h2>
@@ -11,49 +183,45 @@ const ContactWhatHappen = () => {
                 </div>
 
                 <div className="cnct-what-happen-card-wrapper mt-[60px] flex items-start justify-between">
-                    <div className="cnct-happens-card cnct-happens-card-1 border-t w-[630px] border-[#E8DB7D] flex items-start justify-between pt-[20px]">
-                        <span className='text-[#424242] font-semibold'>01</span>
+                    {cards.map((card, index) => {
+                        const isActive = activeCard === index
 
-                        <div className="cnct-happens-text w-[410px] ">
-                            <h3 className='text-[white]'>WE READ THE ROOM</h3>
+                        const showActiveCard = isMobile ? isActive && animationStarted : isActive
+                        const isCompleted = isMobile ? animationStarted && index <= highestOpenedCard && index !== activeCard : activeCard !== null && index < activeCard
+                        return (
+                            <div
+                                ref={(element) => { cardRefs.current[index] = element }}
+                                key={card.number}
+                                role="button"
+                                tabIndex={0}
+                                aria-expanded={showActiveCard || isCompleted}
+                                onClick={() => handleCardClick(index)}
+                                onKeyDown={(event) => {
+                                    if (event.key === 'Enter' || event.key === ' ') {
+                                        event.preventDefault()
+                                        handleCardClick(index)
+                                    }
+                                }}
+                                className={`cnct-happens-card flex gap-[30px] pt-[20px] ${showActiveCard ? 'is-active' : ''} ${isCompleted ? 'is-completed' : ''} ${animationStarted ? 'animation-started' : ''} `}
+                            >
+                                <div className="cnct-card-line">
+                                    <span key={`${index}-${showActiveCard}`} className="cnct-card-line-progress" />
+                                </div>
+                                <span className="cnct-happens-card-number text-[#424242] font-semibold">
+                                    {card.number}
+                                </span>
 
-                            <p className='font-normal text-18 text-[white] mt-[20px]'>Your message doesn&apos;t disappear into an inbox. We actually read it, understand the context, and look at what you&apos;re trying to achieve before we come back to you.</p>
-                        </div>
-                    </div>
+                                <div className="cnct-happens-text w-[410px] ">
+                                    <h3 className='text-[white]'>{card.title}</h3>
 
-                    <div className="cnct-happens-card cnct-happens-card-2 border-t w-[180px] border-[#E8DB7D] flex items-start justify-between pt-[20px] opacity-[50%]">
-                        <span className='text-[#424242] font-semibold'>02</span>
-
-                        <div className="cnct-happens-text w-[410px] hidden">
-                            <h3 className='text-[white]'>YOU HEAR FROM A HUMAN</h3>
-
-                            <p className='font-normal text-18 text-[white] mt-[20px]'>Within 24 hours, you&apos;ll hear back from a real member of the RarePixels team. No bots. No copy-paste replies. Just a thoughtful response to what you actually told us.</p>
-                        </div>
-                    </div>
-
-                    <div className="cnct-happens-card cnct-happens-card-3 border-t w-[180px] border-[#E8DB7D] flex items-start justify-between pt-[20px] opacity-[50%]">
-                        <span className='text-[#424242] font-semibold'>03</span>
-
-                        <div className="cnct-happens-text w-[410px] hidden">
-                            <h3 className='text-[white]'>LET&apos;S TALK IT THROUGH</h3>
-
-                            <p className='font-normal text-18 text-[white] mt-[20px]'>If there&apos;s a potential fit, we get on a 30-minute discovery call. You bring the challenge. We bring questions, ideas, and an honest perspective. No pressure. No hard sell.</p>
-                        </div>
-                    </div>
-
-                    <div className="cnct-happens-card cnct-happens-card-4 border-t w-[180px] border-[#E8DB7D] flex items-start justify-between pt-[20px] opacity-[50%]">
-                        <span className='text-[#424242] font-semibold'>04</span>
-
-                        <div className="cnct-happens-text w-[410px] hidden">
-                            <h3 className='text-[white]'>YOUR PROJECT, YOUR PROPOSAL</h3>
-
-                            <p className='font-normal text-18 text-[white] mt-[20px]'>If we&apos;re the right fit, we build a proposal around your project, not a recycled template. Scope, timelines, investment, and approach, all shaped around what you actually need.</p>
-                        </div>
-                    </div>
+                                    <p className='font-normal text-18 text-[white] mt-[20px]'>{card.description}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
-
 export default ContactWhatHappen
