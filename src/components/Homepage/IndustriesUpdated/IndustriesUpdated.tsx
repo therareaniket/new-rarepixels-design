@@ -321,7 +321,7 @@ export default function IndustriesUpdated() {
                 <div className="industries-headings flex items-center justify-between">
                     <h2>Industries We Serve</h2>
                     <p className="text-18">
-                        Every industry is different. <br />But the need to earn trust, create memorable experiences, and stay relevant isn't.
+                        Every industry is different. <br />But the need to earn trust, create memorable experiences, and stay relevant isn&apos;t.
                     </p>
                 </div>
 

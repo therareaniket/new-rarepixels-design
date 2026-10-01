@@ -1,7 +1,8 @@
 /*  custom */
 
 .cnct-happens-card span { font-size: 150px; line-height: 150px; } 
-
+.cnct-happens-card:hover .cnct-happens-card-number { opacity: 100%; color: #e8db7d; }
+.cnct-happens-card:hover { opacity: 100%; }
 .cnct-happens-card {
     position: relative;
     width: 210px;
@@ -9,12 +10,13 @@
     flex-shrink: 0;
     overflow: hidden;
     opacity: 0.5;
+    cursor: pointer;
     transition:
         width 0.8s cubic-bezier(0.65, 0, 0.35, 1),
         min-width 0.8s cubic-bezier(0.65, 0, 0.35, 1),
         opacity 0.5s ease;
 }
-
+.cnct-happens-card.is-active .cnct-happens-card-number { color: #E8DB7D; }
 .cnct-happens-card.is-active { width: 630px; min-width: 630px; opacity: 1; }
 .cnct-happens-card.is-completed {  width: 210px; min-width: 210px; opacity: 0.5; }
 .cnct-card-line { position: absolute; top: 0; left: 0; width: 100%; height: 1px; overflow: hidden; background-color: rgba(232, 219, 125, 0.3); }
@@ -116,7 +118,7 @@
 
     .cnct-happens-card.is-active { width: 100%; min-width: 100%; height: auto; opacity: 1; }
     .cnct-happens-card.is-completed { width: 100%; min-width: 100%; height: auto; opacity: 1; }
-    .cnct-happens-card-number { flex-shrink: 0; font-size: 80px; line-height: 90px; }
+    .cnct-happens-card-number { flex-shrink: 0; font-size: 80px; line-height: 90px; color: #424242; }
     .cnct-happens-text {
         width: 100%;
         max-width: 100%;
@@ -130,6 +132,8 @@
             transform 0.5s ease,
             visibility 0s linear 0.5s;
     }
+
+    .cnct-happens-card.is-completed .cnct-happens-card-number { color: #E8DB7D; }
 
     .cnct-happens-card.is-active .cnct-happens-text,
     .cnct-happens-card.is-completed .cnct-happens-text {

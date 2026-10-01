@@ -28,6 +28,8 @@
 @media (max-width: 1439px) { 
     .contact-hero-bg-lines { top: 55%; } 
     .contact-title-left h1 { font-size: 80px; line-height: 88px; width: 650px; }
+
+    .contact-hero-image { width: 410px; }
 }
 
 @media (max-width: 1359px) { 

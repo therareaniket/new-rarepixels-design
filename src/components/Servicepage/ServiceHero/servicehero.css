@@ -56,11 +56,18 @@
     .services-stats-wrapper { gap: 45px; } 
 }
 
-@media (max-width: 839px) { }
+@media (max-width: 839px) { 
+    .services-section { padding-top: 80px; }
+}
 
-@media (max-width: 767px) { }
+@media (max-width: 767px) { 
+    .services-section { padding-top: 90px; }
+}
 
-@media (max-width: 639px) { }
+@media (max-width: 639px) { 
+    .services-strip { gap: 15px; }
+    .servcies-hero-wrapper { padding-bottom: 20px; }
+}
 
 @media (max-width: 575px) { 
     .services-hero-subtitile { margin-top: 30px; }
@@ -69,6 +76,8 @@
 @media (max-width: 479px) { 
     .services-hero-subtitile { margin-top: 20px; }
     .services-stats-wrapper { gap: 40px; }
+    .services-section { padding-top: 80px; }
+    .services-strip { gap: 10px; }
 }
 
 @media (max-width: 439px) { 

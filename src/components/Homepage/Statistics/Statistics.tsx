@@ -1,14 +1,14 @@
 "use client";
 
-import PieYellow from '@/components/Globle/stats-graph/PieYellow';
+import PieYellow from '@/components/Global/stats-graph/PieYellow';
 import './statistics.css'
 import { useEffect, useRef } from 'react';
-import RadarChart from '@/components/Globle/stats-graph/RadarChart';
-import SpeedChart from '@/components/Globle/stats-graph/SpeedChart';
-import GlobalMap from '@/components/Globle/stats-graph/GlobalMap';
+import RadarChart from '@/components/Global/stats-graph/RadarChart';
+import SpeedChart from '@/components/Global/stats-graph/SpeedChart';
+import GlobalMap from '@/components/Global/stats-graph/GlobalMap';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import PieGray from '@/components/Globle/stats-graph/PieGray';
+import PieGray from '@/components/Global/stats-graph/PieGray';
 
 gsap.registerPlugin(ScrollTrigger)
 

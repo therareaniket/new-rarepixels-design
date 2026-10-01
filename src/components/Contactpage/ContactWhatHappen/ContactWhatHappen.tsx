@@ -26,9 +26,6 @@ const cards = [
     },
 ]
 
-const CARD_DURATION = 3000
-const CLICK_AUTOPLAY_DELAY = 3000
-
 const ContactWhatHappen = () => {
 
     const sectionRef = useRef<HTMLElement | null>(null)
@@ -37,7 +34,6 @@ const ContactWhatHappen = () => {
     const [activeCard, setActiveCard] = useState<number | null>(null)
     const [highestOpenedCard, setHighestOpenedCard] = useState(-1)
     const [animationStarted, setAnimationStarted] = useState(false)
-    const [manualInteraction, setManualInteraction] = useState(false)
     const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 991px)').matches)
 
     useEffect(() => {
@@ -50,16 +46,18 @@ const ContactWhatHappen = () => {
                 if (!entry.isIntersecting) return
 
                 setAnimationStarted(true)
-                setActiveCard(0)
 
                 if (isMobile) {
-                    setHighestOpenedCard(0)
+                    setActiveCard(null)
+                    setHighestOpenedCard(-1)
+                } else {
+                    setActiveCard(0)
                 }
 
                 observer.unobserve(entry.target)
             },
             {
-                threshold: 0.4,
+                threshold: 0.1,
             }
         )
 
@@ -69,15 +67,25 @@ const ContactWhatHappen = () => {
     }, [isMobile])
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia('(max-width: 991px)')
+        const mediaQuery = window.matchMedia(
+            '(max-width: 991px)'
+        )
 
         const handleBreakpointChange = (
             event: MediaQueryListEvent
         ) => {
-            setIsMobile(event.matches)
-            setActiveCard(0)
-            setHighestOpenedCard(0)
-            setManualInteraction(false)
+            const mobile = event.matches
+
+            setIsMobile(mobile)
+
+            if (mobile) {
+                setActiveCard(null)
+                setHighestOpenedCard(-1)
+            } else {
+
+                setActiveCard(0)
+                setHighestOpenedCard(-1)
+            }
         }
 
         mediaQuery.addEventListener(
@@ -96,80 +104,43 @@ const ContactWhatHappen = () => {
     useEffect(() => {
         if (!isMobile) return
         if (!animationStarted) return
-        if (manualInteraction) return
 
-        let animationFrameId: number | null = null
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return
 
-        const handleCardActivation = () => {
-            if (animationFrameId !== null) { cancelAnimationFrame(animationFrameId) }
+                    const card = entry.target as HTMLDivElement
+                    const index = Number(card.dataset.index)
 
-            animationFrameId = requestAnimationFrame(() => {
-                const activationPoint = window.innerHeight * 0.65
+                    setActiveCard(index)
 
-                let reachedCard = 0
+                    setHighestOpenedCard((previous) =>
+                        Math.max(previous, index)
+                    )
 
-                cardRefs.current.forEach((card, index) => {
-                    if (!card) return
-                    const cardTop = card.getBoundingClientRect().top
-                    if (cardTop <= activationPoint) { reachedCard = index }
+                    observer.unobserve(card)
                 })
+            },
+            {
+                threshold: 1,
+                rootMargin: '0px',
+            }
+        )
 
-                setHighestOpenedCard((previousHighest) => {
-                    const nextHighest = Math.max(previousHighest, reachedCard)
-                    if (nextHighest !== previousHighest) { setActiveCard(nextHighest) }
-                    return nextHighest
-                })
-            })
-        }
-
-        handleCardActivation()
-
-        window.addEventListener('scroll', handleCardActivation, {
-            passive: true,
+        cardRefs.current.forEach((card) => {
+            if (card) {
+                observer.observe(card)
+            }
         })
 
-        window.addEventListener('resize', handleCardActivation)
-
-        return () => {
-            window.removeEventListener('scroll', handleCardActivation)
-            window.removeEventListener('resize', handleCardActivation)
-
-            if (animationFrameId !== null) { cancelAnimationFrame(animationFrameId) }
-        }
-    }, [isMobile, animationStarted, manualInteraction,])
-
-    useEffect(() => {
-        if (!animationStarted) return
-        if (isMobile) return;
-
-        const delay = manualInteraction
-            ? CLICK_AUTOPLAY_DELAY
-            : CARD_DURATION
-
-        const timeout = window.setTimeout(() => {
-            setActiveCard((currentCard) => {
-                const nextCard = currentCard === null || currentCard >= cards.length - 1 ? 0 : currentCard + 1
-                if (isMobile) {
-                    setHighestOpenedCard((previousHighest) =>
-                        Math.max(previousHighest, nextCard)
-                    )
-                }
-
-                return nextCard
-            })
-
-            setManualInteraction(false)
-        }, delay)
-
-        return () => {
-            window.clearTimeout(timeout)
-        }
-    }, [activeCard, animationStarted, manualInteraction, isMobile,])
+        return () => observer.disconnect()
+    }, [isMobile, animationStarted])
 
     const handleCardClick = (index: number) => {
-        setAnimationStarted(true)
-        setManualInteraction(true)
+        if (isMobile) return
 
+        setAnimationStarted(true)
         setActiveCard(index)
     }
 
@@ -193,6 +164,7 @@ const ContactWhatHappen = () => {
                                 ref={(element) => { cardRefs.current[index] = element }}
                                 key={card.number}
                                 role="button"
+                                data-index={index}
                                 tabIndex={0}
                                 aria-expanded={showActiveCard || isCompleted}
                                 onClick={() => handleCardClick(index)}

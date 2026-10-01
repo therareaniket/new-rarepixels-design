@@ -20,15 +20,15 @@ const faqs = [
     },
     {
         question: "Do you offer all services together or individually?",
-        answer: "Both. Many clients come to us for a single service — a brand identity, a platform build, or a social media strategy. Others engage us across multiple disciplines simultaneously. We are equally effective working on a single focused brief or as a full-service partner across design, engineering, and brand."
+        answer: "Both. Many clients come to us for a single service - a brand identity, a platform build, or a social media strategy. Others engage us across multiple disciplines simultaneously. We are equally effective working on a single focused brief or as a full-service partner across design, engineering, and brand."
     },
     {
         question: "How do you approach a project that needs multiple services? ",
-        answer: "We assign a dedicated project lead who coordinates across all disciplines. When a project spans design, development, and brand — the teams work in parallel with shared goals and a unified strategy. The client has one point of contact throughout, not multiple agency relationships to manage. "
+        answer: "We assign a dedicated project lead who coordinates across all disciplines. When a project spans design, development, and brand - the teams work in parallel with shared goals and a unified strategy. The client has one point of contact throughout, not multiple agency relationships to manage. "
     },
     {
         question: "Do you work with businesses outside India?",
-        answer: "Yes. We work with clients across India, the USA, the UK, and the Middle East. With studios in Ahmedabad, India and Pennsylvania, USA — we cover multiple time zones and are experienced in delivering across international markets. "
+        answer: "Yes. We work with clients across India, the USA, the UK, and the Middle East. With studios in Ahmedabad, India and Pennsylvania, USA - we cover multiple time zones and are experienced in delivering across international markets. "
     },
     {
         question: "How long does a typical project take? ",

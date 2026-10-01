@@ -66,25 +66,34 @@ const ServicesHowWeWork = () => {
 
             const getMovementDistance = () => {
                 const cssValue = getComputedStyle(cardsWrapper).getPropertyValue("--card-movement-distance");
-
                 return parseFloat(cssValue) || 270;
             };
 
             const getCollapsedPaddingTop = () => {
-                const cssValue = getComputedStyle(cardsWrapper) .getPropertyValue("--collapsed-card-padding-top");
+                const cssValue = getComputedStyle(cardsWrapper).getPropertyValue("--collapsed-card-padding-top");
                 return parseFloat(cssValue) || 20;
             };
+
+            const getCollapsedTitleSize = () => {
+                return getComputedStyle(cardsWrapper)
+                    .getPropertyValue("--collapsed-title-size")
+                    .trim();
+            };
+
+            const getCollapsedTitleLineHeight = () => {
+                return getComputedStyle(cardsWrapper)
+                    .getPropertyValue("--collapsed-title-line-height")
+                    .trim();
+            };
+
 
             gsap.set(firstCard, { y: 0, opacity: 1, force3D: true, });
 
             gsap.set(animatedCards, { y: (index) => { return (index + 1) * getMovementDistance(); }, opacity: 0.2, force3D: true, });
 
             const animatedTabHeaders = animatedCards
-                .map((card) =>
-                    card.querySelector<HTMLElement>(".services-step-number")
-                )
-                .filter(
-                    (header): header is HTMLElement => header !== null
+                .map((card) => card.querySelector<HTMLElement>(".services-step-number"))
+                .filter((header): header is HTMLElement => header !== null
                 );
 
             gsap.set(animatedTabHeaders, { y: 100, opacity: 0.1, zIndex: -1, force3D: true, });
@@ -104,29 +113,15 @@ const ServicesHowWeWork = () => {
             animatedCards.forEach((currentCard, index) => {
                 const movingCards = animatedCards.slice(index);
 
-                /*
-                 * index 0 = card 2 is entering, so cards[0] is card 1.
-                 * index 1 = card 3 is entering, so cards[1] is card 2.
-                 */
                 const previousCard = cards[index];
-
-                const previousCardContent =
-                    previousCard.querySelector<HTMLElement>(
-                        ".services-how-work-card"
-                    );
-
-                const currentTabHeader =
-                    currentCard.querySelector<HTMLElement>(
-                        ".services-step-number"
-                    );
+                const previousCardContent = previousCard.querySelector<HTMLElement>(".services-how-work-card");
+                const currentTabHeader = currentCard.querySelector<HTMLElement>(".services-step-number");
+                const previousCardTitle = previousCard.querySelector<HTMLElement>(".services-how-work-card h3");
 
                 const stageLabel = `card-${index + 2}`;
 
                 timeline.addLabel(stageLabel);
 
-                /*
-                 * Move the current card and all cards below it.
-                 */
                 timeline.to(
                     movingCards,
                     {
@@ -138,9 +133,6 @@ const ServicesHowWeWork = () => {
                     stageLabel
                 );
 
-                /*
-                 * Smoothly reduce the top padding of the previous card.
-                 */
                 if (previousCardContent) {
                     timeline.to(
                         previousCardContent,
@@ -153,9 +145,22 @@ const ServicesHowWeWork = () => {
                     );
                 }
 
-                /*
-                 * Reveal the current card.
-                 */
+                if (previousCardTitle) {
+                    timeline.to(
+                        previousCardTitle,
+                        {
+                            "--card-title-size": () => {
+                                return getComputedStyle(cardsWrapper)
+                                    .getPropertyValue("--collapsed-title-size")
+                                    .trim();
+                            },
+                            duration: 0.8,
+                            ease: "power2.inOut",
+                        },
+                        stageLabel
+                    );
+                }
+
                 timeline.to(
                     currentCard,
                     {
@@ -166,9 +171,6 @@ const ServicesHowWeWork = () => {
                     stageLabel
                 );
 
-                /*
-                 * Reveal the current card number.
-                 */
                 if (currentTabHeader) {
                     timeline.to(
                         currentTabHeader,
@@ -192,17 +194,12 @@ const ServicesHowWeWork = () => {
                 }
             });
 
-            const refreshScrollTrigger = () => {
-                ScrollTrigger.refresh();
-            };
+            const refreshScrollTrigger = () => { ScrollTrigger.refresh(); };
 
             window.addEventListener("load", refreshScrollTrigger);
 
             return () => {
-                window.removeEventListener(
-                    "load",
-                    refreshScrollTrigger
-                );
+                window.removeEventListener("load", refreshScrollTrigger);
             };
         }, section);
 
@@ -228,7 +225,7 @@ const ServicesHowWeWork = () => {
                         {workSteps.map((step, index) => (
                             <div key={step.number} className={`services-how-we-work-${index + 1} services-how-we-work flex flex-col items-end`}>
                                 <div className='services-step-number text-18 font-semibold w-[200px]  py-[20px] text-center'>{step.number}</div>
-                                <div className="services-how-work-card w-[100%] h-[max-content] px-[60px] pb-[60px]">
+                                <div className="services-how-work-card w-[100%] h-[max-content] p-[60px]">
                                     <h3 className='font-semibold h1'>{step.title}</h3>
 
                                     <h4 className='h5 mt-[20px] mb-[14px]'>{step.subtitle}</h4>

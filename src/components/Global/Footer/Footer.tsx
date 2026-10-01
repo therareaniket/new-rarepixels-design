@@ -16,7 +16,7 @@ export default function Footer() {
 
     return (
         <>
-            <footer className="footer" style={{ backgroundColor: "#040E36", color: "white" }}>
+            <footer className="footer section" style={{ backgroundColor: "#040E36", color: "white" }}>
                 <div className="container">
                     <div className="footer-quote-wrapper">
                         <div className="footer-quote-right">
@@ -152,7 +152,7 @@ export default function Footer() {
                                         <li className="text-18 text-rg text-[#C6C6C6] only-for-mobile-three-column"><Link href="#" title="industries">Industries</Link> </li>
                                         <li className="text-18 text-rg text-[#C6C6C6] only-for-mobile-three-column"><Link href="#" title="projects">Projects</Link> </li>
 
-                                        <li className="text-18 text-rg text-[#C6C6C6]"><Link href="/Services" title="services">Services</Link> </li>
+                                        <li className="text-18 text-rg text-[#C6C6C6]"><Link href="/Services" title="services" style={linkStyle('/Services')}>Services</Link> </li>
                                         <li className="text-18 text-rg text-[#C6C6C6]"><Link href="#" title="life at rpd">Life at RPD</Link> </li>
                                         <li className="text-18 text-rg text-[#C6C6C6]"><Link href="#" title="articles">Articles</Link> </li>
                                         <li className="text-18 text-rg text-[#C6C6C6]"><Link href="/Contact" title="contact" style={linkStyle('/Contact')}>Contact</Link> </li>
@@ -243,7 +243,7 @@ export default function Footer() {
                     </div>
 
                     <div className="rare-pixels-company-logo">
-                        <Image className="footer-site-logo relative z-[2]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/rarepixels-footer-logo.svg" alt="website-logo" width={1600} height={260}></Image>
+                        <Image className="footer-site-logo" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/rarepixels-footer-logo.svg" alt="website-logo" width={1600} height={260}></Image>
                     </div>
 
                     <div className="footer-copyright">

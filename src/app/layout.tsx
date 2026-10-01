@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Strichpunkt_Sans } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Globle/Footer/Footer";
-import Header from "@/components/Globle/Header/Header";
+import Footer from "@/components/Global/Footer/Footer";
+import Header from "@/components/Global/Header/Header";
 import { cn } from "@/lib/utils";
 import RefreshToTop from "@/lib/RefreshToTop";
 

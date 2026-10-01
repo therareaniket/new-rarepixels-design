@@ -102,7 +102,7 @@ const Header = () => {
                                             <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-conversion_path"></span></span>
 
                                             <div className="link-info">
-                                                <p className="link-title text-18 font-medium mb-[4px]">Services</p>
+                                                <p className="link-title text-18 font-medium mb-[4px]" style={linkStyle('/Services')}>Services</p>
                                                 <p className="link-subtitle text-[#585858]">How we turn vision into reality</p>
                                             </div>
                                         </Link>
@@ -157,7 +157,7 @@ const Header = () => {
                                             <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-support_agent"></span></span>
 
                                             <div className="link-info">
-                                                <p className="link-title text-18 font-medium mb-[4px]">Contact</p>
+                                                <p className="link-title text-18 font-medium mb-[4px]" style={linkStyle('/Contact')}>Contact</p>
                                                 <p className="link-subtitle text-[#585858]">Let&apos;s create something meaningful</p>
                                             </div>
                                         </Link>

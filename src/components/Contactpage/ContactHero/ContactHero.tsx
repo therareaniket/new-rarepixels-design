@@ -175,6 +175,7 @@ const ContactHero = () => {
                         y: 200,
                         opacity: 0,
                         duration: 3,
+                        delay: 1,
                         ease: "power3.out",
                         clearProps: "transform,opacity",
                     });
