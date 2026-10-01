@@ -243,7 +243,7 @@ export default function Footer() {
                     </div>
 
                     <div className="rare-pixels-company-logo">
-                        <Image className="footer-site-logo" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/rarepixels-footer-logo.svg" alt="website-logo" width={1600} height={260}></Image>
+                        <Image className="footer-site-logo relative z-[2]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/rarepixels-footer-logo.svg" alt="website-logo" width={1600} height={260}></Image>
                     </div>
 
                     <div className="footer-copyright">
