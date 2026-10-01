@@ -16,7 +16,7 @@ export default function Footer() {
 
     return (
         <>
-            <footer className="section footer" style={{ backgroundColor: "#040E36", color: "white" }}>
+            <footer className="footer" style={{ backgroundColor: "#040E36", color: "white" }}>
                 <div className="container">
                     <div className="footer-quote-wrapper">
                         <div className="footer-quote-right">

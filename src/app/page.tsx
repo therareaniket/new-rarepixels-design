@@ -2,8 +2,6 @@ import About from "@/components/Homepage/About/About";
 import Blog from "@/components/Homepage/Blog/Blog";
 import FAQ from "@/components/Homepage/FAQ/FAQ";
 import Hero from "@/components/Homepage/Hero/Hero";
-import Industries from "@/components/Homepage/Industries/Industries";
-import IndustriesUpdated from "@/components/Homepage/IndustriesUpdated/IndustriesUpdated";
 import InquiryForm from "@/components/Homepage/InquiryForm/InquiryForm";
 import Process from "@/components/Homepage/Process/Process";
 import Projects from "@/components/Homepage/Projects/Projects";
@@ -19,7 +17,7 @@ export default function Home() {
             <Testimonials />
             <About />
             <Services />
-            <IndustriesUpdated />
+            {/* <IndustriesUpdated /> */}
             <WhyChooseUs />
             {/* <Process /> */}
             <Projects />
