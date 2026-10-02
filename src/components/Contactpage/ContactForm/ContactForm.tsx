@@ -19,7 +19,13 @@ const ContactForm = () => {
 
                         <div className="contact-cta p-[30px] bg-[#FBF9E9] mt-[54px] rounded-[20px] relative">
                             <div className="contact-cta-left w-[350px] ">
-                                <h4 className="h2 flex items-end gap-[5px]">Got 30 Minutes?<Image className="mb-[10px] skip-the-form-image" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/skip-the-form.svg" alt="" width={163} height={30}></Image></h4>
+                                <h4 className="h2 flex items-end gap-[5px]">Got 30 Minutes?
+                                    <div className="skip-the-form w-[100%] h-[100%]">
+                                        <span className="skip-the-form-wrapper">
+                                            <Image className="mb-[10px] skip-the-form-image" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/skip-the-form.svg" alt="" width={163} height={30}></Image>
+                                        </span>
+                                    </div>
+                                </h4>
                                 <p className="text-18 font-normal mt-[20px] mb-[40px] w-[268px]">No long forms. No guessing games. No waiting around. Book a free 30-minute discovery call and tell us what&apos;s on your mind. We&apos;ll come prepared with questions, ideas, and a clear perspective on where RarePixels can make a difference.</p>
                                 <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" target="_blank" title="Book A Call" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] block cnct-cta-for-desktop w-[max-content]">Book A Call <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                             </div>

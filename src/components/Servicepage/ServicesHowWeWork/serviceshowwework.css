@@ -27,15 +27,18 @@
     --expanded-title-size: 64px;
     --expanded-title-line-height: 70px;
 
-    --collapsed-title-size: 48px;
-    --collapsed-title-line-height: 54px;
+    --collapsed-title-size: 36px;
+    --collapsed-title-line-height: 42px;
 
     height: 690px;
 }
 
 .services-how-work-card h3 {
-    font-size: var(--expanded-title-size);
-    line-height: var(--expanded-title-line-height);
+    --card-title-size: var(--expanded-title-size);
+    --card-title-line-height: var(--expanded-title-line-height);
+
+    font-size: var(--card-title-size);
+    line-height: var(--card-title-line-height);
 }
 
 .services-how-we-work-2 { top: 66px; }
@@ -49,20 +52,79 @@
 /* responsive */
 @media (max-width: 1799px) { 
     .services-how-work-card { padding: 40px; }
+
+    .services-how-work-card-wrapper { 
+        --card-movement-distance: 250px;
+
+        --expanded-title-size: 60px;
+        --expanded-title-line-height: 68px;
+
+        --collapsed-title-size: 34px;
+        --collapsed-title-line-height: 42px;
+        height: 665px; 
+    }
 }
 
 @media (max-width: 1599px) { 
     .services-step-number { width: 170px; }
-    .services-how-work-card-wrapper { margin-top: 40px; }
+
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 56px;
+        --expanded-title-line-height: 64px;
+
+        --collapsed-title-size: 30px;
+        --collapsed-title-line-height: 38px; 
+
+        height: 655px;
+    }
+
+    .service-section { height: calc(100vh * 9); }
+
 }
 
 @media (max-width: 1599px) and (max-height: 750px) {}
 
-@media (max-width: 1439px) { }
+@media (max-width: 1439px) { 
+    .services-how-work-card-wrapper { 
+        --card-movement-distance: 220px;
+
+        --expanded-title-size: 50px;
+        --expanded-title-line-height: 58px;
+
+        --collapsed-title-size: 30px;
+        --collapsed-title-line-height: 38px; 
+
+        height: 610px;
+    }
+
+    .services-how-we-work-2 { top: 60px; }
+    .services-how-we-work-3 { top: calc(60px * 2); }
+    .services-how-we-work-4 { top: calc(60px * 3); }
+    .services-how-we-work-5 { top: calc(60px * 4); }
+    .services-how-we-work-6 { top: calc(60px * 5); }
+
+    .service-inner { top: -50px; }
+}
 
 @media (max-width: 1359px) { 
     .services-how-work-card-wrapper { margin-top: 0; }
     .services-how-work-card p { width: 800px; }
+
+    .services-how-we-work-2 { top: 54px; }
+    .services-how-we-work-3 { top: calc(54px * 2); }
+    .services-how-we-work-4 { top: calc(54px * 3); }
+    .services-how-we-work-5 { top: calc(54px * 4); }
+    .services-how-we-work-6 { top: calc(54px * 5); }
+
+    .services-how-work-card { padding: 30px; }
+
+    .services-how-work-card-wrapper {
+        --card-padding-top: 30px;
+        --collapsed-card-padding-top: 15px;
+
+        height: 560px;
+    }
+
 }
 
 @media (max-width: 1359px) and (max-height: 600px) { }
@@ -75,40 +137,129 @@
     .services-how-we-work-title p { width: 530px; }
 }
 
-@media (max-width: 1024px) {  }
+@media (max-width: 1024px) { 
+    .service-section { height: calc(100vh * 6); } 
+}
 
-@media (max-width: 1024px) and (max-height: 770px) { }
+@media (max-width: 1024px) and (max-height: 770px) { 
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 46px;
+        --expanded-title-line-height: 54px;
+
+        --collapsed-title-size: 28px;
+        --collapsed-title-line-height: 36px; 
+
+        height: 555px;
+    }
+}
 
 @media (max-width: 991px) { 
     .services-how-work-card p { width: 100%; }
+    .service-inner { top: 0; }
+
+    .services-how-we-work-2 { top: 60px; }
+    .services-how-we-work-3 { top: calc(60px * 2); }
+    .services-how-we-work-4 { top: calc(60px * 3); }
+    .services-how-we-work-5 { top: calc(60px * 4); }
+    .services-how-we-work-6 { top: calc(60px * 5); }
+
+    .services-how-work-card-wrapper { height: 590px; }
 }
 
 @media (max-width: 839px) { 
     .services-how-work-card .h5 { margin-top: 16px; margin-bottom: 10px; } 
     .services-how-we-work-title p { width: 460px; }
+    
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 46px;
+        --expanded-title-line-height: 54px;
+
+        --collapsed-title-size: 28px;
+        --collapsed-title-line-height: 36px; 
+
+        height: 605px;
+    }
 }
 
-@media (max-width: 767px) { }
+@media (max-width: 767px) { 
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 42px;
+        --expanded-title-line-height: 50px;
+    }
+}
 
 @media (max-width: 639px) { }
 
 @media (max-width: 575px) { 
     .services-how-work-card .h5 { font-size: 18px; line-height: 26px; }
     .services-how-we-work-title p { width: 100%; }
-    .services-how-work-card-wrapper { margin-top: 30px; }
+    /* .services-how-work-card-wrapper { margin-top: 30px; } */
+
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 38px;
+        --expanded-title-line-height: 46px;
+        
+        height: 620px;
+    }
 }
 
 @media (max-width: 479px) { 
     .services-how-work-card .h5 { margin-top: 14px; }
     .services-step-number { width: max-content; padding: 15px 30px; border-radius: 16px 16px 0 0; }
+
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 34px;
+        --expanded-title-line-height: 42px;
+
+        height: 600px;
+    }
+
+    .services-how-we-work-2 { top: 56px; }
+    .services-how-we-work-3 { top: calc(56px * 2); }
+    .services-how-we-work-4 { top: calc(56px * 3); }
+    .services-how-we-work-5 { top: calc(56px * 4); }
+    .services-how-we-work-6 { top: calc(56px * 5); }
 }
 
 @media (max-width: 439px) { 
     .services-how-work-card { padding: 20px; }
+
+    .services-how-work-card-wrapper { 
+        margin-top: 20px;
+        --card-movement-distance: 250px;
+
+        --expanded-title-size: 30px;
+        --expanded-title-line-height: 38px;
+
+        --collapsed-title-size: 22px;
+        --collapsed-title-line-height: 30px; 
+
+        height: 580px;
+    }
 }
 
 @media (max-width: 400px) { 
     .services-how-work-card .h5 { font-size: 16px; line-height: 24px; }
+    .service-inner { top: -40px; }
+
+    .services-how-work-card p { font-size: 14px; line-height: 22px; }
+    .services-how-work-card .h5 { margin-top: 6px; }
+
+    .services-how-work-card-wrapper { margin-top: 0; }
+
+    /* .service-inner { top: 0; } */
+    .services-how-we-work-2 { top: 48px; }
+    .services-how-we-work-3 { top: calc(48px * 2); }
+    .services-how-we-work-4 { top: calc(48px * 3); }
+    .services-how-we-work-5 { top: calc(48px * 4); }
+    .services-how-we-work-6 { top: calc(48px * 5); }
+
+    .services-how-work-card-wrapper {
+        --card-padding-top: 20px;
+        --collapsed-card-padding-top: 10px;
+
+        --card-movement-distance: 200px;
+    }
 }
 
 @media (max-width: 374px) { }

@@ -26,15 +26,33 @@ const cards = [
     },
 ]
 
+const CARD_DURATION = 5000
+const CLICK_AUTOPLAY_DELAY = 5000
+
 const ContactWhatHappen = () => {
 
     const sectionRef = useRef<HTMLElement | null>(null)
     const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
+    const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+
+    const autoplayTimeoutRef = useRef<number | null>(null)
+    const autoplayStartedAtRef = useRef(0)
+    const remainingTimeRef = useRef(CARD_DURATION)
+
     const [activeCard, setActiveCard] = useState<number | null>(null)
     const [highestOpenedCard, setHighestOpenedCard] = useState(-1)
     const [animationStarted, setAnimationStarted] = useState(false)
+    const [manualInteraction, setManualInteraction] = useState(false)
     const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 991px)').matches)
+
+    const isActiveCardHovered = hoveredCard !== null && hoveredCard === activeCard
+
+    useEffect(() => {
+        remainingTimeRef.current = manualInteraction
+            ? CLICK_AUTOPLAY_DELAY
+            : CARD_DURATION
+    }, [activeCard, manualInteraction])
 
     useEffect(() => {
         const section = sectionRef.current
@@ -46,18 +64,16 @@ const ContactWhatHappen = () => {
                 if (!entry.isIntersecting) return
 
                 setAnimationStarted(true)
+                setActiveCard(0)
 
                 if (isMobile) {
-                    setActiveCard(null)
-                    setHighestOpenedCard(-1)
-                } else {
-                    setActiveCard(0)
+                    setHighestOpenedCard(0)
                 }
 
                 observer.unobserve(entry.target)
             },
             {
-                threshold: 0.1,
+                threshold: 0.5,
             }
         )
 
@@ -67,25 +83,15 @@ const ContactWhatHappen = () => {
     }, [isMobile])
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia(
-            '(max-width: 991px)'
-        )
+        const mediaQuery = window.matchMedia('(max-width: 991px)')
 
         const handleBreakpointChange = (
             event: MediaQueryListEvent
         ) => {
-            const mobile = event.matches
-
-            setIsMobile(mobile)
-
-            if (mobile) {
-                setActiveCard(null)
-                setHighestOpenedCard(-1)
-            } else {
-
-                setActiveCard(0)
-                setHighestOpenedCard(-1)
-            }
+            setIsMobile(event.matches)
+            setActiveCard(0)
+            setHighestOpenedCard(0)
+            setManualInteraction(false)
         }
 
         mediaQuery.addEventListener(
@@ -104,43 +110,93 @@ const ContactWhatHappen = () => {
     useEffect(() => {
         if (!isMobile) return
         if (!animationStarted) return
+        if (manualInteraction) return
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) return
+        let animationFrameId: number | null = null
 
-                    const card = entry.target as HTMLDivElement
-                    const index = Number(card.dataset.index)
+        const handleCardActivation = () => {
+            if (animationFrameId !== null) { cancelAnimationFrame(animationFrameId) }
 
-                    setActiveCard(index)
+            animationFrameId = requestAnimationFrame(() => {
+                const activationPoint = window.innerHeight * 0.80
 
-                    setHighestOpenedCard((previous) =>
-                        Math.max(previous, index)
-                    )
+                let reachedCard = 0
 
-                    observer.unobserve(card)
+                cardRefs.current.forEach((card, index) => {
+                    if (!card) return
+                    const cardTop = card.getBoundingClientRect().top
+                    if (cardTop <= activationPoint) { reachedCard = index }
                 })
-            },
-            {
-                threshold: 1,
-                rootMargin: '0px',
-            }
-        )
 
-        cardRefs.current.forEach((card) => {
-            if (card) {
-                observer.observe(card)
-            }
+                setHighestOpenedCard((previousHighest) => {
+                    const nextHighest = Math.max(previousHighest, reachedCard)
+                    if (nextHighest !== previousHighest) { setActiveCard(nextHighest) }
+                    return nextHighest
+                })
+            })
+        }
+
+        handleCardActivation()
+
+        window.addEventListener('scroll', handleCardActivation, {
+            passive: true,
         })
 
-        return () => observer.disconnect()
-    }, [isMobile, animationStarted])
+        window.addEventListener('resize', handleCardActivation)
 
-    const handleCardClick = (index: number) => {
+        return () => {
+            window.removeEventListener('scroll', handleCardActivation)
+            window.removeEventListener('resize', handleCardActivation)
+
+            if (animationFrameId !== null) { cancelAnimationFrame(animationFrameId) }
+        }
+    }, [isMobile, animationStarted, manualInteraction,])
+
+    useEffect(() => {
+        if (!animationStarted) return
         if (isMobile) return
 
+        const clearAutoplayTimeout = () => {
+            if (autoplayTimeoutRef.current !== null) {
+                window.clearTimeout(autoplayTimeoutRef.current)
+                autoplayTimeoutRef.current = null
+            }
+        }
+
+        // Pause the timer while the active card is hovered.
+        if (isActiveCardHovered) {
+            const elapsedTime =
+                performance.now() - autoplayStartedAtRef.current
+
+            remainingTimeRef.current = Math.max(
+                remainingTimeRef.current - elapsedTime,
+                0
+            )
+
+            clearAutoplayTimeout()
+            return
+        }
+
+        autoplayStartedAtRef.current = performance.now()
+
+        autoplayTimeoutRef.current = window.setTimeout(() => {
+            setActiveCard((currentCard) => {
+                return currentCard === null ||
+                    currentCard >= cards.length - 1
+                    ? 0
+                    : currentCard + 1
+            })
+
+            setManualInteraction(false)
+        }, remainingTimeRef.current)
+
+        return clearAutoplayTimeout
+    }, [activeCard, animationStarted, manualInteraction, isMobile, isActiveCardHovered,])
+
+    const handleCardClick = (index: number) => {
         setAnimationStarted(true)
+        setManualInteraction(true)
+
         setActiveCard(index)
     }
 
@@ -161,12 +217,25 @@ const ContactWhatHappen = () => {
                         const isCompleted = isMobile ? animationStarted && index <= highestOpenedCard && index !== activeCard : activeCard !== null && index < activeCard
                         return (
                             <div
-                                ref={(element) => { cardRefs.current[index] = element }}
+                                ref={(element) => {
+                                    cardRefs.current[index] = element
+                                }}
                                 key={card.number}
                                 role="button"
-                                data-index={index}
                                 tabIndex={0}
                                 aria-expanded={showActiveCard || isCompleted}
+                                onMouseEnter={() => {
+                                    if (!isMobile && activeCard === index) {
+                                        setHoveredCard(index)
+                                    }
+                                }}
+                                onMouseLeave={() => {
+                                    setHoveredCard((currentHoveredCard) =>
+                                        currentHoveredCard === index
+                                            ? null
+                                            : currentHoveredCard
+                                    )
+                                }}
                                 onClick={() => handleCardClick(index)}
                                 onKeyDown={(event) => {
                                     if (event.key === 'Enter' || event.key === ' ') {
@@ -174,7 +243,7 @@ const ContactWhatHappen = () => {
                                         handleCardClick(index)
                                     }
                                 }}
-                                className={`cnct-happens-card flex gap-[30px] pt-[20px] ${showActiveCard ? 'is-active' : ''} ${isCompleted ? 'is-completed' : ''} ${animationStarted ? 'animation-started' : ''} `}
+                                className={`cnct-happens-card flex gap-[30px] pt-[20px] ${showActiveCard ? 'is-active' : ''} ${isCompleted ? 'is-completed' : ''} ${animationStarted ? 'animation-started' : ''} ${hoveredCard === index ? 'is-hovered' : ''} `}
                             >
                                 <div className="cnct-card-line">
                                     <span key={`${index}-${showActiveCard}`} className="cnct-card-line-progress" />

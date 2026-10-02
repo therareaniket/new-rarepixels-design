@@ -149,17 +149,16 @@ const ServicesHowWeWork = () => {
                     timeline.to(
                         previousCardTitle,
                         {
-                            "--card-title-size": () => {
-                                return getComputedStyle(cardsWrapper)
-                                    .getPropertyValue("--collapsed-title-size")
-                                    .trim();
-                            },
+                            "--card-title-size": () => getCollapsedTitleSize(),
+                            "--card-title-line-height": () =>
+                                getCollapsedTitleLineHeight(),
                             duration: 0.8,
                             ease: "power2.inOut",
                         },
                         stageLabel
                     );
                 }
+
 
                 timeline.to(
                     currentCard,
