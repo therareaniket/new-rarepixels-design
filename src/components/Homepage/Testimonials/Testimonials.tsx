@@ -67,7 +67,9 @@ const Testimonials = () => {
 				</div>
 
 				<div className="hm-testimonial-wrapper flex justify-between gap-[40px] mt-[40px]">
-					<div className="testimonial-client-video w-[690px] h-[508px] bg-[#fbf8f5] rounded-[20px]"></div>
+					<div className="testimonial-client-video w-[690px] h-[508px] bg-[#fbf8f5] rounded-[20px] overflow-hidden">
+						<video className="w-full h-full object-cover" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-1.mp4" controls={false} autoPlay loop muted playsInline></video>
+					</div>
 
 					<div className="testimonial-swiper flex-1 min-w-0">
 						<Swiper

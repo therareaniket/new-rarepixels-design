@@ -32,7 +32,7 @@ export default function RadarChart() {
   const [isInView, setIsInView] = useState(false)
 
   // Set the delay to 2 seconds
-  const ANIMATION_DELAY = 2
+  const ANIMATION_DELAY = 0.2
 
   useEffect(() => {
     const element = containerRef.current

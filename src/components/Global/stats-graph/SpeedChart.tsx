@@ -26,7 +26,7 @@ export default function SpeedChart() {
 
   useEffect(() => {
     const animationObj = { val: 0 };
-    const calculatedDelay = window.innerWidth < 576 ? 0.2 : window.innerWidth > 768 ? 3 : 1;
+    const calculatedDelay = window.innerWidth < 576 ? 0.2 : window.innerWidth > 768 ? 0.2 : 0.2;
     gsap.set(containerRef.current, { opacity: 0 });
 
     const trigger = ScrollTrigger.create({

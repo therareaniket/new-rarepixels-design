@@ -1,0 +1,3 @@
+.industries { height: calc(100vh * 3); position: relative; }
+.indust-sticky-wrapper { height: calc(100vh); width: 100%; position: sticky; top: 0; }
+.indust-video-wrapper { border-radius: 0 0 100 0; overflow: hidden; }

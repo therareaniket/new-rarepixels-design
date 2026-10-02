@@ -5,14 +5,14 @@ import PixelImageCanvas from "@/animations/PixelImageReveal";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 
 const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 
 const About = () => {
     gsap.registerPlugin(ScrollTrigger);
     
-    useLayoutEffect(() => {
+    useEffect(() => {
         if(typeof window !== 'undefined' && window.innerWidth >= 640) {
 
             gsap.set(".hm-abt-card:nth-child(1)", { xPercent: 50, yPercent: 50 } )

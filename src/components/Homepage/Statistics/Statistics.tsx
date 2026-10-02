@@ -28,7 +28,7 @@ const Statistics = () => {
   		ScrollTrigger.create({ trigger: triggerElement, start: "top 80%", once: true,
 
 		onEnter: () => {
-			gsap.delayedCall(window.innerWidth <= 768 ? 0.2 : window.innerWidth < 1025 && window.innerHeight > 900 ? 4 : 4, () => {
+			gsap.delayedCall(window.innerWidth <= 768 ? 0.2 : window.innerWidth < 1025 && window.innerHeight > 900 ? 0.2 : 0.2, () => {
 				const tl = gsap.timeline();
 
 				countries.forEach((country) => {
