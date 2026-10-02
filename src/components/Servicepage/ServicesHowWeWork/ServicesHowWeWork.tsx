@@ -105,7 +105,7 @@ const ServicesHowWeWork = () => {
                     trigger: section,
                     start: "top top",
                     end: "bottom +=1200",
-                    scrub: 1,
+                    scrub: 2,
                     invalidateOnRefresh: true,
                 },
             });
