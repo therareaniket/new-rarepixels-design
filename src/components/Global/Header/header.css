@@ -89,6 +89,8 @@ header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filte
     .mm-pages-link ul { justify-content: start; gap: 16px 50px; }
     .sub-service-list { width: 258px; }
     .mm-connect-us { flex-direction: column; }
+
+    .mm-pages-link li:hover, .mm-pages-link li:hover .link-icon, .mm-socials li:hover .mm-social-icon { transition: none; }
 }
 
 @media (max-width: 575px) {
