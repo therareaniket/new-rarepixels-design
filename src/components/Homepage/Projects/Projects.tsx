@@ -1,24 +1,26 @@
 'use client'
 
-import { useState, useRef, useEffect, useLayoutEffect, forwardRef } from "react";
+import { useState, useRef, useEffect, forwardRef } from "react";
 import gsap from "gsap";
 import "./projects.css";
 
 const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
-type ProjectItem = { id: string; title: string; videoSrc: string; thumbNail: string; foreGroundColor: "black" | "white"; };
+type ProjectItem = { id: string; title: string; serviceProvided: string; videoSrc: string; thumbNail: string; foreGroundColor: "black" | "white"; };
 
 const PROJECT_DATA: ProjectItem[] = [
-    { id: "proj-1", title: "DJK", videoSrc: `${CDN_URL}/images/homepage/projects/djk-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/djk-project-tmbn.png`, foreGroundColor: "black" },
-    { id: "proj-2", title: "A.U.T.O.B.O.T", videoSrc: `${CDN_URL}/images/homepage/projects/autobot-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/autobot-project-tmbn.png`, foreGroundColor: "white" },
-    { id: "proj-3", title: "Cameriz", videoSrc: `${CDN_URL}/images/homepage/projects/cameriz-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/cameriz-project-tmbn.png`, foreGroundColor: "black" },
-    { id: "proj-4", title: "DashCore", videoSrc: `${CDN_URL}/images/homepage/projects/ra-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/ra-project-tmbn.png`, foreGroundColor: "white" },
-    { id: "proj-5", title: "Steamovap", videoSrc: `${CDN_URL}/images/homepage/projects/steamovap-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/steamovap-project-tmbn.png`, foreGroundColor: "black" },
-    { id: "proj-6", title: "Mugoray", videoSrc: `${CDN_URL}/images/homepage/projects/mugoray-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/mugoray-project-tmbn.png`, foreGroundColor: "white" },
-    { id: "proj-7", title: "Lalita", videoSrc: `${CDN_URL}/images/homepage/projects/lalita-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/lalita-project-tmbn.png`, foreGroundColor: "white" },
+    { id: "proj-1", title: "DJK", serviceProvided: "Website Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/djk-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/djk-project-tmbn.png`, foreGroundColor: "black" },
+    { id: "proj-2", title: "A.U.T.O.B.O.T", serviceProvided: "Book Design", videoSrc: `${CDN_URL}/images/homepage/projects/autobot-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/autobot-project-tmbn.png`, foreGroundColor: "white" },
+    { id: "proj-3", title: "Cameriz", serviceProvided: "E-commerce Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/cameriz-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/cameriz-project-tmbn.png`, foreGroundColor: "black" },
+    { id: "proj-4", title: "DashCore", serviceProvided: "SaaS Product Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/ra-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/ra-project-tmbn.png`, foreGroundColor: "white" },
+    { id: "proj-5", title: "Steamovap", serviceProvided: "Website Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/steamovap-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/steamovap-project-tmbn.png`, foreGroundColor: "black" },
+    { id: "proj-6", title: "Mugoray", serviceProvided: "Branding, Social Media Management, E-commerce Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/mugoray-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/mugoray-project-tmbn.png`, foreGroundColor: "white" },
+    { id: "proj-7", title: "Lalita", serviceProvided: "Branding & Social Media Management", videoSrc: `${CDN_URL}/images/homepage/projects/lalita-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/lalita-project-tmbn.png`, foreGroundColor: "white" },
 ];
 
 export default function Projects() {
     const [activeIndex, setActiveIndex] = useState(0);
+    // Synced immediately to match the landing timing of the main card slide
+    const [settledIndex, setSettledIndex] = useState(0);
     const [direction, setDirection] = useState<1 | -1>(1);
 
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -29,7 +31,7 @@ export default function Projects() {
 
     const handleSetActive = (index: number) => { if (index === activeIndex) return; setDirection(index > activeIndex ? 1 : -1); setActiveIndex(index); };
 
-    // GSAP Sliding & Tilting Animation ported from ProjectSectionDesktop.tsx
+    // GSAP Sliding, Tilting, and Filter Animation
     useEffect(() => {
         if (cardRefs.current.length === 0) return;
 
@@ -47,25 +49,52 @@ export default function Projects() {
         const targetX = -activeIndex * stepSize;
         const baseDelay = 0.08;
 
+        // Update settledIndex right when the primary slide animation finishes (at 1 second duration)
+        // This removes any lag so text/video switches instantly when the card snaps into place.
+        const animationDuration = 1; 
+        const maxDelay = baseDelay + 0.15 + PROJECT_DATA.length * 0.08; 
+        
+        const timer = setTimeout(() => {
+            setSettledIndex(activeIndex);
+        }, (baseDelay + animationDuration) * 1000);
+
         cardRefs.current.forEach((card, i) => {
             if (!card) return;
 
             let delay = baseDelay;
 
-            if (isMovingForward) { if (i > previousIndex) { delay = baseDelay + 0.15 + (i - (previousIndex + 1)) * 0.08; }} 
-			else { if (i < previousIndex) { delay = baseDelay + 0.15 + (previousIndex - 1 - i) * 0.08; } }
+            if (isMovingForward) { 
+                if (i > previousIndex) { delay = baseDelay + 0.15 + (i - (previousIndex + 1)) * 0.08; }
+            } else { 
+                if (i < previousIndex) { delay = baseDelay + 0.15 + (previousIndex - 1 - i) * 0.08; } 
+            }
 
             const tiltAngle = isMovingForward ? -5 : 5;
+            const isTargetActive = i === activeIndex;
 
             gsap.killTweensOf(card);
 
-            gsap.timeline({ delay }).to(card, { x: targetX, rotation: tiltAngle, duration: 1, ease: "power4.inOut"})
-                .to(card, { rotation: 0, duration: 1.5, ease: "power4.out"}, "-=0.25");
-    });
+            gsap.timeline({ delay })
+            .to(card, { 
+                x: targetX, 
+                rotation: tiltAngle, 
+                // filter: isTargetActive ? "blur(0px)" : "blur(5px)",
+                // opacity: isTargetActive ? 1 : 0.6,
+                scale: isTargetActive ? 1 : 0.9,
+                duration: animationDuration, 
+                ease: "power4.inOut"
+            })
+            .to(card, { 
+                rotation: 0, 
+                duration: 1.5, 
+                ease: "power4.out"
+            }, "-=0.25");
+        });
 
         prevIndexRef.current = activeIndex;
-    
-	}, [activeIndex]);
+
+        return () => clearTimeout(timer);
+    }, [activeIndex]);
 
   	return (
     	<section className="section projects">
@@ -78,15 +107,22 @@ export default function Projects() {
 				<div className="projects-lists-wrapper overflow-hidden">
 					<div className="projects-list flex mt-[50px] gap-[30px] w-max">
 						{PROJECT_DATA.map((project, index) => (
-							<ProjectCard key={project.id} ref={(el) => { cardRefs.current[index] = el; }} project={project} index={index} isActive={index === activeIndex} onSetActive={handleSetActive}/>
+							<ProjectCard 
+                                key={project.id} 
+                                ref={(el) => { cardRefs.current[index] = el; }} 
+                                project={project} 
+                                index={index} 
+                                isActive={index === settledIndex} 
+                                onSetActive={handleSetActive}
+                            />
 						))}
 					</div>
 				</div>
 
 				<div className="active-project-title-controller w-[1000px] mt-[30px] flex items-center justify-between">
 					<div className="active-project-name">
-						<span className="h4 font-medium text-black">
-							{PROJECT_DATA[activeIndex].title}
+						<span className="h5 font-medium text-black">
+							{PROJECT_DATA[settledIndex].serviceProvided}
 						</span>
 					</div>
 
@@ -100,7 +136,6 @@ export default function Projects() {
 							<svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.775 20L0 18.225L8.225 10L0 1.775L1.775 0L11.775 10L1.775 20Z" fill="#1C1B1F"/>
                             </svg>
-
 						</button>
 
 						<button className="hover:cursor-pointer hover:bg-white px-[14px] py-[6px] rounded-full leading-1 transition-all" 
@@ -111,7 +146,7 @@ export default function Projects() {
 							style={{ cursor: activeIndex === PROJECT_DATA.length - 1 ? "not-allowed" : "pointer", opacity: activeIndex === PROJECT_DATA.length - 1 ? 0.5 : 1 }}>
 							<svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.775 20L0 18.225L8.225 10L0 1.775L1.775 0L11.775 10L1.775 20Z" fill="#1C1B1F"/>
-                                </svg>
+                            </svg>
 						</button>
 					</div>
 				</div>
@@ -123,43 +158,32 @@ export default function Projects() {
 interface ProjectCardProps { project: ProjectItem; index: number; isActive: boolean; onSetActive: (index: number) => void; }
 const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(({ project, index, isActive, onSetActive }, ref) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const cursorRef = useRef<HTMLDivElement>(null);
-
-    const cursorXTo = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
-    const cursorYTo = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
-    const [isHovering, setIsHovering] = useState(false);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
     useEffect(() => {
         if (!videoRef.current) return;
 
-        if (isActive) { const playPromise = videoRef.current.play();
-        if (playPromise !== undefined) { playPromise.then(() => setIsVideoPlaying(true)).catch(() => setIsVideoPlaying(false)); }
-        } else { videoRef.current.pause(); videoRef.current.currentTime = 0; setIsVideoPlaying(false); }
+        if (isActive) { 
+            const playPromise = videoRef.current.play();
+            if (playPromise !== undefined) { 
+                playPromise.then(() => setIsVideoPlaying(true)).catch(() => setIsVideoPlaying(false)); 
+            }
+        } else { 
+            videoRef.current.pause(); 
+            videoRef.current.currentTime = 0; 
+            setIsVideoPlaying(false); 
+        }
     }, [isActive]);
 
-    useLayoutEffect(() => {
-        const cursor = cursorRef.current;
-        if (!isHovering || !cursor) return;
-
-        cursorXTo.current = gsap.quickTo(cursor, "left", { duration: 0.6, ease: "power3.out" });
-        cursorYTo.current = gsap.quickTo(cursor, "top", { duration: 0.6, ease: "power3.out" });
-
-        gsap.fromTo( cursor, { opacity: 0, scale: 0.75 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out", overwrite: "auto" });
-
-        return () => { gsap.killTweensOf(cursor); cursorXTo.current = null; cursorYTo.current = null; };
-    }, [isHovering]);
-
-
-    const handleClick = () => { if (!isActive) { onSetActive(index); }};
+    const handleClick = () => { onSetActive(index); };
 
     return (
-        <div ref={ref} onClick={handleClick} className={`project-list w-[1000px] h-[550px] rounded-[20px] relative overflow-hidden flex-shrink-0 cursor-pointer ${isActive ? "active" : ""}`}>
-			<video  ref={videoRef}  className="project-video w-full h-full object-cover"  src={project.videoSrc}  poster={project.thumbNail}  loop  muted  playsInline />
-
-            {!isVideoPlaying && (
-                <img src={project.thumbNail}  alt={project.title}  className="absolute top-0 left-0 w-full h-full object-cover z-[1] pointer-events-none" />
-            )}
+        <div 
+            ref={ref} 
+            onClick={handleClick} 
+            className={`project-list w-[1000px] h-[550px] rounded-[20px] relative overflow-hidden flex-shrink-0 cursor-pointer ${ isActive ? "active" : "" }`}
+        >
+			<video ref={videoRef} className="project-video w-full h-full object-cover" src={project.videoSrc} poster={project.thumbNail} loop muted playsInline />
         </div>
     );
 });

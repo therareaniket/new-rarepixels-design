@@ -95,7 +95,8 @@ export default function PixelImageCanvas({ src, alt, pixelSize = typeof window !
                         scrollTrigger: {
                             trigger: container,
                             start: () => (window.innerWidth > 1024 ? 'top 70%' : 'top 60%'),
-                            toggleActions: 'play none none reverse',
+                            // toggleActions: 'play none none reverse',
+                            once: true,
                         },
                     });
                 }, container);

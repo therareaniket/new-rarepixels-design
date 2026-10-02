@@ -70,7 +70,11 @@ const Header = () => {
             {megaMenuOpen && (
                 <nav aria-label="Mega Menu" className="mega-menu fixed top-0 left-0 bg-white w-[100%] h-[100vh] py-[20px] z-[99]">
                     <div className="container overflow-hidden h-[100%] relative z-[2]">
-                        <button onClick={toggleMegaMenu} className="close-btn cursor-pointer rounded-full bg-[#ED0180] text-white p-[10px] mt-[20px] ml-[100%] translate-x-[-100%] font-semibold" type="button">CLOSE</button>
+                        <button onClick={toggleMegaMenu} className="close-btn cursor-pointer rounded-full bg-[#ED0180] text-white p-[10px] mt-[20px] ml-[100%] translate-x-[-100%] font-semibold" type="button">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.2 15.6L0 13.4L5.6 7.8L0 2.2L2.2 0L7.8 5.6L13.4 0L15.6 2.2L10 7.8L15.6 13.4L13.4 15.6L7.8 10L2.2 15.6Z" fill="white"/>
+                            </svg>
+                        </button>
 
                         <div className="mega-menu-content mt-[40px]">
                             <div className="mm-pages-link">
@@ -99,7 +103,7 @@ const Header = () => {
 
                                     <li>
                                         <Link href="/Services" onClick={closeMegaMenu} className="w-[330px] flex gap-[10px]">
-                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-conversion_path"></span></span>
+                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]" style={linkStyleIcon('/Services')}><span className="mm-icon icon-conversion_path"></span></span>
 
                                             <div className="link-info">
                                                 <p className="link-title text-18 font-medium mb-[4px]" style={linkStyle('/Services')}>Services</p>
@@ -154,7 +158,7 @@ const Header = () => {
 
                                     <li>
                                         <Link href="/Contact" onClick={closeMegaMenu} className="w-[330px] flex gap-[10px]">
-                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]"><span className="mm-icon icon-support_agent"></span></span>
+                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]" style={linkStyleIcon('/Contact')}><span className="mm-icon icon-support_agent"></span></span>
 
                                             <div className="link-info">
                                                 <p className="link-title text-18 font-medium mb-[4px]" style={linkStyle('/Contact')}>Contact</p>
