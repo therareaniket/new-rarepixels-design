@@ -1,7 +1,9 @@
-/* .process-headings { margin: 0 auto; } */
+.process-main { height: 300vh; position: relative; }
+.hm-process-sticky { position: sticky; top: 0; }
 .process-details { width: calc(100% - 48px - 20px); }
 .process { height: 48px; }
 .process.active { height: 180px; }
+.process-icon span { font-size: 28px; }
 
 @media (max-width: 1799px) {
     .process-headings { width: 650px; }
