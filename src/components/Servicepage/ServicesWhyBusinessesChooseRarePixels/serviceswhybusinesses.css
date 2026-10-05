@@ -1,0 +1,162 @@
+/* custom */
+
+.services-why-busi-card { height: 370px; }
+.services-why-businesses-choose-rarepixels { position: relative; justify-content: space-between; }
+
+.services-why-busi-card { flex-shrink: 0; gap: 40px; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+
+.services-why-businesses-choose-rarepixels:has(.services-why-busi-card-3:hover) { justify-content: flex-end; }
+
+.services-why-busi-description {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+}
+
+.services-why-busi-description p { width: 354px; }
+.services-why-busi-card:hover .services-why-busi-description { width: 354px; opacity: 1; }
+
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-2 { transform: translateX(200px); }
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-3 { transform: translateX(200px); }
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-2:hover ) .services-why-busi-card-3 { transform: translateX(200px); }
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-1 { transform: translateX(-200px); }
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-2 { transform: translateX(-200px); }
+
+.services-why-businesses-choose-rarepixels-tablet { display: none; }
+
+/* responsive */
+
+@media (max-width: 1799px) { 
+    .services-why-busi-element-art { width: 340px; height: 333px; } 
+    .services-why-busi-text h3 { font-size: 28px; line-height: 36px; }
+
+    .services-why-businesses-choose-rarepixels { margin-top: 40px; }
+
+    .services-why-busi-description { height: 120px; }
+    .services-why-busi-card:hover .services-why-busi-description { width: 310px; }
+    .services-why-busi-description p { width: 310px; }
+
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-2 { transform: translateX(150px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-3 { transform: translateX(150px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-2:hover ) .services-why-busi-card-3 { transform: translateX(150px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-1 { transform: translateX(-150px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-2 { transform: translateX(-150px); }
+}
+
+@media (max-width: 1599px) { 
+    .services-why-busi-element-art { width: 300px; height: 294px; } 
+    .services-why-busi-card { height: 300px; }
+
+    .services-why-busi-text h3 { font-size: 22px; line-height: 30px; }
+
+    .services-why-busi-text-3 { top: 90px; right: 20px; }
+
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-2 { transform: translateX(100px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-3 { transform: translateX(100px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-2:hover ) .services-why-busi-card-3 { transform: translateX(100px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-1 { transform: translateX(-100px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-2 { transform: translateX(-100px); }
+}
+
+@media (max-width: 1599px) and (max-height: 750px) {}
+
+@media (max-width: 1439px) { 
+    .services-why-busi-element-art { width: 250px; height: 245px; } 
+    .services-why-busi-card { height: 245px; }
+    .services-why-busi-description { margin-bottom: 15px; padding-bottom: 0; }
+    .services-why-busi-text h3 { font-size: 20px; line-height: 28px; }
+    .services-why-busi-text-3 { top: 74px; right: 1px; }
+}
+
+@media (max-width: 1359px) { }
+
+@media (max-width: 1359px) and (max-height: 600px) { }
+
+@media (max-width: 1199px) { 
+    .services-why-busi-element-art { width: 220px; height: 215px; }
+    .services-why-busi-card { height: 215px; }
+
+    .services-why-busi-text h3 { font-size: 16px; line-height: 24px; width: 110px;  }
+    .services-why-busi-text-3 { top: 60px; right: 26px; }
+    .services-why-busi-description { height: 90px; }
+    .services-why-busi-card:hover .services-why-busi-description, .services-why-busi-description p { font-size: 14px; line-height: 22px; }
+    .services-why-busi-card { gap: 30px; }
+
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-2 { transform: translateX(50px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-3 { transform: translateX(50px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-2:hover ) .services-why-busi-card-3 { transform: translateX(50px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-1 { transform: translateX(-50px); }
+    .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-2 { transform: translateX(-50px); }
+}
+
+@media (max-width: 1024px) { }
+
+@media (max-width: 1024px) and (max-height: 770px) { }
+
+@media (max-width: 991px) {
+
+    .services-why-businesses-choose-rarepixels-desktop { display: none; }
+    .services-why-businesses-choose-rarepixels-tablet { display: flex; flex-direction: column; gap: 50px; margin-top: 40px; }
+    .services-business-card-tablet { display: flex; align-items: flex-end; justify-content: center; width: 100%; gap: 0; }
+    .services-business-card-tablet .services-why-busi-element-art { flex-shrink: 0; transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+
+    .sservices-business-tablet-text {
+        width: 0;
+        margin-bottom: 30px;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateX(30px);
+        transition:
+            width 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 0.5s ease 0.2s,
+            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .sservices-business-tablet-text p {  width: 400px; }
+    .services-business-card-tablet.is-visible { gap: 30px; }
+
+    .services-business-card-tablet.is-visible .sservices-business-tablet-text { width: 400px; opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 839px) { }
+
+@media (max-width: 767px) { }
+
+@media (max-width: 639px) { 
+    .services-why-busi-element-art { width: 180px; height: 176px; } 
+    .services-why-businesses-choose-rarepixels-tablet { gap: 40px; }
+}
+
+@media (max-width: 575px) { 
+    .sservices-business-tablet-text { margin-bottom: 0; }
+    .sservices-business-tablet-text p { width: 230px; }
+}
+
+@media (max-width: 479px) { 
+    .services-business-card-tablet { width: 100%; flex-direction: column; align-items: center; gap: 0; border: 1px solid #c6c6c6; padding: 20px; border-radius: 20px; text-align: center; }
+
+    .sservices-business-tablet-text {
+        width: 100%;
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        transform: translateY(20px);
+        overflow: hidden;
+        transition: grid-template-rows 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease 0.15s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+
+    .sservices-business-tablet-text p { width: 100%; min-height: 0; overflow: hidden; }
+
+    .services-business-card-tablet.is-visible .sservices-business-tablet-text { width: 100%; grid-template-rows: 1fr; opacity: 1; transform: translateY(0); }
+    .services-why-busi-element-art { width: 230px; height: 225px; }
+    .services-why-busi-text-3 { top: 65px; right: 30px; }
+}
+
+@media (max-width: 439px) { }
+
+@media (max-width: 400px) { }
+
+@media (max-width: 374px) { }
+
+@media (max-width: 359px) { }
