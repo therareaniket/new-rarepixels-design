@@ -6,6 +6,7 @@ import Hero from "@/components/Homepage/Hero/Hero";
 import Industries from "@/components/Homepage/Industries/Industries";
 import InquiryForm from "@/components/Homepage/InquiryForm/InquiryForm";
 import Process from "@/components/Homepage/Process/Process";
+import ProcessNew from "@/components/Homepage/ProcessNew/ProcessNew";
 import Projects from "@/components/Homepage/Projects/Projects";
 import Services from "@/components/Homepage/Services/Services";
 import Statistics from "@/components/Homepage/Statistics/Statistics";
@@ -16,13 +17,12 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <Process />
             <Testimonials />
             <About />
             <Services />
             <Industries />
             <WhyChooseUs />
-            {/* <Process /> */}
+            <ProcessNew />
             <Projects />
             <Statistics />
             <Blog />
