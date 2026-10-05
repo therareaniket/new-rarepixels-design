@@ -16,13 +16,13 @@ export default function Home() {
     return (
         <>
             <Hero />
-            {/* <Process /> */}
+            <Process />
             <Testimonials />
             <About />
             <Services />
             <Industries />
             <WhyChooseUs />
-            <Process />
+            {/* <Process /> */}
             <Projects />
             <Statistics />
             <Blog />

@@ -1,9 +1,17 @@
-.process-main { height: 300vh; position: relative; }
+.process-main { height: 400vh; position: relative; }
 .hm-process-sticky { position: sticky; top: 0; }
 .process-details { width: calc(100% - 48px - 20px); }
-.process { height: 48px; }
+.process { height: 48px; position: relative; transform: translateX(-100%); transition: height 0.5s ease; }
 .process.active { height: 180px; }
 .process-icon span { font-size: 28px; }
+
+/* PROCESS ITEM POSITIONING */
+.process:nth-child(1) { left: 0; transform: translate(0); }
+.process:nth-child(2) { left: calc(100% - 170px * 4); }
+.process:nth-child(3) { left: calc(100% - 170px * 3); }
+.process:nth-child(4) { left: calc(100% - 170px * 2); }
+.process:nth-child(5) { left: calc(100% - 170px); }
+.process:nth-child(6) { left: 100%; }
 
 @media (max-width: 1799px) {
     .process-headings { width: 650px; }
