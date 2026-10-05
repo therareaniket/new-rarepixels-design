@@ -10,6 +10,7 @@ if (typeof window !== "undefined") {
 }
 
 export default function AboutHeroSectionDesktop() {
+
     // const targetHeight = window.innerWidth < 480? "15vh" : window.innerWidth < 1200 ? "15vh" : "15vh";
     const targetHeight = "15vh";
 
@@ -37,7 +38,7 @@ export default function AboutHeroSectionDesktop() {
                 scrollTrigger: {
                     trigger: ".about-hero-section-desktop",
                     start: "top -300px",
-                    end: "top -1000px",
+                    end: "top -600px",
                     scrub: true,
                 }
             }
@@ -52,7 +53,7 @@ export default function AboutHeroSectionDesktop() {
                 scrollTrigger: {
                     trigger: ".about-hero-section-desktop",
                     start: "top -300px",
-                    end: "top -800px",
+                    end: "top -600px",
                     scrub: true,
                 }
             }
