@@ -6,7 +6,7 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
 }
-.services-strip { animation: services-marquee 20s infinite linear; }
+.services-strip { animation: services-marquee 30s infinite linear; }
 
 /* responsive */
 @media (max-width: 1799px) { 
@@ -59,11 +59,10 @@
     .services-hero-left { width: 80%; height: auto; }
     .se-stats-title div { width: 24px; height: 24px; }
     .se-stats-title { gap: 12px; }
-    .services-stats-wrapper { gap: 45px; } 
+    .services-stats-wrapper { gap: 45px; margin-top: 0; } 
 
     .services-hero-video-desktop { display: none; }
     .services-hero-video-tablet { display: block; width: 100%; margin: 30px auto; }
-    .services-stats-wrapper { margin-top: 0; }
 }
 
 @media (max-width: 839px) { 
@@ -95,7 +94,7 @@
 }
 
 @media (max-width: 439px) { 
-    .services-stats-wrapper { margin-top: 30px; }
+    /* .services-stats-wrapper { margin-top: 30px; } */
     .services-hero-left { width: 100%; }
 }
 

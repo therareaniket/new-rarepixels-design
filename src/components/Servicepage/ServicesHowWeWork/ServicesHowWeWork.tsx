@@ -104,7 +104,7 @@ const ServicesHowWeWork = () => {
                 scrollTrigger: {
                     trigger: section,
                     start: "top top",
-                    end: "bottom +=2500",
+                    end: "bottom +=2000",
                     scrub: 2,
                     invalidateOnRefresh: true,
                 },

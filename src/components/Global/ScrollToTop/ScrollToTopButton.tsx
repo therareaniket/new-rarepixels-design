@@ -1,7 +1,7 @@
 'use client'
 
-// import Image from "next/image";
 import { useEffect, useState } from "react";
+import "./scrolltotop.css"
 
 const ScrollToTopButton = () => {
     const [showButton, setShowButton] = useState(false);
@@ -31,7 +31,7 @@ const ScrollToTopButton = () => {
     if (!showButton) return null;
 
     return (
-        <button onClick={scrollToTop} className={`fixed bottom-6 right-6 z-50 bg-[#ED0180] text-white p-[10px] cursor-pointer flex items-center justify-center shadow-lg rounded-[10px] transition-transform transition-opacity duration-500 ease-out ${showButton ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0 pointer-events-none"}}`}>
+        <button onClick={scrollToTop} className={`scroll-top-btn fixed bottom-6 right-6 z-50 bg-[#ED0180] text-white w-[48px] h-[48px] cursor-pointer flex items-center justify-center shadow-lg rounded-[10px] transition-transform transition-opacity duration-500 ease-out ${showButton ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0 pointer-events-none"}}`}>
             <span className="block icon-hero-cta-arrow font-[14px] rotate-270"></span>
         </button>
     )

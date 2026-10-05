@@ -16,7 +16,7 @@
 .services-how-we-work-5 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FBF9E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FBF9E9; background: transparent; }
 .services-how-we-work-6 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
 
-.service-section { position: relative; height: calc(100vh * 8); }
+.service-section { position: relative; height: calc(100vh * 6); }
 .service-inner { position: sticky; top: 0; height: max-content; }
 
 .services-how-work-card-wrapper {
