@@ -2,6 +2,7 @@ import ContactFAQ from "@/components/Contactpage/ContactFAQ/ContactFAQ";
 import ContactForm from "@/components/Contactpage/ContactForm/ContactForm";
 import ContactHero from "@/components/Contactpage/ContactHero/ContactHero";
 import ContactWhatHappen from "@/components/Contactpage/ContactWhatHappen/ContactWhatHappen";
+import ScrollToTopButton from "@/components/Global/ScrollToTop/ScrollToTopButton";
 
 
 export default function Contact () {
@@ -11,6 +12,8 @@ export default function Contact () {
             <ContactForm />
             <ContactWhatHappen />
             <ContactFAQ />
+
+            <ScrollToTopButton />
         </>
     );
 }

@@ -1,158 +1,137 @@
 'use client';
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import './contacthero.css';
 
-import './contacthero.css'
-
-const wavePaths = [
+const WAVE_PATHS = [
     `M1920 537.023V540.159C1909.05 531.423 1886.42 514.121 1853.64 492.779C1825.59 474.519 1786.23 450.825 1737.55 426.421C1736.54 425.914 1735.52 425.408 1734.5 424.901C1707.96 411.686 1678.71 398.293 1647.05 385.466C1568.51 353.64 1467.51 322.422 1349.57 307.086C1348.3 306.917 1347.02 306.753 1345.74 306.591C1299.19 300.695 1250.04 297.28 1198.6 297.28C1113.67 297.28 1022.55 306.582 926.68 329.374C917.514 331.552 908.36 333.675 899.209 335.741H899.205C898.034 336.008 896.867 336.269 895.695 336.533C843.264 348.293 791.105 358.206 739.434 366.228H739.43C737.887 366.468 736.343 366.706 734.803 366.941H734.799C666.152 377.462 598.387 384.645 532.02 388.419C494.991 390.525 458.346 391.576 422.254 391.576C358.825 391.579 297.059 388.331 237.642 381.856C208.358 378.663 181.574 374.878 157.494 370.879C156.119 370.65 154.756 370.422 153.404 370.191C111.183 363.044 77.5296 355.283 53.6064 349.023C28.3661 342.42 10.3027 336.562 0 332.976V330.763C9.89952 334.253 28.439 340.356 54.9734 347.294C79.3075 353.657 113.737 361.575 157.044 368.81C158.412 369.041 159.79 369.269 161.176 369.497C184.477 373.316 210.271 376.923 238.376 379.983C288.68 385.461 349.897 389.505 420.895 389.505C509.46 389.505 613.286 383.216 730.31 365.569C731.869 365.336 733.432 365.098 734.995 364.858C785.007 357.212 837.412 347.489 892.047 335.302C893.215 335.042 894.382 334.781 895.553 334.517C905.48 332.287 915.483 329.976 925.555 327.581C995.808 310.878 1067.25 300.495 1137.91 296.717C1202.14 293.281 1267.17 295.228 1331.16 302.502C1337.25 303.194 1343.34 303.935 1349.42 304.722C1350.69 304.886 1351.96 305.055 1353.23 305.224C1453.51 318.558 1552.85 344.986 1648.85 383.896C1678.62 395.961 1708.12 409.261 1736.9 423.594C1737.92 424.098 1738.93 424.604 1739.95 425.115C1749.26 429.78 1758.49 434.555 1767.64 439.431C1798.32 455.792 1828.04 473.311 1855.98 491.505C1886.5 511.38 1908.25 527.766 1920 537.023Z`,
-
     `M1920 196.989V198.9C1900.32 198.32 1882.15 196.011 1864.71 191.888C1846.57 187.597 1829.66 181.427 1813.03 173.024C1782.22 157.467 1757.11 136.429 1732.83 116.084C1730.03 113.735 1727.22 111.381 1724.4 109.029C1723.75 108.487 1723.1 107.947 1722.44 107.405C1677.25 69.9166 1627.85 33.9021 1538.11 33.9021C1441.48 33.9021 1395 75.6991 1350.06 116.117C1327.41 136.479 1303.99 157.538 1274.43 173.112C1258.46 181.524 1242.04 187.701 1224.23 192C1204.23 196.822 1183.03 199.169 1159.41 199.169C1135.78 199.169 1114.78 197.721 1094.95 194.742C1077.27 192.086 1061 188.262 1045.23 183.058C1015.98 173.402 993.005 160.351 970.787 147.728C926.715 122.691 881.142 96.8009 784.301 96.8009C687.46 96.8009 630.536 133.662 575.428 169.308C567.967 174.137 560.433 179.009 552.753 183.816C551.892 184.361 551.025 184.903 550.153 185.443C530.097 197.918 509.015 209.894 485.599 219.498C467.562 226.895 449.629 232.328 430.783 236.106C409.62 240.348 387.867 242.411 364.278 242.411C340.689 242.411 319.68 241.127 299.889 238.488C282.232 236.132 266.008 232.744 250.284 228.129C221.103 219.567 198.221 207.99 176.095 196.794C171.982 194.713 167.858 192.626 163.68 190.55C162.747 190.089 161.814 189.627 160.873 189.164H160.869C122.703 170.401 79.319 153.056 0 151.701V149.797C19.5302 150.113 37.3786 151.378 54.2976 153.637C71.9539 155.99 88.1779 159.379 103.903 163.994C127.062 170.789 146.254 179.484 164.252 188.381C165.193 188.845 166.126 189.311 167.059 189.775C170.776 191.627 174.447 193.484 178.095 195.331C221.99 217.541 267.383 240.509 364.278 240.509C445.924 240.509 499.25 214.274 547.016 184.67C547.891 184.128 548.763 183.583 549.635 183.039C557.58 178.074 565.386 173.029 573.151 168.005C600.875 150.07 629.545 131.524 662.98 117.815C681.016 110.415 698.949 104.982 717.796 101.204C738.958 96.9626 760.712 94.8987 784.301 94.8987C807.89 94.8987 828.937 96.3467 848.763 99.3259C866.446 101.982 882.708 105.805 898.479 111.01C927.729 120.663 950.703 133.716 972.922 146.34C1016.99 171.376 1062.57 197.267 1159.41 197.267C1256.25 197.267 1302.52 155.47 1347.46 115.052C1370.11 94.6871 1393.52 73.6305 1423.09 58.0568C1439.06 49.6446 1455.48 43.4651 1473.29 39.1687C1493.28 34.3444 1514.49 32 1538.11 32C1561.73 32 1583.11 34.3444 1603.49 39.1615C1621.63 43.4532 1638.54 49.6232 1655.17 58.0235C1681.76 71.4502 1704.1 88.957 1725.33 106.578C1725.98 107.12 1726.63 107.66 1727.28 108.202C1729.99 110.461 1732.68 112.717 1735.37 114.966C1781.87 153.936 1829.9 194.19 1920 196.989Z`,
-
     `M1920 308.667C1917.06 310.776 1913.71 313.213 1910.11 315.831C1891.76 329.177 1861.06 351.513 1821.78 376.626C1794.68 393.95 1767.32 410.16 1739.95 425.115C1739.92 425.129 1739.89 425.146 1739.86 425.163C1739.09 425.584 1738.32 426.005 1737.55 426.421C1737.52 426.438 1737.49 426.452 1737.47 426.466C1717.88 437.113 1698.29 447.116 1678.79 456.422C1616.8 486.012 1554.69 509.069 1494.19 524.954C1459.32 534.113 1424.37 541.034 1390.34 545.523C1358.74 549.693 1327.19 551.862 1296.36 551.993L1293.38 552C1242.43 551.082 1179.85 544.325 1131.89 532.135C1079.88 518.915 1029.1 498.828 980.939 472.429C893.937 424.735 811.684 390.592 734.804 366.941H734.8C733.302 366.48 731.804 366.023 730.311 365.569C622.829 332.986 525.934 320.907 441.358 320.907C361.966 320.907 293.445 331.545 237.166 345.854C209.165 352.975 183.829 361.068 161.177 369.497C159.94 369.956 158.715 370.418 157.494 370.879C113.753 387.432 80.2679 405.127 57.1357 419.172C33.1549 433.733 18.0594 445.706 9.61523 453.187C5.8291 456.544 2.58811 459.703 0 462.535V458.733C10.7942 447.839 29.8026 433.081 54.9238 417.826C77.7526 403.964 110.611 386.569 153.404 370.191C154.61 369.73 155.824 369.269 157.045 368.811C180.457 359.999 206.768 351.522 235.956 344.099C292.569 329.704 361.555 318.996 441.396 318.996C527.27 318.996 625.728 331.374 734.995 364.858C736.47 365.31 737.948 365.766 739.431 366.228H739.435C815.62 389.914 897.02 423.862 983.036 471.014C1074.44 521.121 1173.86 547.669 1278.57 549.937L1281.04 549.986L1284.42 550.038C1427.45 551.921 1578.19 509.945 1734.4 424.956C1734.44 424.937 1734.47 424.92 1734.5 424.901C1735.27 424.49 1736.03 424.072 1736.79 423.653C1736.83 423.634 1736.87 423.615 1736.9 423.594C1793.16 392.832 1850.14 356.489 1907.72 314.611C1912.93 310.819 1916.92 307.93 1920 305.74V308.667Z`,
-
     `M1920 85.4805V87.4325C1914.02 86.6717 1905.16 85.8086 1893.72 85.3996C1872.76 84.6483 1838.61 85.3164 1794.9 92.7442C1775.19 96.0967 1752.52 101.019 1727.28 108.201C1726.32 108.472 1725.36 108.748 1724.4 109.029C1651.13 130.216 1556.64 170.382 1450 246.02C1421.35 266.347 1392.37 284.386 1363.88 299.637C1360.34 301.537 1356.78 303.398 1353.23 305.224C1352.01 305.85 1350.79 306.47 1349.57 307.086C1326.03 318.998 1302.29 329.308 1278.81 337.815C1250.9 347.927 1222.48 355.809 1194.32 361.242C1166.56 366.597 1138.18 369.745 1109.97 370.593C1104.68 370.753 1099.37 370.834 1094.03 370.834C1066.4 370.834 1038.21 368.698 1010 364.461C977.192 359.535 943.227 351.593 909.039 340.861C904.616 339.472 900.169 338.029 895.695 336.533C894.482 336.129 893.265 335.718 892.047 335.302C864.157 325.827 835.411 314.324 806.362 301.006C772.654 285.556 737.261 267.079 701.169 246.089C652.097 217.555 601.018 198.108 550.153 185.442C549.108 185.183 548.06 184.924 547.016 184.67C430.81 156.363 315.944 163.202 228.902 177.591C207.187 181.181 186.463 185.347 167.059 189.774C165.926 190.029 164.801 190.288 163.68 190.549C120.783 200.474 84.5338 211.599 58.5523 220.437C30.8736 229.85 10.5523 238.089 0 242.57V240.257C11.0323 235.613 30.697 227.731 56.9395 218.803C82.6944 210.042 118.502 199.038 160.869 189.163H160.873C161.994 188.902 163.119 188.643 164.252 188.381C184.205 183.797 205.571 179.481 227.988 175.772C308.605 162.436 386.139 159.54 458.438 167.163C489.727 170.461 520.278 175.784 549.635 183.038C550.679 183.295 551.716 183.554 552.753 183.816C562.618 186.308 572.348 189.016 581.921 191.943C624.803 205.046 665.649 222.802 703.331 244.715C771.406 284.306 834.912 314.067 895.553 334.517C896.774 334.928 897.988 335.337 899.205 335.742H899.209C972.557 360.07 1041.75 370.746 1109.81 368.694C1189.75 366.285 1267.68 345.847 1345.74 306.591C1346.96 305.976 1348.19 305.353 1349.42 304.723C1382.08 288.058 1414.76 268.095 1447.63 244.782C1511.95 199.166 1577.29 162.484 1641.84 135.759C1668.88 124.565 1695.82 115.094 1722.44 107.405C1723.41 107.124 1724.37 106.851 1725.33 106.577C1748.63 99.9581 1771.69 94.7058 1794.37 90.8611C1838.48 83.3881 1872.98 82.7366 1894.15 83.5094C1905.31 83.9183 1913.98 84.7339 1920 85.4805Z`,
-]
+];
 
-const mobileWavePaths = [
+const MOBILE_WAVE_PATHS = [
     `M1920 164.989V166.9C1900.32 166.32 1882.15 164.011 1864.71 159.888C1846.57 155.597 1829.66 149.427 1813.03 141.024C1782.22 125.467 1757.11 104.429 1732.83 84.0837C1730.03 81.7346 1727.22 79.3807 1724.4 77.0292C1723.75 76.4871 1723.1 75.9474 1722.44 75.4053C1677.25 37.9166 1627.85 1.90213 1538.11 1.90213C1441.48 1.90213 1395 43.6991 1350.06 84.117C1327.41 104.479 1303.99 125.538 1274.43 141.112C1258.46 149.524 1242.04 155.701 1224.23 160C1204.23 164.822 1183.03 167.169 1159.41 167.169C1135.78 167.169 1114.78 165.721 1094.95 162.742C1077.27 160.086 1061 156.262 1045.23 151.058C1015.98 141.402 993.005 128.351 970.787 115.728C926.715 90.6913 881.142 64.8009 784.301 64.8009C687.46 64.8009 630.536 101.662 575.428 137.308C567.967 142.137 560.433 147.009 552.753 151.816C551.892 152.361 551.025 152.903 550.153 153.443C530.097 165.918 509.015 177.894 485.599 187.498C467.562 194.895 449.629 200.328 430.783 204.106C409.62 208.348 387.867 210.411 364.278 210.411C340.689 210.411 319.68 209.127 299.889 206.488C282.232 204.132 266.008 200.744 250.284 196.129C221.103 187.567 198.221 175.99 176.095 164.794C171.982 162.713 167.858 160.626 163.68 158.55C162.747 158.089 161.814 157.627 160.873 157.164H160.869C122.703 138.401 79.319 121.056 0 119.701V117.797C19.5302 118.113 37.3786 119.378 54.2976 121.637C71.9539 123.99 88.1779 127.379 103.903 131.994C127.062 138.789 146.254 147.484 164.252 156.381C165.193 156.845 166.126 157.311 167.059 157.775C170.776 159.627 174.447 161.484 178.095 163.331C221.99 185.541 267.383 208.509 364.278 208.509C445.924 208.509 499.25 182.274 547.016 152.67C547.891 152.128 548.763 151.583 549.635 151.039C557.58 146.074 565.386 141.029 573.151 136.005C600.875 118.07 629.545 99.5243 662.98 85.8147C681.016 78.4154 698.949 72.9824 717.796 69.2043C738.958 64.9626 760.712 62.8987 784.301 62.8987C807.89 62.8987 828.937 64.3467 848.763 67.3259C866.446 69.9818 882.708 73.8051 898.479 79.0098C927.729 88.6631 950.703 101.716 972.922 114.34C1016.99 139.376 1062.57 165.267 1159.41 165.267C1256.25 165.267 1302.52 123.47 1347.46 83.0518C1370.11 62.6871 1393.52 41.6305 1423.09 26.0568C1439.06 17.6446 1455.48 11.4651 1473.29 7.16866C1493.28 2.34438 1514.49 0 1538.11 0C1561.73 0 1583.11 2.34438 1603.49 7.16152C1621.63 11.4532 1638.54 17.6232 1655.17 26.0235C1681.76 39.4502 1704.1 56.957 1725.33 74.5778C1725.98 75.1199 1726.63 75.6597 1727.28 76.2018C1729.99 78.4606 1732.68 80.717 1735.37 82.9662C1781.87 121.936 1829.9 162.19 1920 164.989Z`,
     `M1900 470.989V472.9C1880.32 472.32 1862.15 470.011 1844.71 465.888C1826.57 461.597 1809.66 455.427 1793.03 447.024C1762.22 431.467 1737.11 410.429 1712.83 390.084C1710.03 387.735 1707.22 385.381 1704.4 383.029C1703.75 382.487 1703.1 381.947 1702.44 381.405C1657.25 343.917 1607.85 307.902 1518.11 307.902C1421.48 307.902 1375 349.699 1330.06 390.117C1307.41 410.479 1283.99 431.538 1254.43 447.112C1238.46 455.524 1222.04 461.701 1204.23 466C1184.23 470.822 1163.03 473.169 1139.41 473.169C1115.78 473.169 1094.78 471.721 1074.95 468.742C1057.27 466.086 1041 462.262 1025.23 457.058C995.983 447.402 973.005 434.351 950.787 421.728C906.715 396.691 861.142 370.801 764.301 370.801C667.46 370.801 610.536 407.662 555.428 443.308C547.967 448.137 540.433 453.009 532.753 457.816C531.892 458.361 531.025 458.903 530.153 459.443C510.097 471.918 489.015 483.894 465.599 493.498C447.562 500.895 429.629 506.328 410.783 510.106C389.62 514.348 367.867 516.411 344.278 516.411C320.689 516.411 299.68 515.127 279.889 512.488C262.232 510.132 246.008 506.744 230.284 502.129C201.103 493.567 178.221 481.99 156.095 470.794C151.982 468.713 147.858 466.626 143.68 464.55C142.747 464.089 141.814 463.627 140.873 463.164H140.869C102.703 444.401 59.319 427.056 -20 425.701V423.797C-0.469761 424.113 17.3786 425.378 34.2976 427.637C51.9539 429.99 68.1779 433.379 83.9027 437.994C107.062 444.789 126.254 453.484 144.252 462.381C145.193 462.845 146.126 463.311 147.059 463.775C150.776 465.627 154.447 467.484 158.095 469.331C201.99 491.541 247.383 514.509 344.278 514.509C425.924 514.509 479.25 488.274 527.016 458.67C527.891 458.128 528.763 457.583 529.635 457.039C537.58 452.074 545.386 447.029 553.151 442.005C580.875 424.07 609.545 405.524 642.98 391.815C661.016 384.415 678.949 378.982 697.796 375.204C718.958 370.963 740.712 368.899 764.301 368.899C787.89 368.899 808.937 370.347 828.763 373.326C846.446 375.982 862.708 379.805 878.479 385.01C907.729 394.663 930.703 407.716 952.922 420.34C996.993 445.376 1042.57 471.267 1139.41 471.267C1236.25 471.267 1282.52 429.47 1327.46 389.052C1350.11 368.687 1373.52 347.631 1403.09 332.057C1419.06 323.645 1435.48 317.465 1453.29 313.169C1473.28 308.344 1494.49 306 1518.11 306C1541.73 306 1563.11 308.344 1583.49 313.162C1601.63 317.453 1618.54 323.623 1635.17 332.024C1661.76 345.45 1684.1 362.957 1705.33 380.578C1705.98 381.12 1706.63 381.66 1707.28 382.202C1709.99 384.461 1712.68 386.717 1715.37 388.966C1761.87 427.936 1809.9 468.19 1900 470.989Z`,
 ];
 
+type WavePoint = { x: number; y: number; originalY: number };
+type AnimatedWave = { path: SVGPathElement; points: WavePoint[]; amplitude: number; wavelength: number };
+
+const buildSmoothPath = (points: WavePoint[]): string => {
+    const len = points.length;
+    if (len < 2) return "";
+
+    let pathData = `M ${points[0].x} ${points[0].y}`;
+
+    for (let i = 1; i < len - 1; i++) {
+        const cp = points[i];
+        const np = points[i + 1];
+        pathData += ` Q ${cp.x} ${cp.y} ${(cp.x + np.x) / 2} ${(cp.y + np.y) / 2}`;
+    }
+
+    const lastPoint = points[len - 1];
+    pathData += ` T ${lastPoint.x} ${lastPoint.y}`;
+
+    return pathData;
+};
 
 const ContactHero = () => {
-
     const waveSvgRef = useRef<SVGSVGElement | null>(null);
     const mobileWaveSvgRef = useRef<SVGSVGElement | null>(null);
     const heroImageRef = useRef<HTMLDivElement | null>(null);
 
-    useLayoutEffect(() => {
+    const mainSourcePathsRef = useRef<(SVGPathElement | null)[]>([]);
+    const mainAnimatedPathsRef = useRef<(SVGPathElement | null)[]>([]);
+    const mobileSourcePathsRef = useRef<(SVGPathElement | null)[]>([]);
+    const mobileAnimatedPathsRef = useRef<(SVGPathElement | null)[]>([]);
+
+    useEffect(() => {
         const mainSvgElement = waveSvgRef.current;
         const mobileSvgElement = mobileWaveSvgRef.current;
 
         if (!mainSvgElement || !mobileSvgElement) return;
+
+        const mainSourcePaths = mainSourcePathsRef.current;
+        const mainAnimatedPaths = mainAnimatedPathsRef.current;
+        const mobileSourcePaths = mobileSourcePathsRef.current;
+        const mobileAnimatedPaths = mobileAnimatedPathsRef.current;
 
         const mobileMedia = window.matchMedia("(max-width: 479px)");
         const reducedMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
 
         let ctx: gsap.Context | null = null;
 
-        type WavePoint = { x: number; y: number; originalY: number; };
-        type AnimatedWave = { path: SVGPathElement; points: WavePoint[]; amplitude: number; wavelength: number; };
-
-        const buildSmoothPath = (points: WavePoint[]) => {
-            if (points.length < 2) return "";
-
-            let pathData = `M ${points[0].x} ${points[0].y}`;
-
-            for (let index = 1; index < points.length - 1; index++) {
-                const currentPoint = points[index];
-                const nextPoint = points[index + 1];
-
-                const middleX = (currentPoint.x + nextPoint.x) / 2;
-
-                const middleY = (currentPoint.y + nextPoint.y) / 2;
-
-                pathData += ` Q ${currentPoint.x} ${currentPoint.y}` + ` ${middleX} ${middleY}`;
+        const resetAnimatedPaths = (
+            sources: (SVGPathElement | null)[],
+            animateds: (SVGPathElement | null)[]
+        ) => {
+            for (let i = 0; i < sources.length; i++) {
+                const sourcePath = sources[i];
+                const animatedPath = animateds[i];
+                if (sourcePath && animatedPath) {
+                    const originalPathData = sourcePath.getAttribute("d");
+                    if (originalPathData) animatedPath.setAttribute("d", originalPathData);
+                }
             }
-
-            const lastPoint = points[points.length - 1];
-
-            pathData += ` T ${lastPoint.x} ${lastPoint.y}`;
-
-            return pathData;
         };
 
-        const resetAnimatedPaths = (svgElement: SVGSVGElement) => {
-            const sourcePaths = Array.from(svgElement.querySelectorAll<SVGPathElement>(".contact-wave-source"));
-            const animatedPaths = Array.from(svgElement.querySelectorAll<SVGPathElement>(".contact-wave-animated"));
+        const createAnimatedWaves = (
+            sources: (SVGPathElement | null)[],
+            animateds: (SVGPathElement | null)[],
+            isExtraMobileSvg: boolean
+        ): AnimatedWave[] => {
+            const result: AnimatedWave[] = [];
 
-            sourcePaths.forEach((sourcePath, index) => {
-                const animatedPath = animatedPaths[index];
-                if (!animatedPath) return;
-                const originalPathData = sourcePath.getAttribute("d");
-                if (originalPathData) { animatedPath.setAttribute("d", originalPathData); }
-            });
-        };
+            for (let i = 0; i < sources.length; i++) {
+                const sourcePath = sources[i];
+                const animatedPath = animateds[i];
 
-        const createAnimatedWaves = (svgElement: SVGSVGElement, isExtraMobileSvg: boolean): AnimatedWave[] => {
-            const sourcePaths = Array.from(svgElement.querySelectorAll<SVGPathElement>(".contact-wave-source"));
+                if (!sourcePath || !animatedPath) continue;
 
-            const animatedPaths = Array.from(svgElement.querySelectorAll<SVGPathElement>(".contact-wave-animated"));
+                const totalLength = sourcePath.getTotalLength();
+                if (!Number.isFinite(totalLength) || totalLength <= 0) continue;
 
-            return sourcePaths
-                .map((sourcePath, pathIndex) => {
-                    const animatedPath = animatedPaths[pathIndex];
-                    if (!animatedPath) return null;
-                    const totalLength = sourcePath.getTotalLength();
-                    if (!Number.isFinite(totalLength)) { return null; }
-                    if (totalLength <= 0) { return null; }
+                const searchSteps = 50;
+                const startingPoint = sourcePath.getPointAtLength(0);
+                let maximumHorizontalDistance = 0;
+                let firstEdgeLength = totalLength;
 
-                    const searchSteps = 500;
+                for (let searchIndex = 0; searchIndex <= searchSteps; searchIndex++) {
+                    const searchLength = (searchIndex / searchSteps) * totalLength;
+                    const searchPoint = sourcePath.getPointAtLength(searchLength);
+                    const horizontalDistance = Math.abs(searchPoint.x - startingPoint.x);
 
-                    const startingPoint = sourcePath.getPointAtLength(0);
-
-                    let maximumHorizontalDistance = 0;
-                    let firstEdgeLength = totalLength;
-
-                    for (
-                        let searchIndex = 0;
-                        searchIndex <= searchSteps;
-                        searchIndex++
-                    ) {
-                        const searchProgress = searchIndex / searchSteps;
-
-                        const searchLength = searchProgress * totalLength;
-
-                        const searchPoint = sourcePath.getPointAtLength(searchLength);
-
-                        const horizontalDistance =
-                            Math.abs(searchPoint.x - startingPoint.x);
-                        if (
-                            horizontalDistance >
-                            maximumHorizontalDistance
-                        ) {
-                            maximumHorizontalDistance = horizontalDistance;
-
-                            firstEdgeLength = searchLength;
-                        }
+                    if (horizontalDistance > maximumHorizontalDistance) {
+                        maximumHorizontalDistance = horizontalDistance;
+                        firstEdgeLength = searchLength;
                     }
+                }
 
-                    if (firstEdgeLength <= 0) { firstEdgeLength = totalLength; }
+                if (firstEdgeLength <= 0) firstEdgeLength = totalLength;
 
-                    const numberOfPoints = isExtraMobileSvg ? 100 : mobileMedia.matches ? 120 : 180;
-                    const points: WavePoint[] =
-                        Array.from(
-                            {
-                                length: numberOfPoints,
-                            },
-                            (_, pointIndex) => {
-                                const progress = pointIndex / (numberOfPoints - 1);
-                                const pointLength = firstEdgeLength * progress;
+                const numberOfPoints = isExtraMobileSvg ? 100 : mobileMedia.matches ? 120 : 180;
+                const points: WavePoint[] = new Array(numberOfPoints);
 
-                                const svgPoint = sourcePath.getPointAtLength(  pointLength );
+                for (let pointIndex = 0; pointIndex < numberOfPoints; pointIndex++) {
+                    const progress = pointIndex / (numberOfPoints - 1);
+                    const svgPoint = sourcePath.getPointAtLength(firstEdgeLength * progress);
 
-                                return {
-                                    x: svgPoint.x,
-                                    y: svgPoint.y,
-                                    originalY: svgPoint.y,
-                                };
-                            }
-                        );
+                    points[pointIndex] = {
+                        x: svgPoint.x,
+                        y: svgPoint.y,
+                        originalY: svgPoint.y,
+                    };
+                }
 
-                    const amplitude = isExtraMobileSvg ? 55 : mobileMedia.matches ? 45 : window.innerWidth < 1200 ? 32 : 24;
+                const amplitude = isExtraMobileSvg ? 55 : mobileMedia.matches ? 45 : window.innerWidth < 1200 ? 32 : 24;
+                const wavelength = isExtraMobileSvg ? 2.2 : mobileMedia.matches ? 2.4 : 2.8;
 
-                    const wavelength = isExtraMobileSvg ? 2.2 : mobileMedia.matches ? 2.4 : 2.8;
-                    return { path: animatedPath, points, amplitude, wavelength, };
-                })
-                .filter(
-                    (
-                        wave
-                    ): wave is AnimatedWave =>
-                        wave !== null
-                );
+                result.push({ path: animatedPath, points, amplitude, wavelength });
+            }
+            return result;
         };
 
         const createWaveAnimation = () => {
@@ -161,86 +140,62 @@ const ContactHero = () => {
                 ctx = null;
             }
 
-            resetAnimatedPaths(mainSvgElement);
-            resetAnimatedPaths(mobileSvgElement);
+            resetAnimatedPaths(mainSourcePaths, mainAnimatedPaths);
+            resetAnimatedPaths(mobileSourcePaths, mobileAnimatedPaths);
 
-            if (reducedMotionMedia.matches) {
-                return;
-            }
+            if (reducedMotionMedia.matches) return;
 
             ctx = gsap.context(() => {
                 if (heroImageRef.current) {
-                    gsap.from(heroImageRef.current,{
+                    gsap.from(heroImageRef.current, {
                         x: 400,
                         y: 200,
                         opacity: 0,
-                        duration: 3,
+                        duration: 1.2,
                         delay: 1,
                         ease: "power3.out",
                         clearProps: "transform,opacity",
                     });
                 }
 
-                const animatedWaves =
-                    createAnimatedWaves(
-                        mainSvgElement,
-                        false
-                    );
-
+                const animatedWaves = createAnimatedWaves(mainSourcePaths, mainAnimatedPaths, false);
                 if (mobileMedia.matches) {
                     animatedWaves.push(
                         ...createAnimatedWaves(
-                            mobileSvgElement,
+                            mobileSourcePaths,
+                            mobileAnimatedPaths,
                             true
                         )
                     );
                 }
 
-                if (animatedWaves.length === 0) { return; }
+                if (animatedWaves.length === 0) return;
 
-                const animationState = { progress: 0, };
+                const animationState = { progress: 0 };
 
                 const updateAllWaves = () => {
                     const phase = animationState.progress * Math.PI * 2;
 
-                    animatedWaves.forEach((wave) => {
-                        const totalPoints =
-                            wave.points.length;
+                    for (let i = 0; i < animatedWaves.length; i++) {
+                        const wave = animatedWaves[i];
+                        const pts = wave.points;
+                        const totalPoints = pts.length;
 
-                        wave.points.forEach(
-                            (point, pointIndex) => {
-                                const pointProgress =
-                                    pointIndex /
-                                    (totalPoints - 1);
+                        for (let j = 0; j < totalPoints; j++) {
+                            const point = pts[j];
+                            const pointPhase = (j / (totalPoints - 1)) * Math.PI * wave.wavelength;
+                            point.y = point.originalY + Math.sin(pointPhase - phase) * wave.amplitude;
+                        }
 
-                                const pointPhase =
-                                    pointProgress *
-                                    Math.PI *
-                                    wave.wavelength;
-
-                                point.y =
-                                    point.originalY +
-                                    Math.sin(
-                                        pointPhase - phase
-                                    ) *
-                                    wave.amplitude;
-                            }
-                        );
-
-                        wave.path.setAttribute(
-                            "d",
-                            buildSmoothPath(wave.points)
-                        );
-                    });
+                        wave.path.setAttribute("d", buildSmoothPath(pts));
+                    }
                 };
 
                 updateAllWaves();
 
                 gsap.fromTo(
                     animationState,
-                    {
-                        progress: 0,
-                    },
+                    { progress: 0 },
                     {
                         progress: 1,
                         duration: 5,
@@ -258,57 +213,55 @@ const ContactHero = () => {
         reducedMotionMedia.addEventListener("change", createWaveAnimation);
 
         return () => {
-            mobileMedia.removeEventListener(
-                "change",
-                createWaveAnimation
-            );
-
-            reducedMotionMedia.removeEventListener(
-                "change",
-                createWaveAnimation
-            );
+            mobileMedia.removeEventListener("change", createWaveAnimation);
+            reducedMotionMedia.removeEventListener("change", createWaveAnimation);
 
             if (ctx) {
                 ctx.revert();
                 ctx = null;
             }
 
-            resetAnimatedPaths(mainSvgElement);
-            resetAnimatedPaths(mobileSvgElement);
+            resetAnimatedPaths(mainSourcePaths, mainAnimatedPaths);
+            resetAnimatedPaths(mobileSourcePaths, mobileAnimatedPaths);
         };
     }, []);
 
     return (
-        <section className="contact-section pt-[92px] relative overflow-hidden">
+        <section id="first-section" className="contact-section pt-[92px] relative overflow-hidden">
             <div className="container">
                 <div className="contact-title-wrapper pt-[60px] pb-[40px] flex items-center justify-between">
                     <div className="contact-title-left">
-                        <h1 className="font-semibold w-[838px]">Something Great In Mind? <span>Let&apos;s Build It</span></h1>
+                        <h1 className="font-semibold w-[838px]">
+                            Something Great In Mind? <span>Let&apos;s Build It</span>
+                        </h1>
                     </div>
 
                     <div ref={heroImageRef} className="contact-hero-image w-[560px] h-[485px]">
-                        <Image className='w-[100%] h-[100%] object-contain' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/hero/contact-hero-svg.svg" alt='contact-hero' width={560} height={485}></Image>
+                        <Image
+                            className="w-[100%] h-[100%] object-contain"
+                            src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/hero/contact-hero-svg.svg"
+                            alt="contact-hero"
+                            width={560}
+                            height={485}
+                        />
                     </div>
                 </div>
             </div>
 
             <div className="contact-hero-bg-lines absolute top-[50%] translate-y-[-50%] w-[100%] h-[max-content] z-[-1]">
-                <svg ref={waveSvgRef} viewBox="0 0 1920 585" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" >
+                <svg
+                    ref={waveSvgRef}
+                    viewBox="0 0 1920 585"
+                    preserveAspectRatio="xMidYMid meet"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
                     <g opacity="0.1">
-                        {wavePaths.map((path, index) => (
+                        {WAVE_PATHS.map((path, index) => (
                             <g key={`contact-wave-${index}`}>
-                                <path className="contact-wave-source" d={path} fill="none" stroke="1" visibility="hidden" pointerEvents="none" />
-                                <path className="contact-wave-animated" d={path} fill="none" stroke="black" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-                            </g>
-                        ))}
-                    </g>
-                </svg>
-
-                <svg ref={mobileWaveSvgRef} className="cnct-hero-bg-image-for-mobile hidden" viewBox="0 0 1920 339" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" >
-                    <g opacity="0.1">
-                        {mobileWavePaths.map((path, index) => (
-                            <g key={`mobile-contact-wave-${index}`}>
                                 <path
+                                    ref={(el) => { mainSourcePathsRef.current[index] = el; }}
                                     className="contact-wave-source"
                                     d={path}
                                     fill="none"
@@ -316,8 +269,44 @@ const ContactHero = () => {
                                     visibility="hidden"
                                     pointerEvents="none"
                                 />
-
                                 <path
+                                    ref={(el) => { mainAnimatedPathsRef.current[index] = el; }}
+                                    className="contact-wave-animated"
+                                    d={path}
+                                    fill="none"
+                                    stroke="black"
+                                    strokeWidth="1"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </g>
+                        ))}
+                    </g>
+                </svg>
+
+                <svg
+                    ref={mobileWaveSvgRef}
+                    className="cnct-hero-bg-image-for-mobile hidden"
+                    viewBox="0 0 1920 339"
+                    preserveAspectRatio="xMidYMid meet"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <g opacity="0.1">
+                        {MOBILE_WAVE_PATHS.map((path, index) => (
+                            <g key={`mobile-contact-wave-${index}`}>
+                                <path
+                                    ref={(el) => { mobileSourcePathsRef.current[index] = el; }}
+                                    className="contact-wave-source"
+                                    d={path}
+                                    fill="none"
+                                    stroke="1"
+                                    visibility="hidden"
+                                    pointerEvents="none"
+                                />
+                                <path
+                                    ref={(el) => { mobileAnimatedPathsRef.current[index] = el; }}
                                     className="contact-wave-animated"
                                     d={path}
                                     fill="none"
@@ -332,7 +321,7 @@ const ContactHero = () => {
                 </svg>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default ContactHero
+export default ContactHero;

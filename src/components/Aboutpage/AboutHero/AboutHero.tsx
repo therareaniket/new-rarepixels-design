@@ -4,7 +4,7 @@ import './abouthero.css'
 
 const AboutHero = () => {
 	return (
-		<section>
+		<section id='first-section'>
 			<div className="abt-hero-video w-[100%] h-[100vh]">
 				<video className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-hero/rare-second-anniversary.mp4" playsInline autoPlay muted loop width={1920} height={800}></video>
 			</div>

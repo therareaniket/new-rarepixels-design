@@ -1,3 +1,4 @@
+import ScrollToTopButton from "@/components/Global/ScrollToTop/ScrollToTopButton";
 import About from "@/components/Homepage/About/About";
 import Blog from "@/components/Homepage/Blog/Blog";
 import FAQ from "@/components/Homepage/FAQ/FAQ";
@@ -27,6 +28,8 @@ export default function Home() {
             <Blog />
             <FAQ />
             <InquiryForm />
+
+            <ScrollToTopButton />
         </>
     );
 }

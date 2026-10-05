@@ -5,6 +5,7 @@ import AboutMisVis from "@/components/Aboutpage/AboutMisVis/AboutMisVis";
 import AboutOurValues from "@/components/Aboutpage/AboutOurValues/AboutOurValues";
 import AboutTeams from "@/components/Aboutpage/AboutTeams/AboutTeams";
 import AboutWhyRarePixels from "@/components/Aboutpage/AboutWhyRarePixels/AboutWhyRarePixels";
+import ScrollToTopButton from "@/components/Global/ScrollToTop/ScrollToTopButton";
 import Hero from "@/components/Homepage/Hero/Hero";
 
 export default function About() {
@@ -17,6 +18,8 @@ export default function About() {
             <AboutWhyRarePixels />
             <AboutLifeAtRarePixels />
             <AboutFAQ />
+
+            <ScrollToTopButton />
         </>
     );
 }
