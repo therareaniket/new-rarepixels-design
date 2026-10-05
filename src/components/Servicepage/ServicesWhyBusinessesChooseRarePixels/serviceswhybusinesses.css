@@ -155,8 +155,12 @@
 
 @media (max-width: 439px) { }
 
-@media (max-width: 400px) { }
+@media (max-width: 400px) { 
+    .services-why-businesses-choose-rarepixels-tablet { gap: 20px; margin-top: 30px; }
+}
 
-@media (max-width: 374px) { }
+@media (max-width: 374px) { 
+    .services-business-card-tablet { padding: 15px; }
+}
 
 @media (max-width: 359px) { }

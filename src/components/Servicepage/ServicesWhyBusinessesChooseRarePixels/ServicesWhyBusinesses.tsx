@@ -112,7 +112,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="sservices-business-tablet-text">
-                            <p>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p className='text-18'>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
                         </div>
                     </div>
 
@@ -130,7 +130,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="sservices-business-tablet-text">
-                            <p>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p className='text-18'>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
                         </div>
                     </div>
 
@@ -148,7 +148,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="sservices-business-tablet-text">
-                            <p>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p className='text-18'>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
                         </div>
                     </div>
                 </div>
