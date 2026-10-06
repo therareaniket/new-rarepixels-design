@@ -6,7 +6,7 @@ import './serviceswhybusinesses.css';
 const ServicesWhyBusinesses = () => {
 
     useEffect(() => {
-        const cards = document.querySelectorAll( '.services-business-card-tablet' );
+        const cards = document.querySelectorAll('.services-business-card-tablet');
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -39,7 +39,7 @@ const ServicesWhyBusinesses = () => {
                     <p className="text-18 font-normal website-subtitle-mt">Across every service we offer, three things never change. </p>
                 </div>
 
-                <div className="services-why-businesses-choose-rarepixels services-why-businesses-choose-rarepixels-desktop mt-[60px] flex items-end">
+                <div  className="services-why-businesses-choose-rarepixels services-why-businesses-choose-rarepixels-desktop mt-[60px] flex items-end">
                     <div className="services-why-busi-card services-why-busi-card-1 cursor-pointer flex gap-[40px] items-end">
                         <div className="services-why-busi-element-art w-[378px] h-[370px] relative">
                             <svg className="w-[100%] h-[100%] object-contain" width="378" height="367" viewBox="0 0 378 367" fill="none" xmlns="http://www.w3.org/2000/svg">

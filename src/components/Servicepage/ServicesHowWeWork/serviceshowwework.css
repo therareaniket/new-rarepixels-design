@@ -17,7 +17,7 @@
 .services-how-we-work-6 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
 
 .service-section { position: relative; height: calc(100vh * 6); }
-.service-inner { position: sticky; top: 0; height: max-content; }
+.service-inner { position: sticky; top: -50px; height: max-content; }
 
 .services-how-work-card-wrapper {
     --card-movement-distance: 320px;
@@ -127,10 +127,32 @@
 
         height: 560px;
     }
+    .services-how-er-work-subtitle { width: 570px; }
 
 }
 
-@media (max-width: 1359px) and (max-height: 600px) { }
+@media (max-width: 1359px) and (max-height: 600px) { 
+    .service-inner { top: -80px; }
+
+    .services-how-work-card h4 { font-size: 18px; line-height: 26px; margin-top: 8px; }
+    .services-how-work-card p { font-size: 14px; line-height: 22px; }
+
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 46px;
+        --expanded-title-line-height: 54px;
+
+        --collapsed-title-size: 24px;
+        --collapsed-title-line-height: 32px; 
+
+        --collapsed-card-padding-top: 10px;
+    }
+
+    .services-how-we-work-2 { top: 50px; }
+    .services-how-we-work-3 { top: calc(50px * 2); }
+    .services-how-we-work-4 { top: calc(50px * 3); }
+    .services-how-we-work-5 { top: calc(50px * 4); }
+    .services-how-we-work-6 { top: calc(50px * 5); }
+}
 
 @media (max-width: 1199px) { 
     .services-step-number { width: 150px; }
@@ -142,6 +164,7 @@
 
 @media (max-width: 1024px) { 
     .service-section { height: calc(100vh * 6); } 
+    .services-how-work-card-wrapper { margin-top: 30px; }
 }
 
 @media (max-width: 1024px) and (max-height: 770px) { 
@@ -166,7 +189,7 @@
     .services-how-we-work-5 { top: calc(60px * 4); }
     .services-how-we-work-6 { top: calc(60px * 5); }
 
-    .services-how-work-card-wrapper { height: 590px; }
+    .services-how-work-card-wrapper { height: 590px; margin-top: 30px; }
 }
 
 @media (max-width: 839px) { 
@@ -265,6 +288,7 @@
     }
 
     .services-how-work-card-wrapper { height: 500px; }
+    .service-section { height: calc(100vh * 5); }
 }
 
 @media (max-width: 374px) { }

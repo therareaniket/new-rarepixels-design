@@ -45,7 +45,7 @@ const workSteps = [
 ];
 
 const ServicesHowWeWork = () => {
-    gsap.registerPlugin();
+    // gsap.registerPlugin();
 
     const sectionRef = useRef<HTMLElement | null>(null);
     const cardsWrapperRef = useRef<HTMLDivElement | null>(null);
@@ -104,7 +104,7 @@ const ServicesHowWeWork = () => {
                 scrollTrigger: {
                     trigger: section,
                     start: "top top",
-                    end: "bottom +=2000",
+                    end: "bottom bottom",
                     scrub: 2,
                     invalidateOnRefresh: true,
                 },
@@ -211,16 +211,22 @@ const ServicesHowWeWork = () => {
         <section ref={sectionRef} className=' service-section'>
             <div className="service-inner  section">
                 <div className="container">
-                    <div className="services-how-we-work-title">
-                        <h2>How We Work</h2>
 
-                        <p className='text-18 flex flex-col gap-[18] website-subtitle-mt w-[687px]'>
-                            <span className='font-bold'>No Guesswork. No Shortcuts. No Off-The-Shelf.</span>
+                    <div className="srvs-how-we-work-wrapper flex justify-between items-end">
+                        <div className="services-how-we-work-title">
+                            <h2>How We Work</h2>
+
+                            <p className='text-18 flex flex-col gap-[18] website-subtitle-mt w-[687px]'>
+                                <span className='font-bold'>No Guesswork. No Shortcuts. No Off-The-Shelf.</span>
+                            </p>
+                        </div>
+
+                        <div className="services-how-er-work-subtitle w-[687px]">
                             <span className='font-normal'>Every project - regardless of service, size, or industry - follows the same six-step process. Because consistency in process is what produces consistency in results.</span>
-                        </p>
+                        </div>
                     </div>
 
-                    <div ref={cardsWrapperRef} className="services-how-work-card-wrapper relative flex flex-col gap-[30px]">
+                    <div ref={cardsWrapperRef} className="services-how-work-card-wrapper relative flex flex-col gap-[30px] mt-[30px]">
                         {workSteps.map((step, index) => (
                             <div key={step.number} className={`services-how-we-work-${index + 1} services-how-we-work flex flex-col items-end`}>
                                 <div className='services-step-number text-18 font-semibold w-[200px]  py-[20px] text-center'>{step.number}</div>
