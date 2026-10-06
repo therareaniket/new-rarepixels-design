@@ -59,7 +59,6 @@
 
 @media (max-width: 991px) { 
     .servcies-hero-wrapper { flex-direction: column-reverse; gap: 30px; }
-    .services-hero-right { width: 100%; }
     .services-hero-subtitile { margin-top: 40px; }
 
     .services-hero-left { width: 80%; height: auto; }
@@ -69,6 +68,9 @@
 
     .services-hero-video-desktop { display: none; }
     .services-hero-video-tablet { display: block; width: 100%; margin: 30px auto; }
+    .services-section { padding-top: 100px; }
+
+    .services-hero-right { width: 100%; }
 }
 
 @media (max-width: 839px) { 

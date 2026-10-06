@@ -27,10 +27,10 @@
     --expanded-title-size: 64px;
     --expanded-title-line-height: 70px;
 
-    --collapsed-title-size: 36px;
-    --collapsed-title-line-height: 42px;
+    --collapsed-title-size: 30px;
+    --collapsed-title-line-height: 38px;
 
-    height: 690px;
+    height: 620px;
 }
 
 .services-how-work-card h3 {
@@ -56,15 +56,14 @@
     .services-how-work-card-wrapper { 
         --card-movement-distance: 250px;
 
-        --expanded-title-size: 60px;
-        --expanded-title-line-height: 68px;
+        --expanded-title-size: 54px;
+        --expanded-title-line-height: 62px;
 
-        --collapsed-title-size: 34px;
-        --collapsed-title-line-height: 42px;
-        height: 665px; 
+        height: 575px; 
     }
 
-    .service-section { position: relative; height: calc(100vh * 9); }
+    /* .service-section { position: relative; height: calc(100vh * 9); } */
+    .services-how-er-work-subtitle { width: 540px; }
 
 }
 
@@ -72,32 +71,28 @@
     .services-step-number { width: 170px; }
 
     .services-how-work-card-wrapper { 
-        --expanded-title-size: 56px;
-        --expanded-title-line-height: 64px;
+        --expanded-title-size: 48px;
+        --expanded-title-line-height: 56px;
 
-        --collapsed-title-size: 30px;
-        --collapsed-title-line-height: 38px; 
-
-        height: 655px;
+        height: 560px;
     }
 
-    .service-section { height: calc(100vh * 9); }
+    /* .service-section { height: calc(100vh * 9); } */
 
+    .services-how-er-work-subtitle { width: 480px; }
+    .services-how-we-work-title { width: 650px; } 
 }
 
 @media (max-width: 1599px) and (max-height: 750px) {}
 
 @media (max-width: 1439px) { 
     .services-how-work-card-wrapper { 
-        --card-movement-distance: 220px;
+        --card-movement-distance: 200px;
 
-        --expanded-title-size: 50px;
-        --expanded-title-line-height: 58px;
+        --collapsed-title-size: 26px;
+        --collapsed-title-line-height: 34px;
 
-        --collapsed-title-size: 30px;
-        --collapsed-title-line-height: 38px; 
-
-        height: 610px;
+        height: 530px;
     }
 
     .services-how-we-work-2 { top: 60px; }
@@ -106,7 +101,9 @@
     .services-how-we-work-5 { top: calc(60px * 4); }
     .services-how-we-work-6 { top: calc(60px * 5); }
 
-    .service-inner { top: -50px; }
+    .service-inner { top: 0px; }
+
+    .services-how-we-work-title { width: 530px; }
 }
 
 @media (max-width: 1359px) { 
@@ -129,6 +126,8 @@
     }
     .services-how-er-work-subtitle { width: 570px; }
 
+    .service-section { height: calc(100vh * 7); }
+
 }
 
 @media (max-width: 1359px) and (max-height: 600px) { 
@@ -145,6 +144,9 @@
         --collapsed-title-line-height: 32px; 
 
         --collapsed-card-padding-top: 10px;
+
+        height: 460px;
+        margin-top: 30px;
     }
 
     .services-how-we-work-2 { top: 50px; }
@@ -160,23 +162,28 @@
     .services-how-work-card h5 { margin-bottom: 10px; }
     .services-how-work-card-wrapper { gap: 20px; }
     .services-how-we-work-title p { width: 530px; }
+
+    .services-how-er-work-subtitle { width: 420px; }
+    .services-how-we-work-title { width: 470px; }
 }
 
 @media (max-width: 1024px) { 
-    .service-section { height: calc(100vh * 6); } 
+    .service-section { height: calc(100vh * 5); } 
     .services-how-work-card-wrapper { margin-top: 30px; }
 }
 
 @media (max-width: 1024px) and (max-height: 770px) { 
     .services-how-work-card-wrapper { 
-        --expanded-title-size: 46px;
-        --expanded-title-line-height: 54px;
+        --expanded-title-size: 36px;
+        --expanded-title-line-height: 44px;
 
-        --collapsed-title-size: 28px;
-        --collapsed-title-line-height: 36px; 
+        --collapsed-title-size: 24px;
+        --collapsed-title-line-height: 32px; 
 
-        height: 555px;
+        height: 475px;
     }
+
+    .service-section { height: calc(100vh * 6); } 
 }
 
 @media (max-width: 991px) { 
@@ -189,7 +196,20 @@
     .services-how-we-work-5 { top: calc(60px * 4); }
     .services-how-we-work-6 { top: calc(60px * 5); }
 
-    .services-how-work-card-wrapper { height: 590px; margin-top: 30px; }
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 36px;
+        --expanded-title-line-height: 44px;
+
+        --collapsed-title-size: 24px;
+        --collapsed-title-line-height: 32px; 
+
+        height: 520px;
+    }
+
+
+    .srvs-how-we-work-wrapper { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .services-how-er-work-subtitle { width: 100%; }
+    .services-how-we-work-title { width: 100%; }
 }
 
 @media (max-width: 839px) { 
@@ -197,24 +217,36 @@
     .services-how-we-work-title p { width: 460px; }
     
     .services-how-work-card-wrapper { 
-        --expanded-title-size: 46px;
-        --expanded-title-line-height: 54px;
+        --expanded-title-size: 32px;
+        --expanded-title-line-height: 40px;
 
-        --collapsed-title-size: 28px;
-        --collapsed-title-line-height: 36px; 
+        --collapsed-title-size: 24px;
+        --collapsed-title-line-height: 32px; 
 
-        height: 605px;
+        height: 520px;
     }
 }
 
 @media (max-width: 767px) { 
     .services-how-work-card-wrapper { 
-        --expanded-title-size: 42px;
-        --expanded-title-line-height: 50px;
+        --expanded-title-size: 30px;
+        --expanded-title-line-height: 38px;
+
+        --collapsed-title-size: 20px;
+        --collapsed-title-line-height: 28px; 
+
+        height: 520px;
     }
 }
 
-@media (max-width: 639px) { }
+@media (max-width: 639px) { 
+    .services-how-work-card-wrapper { 
+        --expanded-title-size: 28px;
+        --expanded-title-line-height: 34px;
+        height: 540px; 
+    }
+}
+
 
 @media (max-width: 575px) { 
     .services-how-work-card .h5 { font-size: 18px; line-height: 26px; }
@@ -222,11 +254,23 @@
     /* .services-how-work-card-wrapper { margin-top: 30px; } */
 
     .services-how-work-card-wrapper { 
-        --expanded-title-size: 38px;
-        --expanded-title-line-height: 46px;
+        --expanded-title-size: 24px;
+        --expanded-title-line-height: 32px;
         
-        height: 620px;
+        --collapsed-title-size: 18px;
+        --collapsed-title-line-height: 26px; 
+
+        height: 490px;
+
+        margin-top: 15px;
     }
+
+    .services-step-number { width: 90px; padding-block: 15px; }
+    .services-how-we-work-2 { top: 45px; }
+    .services-how-we-work-3 { top: calc(45px * 2); }
+    .services-how-we-work-4 { top: calc(45px * 3); }
+    .services-how-we-work-5 { top: calc(45px * 4); }
+    .services-how-we-work-6 { top: calc(45px * 5); }
 }
 
 @media (max-width: 479px) { 
@@ -234,10 +278,7 @@
     .services-step-number { width: max-content; padding: 15px 30px; border-radius: 16px 16px 0 0; }
 
     .services-how-work-card-wrapper { 
-        --expanded-title-size: 34px;
-        --expanded-title-line-height: 42px;
-
-        height: 600px;
+        height: 555px;
     }
 
     .services-how-we-work-2 { top: 56px; }
@@ -252,13 +293,8 @@
 
     .services-how-work-card-wrapper { 
         margin-top: 20px;
-        --card-movement-distance: 250px;
+        --card-movement-distance: 220px;
 
-        --expanded-title-size: 30px;
-        --expanded-title-line-height: 38px;
-
-        --collapsed-title-size: 22px;
-        --collapsed-title-line-height: 30px; 
 
         height: 580px;
     }
@@ -285,10 +321,14 @@
         --collapsed-card-padding-top: 10px;
 
         --card-movement-distance: 200px;
+
+        --collapsed-title-size: 16px;
+        --collapsed-title-line-height: 24px; 
     }
 
-    .services-how-work-card-wrapper { height: 500px; }
+    .services-how-work-card-wrapper { height: 520px; }
     .service-section { height: calc(100vh * 5); }
+    .services-how-work-card h3 { width: 90%; }
 }
 
 @media (max-width: 374px) { }

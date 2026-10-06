@@ -8,40 +8,45 @@ import './serviceshowwework.css'
 const workSteps = [
     {
         number: "01",
-        title: "Discover",
-        subtitle: "Good solutions begin with good questions.",
-        description: "We research your business, your audience, and your competitors before a single pixel is placed or a line of code is written. Every project starts with understanding - not assumptions.",
+        title: " UI/UX Design Services",
+        // title: "UI/UX Design",
+        // subtitle: "Good solutions begin with good questions.",
+        description: "Your digital product exists but users are not engaging with it the way you expected. Visitors drop off before converting. Journeys feel complicated. Interfaces feel unclear. UI/UX design fixes the experience that is costing you users — and revenue.",
     },
     {
         number: " 02",
-        title: "Strategies",
-        subtitle: "Every direction needs a reason.",
-        description: "We define goals, audience, positioning, and success metrics before any creative or technical work begins. Strategy is not a phase we skip to get to the work - it is the work.",
+        title: "Web & App Development",
+        // title: "Web & App Development",
+        // subtitle: "Every direction needs a reason.",
+        description: "Your current platform cannot do what your business needs. You have outgrown off-the-shelf solutions. You need a custom website, web application, SaaS platform, or e-commerce build engineered specifically around how your business operates.",
     },
     {
         number: "03",
-        title: "Create",
-        subtitle: "Where thinking becomes something visible.",
-        description: "Design, brand concepts, content frameworks, and interaction models - all conceived specifically for this project. Nothing carried over from previous work.",
+        title: " Brand Identity Design",
+        // title: "Brand Identity Design",
+        // subtitle: "Where thinking becomes something visible.",
+        description: "Your business has evolved but your brand has not kept up. Or you are launching something new and need an identity that is completely original — a visual language, a brand strategy, and a positioning that belongs entirely to you.",
     },
     {
         number: "04",
-        title: "Engineer",
-        subtitle: "Built specifically - never assembled from parts.",
-        description: "Every platform, application, and digital product is engineered from the ground up. Clean, performant, scalable code that passes every quality standard before it reaches a single user.",
+        title: " Social Media Management",
+        // title: "Social Media Management",
+        // subtitle: "Built specifically - never assembled from parts.",
+        description: "Your brand is on social platforms but without a real strategy behind it. Content is inconsistent. Engagement is low. You are not sure what is working or why. Social media management builds the presence your brand deserves — consistently and measurably.",
     },
     {
         number: "05",
-        title: "Refine",
-        subtitle: "Improved until it performs exactly as designed.",
-        description: "We test, gather feedback, and iterate until every element performs the way it was designed to. Great work is not assumed - it is earned through refinement.",
+        title: " Graphics & Print Media Design",
+        // title: "Graphics & Print Media Design",
+        // subtitle: "Improved until it performs exactly as designed.",
+        description: "Your digital brand is strong but your physical presence does not match it. Brochures, packaging, catalogues, outdoor advertising, and trade show materials — all designed to carry your brand identity into the physical world with the same standard as your digital presence.",
     },
-    {
-        number: " 06",
-        title: "Deliver",
-        subtitle: "Launch is the beginning, not the end.",
-        description: "We hand over every project with full documentation, training where needed, and a clear plan for what comes next. The relationship does not end at delivery - it evolves.",
-    },
+    // {
+    //     number: " 06",
+    //     title: "Deliver",
+    //     // subtitle: "Launch is the beginning, not the end.",
+    //     description: "We hand over every project with full documentation, training where needed, and a clear plan for what comes next. The relationship does not end at delivery - it evolves.",
+    // },
 ];
 
 const ServicesHowWeWork = () => {
@@ -212,17 +217,17 @@ const ServicesHowWeWork = () => {
             <div className="service-inner  section">
                 <div className="container">
 
-                    <div className="srvs-how-we-work-wrapper flex justify-between items-end">
+                    <div className="srvs-how-we-work-wrapper flex justify-between items-start">
                         <div className="services-how-we-work-title">
-                            <h2>How We Work</h2>
+                            <h2>Not Sure Which Service You Need? </h2>
 
-                            <p className='text-18 flex flex-col gap-[18] website-subtitle-mt w-[687px]'>
+                            {/* <p className='text-18 flex flex-col gap-[18] website-subtitle-mt w-[687px]'>
                                 <span className='font-bold'>No Guesswork. No Shortcuts. No Off-The-Shelf.</span>
-                            </p>
+                            </p> */}
                         </div>
 
                         <div className="services-how-er-work-subtitle w-[687px]">
-                            <span className='font-normal'>Every project - regardless of service, size, or industry - follows the same six-step process. Because consistency in process is what produces consistency in results.</span>
+                            <span className='font-normal'>Most businesses know what problem they are trying to solve. They are less sure which service solves it. Here is how to find the right starting point.</span>
                         </div>
                     </div>
 
@@ -233,9 +238,9 @@ const ServicesHowWeWork = () => {
                                 <div className="services-how-work-card w-[100%] h-[max-content] p-[60px]">
                                     <h3 className='font-semibold h1'>{step.title}</h3>
 
-                                    <h4 className='h5 mt-[20px] mb-[14px]'>{step.subtitle}</h4>
+                                    {/* <h4 className='h5 mt-[20px] mb-[14px]'>{step.subtitle}</h4> */}
 
-                                    <p className='text-18px font-normal w-[871px]'>{step.description}</p>
+                                    <p className='text-18px mt-[20px] font-normal w-[871px]'>{step.description}</p>
                                 </div>
                             </div>
                         ))}
