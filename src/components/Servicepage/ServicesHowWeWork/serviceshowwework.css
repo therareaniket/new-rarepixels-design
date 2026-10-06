@@ -320,15 +320,19 @@
         --card-padding-top: 20px;
         --collapsed-card-padding-top: 10px;
 
+        --expanded-title-size: 20px;
+        --expanded-title-line-height: 28px;
+
         --card-movement-distance: 200px;
 
         --collapsed-title-size: 16px;
         --collapsed-title-line-height: 24px; 
+        
+        height: 500px;
     }
 
-    .services-how-work-card-wrapper { height: 520px; }
     .service-section { height: calc(100vh * 5); }
-    .services-how-work-card h3 { width: 90%; }
+    /* .services-how-work-card h3 { width: 90%; } */
 }
 
 @media (max-width: 374px) { }

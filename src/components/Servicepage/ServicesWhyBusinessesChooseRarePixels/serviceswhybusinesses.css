@@ -104,10 +104,7 @@
         opacity: 0;
         overflow: hidden;
         transform: translateX(30px);
-        transition:
-            width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s,
-            opacity 0.5s ease 0.25s,
-            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+        transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s, opacity 0.5s ease 0.25s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
     }
 
     .sservices-business-tablet-text p { width: 400px; }
@@ -115,21 +112,10 @@
     .services-business-card-tablet.is-visible .sservices-business-tablet-text { width: 400px; opacity: 1; transform: translateX(0); }
 
     @keyframes services-art-bounce {
-        0% {
-            transform: translateX(0);
-        }
-
-        30% {
-            transform: translateX(100px);
-        }
-
-        65% {
-            transform: translateX(-10px);
-        }
-
-        100% {
-            transform: translateX(0);
-        }
+        0% { transform: translateX(0); }
+        30% { transform: translateX(100px); }
+        65% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
     }
 }
 
@@ -166,10 +152,7 @@
         opacity: 0;
         overflow: hidden;
         transform: translateX(30px);
-        transition:
-            width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s,
-            opacity 0.5s ease 0.25s,
-            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+        transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s, opacity 0.5s ease 0.25s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
     }
 
     .sservices-business-tablet-text p { width: 400px; }
@@ -177,21 +160,10 @@
     .services-business-card-tablet.is-visible .sservices-business-tablet-text { width: 400px; opacity: 1; transform: translateX(0); }
 
     @keyframes services-art-bounce {
-        0% {
-            transform: translateX(0);
-        }
-
-        30% {
-            transform: translateX(100px);
-        }
-
-        65% {
-            transform: translateX(-10px);
-        }
-
-        100% {
-            transform: translateX(0);
-        }
+        0% { transform: translateX(0); }
+        30% { transform: translateX(100px); }
+        65% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
     }
 }
 
