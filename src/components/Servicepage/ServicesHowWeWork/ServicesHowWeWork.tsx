@@ -227,7 +227,7 @@ const ServicesHowWeWork = () => {
                         </div>
 
                         <div className="services-how-er-work-subtitle w-[687px]">
-                            <span className='font-normal'>Most businesses know what problem they are trying to solve. They are less sure which service solves it. Here is how to find the right starting point.</span>
+                            <span className='font-normal text-18'>Most businesses know what problem they are trying to solve. They are less sure which service solves it. Here is how to find the right starting point.</span>
                         </div>
                     </div>
 

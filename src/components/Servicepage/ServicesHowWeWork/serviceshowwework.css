@@ -302,7 +302,7 @@
 
 @media (max-width: 400px) { 
     .services-how-work-card .h5 { font-size: 16px; line-height: 24px; }
-    .service-inner { top: -40px; }
+    .service-inner { top: -15px; }
 
     .services-how-work-card p { font-size: 14px; line-height: 22px; }
     .services-how-work-card .h5 { margin-top: 6px; }
@@ -328,11 +328,14 @@
         --collapsed-title-size: 16px;
         --collapsed-title-line-height: 24px; 
         
-        height: 500px;
+        height: 470px;
+        margin-top: 15px;
     }
 
     .service-section { height: calc(100vh * 5); }
     /* .services-how-work-card h3 { width: 90%; } */
+    .services-how-work-card p { margin-top: 8px; }
+    .services-step-number { padding: 10px 25px; }
 }
 
 @media (max-width: 374px) { }
