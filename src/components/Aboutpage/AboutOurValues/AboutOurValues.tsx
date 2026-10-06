@@ -1,9 +1,25 @@
 "use client";
 
 import Image from 'next/image';
-import './aboutourvalues.css'
+import './aboutourvalues.css';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from 'react';
 
 const AboutOurValues = () => {
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    useEffect(() => {
+        gsap.fromTo(".abt-our-values-pointer", 
+            { opacity: 0, scale: 0.5, y: 100 }, 
+            { opacity: 1, scale: 1, y: 0, duration: 0.8, delay: 0.3, stagger: 0.5, 
+                scrollTrigger: {
+                    trigger: ".abt-our-values-right",
+                    start: "top 70%",
+            }})
+    }, [])
+
     return (
         <section className='section'>
             <div className="container">
@@ -20,7 +36,7 @@ const AboutOurValues = () => {
                         </div>
                     </div>
 
-                    <div className="abt-our-values-right ">
+                    <div className="abt-our-values-right">
                         <div className="abt-our-values-pointer flex items-start gap-[20px] w-[580px]">
                             <div className='our-values-icon w-[52px] h-[52px] bg-[#c6d9c6] flex justify-center items-center rounded-[10px]'>
                                 <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/creative.svg" alt='abt-values' width={24} height={24}></Image>

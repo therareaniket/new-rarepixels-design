@@ -1,16 +1,58 @@
 "use client";
 
-import Image from 'next/image';
 import './aboutwhyrarepixels.css'
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const AboutWhyRarePixels = () => {
-    return (
-        <section className='section bg-[#040E36]'>
-            <div className="container">
-                <div className="abt-why-rare-title w-[575px]">
-                    <h2 className='font-semibold text-[white]'>Why You’d Love to Work at RarePixels</h2>
+    const sectionRef = useRef<HTMLElement>(null);
+    gsap.registerPlugin(ScrollTrigger);
 
-                    <p className='text-18 font-normal text-[#c6c6c6] website-subtitle-mt'>A place where curiosity is encouraged, ideas are heard, and good work is built together. At RarePixels, we care about what we create, how we work, and the people we grow with.</p>
+    useEffect(() => {
+        if(typeof window !== 'undefined' && window.innerWidth >= 640) {
+            const ctx = gsap.context(() => {
+                gsap.to('.abt-rare-tree', { '--clip': '100%', duration: 1.5, scrollTrigger: { trigger: sectionRef.current, start: 'top 20%', }, });
+                
+                gsap.fromTo(".abt-tree-poniter",
+                    { opacity: 0, scale: 0.5, xPercent: 50, yPercent: 50 },
+                    { opacity: 1, scale: 1, xPercent: 0, yPercent: 0, delay: 1.5, duration: 0.5, stagger: 0.5,
+                        scrollTrigger: {
+                            trigger: sectionRef.current,
+                            start: "top 20%",
+                        }
+                    } 
+                )
+            }, sectionRef);
+
+            return () => ctx.revert();
+        } else {
+            const ctx = gsap.context(() => {
+                gsap.to('.abt-rare-tree', { '--clip': '100%', duration: 1, scrollTrigger: { trigger: sectionRef.current, start: 'top 40%', }, });
+                
+                gsap.fromTo(".abt-tree-poniter",
+                    { opacity: 0, scale: 0.5, y: 100 },
+                    { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.5,
+                        scrollTrigger: {
+                            trigger: ".abt-tree-pointers-wrapper",
+                            start: "top 60%",
+                        }
+                    } 
+                )
+            }, sectionRef);
+
+            return () => ctx.revert();
+        }
+        
+    }, []);
+
+    return (
+        <section ref={sectionRef} className='section bg-[#040E36] overflow-hidden'>
+            <div className="container">
+                <div className="abt-why-rare-title flex items-start justify-between">
+                    <h2 className='w-[575px] font-semibold text-[white]'>Why You’d Love to Work at RarePixels</h2>
+
+                    <p className='w-[575px] text-18 font-normal text-[#c6c6c6]'>A place where curiosity is encouraged, ideas are heard, and good work is built together. At RarePixels, we care about what we create, how we work, and the people we grow with.</p>
                 </div>
 
                 <div className="abt-rare-tree-wrapper pt-[195px] relative">

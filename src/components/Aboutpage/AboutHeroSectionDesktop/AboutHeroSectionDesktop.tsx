@@ -29,7 +29,6 @@ export default function AboutHeroSectionDesktop() {
             }
         );
 
-
         gsap.fromTo(".abt-hero-video",
             { opacity: 1 },
             { 
@@ -43,7 +42,6 @@ export default function AboutHeroSectionDesktop() {
                 }
             }
         );
-
 
         gsap.fromTo(".about-hero-txt",
             { "--bg-opacity": 1 },

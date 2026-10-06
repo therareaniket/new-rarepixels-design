@@ -1,6 +1,19 @@
 /*  custom */
 .abt-tree-img { width: 100%; height: 100%; object-fit: contain; }
 .abt-tree-poniter { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); background-color: #040e3699; border: 1px solid #8490841a; }
+.abt-rare-tree { position: relative; --clip: 0%; }
+.abt-rare-tree::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #040E36;
+    z-index: 2;
+    clip-path: inset(0 0 var(--clip) 0);
+    will-change: clip-path;
+}
 
 /* responsive */
 
@@ -12,8 +25,7 @@
     .abt-tree-poniter-4 { right: 35px; }
 }
 
-@media (max-width: 1599px) { 
-    .abt-why-rare-title { width: 660px; } 
+@media (max-width: 1599px) {
     .abt-rare-tree-wrapper { padding-top: 140px; }
     .abt-tree-poniter { width: 320px; }
     .abt-tree-text { width: 255px; }
@@ -27,8 +39,7 @@
 
 @media (max-width: 1599px) and (max-height: 750px) {}
 
-@media (max-width: 1439px) { 
-    .abt-why-rare-title { width: 740px; }
+@media (max-width: 1439px) {
     .abt-rare-tree { width: 440px; }
     .abt-rare-tree-wrapper { padding-top: 140px; }
 
@@ -42,7 +53,8 @@
 }
 
 @media (max-width: 1359px) { 
-    .abt-why-rare-title .website-subtitle-mt { margin-top: 15px; }
+    .abt-why-rare-title h2 { width: 40%; }
+    .abt-why-rare-title p { width: 40%; }
     .abt-rare-tree { width: 350px; }
     .abt-tree-poniter { width: 360px; padding: 15px; }
     .abt-tree-text { width: 310px; }
@@ -72,6 +84,7 @@
 }
 
 @media (max-width: 1024px) { 
+    .abt-why-rare-title { margin-bottom: 20px; }
     .abt-tree-poniter-1 { left: 75px; }
     .abt-tree-poniter-2 { right: 65px; }
     .abt-tree-poniter-3 { left: 1px; }
@@ -80,12 +93,13 @@
 
 @media (max-width: 1024px) and (max-height: 770px) { }
 
-@media (max-width: 991px) { 
-    .abt-why-rare-title { width: 100%; }
+@media (max-width: 991px) {
+    .abt-why-rare-title { flex-direction: column; gap: 10px; }
+    .abt-why-rare-title h2, .abt-why-rare-title p { width: 100%; }
     .abt-rare-tree-wrapper { padding-top: 0; margin-top: 40px; }
     .abt-rare-tree { width: 435px; }
     .abt-tree-pointers-wrapper { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
-    .abt-tree-poniter { position: static; width: calc( 50% - 10px ); gap: 10px; }
+    .abt-tree-poniter { position: static; width: calc( 50% - 10px ); gap: 10px; height: 150px; }
     .abt-tree-text { width: calc( 100% - 16px ); }
 }
 
@@ -93,6 +107,7 @@
 
 @media (max-width: 767px) { 
     .abt-rare-tree { width: 400px; }
+    .abt-tree-poniter { height: 180px; }
 }
 
 @media (max-width: 639px) { 
@@ -103,7 +118,8 @@
 }
 
 @media (max-width: 575px) { 
-    .abt-rare-tree { width: 100%; } 
+    .abt-rare-tree { width: 80%; } 
+    .abt-tree-poniter { height: max-content; }
 }
 
 @media (max-width: 479px) { }

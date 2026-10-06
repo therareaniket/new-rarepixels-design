@@ -29,9 +29,9 @@ const AboutMisVis = () => {
                     <div className="mis-vis-text w-[650px]">
                         <h3 className="h2 font-semibold text-[#ED0180]">Our Vision & Mission</h3>
 
-                        <p className='text-18 mt-[30px] mb-[30px]'><span className='font-semibold'>Our Vision</span>We aim to bring expertise, research, data, technology, and strategic thinking together to understand challenges deeply and identify what actually works. Our focus is on creating practical, result-driven solutions that help businesses grow, adapt, and deliver greater value to every business we work with.</p>
+                        <p className='text-18 mt-[30px] mb-[30px]'><span className='font-semibold'>Our Vision </span>We aim to bring expertise, research, data, technology, and strategic thinking together to understand challenges deeply and identify what actually works. Our focus is on creating practical, result-driven solutions that help businesses grow, adapt, and deliver greater value to every business we work with.</p>
                         
-                        <p className='text-18'><span className='font-semibold'>Our Mission</span>To challenge the expected, simplify the complex, and create experiences that move brands forward. We combine strategic thinking with creative craft to solve problems that matter. We don&apos;t create for the sake of creating. We question, explore, refine, and execute with intent, turning concepts into marvels that people connect with and businesses can build on.</p>
+                        <p className='text-18'><span className='font-semibold'>Our Mission </span>to challenge the expected, simplify the complex, and create experiences that move brands forward. We combine strategic thinking with creative craft to solve problems that matter. We don&apos;t create for the sake of creating. We question, explore, refine, and execute with intent, turning concepts into marvels that people connect with and businesses can build on.</p>
                     </div>
                 </div>
             </div>

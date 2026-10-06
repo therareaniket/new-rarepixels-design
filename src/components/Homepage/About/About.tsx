@@ -15,13 +15,12 @@ const About = () => {
     useEffect(() => {
         if(typeof window !== 'undefined' && window.innerWidth >= 640) {
 
-            gsap.set(".hm-abt-card:nth-child(1)", { xPercent: 50, yPercent: 50 } )
-            gsap.set(".hm-abt-card:nth-child(2)", { xPercent: -50, yPercent: 50 } )
-            gsap.set(".hm-abt-card:nth-child(3)", { xPercent: 50, yPercent: -50 } )
-            gsap.set(".hm-abt-card:nth-child(4)", { xPercent: -50, yPercent: -50 } )
+            gsap.set(".hm-abt-card:nth-child(1)", { xPercent: 50, yPercent: 50, opacity: 0, scale: 0.5, } )
+            gsap.set(".hm-abt-card:nth-child(2)", { xPercent: -50, yPercent: 50, opacity: 0, scale: 0.5, } )
+            gsap.set(".hm-abt-card:nth-child(3)", { xPercent: 50, yPercent: -50, opacity: 0, scale: 0.5, } )
+            gsap.set(".hm-abt-card:nth-child(4)", { xPercent: -50, yPercent: -50, opacity: 0, scale: 0.5, } )
             
-            gsap.fromTo(".hm-abt-card", 
-                { opacity: 0, scale: 0.5, }, 
+            gsap.to(".hm-abt-card",
                 { opacity: 1, scale: 1, xPercent: 0, yPercent: 0, duration: 0.5, stagger: 0.5,
                     scrollTrigger: {
                         trigger: ".hm-abt-content-wrapper",

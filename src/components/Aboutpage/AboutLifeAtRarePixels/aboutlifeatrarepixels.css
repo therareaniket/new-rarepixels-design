@@ -52,7 +52,7 @@
     .abt-life-card-8 { width: 305px; height: 199px; }
 
     .life-at-rarepixels-card-wrapper { margin-top: 40px; }
-    .life-at-rarepixels-col-3 { transform: translateY(-160px); }
+    .life-at-rarepixels-col-3 { transform: translateY(0px); }
     .life-at-rarepixels-col-1 { margin-top: 45px; }
 }
 
@@ -75,7 +75,6 @@
     .abt-life-card-5 { width: 220px; height: 215px; }
     .abt-life-card-8 { width: 220px; height: 144px; }
 
-    .life-at-rarepixels-col-3 { transform: translateY(0); }
     .life-at-rarepixels-col-1 { margin-top: 0; }
     .life-at-rarepixels-card-wrapper { margin-top: 25px; }
     .life-at-rare-title h2 { margin-bottom: 10px; font-size: 40px; line-height: 48px; }
@@ -94,9 +93,9 @@
     .abt-life-card-5 { width: 100%; }
 }
 
-@media (max-width: 767px) { }
+@media (max-width: 767px) {}
 
-@media (max-width: 639px) { }
+@media (max-width: 639px) {}
 
 @media (max-width: 575px) { 
     .abt-life-card-1, .abt-life-card-6, .abt-life-card-7 { height: 250px; }
@@ -118,8 +117,8 @@
     .abt-life-card-2 { height: 320px; }
 }
 
-@media (max-width: 400px) { }
+@media (max-width: 400px) {}
 
-@media (max-width: 374px) { }
+@media (max-width: 374px) {}
 
-@media (max-width: 359px) { }
+@media (max-width: 359px) {}
