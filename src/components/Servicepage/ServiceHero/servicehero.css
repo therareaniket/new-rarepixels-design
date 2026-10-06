@@ -8,6 +8,10 @@
 }
 .services-strip { animation: services-marquee 30s infinite linear; }
 
+.services-strip { align-items: flex-end; cursor: pointer; }
+
+.services-strip span { display: inline-block; white-space: nowrap; will-change: transform; }
+
 /* responsive */
 @media (max-width: 1799px) { 
     .services-hero-left { width: 650px; height: 625px; }

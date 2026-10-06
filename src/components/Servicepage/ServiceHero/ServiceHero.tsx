@@ -1,9 +1,81 @@
 "use client";
 
-import Image from 'next/image';
-import './servicehero.css'
+import Image from "next/image";
+import "./servicehero.css";
+import gsap from "gsap";
+import { useEffect } from "react";
 
 const ServiceHero = () => {
+
+    useEffect(() => {
+        const strip = document.querySelector<HTMLElement>(".services-strip");
+
+        if (!strip) return;
+
+        const items = gsap.utils.toArray<HTMLElement>( ".services-strip span" );
+
+        if (!items.length) return;
+
+        const maxScale = 1.3;
+        const bound = 300;
+        const maxPush = 50;
+
+        gsap.set(items, { transformOrigin: "50% 350%" });
+
+        const handleMouseMove = (event: MouseEvent) => {
+
+            items.forEach((item) => {
+
+                const rect = item.getBoundingClientRect();
+                const itemCenter = rect.left + rect.width / 2;
+
+                const distance = itemCenter - event.clientX;
+
+                let scale = 1;
+                let x = 0;
+
+                if (Math.abs(distance) < bound) {
+
+                    const normalized = distance / bound;
+
+                    const influence = Math.cos(normalized * Math.PI / 2);
+                    scale = 1 + (maxScale - 1) * influence;
+                    x = Math.sin(normalized * Math.PI / 2) * maxPush;
+
+                } else {
+                    x = distance < 0 ? -maxPush : maxPush;
+                }
+
+                gsap.to(item, {
+                    duration: 0.3,
+                    scale,
+                    x,
+                    ease: "power2.out",
+                    overwrite: true
+                });
+            });
+        };
+
+        const handleMouseLeave = () => {
+            gsap.to(items, {
+                duration: 0.3,
+                scale: 1,
+                x: 0,
+                ease: "power2.out",
+                overwrite: true
+            });
+        };
+
+        strip.addEventListener("mousemove", handleMouseMove);
+        strip.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            strip.removeEventListener("mousemove", handleMouseMove);
+            strip.removeEventListener("mouseleave", handleMouseLeave);
+        };
+
+    }, []);
+
     return (
         <section id='first-section' className=" bg-[white] services-section pt-[103px] pb-[11px] overflow-hidden">
             <div className="container">
