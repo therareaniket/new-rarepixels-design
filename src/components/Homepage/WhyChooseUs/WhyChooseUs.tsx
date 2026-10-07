@@ -109,7 +109,7 @@ const WhyChooseUs = () => {
 
                     <div className="why-choose-image-wrapper">
                         <div className="why-choose-us-hand-img relative z-[10]">
-                            <Image src={`${CDN_URL}/images/homepage/why-choose-us/why-choose-us-hand.png`} alt="why-choose-us-hand-image" width={412} height={684} className="why-choose-hand absolute bottom-[0] left-[50%] translate-x-[-50%]" />
+                            <Image src={`${CDN_URL}/images/homepage/why-choose-us/why-choose-us-hand-web.webp`} alt="why-choose-us-hand-image" width={412} height={684} className="why-choose-hand absolute bottom-[0] left-[50%] translate-x-[-50%]" />
                         </div>
 
                         <div className="why-choose-us-bg-eclipse">

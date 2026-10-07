@@ -27,7 +27,7 @@ export default function Home() {
             <FAQ />
             <InquiryForm />
 
-            {/* <ScrollToTopButton /> */}
+            <ScrollToTopButton />
         </>
     );
 }
