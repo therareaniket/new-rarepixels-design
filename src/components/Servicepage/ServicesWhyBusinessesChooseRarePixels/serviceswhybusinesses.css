@@ -3,7 +3,7 @@
 .services-why-busi-card { height: 370px; }
 .services-why-businesses-choose-rarepixels { position: relative; justify-content: space-between; }
 
-.services-why-busi-card { flex-shrink: 0; gap: 40px; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+.services-why-busi-card { flex-shrink: 0; gap: 40px; transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1); }
 
 .services-why-businesses-choose-rarepixels:has(.services-why-busi-card-3:hover) { justify-content: flex-end; }
 

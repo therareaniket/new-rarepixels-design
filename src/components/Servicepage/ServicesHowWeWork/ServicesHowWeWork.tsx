@@ -110,7 +110,7 @@ const ServicesHowWeWork = () => {
                     trigger: section,
                     start: "top top",
                     end: "bottom bottom",
-                    scrub: 1,
+                    scrub: 2,
                     invalidateOnRefresh: true,
                 },
             });
@@ -164,7 +164,6 @@ const ServicesHowWeWork = () => {
                     );
                 }
 
-
                 timeline.to(
                     currentCard,
                     {
@@ -202,9 +201,7 @@ const ServicesHowWeWork = () => {
 
             window.addEventListener("load", refreshScrollTrigger);
 
-            return () => {
-                window.removeEventListener("load", refreshScrollTrigger);
-            };
+            return () => { window.removeEventListener("load", refreshScrollTrigger); };
         }, section);
 
         return () => {
