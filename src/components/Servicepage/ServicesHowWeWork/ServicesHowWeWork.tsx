@@ -53,29 +53,37 @@ const ServicesHowWeWork = () => {
     // gsap.registerPlugin();
 
     const sectionRef = useRef<HTMLElement | null>(null);
+    const stickyContentRef = useRef<HTMLDivElement | null>(null);
     const cardsWrapperRef = useRef<HTMLDivElement | null>(null);
 
     useLayoutEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
         const section = sectionRef.current;
+        const stickyContent = stickyContentRef.current;
         const cardsWrapper = cardsWrapperRef.current;
 
-        if (!section || !cardsWrapper) return;
+        if (!section || !stickyContent || !cardsWrapper) return;
 
         const context = gsap.context(() => {
-            const cards = gsap.utils.toArray<HTMLElement>(".services-how-we-work");
+            const cards = gsap.utils.toArray<HTMLElement>(
+                ".services-how-we-work"
+            );
 
             const firstCard = cards[0];
             const animatedCards = cards.slice(1);
 
             const getMovementDistance = () => {
-                const cssValue = getComputedStyle(cardsWrapper).getPropertyValue("--card-movement-distance");
+                const cssValue = getComputedStyle(cardsWrapper)
+                    .getPropertyValue("--card-movement-distance");
+
                 return parseFloat(cssValue) || 270;
             };
 
             const getCollapsedPaddingTop = () => {
-                const cssValue = getComputedStyle(cardsWrapper).getPropertyValue("--collapsed-card-padding-top");
+                const cssValue = getComputedStyle(cardsWrapper)
+                    .getPropertyValue("--collapsed-card-padding-top");
+
                 return parseFloat(cssValue) || 20;
             };
 
@@ -91,26 +99,52 @@ const ServicesHowWeWork = () => {
                     .trim();
             };
 
+            gsap.set(firstCard, {
+                y: 0,
+                opacity: 1,
+                force3D: true,
+            });
 
-            gsap.set(firstCard, { y: 0, opacity: 1, force3D: true, });
-
-            gsap.set(animatedCards, { y: (index) => { return (index + 1) * getMovementDistance(); }, opacity: 0.2, force3D: true, });
+            gsap.set(animatedCards, {
+                y: (index) => {
+                    return (index + 1) * getMovementDistance();
+                },
+                opacity: 0.2,
+                force3D: true,
+            });
 
             const animatedTabHeaders = animatedCards
-                .map((card) => card.querySelector<HTMLElement>(".services-step-number"))
-                .filter((header): header is HTMLElement => header !== null
+                .map((card) =>
+                    card.querySelector<HTMLElement>(
+                        ".services-step-number"
+                    )
+                )
+                .filter(
+                    (header): header is HTMLElement =>
+                        header !== null
                 );
 
-            gsap.set(animatedTabHeaders, { y: 100, opacity: 0.1, zIndex: -1, force3D: true, });
+            gsap.set(animatedTabHeaders, {
+                y: 100,
+                opacity: 0.1,
+                zIndex: -1,
+                force3D: true,
+            });
 
             const timeline = gsap.timeline({
-                defaults: { duration: 1, ease: "none", },
+                defaults: {
+                    duration: 1,
+                    ease: "none",
+                },
 
                 scrollTrigger: {
                     trigger: section,
                     start: "top top",
-                    end: "bottom bottom",
+                    end: () => `+=${window.innerHeight * (animatedCards.length + 1)}`,
+                    pin: stickyContent,
+                    pinSpacing: true,
                     scrub: 2,
+                    anticipatePin: 1,
                     invalidateOnRefresh: true,
                 },
             });
@@ -119,9 +153,21 @@ const ServicesHowWeWork = () => {
                 const movingCards = animatedCards.slice(index);
 
                 const previousCard = cards[index];
-                const previousCardContent = previousCard.querySelector<HTMLElement>(".services-how-work-card");
-                const currentTabHeader = currentCard.querySelector<HTMLElement>(".services-step-number");
-                const previousCardTitle = previousCard.querySelector<HTMLElement>(".services-how-work-card h3");
+
+                const previousCardContent =
+                    previousCard.querySelector<HTMLElement>(
+                        ".services-how-work-card"
+                    );
+
+                const currentTabHeader =
+                    currentCard.querySelector<HTMLElement>(
+                        ".services-step-number"
+                    );
+
+                const previousCardTitle =
+                    previousCard.querySelector<HTMLElement>(
+                        ".services-how-work-card h3"
+                    );
 
                 const stageLabel = `card-${index + 2}`;
 
@@ -142,7 +188,8 @@ const ServicesHowWeWork = () => {
                     timeline.to(
                         previousCardContent,
                         {
-                            paddingTop: () => getCollapsedPaddingTop(),
+                            paddingTop: () =>
+                                getCollapsedPaddingTop(),
                             duration: 0.8,
                             ease: "power2.inOut",
                         },
@@ -154,16 +201,18 @@ const ServicesHowWeWork = () => {
                     timeline.to(
                         previousCardTitle,
                         {
-                            "--card-title-size": () => getCollapsedTitleSize(),
+                            "--card-title-size": () =>
+                                getCollapsedTitleSize(),
+
                             "--card-title-line-height": () =>
                                 getCollapsedTitleLineHeight(),
+
                             duration: 0.8,
                             ease: "power2.inOut",
                         },
                         stageLabel
                     );
                 }
-
 
                 timeline.to(
                     currentCard,
@@ -198,13 +247,7 @@ const ServicesHowWeWork = () => {
                 }
             });
 
-            const refreshScrollTrigger = () => { ScrollTrigger.refresh(); };
-
-            window.addEventListener("load", refreshScrollTrigger);
-
-            return () => {
-                window.removeEventListener("load", refreshScrollTrigger);
-            };
+            timeline.to({}, { duration: 1 });
         }, section);
 
         return () => {
@@ -214,7 +257,7 @@ const ServicesHowWeWork = () => {
 
     return (
         <section ref={sectionRef} className=' service-section'>
-            <div className="service-inner  section">
+            <div ref={stickyContentRef} className="service-inner  section">
                 <div className="container">
 
                     <div className="srvs-how-we-work-wrapper flex justify-between items-start">

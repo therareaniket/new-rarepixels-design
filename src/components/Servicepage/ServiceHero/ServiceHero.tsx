@@ -13,19 +13,34 @@ const ServiceHero = () => {
         if (!strip) return;
 
         const items = gsap.utils.toArray<HTMLElement>( ".services-strip span" );
-
         if (!items.length) return;
 
         const maxScale = 1.3;
         const bound = 300;
         const maxPush = 50;
 
+        let lastScrollY = window.scrollY;
+        let stripX = 0;
+
         gsap.set(items, { transformOrigin: "50% 350%" });
 
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const scrollDifference = currentScrollY - lastScrollY;
+
+            stripX -= scrollDifference * 0.7;
+
+            gsap.to(strip, {
+                x: stripX,
+                duration: 3,
+                overwrite: "auto"
+            });
+
+            lastScrollY = currentScrollY;
+        };
+
         const handleMouseMove = (event: MouseEvent) => {
-
             items.forEach((item) => {
-
                 const rect = item.getBoundingClientRect();
                 const itemCenter = rect.left + rect.width / 2;
 
@@ -35,22 +50,21 @@ const ServiceHero = () => {
                 let x = 0;
 
                 if (Math.abs(distance) < bound) {
-
                     const normalized = distance / bound;
 
-                    const influence = Math.cos(normalized * Math.PI / 2);
-                    scale = 1 + (maxScale - 1) * influence;
-                    x = Math.sin(normalized * Math.PI / 2) * maxPush;
+                    const influence = Math.cos( normalized * Math.PI / 2 );
 
+                    scale = 1 + (maxScale - 1) * influence;
+
+                    x = Math.sin( normalized * Math.PI / 2 ) * maxPush;
                 } else {
                     x = distance < 0 ? -maxPush : maxPush;
                 }
 
                 gsap.to(item, {
-                    duration: 0.3,
+                    duration: 3,
                     scale,
                     x,
-                    ease: "power2.out",
                     overwrite: true
                 });
             });
@@ -61,19 +75,20 @@ const ServiceHero = () => {
                 duration: 0.3,
                 scale: 1,
                 x: 0,
-                ease: "power2.out",
                 overwrite: true
             });
         };
 
-        strip.addEventListener("mousemove", handleMouseMove);
-        strip.addEventListener("mouseleave", handleMouseLeave);
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
-        return () => {
-            strip.removeEventListener("mousemove", handleMouseMove);
-            strip.removeEventListener("mouseleave", handleMouseLeave);
+        strip.addEventListener( "mousemove", handleMouseMove );
+        strip.addEventListener( "mouseleave", handleMouseLeave );
+
+        return () => { window.removeEventListener( "scroll", handleScroll );
+
+            strip.removeEventListener( "mousemove", handleMouseMove );
+            strip.removeEventListener( "mouseleave", handleMouseLeave );
         };
-
     }, []);
 
     return (

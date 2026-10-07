@@ -6,7 +6,7 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
 }
-.services-strip { animation: services-marquee 30s infinite linear; }
+/* .services-strip { animation: services-marquee 30s infinite linear; } */
 
 .services-strip { align-items: flex-end; cursor: pointer; }
 
