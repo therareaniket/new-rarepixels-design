@@ -28,11 +28,11 @@ const ServiceHero = () => {
             const currentScrollY = window.scrollY;
             const scrollDifference = currentScrollY - lastScrollY;
 
-            stripX -= scrollDifference * 0.7;
+            stripX -= scrollDifference * 0.4;
 
             gsap.to(strip, {
                 x: stripX,
-                duration: 3,
+                duration: 1,
                 overwrite: "auto"
             });
 
@@ -62,7 +62,7 @@ const ServiceHero = () => {
                 }
 
                 gsap.to(item, {
-                    duration: 3,
+                    duration: 1,
                     scale,
                     x,
                     overwrite: true
