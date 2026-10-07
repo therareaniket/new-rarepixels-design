@@ -16,7 +16,7 @@
 .services-how-we-work-5 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FBF9E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FBF9E9; background: transparent; }
 .services-how-we-work-6 .services-step-number::before {  content: ''; position: absolute; width: 20px; height: 20px; bottom: 0; left: -15; background-color: #FCD4E9; border-bottom-right-radius: 20px; box-shadow: 0 10px 0 0 #FCD4E9; background: transparent; }
 
-.service-section { position: relative; height: calc(100vh * 5); }
+.service-section { position: relative; height: calc(300px * 6); }
 .service-inner { position: sticky; top: -50px; height: max-content; }
 
 .services-how-work-card-wrapper {
@@ -126,7 +126,7 @@
     }
     .services-how-er-work-subtitle { width: 570px; }
 
-    .service-section { height: calc(100vh * 5.5); }
+    /* .service-section { height: calc(100vh * 5.5); } */
 
 }
 
@@ -168,7 +168,7 @@
 }
 
 @media (max-width: 1024px) { 
-    .service-section { height: calc(100vh * 5); } 
+    /* .service-section { height: calc(100vh * 5); }  */
     .services-how-work-card-wrapper { margin-top: 30px; }
 }
 
@@ -183,7 +183,7 @@
         height: 475px;
     }
 
-    .service-section { height: calc(100vh * 5.5); } 
+    /* .service-section { height: calc(100vh * 5.5); }  */
 }
 
 @media (max-width: 991px) { 
