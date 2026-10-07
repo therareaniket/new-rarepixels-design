@@ -183,7 +183,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(({ project, ind
             onClick={handleClick} 
             className={`project-list w-[1000px] h-[550px] rounded-[20px] relative overflow-hidden flex-shrink-0 cursor-pointer ${ isActive ? "active" : "" }`}
         >
-			<video ref={videoRef} className="project-video w-full h-full object-cover" src={project.videoSrc} poster={project.thumbNail} loop muted playsInline />
+			<video ref={videoRef} className="project-video w-full h-full object-cover" src={project.videoSrc} poster={project.thumbNail} loop muted playsInline preload={isActive ? "auto" : "none"} />
         </div>
     );
 });
