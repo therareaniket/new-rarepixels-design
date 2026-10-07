@@ -138,7 +138,7 @@ const Industries = () => {
                 return (
                   <div key={item.title} className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                     <div className="indust-video-wrapper w-[1000px] h-full relative">
-                      <video
+                      {/* <video
                         src={shouldLoadSrc ? item.video : undefined}
                         loop
                         autoPlay={shouldLoadSrc}
@@ -147,7 +147,7 @@ const Industries = () => {
                         preload={isFirst ? "auto" : "none"}
                         width={1000}
                         height={550}
-                      />
+                      /> */}
 
                       <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none">
                         <rect width="50" height="50" fill="#F7F2EC" />
