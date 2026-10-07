@@ -11,7 +11,6 @@ import ScrollToTopButton from "@/components/Global/ScrollToTop/ScrollToTopButton
 export default function About() {
     return (
         <>
-            {/* <AboutHero /> */}
             <AboutHeroSectionDesktop />
             {/* <AboutTimeline /> */}
             <AboutMisVis />
