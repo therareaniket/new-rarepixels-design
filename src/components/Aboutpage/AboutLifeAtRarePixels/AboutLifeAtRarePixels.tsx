@@ -15,14 +15,14 @@ const AboutLifeAtRarePixels = () => {
             //     { opacity: 1, scale: 1, scrollTrigger: { trigger: ".life-at-rpd", start: "top 20%", end: "top -70%", scrub: 1, once: true  } }
             // )
 
-                gsap.fromTo( ".life-at-desktop .abt-life-card-1", { opacity: 0, scale: 0.5, x: -300, y: -200, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-1", start: "top 70%", once: true, }, } );
-                gsap.fromTo( ".life-at-desktop .abt-life-card-2", { opacity: 0, scale: 0.5, x: -350, y: 200, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-2", start: "top 70%", once: true, }, } );
-                gsap.fromTo( ".life-at-desktop .abt-life-card-3", { opacity: 0, scale: 0.5, x: 0, y: -300, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-3", start: "top 70%", once: true, }, } );
-                gsap.fromTo( ".life-at-desktop .abt-life-card-4", { opacity: 0, scale: 0.5, x: -150, y: 200, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-4", start: "top 70%", once: true, }, } );
-                gsap.fromTo( ".life-at-desktop .abt-life-card-5", { opacity: 0, scale: 0.5, x: 150, y: 300, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-5", start: "top 70%", once: true, }, } );
-                gsap.fromTo( ".life-at-desktop .abt-life-card-6", { opacity: 0, scale: 0.5, x: 300, y: -200, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-6", start: "top 70%", once: true, }, } );
-                gsap.fromTo( ".life-at-desktop .abt-life-card-7", { opacity: 0, scale: 0.5, x: 350, y: 100, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-7", start: "top 70%", once: true, }, } );
-                gsap.fromTo( ".life-at-desktop .abt-life-card-8", { opacity: 0, scale: 0.5, x: 300, y: 300, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-8", start: "top 70%", once: true, }, } );
+                gsap.fromTo( ".life-at-desktop .abt-life-card-1", { opacity: 0, scale: 0.5, x: -300, y: -200, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.8, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-1", start: "top 70%", once: true, }, } );
+                gsap.fromTo( ".life-at-desktop .abt-life-card-2", { opacity: 0, scale: 0.5, x: -350, y: 200, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.8, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-2", start: "top 70%", once: true, }, } );
+                gsap.fromTo( ".life-at-desktop .abt-life-card-3", { opacity: 0, scale: 0.5, x: 0, y: -300, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.8, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-3", start: "top 70%", once: true, }, } );
+                gsap.fromTo( ".life-at-desktop .abt-life-card-4", { opacity: 0, scale: 0.5, x: -150, y: 200, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.8, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-4", start: "top 70%", once: true, }, } );
+                gsap.fromTo( ".life-at-desktop .abt-life-card-5", { opacity: 0, scale: 0.5, x: 150, y: 300, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.8, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-5", start: "top 70%", once: true, }, } );
+                gsap.fromTo( ".life-at-desktop .abt-life-card-6", { opacity: 0, scale: 0.5, x: 300, y: -200, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.8, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-6", start: "top 70%", once: true, }, } );
+                gsap.fromTo( ".life-at-desktop .abt-life-card-7", { opacity: 0, scale: 0.5, x: 350, y: 100, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.8, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-7", start: "top 70%", once: true, }, } );
+                gsap.fromTo( ".life-at-desktop .abt-life-card-8", { opacity: 0, scale: 0.5, x: 300, y: 300, }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.8, scrollTrigger: { trigger: ".life-at-desktop .abt-life-card-8", start: "top 70%", once: true, }, } );
         }
 
         else if (typeof window !== 'undefined' && window.innerWidth >= 480) {
