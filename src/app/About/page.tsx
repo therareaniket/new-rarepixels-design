@@ -4,15 +4,16 @@ import AboutLifeAtRarePixels from "@/components/Aboutpage/AboutLifeAtRarePixels/
 import AboutMisVis from "@/components/Aboutpage/AboutMisVis/AboutMisVis";
 import AboutOurValues from "@/components/Aboutpage/AboutOurValues/AboutOurValues";
 import AboutTeams from "@/components/Aboutpage/AboutTeams/AboutTeams";
+import AboutTimeline from "@/components/Aboutpage/AboutTimeline/AboutTimeline";
 import AboutWhyRarePixels from "@/components/Aboutpage/AboutWhyRarePixels/AboutWhyRarePixels";
 import ScrollToTopButton from "@/components/Global/ScrollToTop/ScrollToTopButton";
-import Hero from "@/components/Homepage/Hero/Hero";
 
 export default function About() {
-    return(
+    return (
         <>
             {/* <AboutHero /> */}
             <AboutHeroSectionDesktop />
+            {/* <AboutTimeline /> */}
             <AboutMisVis />
             <AboutOurValues />
             <AboutTeams />

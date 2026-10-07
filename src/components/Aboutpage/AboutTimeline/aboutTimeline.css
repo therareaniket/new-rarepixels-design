@@ -1,0 +1,2 @@
+.timeline { height: 250vh; position: relative; }
+.timeline-sticky-block { position: sticky; top: 0; }
