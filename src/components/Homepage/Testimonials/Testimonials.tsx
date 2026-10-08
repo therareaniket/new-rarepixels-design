@@ -1,16 +1,25 @@
 "use client";
 
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import "./testimonials.css";
-import Image from "next/image";
 
 const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
+
+const videos = [
+	`https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-1.mp4`,
+	`https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-2.mp4`,
+	`https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-1.mp4`,
+];
 
 const testimonialsData = [
 	{
@@ -56,68 +65,208 @@ const testimonialsData = [
 ];
 
 const Testimonials = () => {
+	const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+	const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+	const [isTransitioning, setIsTransitioning] = useState(false);
+	const [isVideoFading, setIsVideoFading] = useState(false);
+
+	const mainVideoRef = useRef<HTMLVideoElement | null>(null);
+	const swiperRef = useRef<SwiperType | null>(null);
+	const transitionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const videoChangeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+	const pixelBlocks = useMemo(() => Array.from({ length: 320 }), []);
+
+	const createPixelDelays = useCallback((count: number) => {
+		return Array.from({ length: count }, () => `${(Math.random() * 0.8).toFixed(4)}s`);
+	}, []);
+
+	const [pixelDelays, setPixelDelays] = useState<string[]>(() =>
+		createPixelDelays(pixelBlocks.length)
+	);
+
+	useEffect(() => {
+		const video = mainVideoRef.current;
+
+		if (!video || selectedVideo) return;
+
+		video.load();
+		video.play().catch(() => {
+		});
+	}, [activeVideoIndex, selectedVideo]);
+
+	useEffect(() => {
+		const mainVideo = mainVideoRef.current;
+
+		if (selectedVideo) {
+			document.body.style.overflow = "hidden";
+
+			swiperRef.current?.autoplay?.stop();
+			mainVideo?.pause();
+		} else {
+			document.body.style.overflow = "";
+
+			swiperRef.current?.autoplay?.start();
+
+			mainVideo?.play().catch(() => {
+			});
+		}
+
+		return () => {
+			document.body.style.overflow = "";
+		};
+	}, [selectedVideo]);
+
+	const changeVideoOnAutoplay = useCallback(() => {
+		if (videoChangeTimeoutRef.current) {
+			clearTimeout(videoChangeTimeoutRef.current);
+		}
+
+		if (transitionTimeoutRef.current) {
+			clearTimeout(transitionTimeoutRef.current);
+		}
+
+		setPixelDelays(createPixelDelays(pixelBlocks.length));
+		setIsTransitioning(true);
+
+		setIsVideoFading(true);
+
+		videoChangeTimeoutRef.current = setTimeout(() => {
+			setActiveVideoIndex((currentIndex) => {
+				return (currentIndex + 1) % videos.length;
+			});
+		}, 300);
+
+		transitionTimeoutRef.current = setTimeout(() => {
+			setIsTransitioning(false);
+		}, 1200);
+	}, [createPixelDelays, pixelBlocks.length]);
+
+	const openFullscreenVideo = () => { setSelectedVideo(videos[activeVideoIndex]); };
+
+	const closeFullscreenVideo = () => { setSelectedVideo(null); };
+
 	return (
-		<section className='section hm-testimonial-section py-[60px]'>
-			<div className="container">
-				<div className="hm-testimonial-title w-[850px] max-w-full">
-					<h2 className="font-semibold">Proof Over Promises</h2>
-					<p className="text-18 font-normal website-subtitle-mt">
-						Anybody can talk about creativity. Our clients tell the story better. Behind every successful outcome is a partnership built on trust, collaboration, and shared ambition.
-					</p>
-				</div>
+		<>
+			<section className="section hm-testimonial-section py-[60px]">
+				<div className="container">
+					<div className="hm-testimonial-title w-[850px] max-w-full">
+						<h2 className="font-semibold"> Proof Over Promises </h2>
 
-				<div className="hm-testimonial-wrapper flex justify-between gap-[40px] mt-[40px]">
-					<div className="testimonial-client-video w-[690px] h-[508px] bg-[#fbf8f5] rounded-[20px] overflow-hidden">
-						<video className="w-full h-full object-cover" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-1.mp4" controls={false} autoPlay loop muted playsInline></video>
+						<p className="text-18 font-normal website-subtitle-mt">Anybody can talk about creativity. Our clients tell the story better. Behind every successful outcome is a partnership built on trust, collaboration, and shared ambition. </p>
 					</div>
 
-					<div className="testimonial-swiper flex-1 min-w-0">
-						<Swiper
-							modules={[Autoplay]}
-							slidesPerView={2}
-							spaceBetween={20}
-							speed={1000}
-							loop={true}
-							autoplay={{ delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: false }}
-							breakpoints={{
-								0: { slidesPerView: 1.1 },
-								401: { slidesPerView: 1.2 },
-								576: { slidesPerView: 1.5 },
-								1200: { slidesPerView: 1.5 },
-								1440: { slidesPerView: 2 },
-							}}
+					<div className="hm-testimonial-wrapper flex justify-between gap-[40px] mt-[40px]">
+						<div className="testimonial-client-video relative w-[690px] h-[508px] bg-[#fbf8f5] rounded-[20px] overflow-hidden cursor-pointer" onClick={openFullscreenVideo} >
+							<video
+								ref={mainVideoRef}
+								className={`testimonial-main-video ${isVideoFading ? "is-fading" : ""}`}
+								src={videos[activeVideoIndex]}
+								width={690}
+								height={508}
+								autoPlay
+								playsInline
+								muted
+								loop
+								preload="auto"
+								onCanPlay={() => {
+									setIsVideoFading(false);
+
+									mainVideoRef.current?.play().catch(() => {
+									});
+								}}
+								onError={(event) => {
+									console.log("Video error:", event.currentTarget.error);
+									console.log("Video URL:", event.currentTarget.currentSrc);
+								}}
+							/>
+
+							{isTransitioning && (
+								<div className="pixel-overlay">
+									{pixelBlocks.map((_, index) => (
+										<div key={index} className="pixel-block" style={{ animationDelay: pixelDelays[index] ?? "0s", }} />
+									))}
+								</div>
+							)}
+
+							<button type="button" className="testimonial-video-expand" onClick={(event) => { event.stopPropagation(); openFullscreenVideo(); }} aria-label="Open testimonial video" >
+								<Image className="absolute bottom-[20px] right-[20px] cursor-pointer z-[20]" src={`${CDN_URL}/images/homepage/testimonialvideos/minimize-svg.svg`} alt="" width={24} height={24}></Image>
+							</button>
+						</div>
+
+						<div className="testimonial-swiper flex-1 min-w-0">
+							<Swiper
+								modules={[Autoplay]}
+								slidesPerView={2}
+								spaceBetween={20}
+								speed={1000}
+								loop
+								autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: false, }}
+								onSwiper={(swiper) => { swiperRef.current = swiper; }}
+								onAutoplay={changeVideoOnAutoplay}
+								breakpoints={{
+									0: { slidesPerView: 1.1, },
+									401: { slidesPerView: 1.2, },
+									576: { slidesPerView: 1.5, },
+									1200: { slidesPerView: 1.5, },
+									1440: { slidesPerView: 2, },
+								}}
+							>
+								{testimonialsData.map((item) => (
+									<SwiperSlide key={item.id} className="testimonial-swiper-slide" >
+										<div>
+											<div className={`testimonial-client-review p-[20px] ${item.bgClass} rounded-[20px]`} >
+												<p className="text-18 font-normal"> {item.quote} </p>
+												<div className="client-review-stars mt-[14px] flex gap-[2px]">
+													{Array.from({ length: 5, }).map((_, index) => (
+														<Image key={index} src={`${CDN_URL}/images/homepage/testimonialvideos/testimonial-star.svg`} alt="Rating star" width={24} height={24} />
+													))}
+												</div>
+											</div>
+
+											<div className="testimonial-client-name flex gap-[20px] items-center mt-[14px]">
+												<div className={`testi-client-initial py-[14px] px-[15px] ${item.bgClass} w-max rounded-[20px]`}>
+													<span className="text-lg font-medium">
+														{item.initials}
+													</span>
+												</div>
+
+												<div className="testimonial-client">
+													<p className="text-18 font-semibold mb-[6px]">
+														{item.name}
+													</p>
+
+													<p className="text-18 font-normal">
+														{item.role}
+													</p>
+												</div>
+											</div>
+										</div>
+									</SwiperSlide>
+								))}
+							</Swiper>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{selectedVideo && (
+				<div className="testimonial-video-overlay" onClick={closeFullscreenVideo} >
+					<div className="testimonial-fullscreen-player" onClick={(event) => event.stopPropagation()} >
+						<video src={selectedVideo} className="video-fullscreen" loop autoPlay controls onClick={(e) => e.stopPropagation()} > </video>
+
+						<button
+							type="button"
+							className="testimonial-video-close"
+							onClick={closeFullscreenVideo}
+							aria-label="Close testimonial video"
 						>
-							{testimonialsData.map((item) => (
-								<SwiperSlide key={item.id} className="testimonial-swiper-slide">
-									<div>
-										<div className={`testimonial-client-review p-[20px] ${item.bgClass} rounded-[20px]`}>
-											<p className="text-18 font-normal">{item.quote}</p>
-
-											<div className="client-review-stars mt-[14px] flex gap-[2px]">
-												{[...Array(5)].map((_, index) => (
-													<Image key={index} src={`${CDN_URL}/images/homepage/testimonialvideos/testimonial-star.svg`} alt="Rating star" width={24} height={24} />
-												))}
-											</div>
-										</div>
-
-										<div className="testimonial-client-name flex gap-[20px] items-center mt-[14px]">
-											<div className={`testi-client-initial py-[14px] px-[15px] ${item.bgClass} w-[max-content] rounded-[20px]`}>
-												<span className="text-lg font-medium">{item.initials}</span>
-											</div>
-
-											<div className="testimonial-client">
-												<p className="text-18 font-semibold mb-[6px]">{item.name}</p>
-												<p className="text-18 font-normal">{item.role}</p>
-											</div>
-										</div>
-									</div>
-								</SwiperSlide>
-							))}
-						</Swiper>
+							<span>✕</span>
+						</button>
 					</div>
 				</div>
-			</div>
-		</section>
+			)}
+		</>
 	);
 };
 

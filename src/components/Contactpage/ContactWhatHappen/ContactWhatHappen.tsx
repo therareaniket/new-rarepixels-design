@@ -3,6 +3,11 @@
 import { useEffect, useRef, useState } from 'react'
 import './contactwhathappen.css'
 
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
 const cards = [
     {
         number: '01',
@@ -64,10 +69,8 @@ const ContactWhatHappen = () => {
                 if (!entry.isIntersecting) return
 
                 setAnimationStarted(true)
-                setActiveCard(0)
-
-                if (isMobile) {
-                    setHighestOpenedCard(0)
+                if (!isMobile) {
+                    setActiveCard(0)
                 }
 
                 observer.unobserve(entry.target)
@@ -115,23 +118,32 @@ const ContactWhatHappen = () => {
         let animationFrameId: number | null = null
 
         const handleCardActivation = () => {
-            if (animationFrameId !== null) { cancelAnimationFrame(animationFrameId) }
+            if (animationFrameId !== null) {
+                cancelAnimationFrame(animationFrameId)
+            }
 
             animationFrameId = requestAnimationFrame(() => {
-                const activationPoint = window.innerHeight * 0.80
-
-                let reachedCard = 0
-
-                cardRefs.current.forEach((card, index) => {
-                    if (!card) return
-                    const cardTop = card.getBoundingClientRect().top
-                    if (cardTop <= activationPoint) { reachedCard = index }
-                })
-
                 setHighestOpenedCard((previousHighest) => {
-                    const nextHighest = Math.max(previousHighest, reachedCard)
-                    if (nextHighest !== previousHighest) { setActiveCard(nextHighest) }
-                    return nextHighest
+                    const nextCardIndex = previousHighest + 1
+                    const nextCard = cardRefs.current[nextCardIndex]
+
+                    if (!nextCard || nextCardIndex >= cards.length) {
+                        return previousHighest
+                    }
+
+                    const cardRect = nextCard.getBoundingClientRect()
+
+                    const isCardFullyVisible =
+                        cardRect.top >= 0 &&
+                        cardRect.bottom <= window.innerHeight
+
+                    if (!isCardFullyVisible) {
+                        return previousHighest
+                    }
+
+                    setActiveCard(nextCardIndex)
+
+                    return nextCardIndex
                 })
             })
         }
@@ -145,12 +157,25 @@ const ContactWhatHappen = () => {
         window.addEventListener('resize', handleCardActivation)
 
         return () => {
-            window.removeEventListener('scroll', handleCardActivation)
-            window.removeEventListener('resize', handleCardActivation)
+            window.removeEventListener(
+                'scroll',
+                handleCardActivation
+            )
 
-            if (animationFrameId !== null) { cancelAnimationFrame(animationFrameId) }
+            window.removeEventListener(
+                'resize',
+                handleCardActivation
+            )
+
+            if (animationFrameId !== null) {
+                cancelAnimationFrame(animationFrameId)
+            }
         }
-    }, [isMobile, animationStarted, manualInteraction,])
+    }, [
+        isMobile,
+        animationStarted,
+        manualInteraction,
+    ])
 
     useEffect(() => {
         if (!animationStarted) return
@@ -163,7 +188,6 @@ const ContactWhatHappen = () => {
             }
         }
 
-        // Pause the timer while the active card is hovered.
         if (isActiveCardHovered) {
             const elapsedTime =
                 performance.now() - autoplayStartedAtRef.current
@@ -216,19 +240,12 @@ const ContactWhatHappen = () => {
                         const showActiveCard = isMobile ? isActive && animationStarted : isActive
                         const isCompleted = isMobile ? animationStarted && index <= highestOpenedCard && index !== activeCard : activeCard !== null && index < activeCard
                         return (
-                            <div
-                                ref={(element) => {
-                                    cardRefs.current[index] = element
-                                }}
+                            <div ref={(element) => { cardRefs.current[index] = element }}
                                 key={card.number}
                                 role="button"
                                 tabIndex={0}
                                 aria-expanded={showActiveCard || isCompleted}
-                                onMouseEnter={() => {
-                                    if (!isMobile && activeCard === index) {
-                                        setHoveredCard(index)
-                                    }
-                                }}
+                                onMouseEnter={() => { if (!isMobile && activeCard === index) { setHoveredCard(index) } }}
                                 onMouseLeave={() => {
                                     setHoveredCard((currentHoveredCard) =>
                                         currentHoveredCard === index

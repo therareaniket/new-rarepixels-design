@@ -5,11 +5,109 @@
 .testimonial-swiper { margin-right: calc((100vw - 100%) / -2); }
 .testimonial-swiper .swiper { overflow: hidden; }
 
+
+.testimonial-client-video { position: relative; isolation: isolate; }
+.testimonial-main-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pixel-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 20;
+	display: grid;
+	grid-template-columns: repeat(20, 1fr);
+	grid-template-rows: repeat(16, 1fr);
+	overflow: hidden;
+	pointer-events: none;
+}
+.pixel-block {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(237, 1, 128, 0.75);
+	transform-origin: center;
+	animation: testimonialPixelReveal 0.4s ease-in-out both;
+	will-change: transform, opacity;
+}
+
+@keyframes testimonialPixelReveal {
+	0% { opacity: 0; transform: scale(0); }
+	45% { opacity: 1; transform: scale(1); }
+	65% { opacity: 1; transform: scale(1); }
+	100% { opacity: 0; transform: scale(0); }
+}
+
+.testimonial-video-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+	background-color: rgba(0, 0, 0, 0.88);
+	backdrop-filter: blur(8px);
+	animation: testimonialOverlayFadeIn 0.35s ease forwards;
+}
+
+.testimonial-fullscreen-player {
+	position: relative;
+	width: min(1100px, 100%);
+	max-height: calc(100vh - 200px);
+	border-radius: 20px;
+	overflow: hidden;
+	background-color: #000000;
+	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+	animation: testimonialPlayerOpen 0.4s ease forwards;
+}
+
+.testimonial-fullscreen-video {
+	display: block;
+	width: 100%;
+	max-height: calc(100vh - 80px);
+	aspect-ratio: 16 / 9;
+	object-fit: contain;
+	background-color: #000000;
+}
+
+.testimonial-video-close {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border: 0;
+	border-radius: 50%;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.65);
+	font-size: 20px;
+	cursor: pointer;
+	transition:
+		transform 0.25s ease,
+		background-color 0.25s ease;
+}
+
+.testimonial-video-close:hover { transform: rotate(90deg) scale(1.08); background-color: #ed0180; }
+.video-fullscreen { width: 100%; height: 100%; object-fit: cover; }
+@keyframes testimonialOverlayFadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes testimonialPlayerOpen {
+	from { opacity: 0; transform: scale(0.85) translateY(30px); }
+	to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+
 /* responsive */
 
 @media (max-width: 1799px) {
     .hm-testimonial-title { width: 785px; }
     .testimonial-client-video { width: 580px; height: 464px; } 
+
+    .testimonial-fullscreen-player { height: calc(100vh - 330px); }
 }
 
 @media (max-width: 1599px) {
@@ -21,10 +119,13 @@
     .testimonial-client-video { width: 480px; height: 390px; } 
     .client-review-stars img { width: 22px; height: 22px; }
     .testimonial-client p:nth-child(1) { margin-bottom: 0; }
+
+    .testimonial-fullscreen-player { height: calc( 100vh - 150px ); }
 }
 
 @media (max-width: 1359px) {
     .client-review-stars img { width: 18px; height: 18px; }
+    .testimonial-fullscreen-player { width: min(950px, 100%); }
 }
 
 @media (max-width: 1359px) and (max-height: 600px) {    
@@ -38,6 +139,9 @@
   /* .hm-testimonial-wrapper { flex-direction: column; } */
   .testimonial-client-video { margin: 0 auto;  height: 340px; }
   .hm-testimonial-title { width: 635px; }
+
+    .testimonial-fullscreen-player { margin: 0 auto; width: min(800px, 100%); height: calc( 100vh - 300px ); }
+    .testimonial-video-close { width: 30px; height: 30px; font-size: 16px; }
 }
 
 @media (max-width: 1024px) {
@@ -55,6 +159,8 @@
     .testimonial-client-video { height: 380px; }
     .hm-testimonial-wrapper { flex-direction: column; }
     .hm-abt-logo { margin-left: 0; }
+
+    .testimonial-fullscreen-player { height: calc( 100% - 60% ); }
 }
 
 @media (max-width: 839px) {
@@ -68,7 +174,9 @@
     .hm-testimonial-wrapper { gap: 30px; }
 }
 
-@media (max-width: 639px) {}
+@media (max-width: 639px) {
+    .testimonial-fullscreen-player { height: 30%; }
+}
 
 @media (max-width: 575px) {
     .testimonial-client-video { height: 275px; }
@@ -84,6 +192,9 @@
     .testi-client-initial { padding: 8px 11px; border-radius: 12px; }
     .client-review-stars img { width: 14px; height: 14px; }
     .testimonial-client-video { height: 250px; }
+
+    .testimonial-video-overlay { padding: 18px; }
+    .testimonial-video-expand { right: 12px; bottom: 12px; } 
 }
 
 @media (max-width: 400px) { }
