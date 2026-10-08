@@ -12,7 +12,7 @@ export default function About() {
     return (
         <>
             <AboutHeroSectionDesktop />
-            {/* <AboutTimeline /> */}
+            <AboutTimeline />
             <AboutMisVis />
             <AboutOurValues />
             <AboutTeams />
