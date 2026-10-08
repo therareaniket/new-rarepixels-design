@@ -40,18 +40,18 @@ const InquiryForm = () => {
 
                     <div className="hm-inquiry-detail mt-[70px] mb-[50px] hm-inquiry-tablet">
                         <div className="hm-inquiry-field mb-[20px]">
-                            <h3 className="font-normal"> My name is 
-                            <input className='text-16 border-b border-[#c6c6c6] pl-[10px] ' type="text" name="" id="" placeholder='enter name*' /></h3>
+                            <h3 className="font-normal"> My name is
+                                <input className='text-16 border-b border-[#c6c6c6] pl-[10px] ' type="text" name="" id="" placeholder='enter name*' /></h3>
                         </div>
 
                         <div className="hm-inquiry-field mb-[20px]">
                             <h3 className="font-normal">and I want to discuss a potential project. You can email me at
-                            <input className='text-16 border-b border-[#c6c6c6] pl-[10px] ' type="email" name="" id="" placeholder='enter email*' /></h3>
+                                <input className='text-16 border-b border-[#c6c6c6] pl-[10px] ' type="email" name="" id="" placeholder='enter email*' /></h3>
                         </div>
 
                         <div className="hm-inquiry-field mb-[20px]">
                             <h3 className="font-normal">or reach me on
-                            <input className='text-16 border-b border-[#c6c6c6] pl-[10px]' type="email" name="" id="" placeholder='your phone*' /></h3>
+                                <input className='text-16 border-b border-[#c6c6c6] pl-[10px]' type="email" name="" id="" placeholder='your phone*' /></h3>
                         </div>
 
                         <div className="hm-inquiry-text-area flex flex-col mt-[10px]">
@@ -60,7 +60,7 @@ const InquiryForm = () => {
                         </div>
                     </div>
 
-                    <Link href="#" title="Start Your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px]">Start Your Project <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                    <Link href="#" title="Start Your Project" className="inline-block text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link">Start Your Project <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                 </div>
             </div>
         </section>

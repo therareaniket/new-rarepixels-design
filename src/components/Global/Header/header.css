@@ -110,6 +110,8 @@ header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filte
     .mm-pixels-tr { top: 100px; width: 20%; }
     .mm-pixels-bl { bottom: -60%; }
     .mm-pixels-br { bottom: -100%; }
+
+
 }
 
 @media (max-width: 439px) {
@@ -117,9 +119,12 @@ header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filte
     .sub-service-list { width: 100%; }
     .close-btn { margin-top: 0; font-size: 14px; line-height: 20px; padding: 6px; }
     .close-btn svg { padding: 1px; }
+
 }
 
-@media (max-width: 400px) {}
+@media (max-width: 400px) {
+    .bento-menu { width: 20px; height: 20px; }
+}
 
 @media (max-width: 374px) {}
 

@@ -19,7 +19,7 @@ const AboutTeams = () => {
                 <div className="abt-teams-wrapper w-[1200px] m-auto flex justify-between items-end">
                     <div className="abt-teams-left">
                         <h2 className='text-80 w-[287px] mb-[40px]'>People Behind The Pixels</h2>
-                        <Link href="#" title="Start Your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px]">Life at RPD<span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                        <Link href="#" title="Life At RarePixels" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link">Life at RPD<span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                     </div>
 
                     <div className="abt-teams-right w-[768]">

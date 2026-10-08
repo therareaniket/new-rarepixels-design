@@ -27,13 +27,13 @@ const ContactForm = () => {
                                     </div>
                                 </h4>
                                 <p className="text-18 font-normal mt-[20px] mb-[40px] w-[268px]">No long forms. No guessing games. No waiting around. Book a free 30-minute discovery call and tell us what&apos;s on your mind. We&apos;ll come prepared with questions, ideas, and a clear perspective on where RarePixels can make a difference.</p>
-                                <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" target="_blank" title="Book A Call" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] block cnct-cta-for-desktop w-[max-content]">Book A Call <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                                <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" target="_blank" title="Book A Call" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] block cnct-cta-for-desktop website-link w-[max-content]">Book A Call <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                             </div>
 
                             <div className="contact-cta-phone w-[208px] h-[219px] absolute bottom-[20px] right-[20px]">
                                 <Image className="w-[100%] h-[100%] object-contain" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/contact-cta-image.svg" alt="contact-call" width={208} height={219}></Image>
                             </div>
-                            <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" target="_blank" title="Book A Call" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] block w-[max-content] cnct-cta-for-tablet">Book A Call <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                            <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" target="_blank" title="Book A Call" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link block w-[max-content] cnct-cta-for-tablet">Book A Call <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@ const ContactForm = () => {
                             </label>
                             <input type="file" id="file-upload" className="sr-only" />
 
-                            <button title="Submit" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] w-[max-content]">Submit <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></button>
+                            <button title="Submit" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] w-[max-content] website-link">Submit <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></button>
                         </div>
                     </div>
                 </div>

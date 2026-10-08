@@ -131,7 +131,7 @@ const Services = () => {
                             </div>
 
                             <div className="card-subtitles relative z-[2] mt-[30px]">
-                                <p className="text-18">People don't abandon products. They abandon experiences that feel difficult to understand.</p>
+                                <p className="text-18">People don&apos;t abandon products. They abandon experiences that feel difficult to understand.</p>
 
                                 <p className="text-18 mt-[10px]">We design interfaces that simplify decisions, remove friction, and help users move from curiosity to confidence without second-guessing their next step.</p>
                             </div>
@@ -167,7 +167,7 @@ const Services = () => {
                             </div>
 
                             <div className="card-subtitles relative z-[2] mt-[30px]">
-                                <p className="text-18">Growth shouldn't be limited by the technology behind it.</p>
+                                <p className="text-18">Growth shouldn&apos;t be limited by the technology behind it.</p>
 
                                 <p className="text-18 mt-[10px]">We build websites and applications that are reliable, scalable, and ready for the opportunities, challenges, and ambitions that come with business growth.</p>
                             </div>
@@ -254,7 +254,7 @@ const Services = () => {
                             <div className="card-subtitles relative z-[2] mt-[30px]">
                                 <p className="text-18">Being visible is easy. Staying relevant takes intention.</p>
 
-                                <p className="text-18 mt-[10px]">We help brands stay worth remembering with content strategies built around your specific voice, your audience's behavior, and the platforms where they actually spend their time.</p>
+                                <p className="text-18 mt-[10px]">We help brands stay worth remembering with content strategies built around your specific voice, your audience&apos;s behavior, and the platforms where they actually spend their time.</p>
                             </div>
 
                             <div className="serv-bg-svg absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-[1]">

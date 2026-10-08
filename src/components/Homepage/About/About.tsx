@@ -4,8 +4,7 @@ import './about.css'
 import PixelImageCanvas from "@/animations/PixelImageReveal";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 

@@ -11,8 +11,9 @@
     .abt-author-image img { width: 100%; height: 100%; object-fit: contain; }
     .abt-teams-right { width: 705px; position: relative; }
     .abt-author-wrapper { justify-content: flex-end; }
-    .teams-pixel-1 { width: 110px; } 
+    .teams-pixel-1 { width: 110px; z-index: -1; } 
     .teams-pixel-2, .teams-pixel-3 { width: 140px; } 
+    .teams-pixel-4 { width: 250px; }
     /* .teams-pixel-2 { width: 140px; }  */
     .abt-author-story { transform: none; position: absolute; left: 0; }
 }

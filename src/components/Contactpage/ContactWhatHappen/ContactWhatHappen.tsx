@@ -97,11 +97,7 @@ const ContactWhatHappen = () => {
             setManualInteraction(false)
         }
 
-        mediaQuery.addEventListener(
-            'change',
-            handleBreakpointChange
-        )
-
+        mediaQuery.addEventListener( 'change', handleBreakpointChange )
         return () => {
             mediaQuery.removeEventListener(
                 'change',
@@ -133,11 +129,11 @@ const ContactWhatHappen = () => {
 
                     const cardRect = nextCard.getBoundingClientRect()
 
-                    const isCardFullyVisible =
-                        cardRect.top >= 0 &&
-                        cardRect.bottom <= window.innerHeight
+                    const expandedCardHeight = nextCard.scrollHeight
 
-                    if (!isCardFullyVisible) {
+                    const isExpandedCardFullyVisible = cardRect.top >= 0 && cardRect.top + expandedCardHeight <= window.innerHeight
+
+                    if (!isExpandedCardFullyVisible) {
                         return previousHighest
                     }
 
@@ -150,32 +146,17 @@ const ContactWhatHappen = () => {
 
         handleCardActivation()
 
-        window.addEventListener('scroll', handleCardActivation, {
-            passive: true,
-        })
-
+        window.addEventListener('scroll', handleCardActivation, { passive: true, })
         window.addEventListener('resize', handleCardActivation)
 
         return () => {
-            window.removeEventListener(
-                'scroll',
-                handleCardActivation
-            )
-
-            window.removeEventListener(
-                'resize',
-                handleCardActivation
-            )
-
+            window.removeEventListener( 'scroll', handleCardActivation )
+            window.removeEventListener( 'resize', handleCardActivation )
             if (animationFrameId !== null) {
                 cancelAnimationFrame(animationFrameId)
             }
         }
-    }, [
-        isMobile,
-        animationStarted,
-        manualInteraction,
-    ])
+    }, [ isMobile, animationStarted, manualInteraction, ])
 
     useEffect(() => {
         if (!animationStarted) return
@@ -189,14 +170,9 @@ const ContactWhatHappen = () => {
         }
 
         if (isActiveCardHovered) {
-            const elapsedTime =
-                performance.now() - autoplayStartedAtRef.current
+            const elapsedTime = performance.now() - autoplayStartedAtRef.current
 
-            remainingTimeRef.current = Math.max(
-                remainingTimeRef.current - elapsedTime,
-                0
-            )
-
+            remainingTimeRef.current = Math.max( remainingTimeRef.current - elapsedTime, 0 )
             clearAutoplayTimeout()
             return
         }
@@ -262,12 +238,9 @@ const ContactWhatHappen = () => {
                                 }}
                                 className={`cnct-happens-card flex gap-[30px] pt-[20px] ${showActiveCard ? 'is-active' : ''} ${isCompleted ? 'is-completed' : ''} ${animationStarted ? 'animation-started' : ''} ${hoveredCard === index ? 'is-hovered' : ''} `}
                             >
-                                <div className="cnct-card-line">
-                                    <span key={`${index}-${showActiveCard}`} className="cnct-card-line-progress" />
-                                </div>
-                                <span className="cnct-happens-card-number text-[#424242] font-semibold">
-                                    {card.number}
-                                </span>
+                                <div className="cnct-card-line"> <span key={`${index}-${showActiveCard}`} className="cnct-card-line-progress" /> </div>
+                                
+                                <span className="cnct-happens-card-number text-[#424242] font-semibold"> {card.number} </span>
 
                                 <div className="cnct-happens-text w-[410px] ">
                                     <h3 className='text-[white]'>{card.title}</h3>

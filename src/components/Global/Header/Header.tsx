@@ -24,7 +24,7 @@ const Header = () => {
             const heroHeight = 60;
 
             if (currentScrollY > heroHeight) {
-                if (currentScrollY > lastScrollY) { setIsVisible(false); } 
+                if (currentScrollY > lastScrollY) { setIsVisible(false); }
                 else { setIsVisible(true); }
             } else { setIsVisible(true); }
 
@@ -37,9 +37,9 @@ const Header = () => {
 
     // MEGAMENU OPEN & CLOSE
     useEffect(() => {
-        if (megaMenuOpen) { document.body.style.overflow = "hidden"; } 
+        if (megaMenuOpen) { document.body.style.overflow = "hidden"; }
         else { document.body.style.overflow = "unset"; }
-        return () => { document.body.style.overflow = "unset";};
+        return () => { document.body.style.overflow = "unset"; };
     }, [megaMenuOpen]);
 
     // ACTIVE LINK PATH CHANGE
@@ -72,7 +72,7 @@ const Header = () => {
                     <div className="container overflow-hidden h-[100%] relative z-[2]">
                         <button onClick={toggleMegaMenu} className="close-btn cursor-pointer rounded-full bg-[#ED0180] text-white p-[10px] mt-[20px] ml-[100%] translate-x-[-100%] font-semibold" type="button">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.2 15.6L0 13.4L5.6 7.8L0 2.2L2.2 0L7.8 5.6L13.4 0L15.6 2.2L10 7.8L15.6 13.4L13.4 15.6L7.8 10L2.2 15.6Z" fill="white"/>
+                                <path d="M2.2 15.6L0 13.4L5.6 7.8L0 2.2L2.2 0L7.8 5.6L13.4 0L15.6 2.2L10 7.8L15.6 13.4L13.4 15.6L7.8 10L2.2 15.6Z" fill="white" />
                             </svg>
                         </button>
 
@@ -175,7 +175,7 @@ const Header = () => {
 
                                     <div className="link-info">
                                         <p className="mm-service-title text-18 h-[52px] font-medium flex items-center">UI/UX Design</p>
-                                        
+
                                         <ul>
                                             <li className="mb-[6px]"><Link href="#">Experience Strategy & Research</Link></li>
                                             <li className="mb-[6px]"><Link href="#">Website Design</Link></li>
@@ -194,7 +194,7 @@ const Header = () => {
 
                                     <div className="link-info">
                                         <p className="mm-service-title text-18 h-[52px] font-medium flex items-center font-medium">Web & App Development</p>
-                                        
+
                                         <ul>
                                             <li className="mb-[6px]"><Link href="#">Web & Platform Engineering</Link></li>
                                             <li className="mb-[6px]"><Link href="#">SaaS & Product Development</Link></li>
@@ -211,7 +211,7 @@ const Header = () => {
 
                                     <div className="link-info">
                                         <p className="mm-service-title text-18 h-[52px] font-medium flex items-center font-medium">Brand Identity Design</p>
-                                        
+
                                         <ul>
                                             <li className="mb-[6px]"><Link href="#">Brand Strategy & Positioning</Link></li>
                                             <li className="mb-[6px]"><Link href="#">Visual Identity Design</Link></li>
@@ -229,7 +229,7 @@ const Header = () => {
 
                                     <div className="link-info">
                                         <p className="mm-service-title text-18 h-[52px] font-medium flex items-center font-medium">Social Media Management</p>
-                                        
+
                                         <ul>
                                             <li className="mb-[6px]"><Link href="#">Social Media Strategy</Link></li>
                                             <li className="mb-[6px]"><Link href="#">Content Creation & Design</Link></li>
@@ -245,8 +245,7 @@ const Header = () => {
                             <div className="mm-connect-us flex justify-between">
                                 <div className="mm-slogan-cta">
                                     <p className="h3 mb-[30px]">Elevate Your Brand</p>
-
-                                    <Link href="#" title="Start Your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px]">Start Your Project <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                                    <Link href="#" title="Start Your Project" className="inline-block text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link">Start Your Project <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                                 </div>
 
                                 <div className="mm-contact-socials flex gap-[80px]">
