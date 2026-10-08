@@ -41,7 +41,6 @@
     .details-info-text { width: 840px; }
 }
 
-
 @media (max-width: 1199px) {
     .timeline-section { height: 300vh; }
     .timeline-subtitles { flex-direction: column; gap: 20px; }
@@ -76,7 +75,6 @@
     .year-detail-info { margin-top: 20px; }
     .the-dot { transform: translateY(60%); }
 }
-
 
 @media (max-width: 479px) {
     .about-timeline-mobile { height: 320vh; position: relative; }

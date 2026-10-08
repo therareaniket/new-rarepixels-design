@@ -18,7 +18,7 @@ const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
 const videos = [
 	`https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-1.mp4`,
 	`https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-2.mp4`,
-	`https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-1.mp4`,
+	// `https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/testimonialvideos/testimonial-dummy-1.mp4`,
 ];
 
 const testimonialsData = [
@@ -160,7 +160,7 @@ const Testimonials = () => {
 						<div className="testimonial-client-video relative w-[690px] h-[508px] bg-[#fbf8f5] rounded-[20px] overflow-hidden cursor-pointer" onClick={openFullscreenVideo} >
 							<video
 								ref={mainVideoRef}
-								className={`testimonial-main-video ${isVideoFading ? "is-fading" : ""}`}
+								className={`testimonial-main-video ${isVideoFading ? "is-fading" : ""} object-cover`}
 								src={videos[activeVideoIndex]}
 								width={690}
 								height={508}
@@ -168,7 +168,7 @@ const Testimonials = () => {
 								playsInline
 								muted
 								loop
-								preload="auto"
+								preload="none"
 								onCanPlay={() => {
 									setIsVideoFading(false);
 

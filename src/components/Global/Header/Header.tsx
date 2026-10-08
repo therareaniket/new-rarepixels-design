@@ -254,9 +254,9 @@ const Header = () => {
                                         <p className="font-medium mb-[10px]">Contact</p>
 
                                         <ul>
-                                            <li><a className="text-18 flex jusify-center items-center gap-[6px]" href="tel:+91 8200925920"><span className="mm-contact-icon icon-call text-[#585858]"></span> +91 8200925920</a></li>
-                                            <li><a className="text-18 flex jusify-center items-center gap-[6px]" href="tel:+1(347) 352-0172"><span className="mm-contact-icon icon-call text-[#585858]"></span> +1(347) 352-0172</a></li>
-                                            <li><a className="text-18 flex jusify-center items-center gap-[6px]" href="mailto:connect@rarepixelsdesign.com"><span className="mm-contact-icon icon-mail text-[#585858]"></span> connect@rarepixelsdesign.com</a></li>
+                                            <li><a className="text-18 flex justify-center items-center gap-[6px]" href="tel:+91 8200925920"><span className="mm-contact-icon icon-call text-[#585858]"></span> +91 8200925920</a></li>
+                                            <li><a className="text-18 flex justify-center items-center gap-[6px]" href="tel:+1(347) 352-0172"><span className="mm-contact-icon icon-call text-[#585858]"></span> +1(347) 352-0172</a></li>
+                                            <li><a className="text-18 flex justify-center items-center gap-[6px]" href="mailto:connect@rarepixelsdesign.com"><span className="mm-contact-icon icon-mail text-[#585858]"></span> connect@rarepixelsdesign.com</a></li>
                                         </ul>
                                     </div>
 

@@ -82,6 +82,7 @@
 @media (max-width: 439px) {
     .project-list { width: 320px; height: 400px; }
     .active-project-title-controller { width: 320px; }
+    .active-project-name { height: 80px; margin-bottom: 20px; }
 }
 
 @media (max-width: 400px) {
