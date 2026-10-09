@@ -75,10 +75,13 @@ const Testimonials = () => {
 	const transitionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 	const videoChangeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-	const pixelBlocks = useMemo(() => Array.from({ length: 320 }), []);
+	const pixelBlocks = useMemo(() => Array.from({ length: 500 }), []);
 
 	const createPixelDelays = useCallback((count: number) => {
-		return Array.from({ length: count }, () => `${(Math.random() * 0.8).toFixed(4)}s`);
+		return Array.from(
+			{ length: count },
+			() => `${(Math.random() * 0.45).toFixed(2)}s`
+		);
 	}, []);
 
 	const [pixelDelays, setPixelDelays] = useState<string[]>(() =>
@@ -117,30 +120,31 @@ const Testimonials = () => {
 		};
 	}, [selectedVideo]);
 
-	const changeVideoOnAutoplay = useCallback(() => {
-		if (videoChangeTimeoutRef.current) {
-			clearTimeout(videoChangeTimeoutRef.current);
-		}
+const changeVideoOnAutoplay = useCallback(() => {
+	if (videoChangeTimeoutRef.current) {
+		clearTimeout(videoChangeTimeoutRef.current);
+	}
 
-		if (transitionTimeoutRef.current) {
-			clearTimeout(transitionTimeoutRef.current);
-		}
+	if (transitionTimeoutRef.current) {
+		clearTimeout(transitionTimeoutRef.current);
+	}
 
-		setPixelDelays(createPixelDelays(pixelBlocks.length));
-		setIsTransitioning(true);
+	// Create a new random pattern every time
+	setPixelDelays(createPixelDelays(pixelBlocks.length));
 
-		setIsVideoFading(true);
+	setIsTransitioning(true);
+	setIsVideoFading(true);
 
-		videoChangeTimeoutRef.current = setTimeout(() => {
-			setActiveVideoIndex((currentIndex) => {
-				return (currentIndex + 1) % videos.length;
-			});
-		}, 300);
+	videoChangeTimeoutRef.current = setTimeout(() => {
+		setActiveVideoIndex((currentIndex) => {
+			return (currentIndex + 1) % videos.length;
+		});
+	}, 550);
 
-		transitionTimeoutRef.current = setTimeout(() => {
-			setIsTransitioning(false);
-		}, 1200);
-	}, [createPixelDelays, pixelBlocks.length]);
+	transitionTimeoutRef.current = setTimeout(() => {
+		setIsTransitioning(false);
+	}, 1200);
+}, [createPixelDelays, pixelBlocks.length]);
 
 	const openFullscreenVideo = () => { setSelectedVideo(videos[activeVideoIndex]); };
 
@@ -181,13 +185,19 @@ const Testimonials = () => {
 								}}
 							/>
 
-							{isTransitioning && (
-								<div className="pixel-overlay">
-									{pixelBlocks.map((_, index) => (
-										<div key={index} className="pixel-block" style={{ animationDelay: pixelDelays[index] ?? "0s", }} />
-									))}
-								</div>
-							)}
+{isTransitioning && (
+	<div className="pixel-overlay">
+		{pixelBlocks.map((_, index) => (
+			<div
+				key={index}
+				className="pixel-block"
+				style={{
+					animationDelay: pixelDelays[index] ?? "0s",
+				}}
+			/>
+		))}
+	</div>
+)}
 
 							<button type="button" className="testimonial-video-expand" onClick={(event) => { event.stopPropagation(); openFullscreenVideo(); }} aria-label="Open testimonial video" >
 								<Image className="absolute bottom-[20px] right-[20px] cursor-pointer z-[20]" src={`${CDN_URL}/images/homepage/testimonialvideos/minimize-svg.svg`} alt="" width={24} height={24}></Image>
