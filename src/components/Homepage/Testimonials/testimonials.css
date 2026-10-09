@@ -192,7 +192,7 @@
 }
 
 @media (max-width: 575px) {
-    .testimonial-client-video { height: 275px; }
+    .testimonial-client-video { width: 100%; height: 275px; }
     .hm-testimonial-wrapper { margin-top: 30px; }
 	.testimonial-video-overlay { padding: 30px 18px; }
 }

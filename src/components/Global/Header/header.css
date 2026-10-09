@@ -6,7 +6,6 @@ header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filte
 .mm-socials li:hover .mm-social-icon { color: var(--primary); transition: all 0.3s ease-in-out; }
 .mm-social-icon { font-size: 24px; }
 
-
 /* RESPOSNIVE */
 
 @media (max-width: 1799px) {}
@@ -97,15 +96,34 @@ header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filte
     .sub-service-list { width: 258px; }
     .mm-connect-us { flex-direction: column; }
     .mm-pages-link li:hover, .mm-pages-link li:hover .link-icon, .mm-socials li:hover .mm-social-icon { transition: none; }
+
+    .close-btn { width: 24px; height: 24px; }
+    .close-btn .menu-cross { width: 11px; height: auto; }
 }
 
 @media (max-width: 575px) {
     .sub-service-list { width: 300px; }
+
+    .close-btn { width: 27px; height: 27px; padding: 0; }
+    .close-btn .menu-cross { width: 11px; height: 11px; }
+    /* .navbar-logo { width: 150px; } */
+    /* .mm-pages-link ul { gap: 20px; }
+    .mm-pages-link ul li { width: calc( 50% - 10px ); } */
+
+    .mm-pages-link li a { width: 122px; }
+    .mm-pages-link ul { gap: 16px 37px; }
+    .sub-service-list { width: calc(50% - 10px); }
+
+    .link-subtitle, .sub-service-list li { font-size: 12px; line-height: 18px; }
+    .mm-service-title { font-size: 12px; line-height: 18px; height: 30px; }
+
+    .sub-service-list .link-icon { width: 32px; height: 32px; border-radius: 12px; }
+    .sub-service-list .link-icon span { font-size: 16px; }
 }
 
 @media (max-width: 479px) {
     .navbar-logo { width: 120px; }
-    .bento-menu { width: 18px; height: 18px; }
+    .bento-menu { width: 26px; height: 26px; }
     .link-title { margin-bottom: 0; }
     .mm-pages-link ul { gap: 16px; }
     .mm-pages-link li { width: calc(50% - 8px); }
@@ -115,8 +133,11 @@ header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filte
     .mm-pixels-tr { top: 100px; width: 20%; }
     .mm-pixels-bl { bottom: -60%; }
     .mm-pixels-br { bottom: -100%; }
+    .close-btn { width: 26px; height: 26px; }
 
-
+    .sub-service-list { width: 100%; }
+    .mm-service-title { font-size: 14px; line-height: 22px; }
+    .link-subtitle, .sub-service-list li { font-size: 14px; line-height: 22px; }
 }
 
 @media (max-width: 439px) {
@@ -128,7 +149,8 @@ header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filte
 }
 
 @media (max-width: 400px) {
-    .bento-menu { width: 20px; height: 20px; }
+    /* .bento-menu { width: 20px; height: 20px; } */
+    .close-btn .menu-cross { width: 13px; height: auto; }
 }
 
 @media (max-width: 374px) {}
