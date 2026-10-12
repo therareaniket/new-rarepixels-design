@@ -7,7 +7,6 @@
     to { transform: translateX(-50%); }
 }
 /* .services-strip { animation: services-marquee 30s infinite linear; } */
-
 .services-strip { align-items: flex-end; cursor: pointer; }
 
 .services-strip span { display: inline-block; white-space: nowrap; will-change: transform; }
@@ -103,6 +102,10 @@
     .services-hero-video-tablet { margin: 0 auto; }
 
     .services-hero-subtitile { margin-top: 8px; }
+
+    
+    @keyframes services-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .services-strip { animation: services-marquee 30s infinite linear; }
 }
 
 @media (max-width: 439px) { 

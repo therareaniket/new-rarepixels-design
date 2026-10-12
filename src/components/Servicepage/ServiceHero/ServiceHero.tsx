@@ -12,7 +12,7 @@ const ServiceHero = () => {
 
         if (!strip) return;
 
-        const items = gsap.utils.toArray<HTMLElement>( ".services-strip span" );
+        const items = gsap.utils.toArray<HTMLElement>(".services-strip span");
         if (!items.length) return;
 
         const maxScale = 1.3;
@@ -52,11 +52,11 @@ const ServiceHero = () => {
                 if (Math.abs(distance) < bound) {
                     const normalized = distance / bound;
 
-                    const influence = Math.cos( normalized * Math.PI / 2 );
+                    const influence = Math.cos(normalized * Math.PI / 2);
 
                     scale = 1 + (maxScale - 1) * influence;
 
-                    x = Math.sin( normalized * Math.PI / 2 ) * maxPush;
+                    x = Math.sin(normalized * Math.PI / 2) * maxPush;
                 } else {
                     x = distance < 0 ? -maxPush : maxPush;
                 }
@@ -81,13 +81,14 @@ const ServiceHero = () => {
 
         window.addEventListener("scroll", handleScroll, { passive: true });
 
-        strip.addEventListener( "mousemove", handleMouseMove );
-        strip.addEventListener( "mouseleave", handleMouseLeave );
+        strip.addEventListener("mousemove", handleMouseMove);
+        strip.addEventListener("mouseleave", handleMouseLeave);
 
-        return () => { window.removeEventListener( "scroll", handleScroll );
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
 
-            strip.removeEventListener( "mousemove", handleMouseMove );
-            strip.removeEventListener( "mouseleave", handleMouseLeave );
+            strip.removeEventListener("mousemove", handleMouseMove);
+            strip.removeEventListener("mouseleave", handleMouseLeave);
         };
     }, []);
 
