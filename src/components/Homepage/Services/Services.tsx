@@ -477,7 +477,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <div className="serv-card serv-card-dev w-[385px] h-[410px] relative bg-[#FBF9E9] rounded-[20px] p-[30px]">
+                        <div className="serv-card serv-card-dev w-[385px] h-[410px] relative bg-[#FBF9E9] rounded-[20px] p-[30px] cursor-[pointer]">
                             <div className="card-heading relative z-[2]">
                                 <h3 className="font-semibold uppercase mb-[10px]">Momentum</h3>
 
@@ -517,7 +517,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <div className="serv-card serv-brand-desi w-[385px] h-[410px] relative bg-[#FCD4E9] rounded-[20px] p-[30px]">
+                        <div className="serv-card serv-brand-desi w-[385px] h-[410px] relative bg-[#FCD4E9] rounded-[20px] p-[30px] cursor-[pointer]">
                             <div className="card-heading relative z-[2]">
                                 <h3 className="font-semibold uppercase mb-[10px]">Perception</h3>
 
@@ -530,8 +530,8 @@ const Services = () => {
                                 <p className="text-18 mt-[10px]">We create brand identities that communicate credibility, consistency, and confidence from the very first interaction, helping businesses leave a stronger and more lasting impression.</p>
                             </div>
 
-                            <div className="serv-bg-svg absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-[1]">
-                                <svg className="" width="234" height="234" viewBox="0 0 234 234" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <div className="serv-bg-svg absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-[1] w-[300px] h-[300px]">
+                                <svg className="services-brand-identity-svg" width="234" height="234" viewBox="0 0 234 234" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M93.1225 4.30957C92.5811 4.36779 92.0454 4.43766 91.5039 4.50753C92.0396 4.43766 92.5811 4.37362 93.1225 4.30957Z" fill="#F9AAD4" fillOpacity="0.5"/>
                                     <path d="M59.2891 15.2142L62.2464 13.6207C62.2464 13.6207 62.2406 13.6207 62.2348 13.6207C62.3163 13.5742 62.4037 13.5335 62.4852 13.487C62.7937 13.3299 63.1081 13.1787 63.4166 13.0217C63.2128 13.1264 63.0032 13.2136 62.7995 13.3183C63.271 13.0682 63.731 12.8298 64.2083 12.5855L66.2809 11.6434C66.0946 11.7248 65.9199 11.8237 65.7336 11.9051C68.266 10.7362 70.8625 9.66607 73.523 8.73557C84.8811 6.06036 96.6059 4.94375 116.79 4.60645C79.4029 6.45001 66.5603 11.7772 62.2523 13.6091C61.2568 14.1267 60.2613 14.6501 59.2891 15.2026V15.2142Z" fill="#F9AAD4" fillOpacity="0.5"/>
                                     <path d="M89.0547 3.40225C90.5101 3.0475 91.983 2.70437 93.2404 2.41941L94.0263 2.26238C98.3402 1.58777 106.886 2.93118 116.795 4.61773C115.939 4.50141 115.089 4.39673 114.239 4.3095C97.8162 2.44267 93.0775 2.74508 89.0547 3.40225Z" fill="#F9AAD4" fillOpacity="0.5"/>
@@ -562,7 +562,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <div className="serv-card w-[385px] h-[410px] relative bg-[#F5F8F5] rounded-[20px] p-[30px]">
+                        <div className="serv-card serv-sm-manage w-[385px] h-[410px] relative bg-[#F5F8F5] rounded-[20px] p-[30px] cursor-[pointer]">
                             <div className="card-heading relative z-[2]">
                                 <h3 className="font-semibold uppercase mb-[10px]">Relevance</h3>
 
@@ -575,8 +575,8 @@ const Services = () => {
                                 <p className="text-18 mt-[10px]">We help brands stay worth remembering with content strategies built around your specific voice, your audience&apos;s behavior, and the platforms where they actually spend their time.</p>
                             </div>
 
-                            <div className="serv-bg-svg absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-[1]">
-                                <svg width="268" height="269" viewBox="0 0 268 269" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <div className="serv-bg-svg absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-[1] w-[300px] h-[300px]">
+                                <svg className="serv-sm-management" width="268" height="269" viewBox="0 0 268 269" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M135.263 268.126L134.873 234.612L134.648 201.093L134.461 134.066L134.648 67.0328L134.873 33.519L135.263 0L135.653 33.519L135.877 67.0328L136.059 134.066L135.872 201.093L135.647 234.612L135.263 268.126Z" fill="#CFDFCF"/>
                                     <path d="M141.552 264.953L139.574 233.052L137.762 201.146L134.395 137.318L131.391 73.4683L130.023 41.5354L128.82 9.59717L130.798 41.4978L132.61 73.404L135.977 137.238L138.976 201.087L140.344 233.015L141.552 264.953Z" fill="#CFDFCF"/>
                                     <path d="M147.844 261.788L144.279 231.5L140.874 201.201L134.327 140.572L128.142 79.9058L125.176 49.5591L122.381 19.1963L125.946 49.4787L129.35 79.7825L135.893 140.406L142.077 201.073L145.043 231.419L147.844 261.788Z" fill="#CFDFCF"/>
