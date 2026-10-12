@@ -70,13 +70,13 @@ const Header = () => {
             {megaMenuOpen && (
                 <nav aria-label="Mega Menu" className="mega-menu fixed top-0 left-0 bg-white w-[100%] h-[100vh] py-[20px] z-[99]">
                     <div className="container overflow-hidden h-[100%] relative z-[2]">
-                        <div className="mega-menu-close flex justify-between items-center w-[100%]">
+                        <div className="mega-menu-close flex justify-between items-center">
                             <Link href="/" className="navbar-logo" >
                                 <Image src={`${CDN_URL}/images/global/header/rare-pixels-logo.svg`} alt="header-logo" width={174} height={28} priority />
                             </Link>
 
-                            <button onClick={toggleMegaMenu} className="close-btn cursor-pointer rounded-full bg-[#ED0180] text-white p-[10px] font-semibold" type="button">
-                                <svg className="menu-cross" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <button onClick={toggleMegaMenu} className="close-btn cursor-pointer w-[24px] h-[24px] rounded-[4px] flex items-center justify-center bg-[#ED0180] text-white font-semibold" type="button">
+                                <svg className="menu-cross" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.2 15.6L0 13.4L5.6 7.8L0 2.2L2.2 0L7.8 5.6L13.4 0L15.6 2.2L10 7.8L15.6 13.4L13.4 15.6L7.8 10L2.2 15.6Z" fill="white" />
                                 </svg>
                             </button>

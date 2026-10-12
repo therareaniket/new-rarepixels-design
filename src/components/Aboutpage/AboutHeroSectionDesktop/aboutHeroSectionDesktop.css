@@ -82,7 +82,9 @@
     .about-hero-txt { font-size: 110px; line-height: 110px; }
 }
 
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+    .about-hero-txt { font-size: 95px; line-height: 95px; }
+}
 
 @media (max-width: 479px) {
     .about-hero-section-desktop { height: 220vh; }

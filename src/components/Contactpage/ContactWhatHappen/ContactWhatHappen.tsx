@@ -3,11 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './contactwhathappen.css'
 
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
-
 const cards = [
     {
         number: '01',
@@ -45,19 +40,22 @@ const ContactWhatHappen = () => {
     const autoplayStartedAtRef = useRef(0)
     const remainingTimeRef = useRef(CARD_DURATION)
 
+    const mobileAnimationLockedRef = useRef(false)
+    const mobileCheckFrameRef = useRef<number | null>(null)
+    const mobileAnimationTimeoutRef = useRef<number | null>(null)
+    const highestOpenedCardRef = useRef(-1)
+
     const [activeCard, setActiveCard] = useState<number | null>(null)
     const [highestOpenedCard, setHighestOpenedCard] = useState(-1)
     const [animationStarted, setAnimationStarted] = useState(false)
     const [manualInteraction, setManualInteraction] = useState(false)
     const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 991px)').matches)
 
+    useEffect(() => { highestOpenedCardRef.current = highestOpenedCard }, [highestOpenedCard])
+
     const isActiveCardHovered = hoveredCard !== null && hoveredCard === activeCard
 
-    useEffect(() => {
-        remainingTimeRef.current = manualInteraction
-            ? CLICK_AUTOPLAY_DELAY
-            : CARD_DURATION
-    }, [activeCard, manualInteraction])
+    useEffect(() => { remainingTimeRef.current = manualInteraction ? CLICK_AUTOPLAY_DELAY : CARD_DURATION }, [activeCard, manualInteraction])
 
     useEffect(() => {
         const section = sectionRef.current
@@ -92,12 +90,34 @@ const ContactWhatHappen = () => {
             event: MediaQueryListEvent
         ) => {
             setIsMobile(event.matches)
-            setActiveCard(0)
-            setHighestOpenedCard(0)
+
+            setActiveCard(
+                event.matches ? null : 0
+            )
+
+            setHighestOpenedCard(-1)
+            highestOpenedCardRef.current = -1
+
             setManualInteraction(false)
+
+            mobileAnimationLockedRef.current = false
+
+            if (
+                mobileAnimationTimeoutRef.current !== null
+            ) {
+                window.clearTimeout(
+                    mobileAnimationTimeoutRef.current
+                )
+
+                mobileAnimationTimeoutRef.current = null
+            }
         }
 
-        mediaQuery.addEventListener( 'change', handleBreakpointChange )
+        mediaQuery.addEventListener(
+            'change',
+            handleBreakpointChange
+        )
+
         return () => {
             mediaQuery.removeEventListener(
                 'change',
@@ -111,52 +131,91 @@ const ContactWhatHappen = () => {
         if (!animationStarted) return
         if (manualInteraction) return
 
-        let animationFrameId: number | null = null
+        const checkNextCard = () => {
+            if (mobileAnimationLockedRef.current) return
 
-        const handleCardActivation = () => {
-            if (animationFrameId !== null) {
-                cancelAnimationFrame(animationFrameId)
+            if (mobileCheckFrameRef.current !== null) {
+                cancelAnimationFrame(
+                    mobileCheckFrameRef.current
+                )
             }
 
-            animationFrameId = requestAnimationFrame(() => {
-                setHighestOpenedCard((previousHighest) => {
-                    const nextCardIndex = previousHighest + 1
-                    const nextCard = cardRefs.current[nextCardIndex]
+            mobileCheckFrameRef.current =
+                requestAnimationFrame(() => {
+                    mobileCheckFrameRef.current = null
 
-                    if (!nextCard || nextCardIndex >= cards.length) {
-                        return previousHighest
-                    }
+                    const nextCardIndex =
+                        highestOpenedCardRef.current + 1
+
+                    if (nextCardIndex >= cards.length) { return }
+
+                    const nextCard = cardRefs.current[nextCardIndex]
+                    if (!nextCard) return
 
                     const cardRect = nextCard.getBoundingClientRect()
+                    const cardNumber = nextCard.querySelector<HTMLElement>('.cnct-happens-card-number')
+                    const cardText = nextCard.querySelector<HTMLElement>('.cnct-happens-text')
 
-                    const expandedCardHeight = nextCard.scrollHeight
+                    if (!cardNumber || !cardText) return
 
-                    const isExpandedCardFullyVisible = cardRect.top >= 0 && cardRect.top + expandedCardHeight <= window.innerHeight
+                    const cardStyles = window.getComputedStyle(nextCard)
 
-                    if (!isExpandedCardFullyVisible) {
-                        return previousHighest
-                    }
+                    const gap =
+                        parseFloat(cardStyles.rowGap) ||
+                        parseFloat(cardStyles.gap) ||
+                        0
 
+                    const paddingTop = parseFloat(cardStyles.paddingTop) || 0
+
+                    const paddingBottom = parseFloat(cardStyles.paddingBottom) || 0
+
+                    const expandedCardHeight = paddingTop + cardNumber.offsetHeight + gap + cardText.scrollHeight + paddingBottom
+                    const expandedCardBottom = cardRect.top + expandedCardHeight
+                    const isFullyInsideViewport = cardRect.top >= 0 && expandedCardBottom <= window.innerHeight
+
+                    if (!isFullyInsideViewport) return
+
+                    mobileAnimationLockedRef.current = true
+
+                    highestOpenedCardRef.current = nextCardIndex
+
+                    setHighestOpenedCard(nextCardIndex)
                     setActiveCard(nextCardIndex)
 
-                    return nextCardIndex
+                    mobileAnimationTimeoutRef.current =
+                        window.setTimeout(() => {
+                            mobileAnimationLockedRef.current = false
+                            mobileAnimationTimeoutRef.current = null
+
+                            checkNextCard()
+                        }, 850)
                 })
-            })
         }
+        checkNextCard()
 
-        handleCardActivation()
-
-        window.addEventListener('scroll', handleCardActivation, { passive: true, })
-        window.addEventListener('resize', handleCardActivation)
-
+        window.addEventListener('scroll', checkNextCard, { passive: true })
+        window.addEventListener('resize', checkNextCard)
         return () => {
-            window.removeEventListener( 'scroll', handleCardActivation )
-            window.removeEventListener( 'resize', handleCardActivation )
-            if (animationFrameId !== null) {
-                cancelAnimationFrame(animationFrameId)
+            window.removeEventListener('scroll', checkNextCard)
+            window.removeEventListener('resize', checkNextCard)
+            if (mobileCheckFrameRef.current !== null) {
+                cancelAnimationFrame(mobileCheckFrameRef.current)
+                mobileCheckFrameRef.current = null
             }
+
+            if (
+                mobileAnimationTimeoutRef.current !== null
+            ) {
+                window.clearTimeout(
+                    mobileAnimationTimeoutRef.current
+                )
+
+                mobileAnimationTimeoutRef.current = null
+            }
+
+            mobileAnimationLockedRef.current = false
         }
-    }, [ isMobile, animationStarted, manualInteraction, ])
+    }, [isMobile, animationStarted, manualInteraction,])
 
     useEffect(() => {
         if (!animationStarted) return
@@ -172,7 +231,7 @@ const ContactWhatHappen = () => {
         if (isActiveCardHovered) {
             const elapsedTime = performance.now() - autoplayStartedAtRef.current
 
-            remainingTimeRef.current = Math.max( remainingTimeRef.current - elapsedTime, 0 )
+            remainingTimeRef.current = Math.max(remainingTimeRef.current - elapsedTime, 0)
             clearAutoplayTimeout()
             return
         }
@@ -194,10 +253,11 @@ const ContactWhatHappen = () => {
     }, [activeCard, animationStarted, manualInteraction, isMobile, isActiveCardHovered,])
 
     const handleCardClick = (index: number) => {
-        setAnimationStarted(true)
-        setManualInteraction(true)
+        if (isMobile) return
 
+        setAnimationStarted(true)
         setActiveCard(index)
+        setManualInteraction(true)
     }
 
     return (
@@ -239,7 +299,7 @@ const ContactWhatHappen = () => {
                                 className={`cnct-happens-card flex gap-[30px] pt-[20px] ${showActiveCard ? 'is-active' : ''} ${isCompleted ? 'is-completed' : ''} ${animationStarted ? 'animation-started' : ''} ${hoveredCard === index ? 'is-hovered' : ''} `}
                             >
                                 <div className="cnct-card-line"> <span key={`${index}-${showActiveCard}`} className="cnct-card-line-progress" /> </div>
-                                
+
                                 <span className="cnct-happens-card-number text-[#424242] font-semibold"> {card.number} </span>
 
                                 <div className="cnct-happens-text w-[410px] ">
