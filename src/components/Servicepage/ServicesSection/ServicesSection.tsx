@@ -1,25 +1,91 @@
-'use client';
+"use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import './services.css';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import "./services.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ServicesSection = () => {
+	const sectionRef = useRef<HTMLElement | null>(null);
+
+	useEffect(() => {
+		const section = sectionRef.current;
+
+		if (!section) return;
+
+		const ctx = gsap.context(() => {
+			const circleWrapper = section.querySelector(".services-circle-wrapper") as HTMLElement | null;
+			const circleRotator = section.querySelector(".services-circle-rotator") as HTMLElement | null;
+
+			if (!circleWrapper || !circleRotator) return;
+
+			const getNumberGap = () => {
+				const gap = getComputedStyle(circleWrapper).getPropertyValue("--number-gap").trim();
+				return parseFloat(gap) || 40;
+			};
+
+			const numberGap = getNumberGap();
+			const finalRotation = -(numberGap * 3);
+
+			gsap.fromTo(
+				circleRotator,
+				{
+					rotation: 0,
+				},
+				{
+					rotation: finalRotation,
+					ease: "none",
+
+					scrollTrigger: {
+						trigger: section,
+						start: "top top",
+						end: "bottom bottom",
+						scrub: 1,
+						invalidateOnRefresh: true,
+					},
+				}
+			);
+		}, sectionRef);
+
+		return () => {
+			ctx.revert();
+		};
+	}, []);
+
 	return (
-		<section className="bg-[#D5D8E2] section services-circle-section">
+		<section ref={sectionRef} className="bg-[#D5D8E2] section services-circle-section">
 			<div className="services-circle-inner">
 				<div className="container relative">
-					<div className="services-section-wrapper flex items-center w-[100%] h-[800px]">
-						<div className="services-circle-wrapper w-[781px] h-[737px] absolute">
-							<div className="services-circle w-[688px] h-[688px] rounded-full border border-[#BFB8B8] absolute left-[-414px]">
-								<div className="services-active-dot w-[24px] h-[24px] border border-[#ED0180] absolute right-[-12px] top-[53%] translate-y-[-50%] rounded-full flex items-center justify-center">
-									<div className="services-active-dot-inner w-[16px] h-[16px] bg-[#ED0180] rounded-full"></div>
-								</div>
-							</div>
+					<div className="services-section-wrapper flex items-center w-[100%]">
+						<div className="services-circle-wrapper">
+							<div className="services-circle-rotator">
+								<div className="services-circle">
+									<div className="services-number-position" style={{ "--number-index": 0 } as React.CSSProperties} >
+										<span className="services-number font-semibold h2">01</span>
+									</div>
 
-							<div className="services-numbers">
-								<span className="h2 font-semibold absolute top-[50%] translate-y-[-50%] left-[300px]">01</span>
-								<span className="h2 font-semibold absolute top-[80%] translate-y-[-50%] left-[220px] rotate-[30deg]">02</span>
-								<span className="h2 font-semibold absolute top-[94%] left-[30px] rotate-[60deg]">03</span>
+									<div className="services-number-position" style={{ "--number-index": 1 } as React.CSSProperties} >
+										<span className="services-number font-semibold h2">02</span>
+									</div>
+
+									<div className="services-number-position" style={{ "--number-index": 2 } as React.CSSProperties} >
+										<span className="services-number font-semibold h2">03</span>
+									</div>
+
+									<div className="services-number-position" style={{ "--number-index": 3 } as React.CSSProperties} >
+										<span className="services-number font-semibold h2">04</span>
+									</div>
+
+									<div className="services-active-dot-position">
+										<div className="services-active-dot">
+											<div className="services-active-dot-inner w-[16px] h-[16px] rounded-full bg-[#ED0180]"></div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 
@@ -44,8 +110,8 @@ const ServicesSection = () => {
 									</div>
 								</div>
 
-								<div className="services-ui-ux-text hidden">
-									<h2 className="font-semibold ">UI/UX Design Services</h2>
+								<div className="services-web-development-text hidden">
+									<h2 className="font-semibold ">Web & App Development</h2>
 									<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 										<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
 										<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
@@ -63,8 +129,8 @@ const ServicesSection = () => {
 									</div>
 								</div>
 
-								<div className="services-ui-ux-text hidden">
-									<h2 className="font-semibold ">UI/UX Design Services</h2>
+								<div className="services-brand-identity-text hidden">
+									<h2 className="font-semibold ">Brand Identity Design</h2>
 									<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 										<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
 										<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
@@ -82,8 +148,8 @@ const ServicesSection = () => {
 									</div>
 								</div>
 
-								<div className="services-ui-ux-text hidden">
-									<h2 className="font-semibold ">UI/UX Design Services</h2>
+								<div className="services-sm-management-text hidden">
+									<h2 className="font-semibold ">SM Management</h2>
 									<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 										<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
 										<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
@@ -213,7 +279,26 @@ const ServicesSection = () => {
 
 						<div className="services-card-tablet flex flex-col gap-[40px] hidden">
 							<div className="services-text-wrapper w-[689px] flex flex-col">
-								<div className="services-ui-ux-text">
+								<div className="services-ui-ux-text services-tab-text">
+									<h2 className="font-semibold ">Web & App Development</h2>
+									<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
+										<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
+										<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
+									</p>
+
+									<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
+										<Link href="/" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Experience Strategy & Research</Link>
+										<Link href="/" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Website Design</Link>
+										<Link href="/" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Interface Design</Link>
+										<Link href="/" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Interaction & Motion Design</Link>
+										<Link href="/" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Product & App Design</Link>
+										<Link href="/" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Design Systems</Link>
+										<Link href="/" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Dashboard & Data Experience</Link>
+										<Link href="/" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Prototype & Validation</Link>
+									</div>
+								</div>
+
+								<div className="services-web-development-text services-tab-text hidden">
 									<h2 className="font-semibold ">UI/UX Design Services</h2>
 									<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 										<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
@@ -232,7 +317,7 @@ const ServicesSection = () => {
 									</div>
 								</div>
 
-								<div className="services-ui-ux-text hidden">
+								<div className="services-brand-identity-text services-tab-text hidden">
 									<h2 className="font-semibold ">UI/UX Design Services</h2>
 									<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 										<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
@@ -251,26 +336,7 @@ const ServicesSection = () => {
 									</div>
 								</div>
 
-								<div className="services-ui-ux-text hidden">
-									<h2 className="font-semibold ">UI/UX Design Services</h2>
-									<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
-										<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
-										<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
-									</p>
-
-									<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
-										<Link href="/" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Experience Strategy & Research</Link>
-										<Link href="/" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Website Design</Link>
-										<Link href="/" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Interface Design</Link>
-										<Link href="/" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Interaction & Motion Design</Link>
-										<Link href="/" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Product & App Design</Link>
-										<Link href="/" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Design Systems</Link>
-										<Link href="/" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Dashboard & Data Experience</Link>
-										<Link href="/" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full bg-[#E4E7F0]">Prototype & Validation</Link>
-									</div>
-								</div>
-
-								<div className="services-ui-ux-text hidden">
+								<div className="services-sm-management-text services-tab-text hidden">
 									<h2 className="font-semibold ">UI/UX Design Services</h2>
 									<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 										<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
@@ -292,7 +358,7 @@ const ServicesSection = () => {
 
 							<div className="services-element-wrapper w-[536] h-[536]">
 								<div className="services-ui-ux w-[100%] h-[100%] object-contain flex items-center justify-center">
-									<svg width="536" height="355" viewBox="0 0 300 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<svg viewBox="0 0 300 199" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M11.0782 179.52C4.1436 167.514 70.6298 119.578 138.919 80.1692C207.209 40.7602 281.985 7.17579 288.919 19.1815C295.854 31.1871 229.368 79.1231 161.078 118.532C92.7887 157.941 18.0129 191.526 11.0782 179.52ZM287.682 19.8953C282.677 11.2292 221.994 33.8765 139.634 81.4056C102.717 102.71 69.1323 124.66 45.0582 143.226C21.9725 161.03 9.7295 174.329 12.3152 178.806C17.3209 187.472 78.0036 164.825 160.364 117.296C197.281 95.9913 230.865 74.0417 254.939 55.4754C278.025 37.6709 290.268 24.3719 287.682 19.8953Z" fill="#A4ABC7" fillOpacity="0.5" />
 										<path d="M18.9976 174.951C14.2502 166.732 32.1778 149.188 48.0505 135.914C70.2265 117.376 101.634 96.0935 136.497 75.9747C171.359 55.8559 205.508 39.3067 232.652 29.3827C252.086 22.2743 276.25 15.5275 281.001 23.7521C285.751 31.9766 267.821 49.5148 251.948 62.7888C229.772 81.3269 198.365 102.609 163.502 122.728C128.639 142.847 94.4906 159.396 67.3463 169.32C47.9122 176.428 23.7482 183.175 18.9976 174.951ZM279.764 24.4659C278.217 21.7888 270.575 17.0358 233.141 30.7268C206.07 40.6236 172.002 57.1338 137.205 77.2143C102.409 97.2949 71.07 118.53 48.9594 137.016C18.3802 162.574 18.6773 171.566 20.2236 174.243C21.77 176.92 29.4118 181.673 66.846 167.982C93.9176 158.085 127.986 141.575 162.782 121.495C197.579 101.414 228.912 80.182 251.028 61.6932C281.607 36.1346 281.31 27.1431 279.764 24.4659Z" fill="#A4ABC7" fillOpacity="0.5" />
 										<path d="M26.9172 170.38C22.5747 162.862 31.4527 148.429 51.914 129.739C72.1399 111.267 101.321 90.6806 134.074 71.7792C166.827 52.8778 199.254 37.9111 225.371 29.6392C251.795 21.272 268.739 20.8036 273.082 28.3216C277.424 35.8396 268.55 50.2787 248.085 68.9626C227.859 87.4351 198.678 108.021 165.925 126.922C133.172 145.824 100.746 160.791 74.6278 169.063C48.2042 177.43 31.2597 177.898 26.9172 170.38ZM271.85 29.0323C267.935 22.2539 251.154 22.9666 225.807 30.9923C199.781 39.2329 167.461 54.1534 134.79 73.0069C102.12 91.8605 73.0322 112.378 52.8797 130.786C33.2526 148.715 24.2357 162.882 28.1542 169.666C32.0727 176.45 48.8507 175.732 74.2032 167.703C100.229 159.462 132.55 144.542 165.22 125.688C197.89 106.835 226.978 86.3171 247.13 67.9089C266.758 49.9807 275.769 35.8162 271.85 29.0323Z" fill="#A4ABC7" fillOpacity="0.5" />
