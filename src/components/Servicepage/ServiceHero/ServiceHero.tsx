@@ -93,7 +93,7 @@ const ServiceHero = () => {
     }, []);
 
     return (
-        <section id='first-section' className=" bg-[white] services-section pt-[103px] pb-[11px] overflow-hidden">
+        <section id='first-section' className=" bg-[white] services-hero-section overflow-hidden">
             <div className="container">
                 <div className="servcies-hero-wrapper flex flex-row-reverse justify-between items-center pb-[40px]">
                     <div className="services-hero-left services-hero-video-desktop w-[790] h-[760px]">

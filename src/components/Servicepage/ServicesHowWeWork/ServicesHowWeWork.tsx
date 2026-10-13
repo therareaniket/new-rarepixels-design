@@ -52,13 +52,13 @@ const workSteps = [
 const ServicesHowWeWork = () => {
     // gsap.registerPlugin();
 
-    const sectionRef = useRef<HTMLElement | null>(null);
+    const sectionHowRef = useRef<HTMLElement | null>(null);
     const cardsWrapperRef = useRef<HTMLDivElement | null>(null);
 
     useLayoutEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        const section = sectionRef.current;
+        const section = sectionHowRef.current;
         const cardsWrapper = cardsWrapperRef.current;
 
         if (!section || !cardsWrapper) return;
@@ -210,7 +210,7 @@ const ServicesHowWeWork = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className=' service-section'>
+        <section ref={sectionHowRef} className=' service-section'>
             <div className="service-inner  section">
                 <div className="container">
 
