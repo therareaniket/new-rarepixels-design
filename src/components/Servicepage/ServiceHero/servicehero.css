@@ -54,7 +54,7 @@
     .services-hero-left { width: 430px; height: 430px; }
     .services-hero-right { width: 450px; }
     .services-hero-subtitile { margin-top: 30px; }
-    .servcies-hero-wrapper { padding-bottom: 40px; }
+    /* .servcies-hero-wrapper { padding-bottom: 40px; } */
 }
 
 @media (max-width: 1024px) {  
@@ -99,7 +99,7 @@
 
 @media (max-width: 639px) { 
     .services-strip { gap: 15px; }
-    .servcies-hero-wrapper { padding-bottom: 20px; }
+    /* .servcies-hero-wrapper { padding-bottom: 20px; } */
 }
 
 @media (max-width: 575px) { 

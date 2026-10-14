@@ -95,7 +95,7 @@ const ServiceHero = () => {
     return (
         <section id='first-section' className=" bg-[white] services-hero-section overflow-hidden">
             <div className="container">
-                <div className="servcies-hero-wrapper flex flex-row-reverse justify-between items-center pb-[40px]">
+                <div className="servcies-hero-wrapper flex flex-row-reverse justify-between items-center">
                     <div className="services-hero-left services-hero-video-desktop w-[790] h-[760px]">
                         <video className='services-video' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/services-listing/hero/serv-hero-globe-white.mp4" autoPlay muted loop playsInline width={790} height={760}></video>
                     </div>
@@ -136,7 +136,7 @@ const ServiceHero = () => {
                 </div>
             </div>
 
-            <div className="services-hero-animation-strip w-[max-content]">
+            {/* <div className="services-hero-animation-strip w-[max-content]">
                 <div className="services-strip flex items-start gap-[26px]">
                     <span className='h4 text-[black]'>UXUI Design</span>
                     <span className='h4 text-[black]'>*</span>
@@ -189,7 +189,7 @@ const ServiceHero = () => {
                     <span className='h4 text-[black]'>Strategy</span>
                     <span className='h4 text-[black]'> * </span>
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }
