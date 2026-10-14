@@ -4,6 +4,8 @@
 .faq-accordion-title { padding: 20px; width: 100%; }
 .faq-accordion-title h3 { width: 100%; }
 .faq-content { padding: 0 50px 20px; }
+.faq-accordion-title:hover { text-decoration: none; } 
+
 
 
 /* responsive */
