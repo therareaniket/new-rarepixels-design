@@ -1,13 +1,246 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import "./services.css";
 
+gsap.registerPlugin(ScrollTrigger);
 
 const ServicesSection = () => {
+
+	const sectionRef = useRef<HTMLDivElement | null>(null);
+
+	useLayoutEffect(() => {
+		const section = sectionRef.current;
+
+		if (!section) return;
+
+		const ctx = gsap.context(() => {
+			const circleRotator = section.querySelector<HTMLElement>(".services-circle-rotator");
+			const activeDotPosition = section.querySelector<HTMLElement>(".services-active-dot-position");
+			const serviceContents = gsap.utils.toArray<HTMLElement>(".services-text-pointers", section);
+			// const serviceNumbers = gsap.utils.toArray<HTMLElement>( ".services-number", section );
+			if (!circleRotator || !activeDotPosition || serviceContents.length !== 4) { return; }
+
+			const totalSteps = serviceContents.length;
+
+			let currentStep = 0;
+			let isAnimating = false;
+			let isObserverActive = false;
+
+			let sectionTrigger: ScrollTrigger | null = null;
+			gsap.set(circleRotator, { rotation: 0, transformOrigin: "50% 50%", });
+			gsap.set(activeDotPosition, { rotation: 0, transformOrigin: "left center", });
+			gsap.set(serviceContents, { autoAlpha: 0, y: 60, pointerEvents: "none", });
+			gsap.set(serviceContents[0], { autoAlpha: 1, y: 0, pointerEvents: "auto", });
+			function setActiveStep(step: number) {
+				currentStep = step;
+				isAnimating = false;
+
+				gsap.killTweensOf([
+					circleRotator,
+					activeDotPosition,
+					...serviceContents,
+				]);
+				gsap.set(circleRotator, { rotation: step * -90, });
+				gsap.set(activeDotPosition, { rotation: step * 90, });
+				gsap.set(serviceContents, { autoAlpha: 0, y: 60, pointerEvents: "none", });
+				gsap.set(serviceContents[step], { autoAlpha: 1, y: 0, pointerEvents: "auto", });
+			}
+
+			function goToStep(nextStep: number) {
+				if (isAnimating) return;
+				if (nextStep >= totalSteps) {
+					disableObserver();
+
+					if (sectionTrigger) {
+						window.scrollTo({
+							top: sectionTrigger.end + 2,
+							behavior: "auto",
+						});
+					}
+
+					return;
+				}
+				if (nextStep < 0) {
+					disableObserver();
+
+					if (sectionTrigger) {
+						window.scrollTo({
+							top: Math.max(
+								0,
+								sectionTrigger.start - 2
+							),
+							behavior: "auto",
+						});
+					}
+
+					return;
+				}
+
+				if (nextStep === currentStep) return;
+
+				const previousContent = serviceContents[currentStep];
+				const nextContent = serviceContents[nextStep];
+
+				isAnimating = true;
+				currentStep = nextStep;
+
+				const circleRotation = currentStep * -90;
+				const dotRotation = currentStep * 90;
+
+				gsap.set(nextContent, {
+					autoAlpha: 0,
+					y: 60,
+					pointerEvents: "none",
+				});
+
+				const stepTimeline = gsap.timeline({
+					defaults: {
+						overwrite: "auto",
+					},
+					onComplete: () => {
+						isAnimating = false;
+					},
+					onInterrupt: () => {
+						isAnimating = false;
+					},
+				});
+				stepTimeline.to(
+					previousContent,
+					{
+						autoAlpha: 0,
+						y: -60,
+						pointerEvents: "none",
+						duration: 0.35,
+						ease: "power2.in",
+					},
+					0
+				);
+				stepTimeline.to(
+					circleRotator,
+					{
+						rotation: circleRotation,
+						duration: 0.7,
+						ease: "power2.inOut",
+					},
+					0
+				);
+
+				stepTimeline.to(
+					activeDotPosition,
+					{
+						rotation: dotRotation,
+						duration: 0.7,
+						ease: "power2.inOut",
+					},
+					0
+				);
+
+				stepTimeline.to(
+					nextContent,
+					{
+						autoAlpha: 1,
+						y: 0,
+						pointerEvents: "auto",
+						duration: 0.5,
+						ease: "power2.out",
+					},
+					0.25
+				);
+			}
+
+			const scrollObserver = ScrollTrigger.observe({
+				target: window,
+				type: "wheel,touch",
+				preventDefault: true,
+				allowClicks: true,
+				tolerance: 10,
+
+				onDown: () => {
+					goToStep(currentStep + 1);
+				},
+
+				onUp: () => {
+					goToStep(currentStep - 1);
+				},
+			});
+
+			scrollObserver.disable();
+
+			function enableObserver(position: "start" | "end") {
+				if (isObserverActive) return;
+
+				isObserverActive = true;
+
+				if (sectionTrigger) {
+					const holdPosition =
+						position === "start"
+							? sectionTrigger.start + 1
+							: sectionTrigger.end - 1;
+
+					window.scrollTo({
+						top: holdPosition,
+						behavior: "auto",
+					});
+				}
+
+				scrollObserver.enable();
+			}
+			function disableObserver() {
+				isObserverActive = false;
+				scrollObserver.disable();
+			}
+			sectionTrigger = ScrollTrigger.create({
+				id: "services-circle",
+				trigger: section,
+				start: "top top",
+				end: "+=100%",
+				pin: true,
+				pinSpacing: true,
+				anticipatePin: 1,
+				invalidateOnRefresh: true,
+
+				onEnter: () => {
+					setActiveStep(0);
+					enableObserver("start");
+				},
+
+				onEnterBack: () => {
+					setActiveStep(totalSteps - 1);
+					enableObserver("end");
+				},
+
+				onLeave: () => {
+					disableObserver();
+				},
+
+				onLeaveBack: () => {
+					disableObserver();
+				},
+			});
+
+			const refreshFrame = requestAnimationFrame(() => {
+				ScrollTrigger.refresh();
+			});
+
+			return () => {
+				cancelAnimationFrame(refreshFrame);
+				scrollObserver.kill();
+				sectionTrigger?.kill();
+			};
+		}, section);
+
+		return () => {
+			ctx.revert();
+		};
+	}, []);
+
 	return (
 		<section className="bg-[#D5D8E2] py-[40px] services-circle-section">
-			<div className="services-circle-inner">
+			<div ref={sectionRef} className="services-circle-inner">
 				<div className="container relative">
 					<div className="services-section-wrapper flex items-center w-[100%]">
 						<div className="services-circle-wrapper">
@@ -40,7 +273,7 @@ const ServicesSection = () => {
 
 						<div className="services-card-wrapper services-card-desktop">
 							<div className="services-text-wrapper w-[689px] h-[416px] flex flex-col translate-x-[65%] relative">
-								<div className="services-desktop-text">
+								<div className="services-desktop-text ">
 									<div className="services-ui-ux-text services-text-pointers">
 										<h2 className="font-semibold ">UI/UX Design Services</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
@@ -60,7 +293,7 @@ const ServicesSection = () => {
 										</div>
 									</div>
 
-									<div className="services-web-development-text services-text-pointers hidden">
+									<div className="services-web-development-text services-text-pointers">
 										<h2 className="font-semibold ">Web & App Development</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
@@ -79,7 +312,7 @@ const ServicesSection = () => {
 										</div>
 									</div>
 
-									<div className="services-brand-identity-text services-text-pointers hidden">
+									<div className="services-brand-identity-text services-text-pointers">
 										<h2 className="font-semibold ">Brand Identity Design</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
@@ -98,7 +331,7 @@ const ServicesSection = () => {
 										</div>
 									</div>
 
-									<div className="services-sm-management-text services-text-pointers hidden">
+									<div className="services-sm-management-text services-text-pointers">
 										<h2 className="font-semibold ">SM Management</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
