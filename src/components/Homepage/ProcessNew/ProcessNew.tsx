@@ -107,9 +107,9 @@ const ProcessNew = () => {
                                         </svg>
                                     </h3>
 
-                                    <p className="text-18 mb-[10px]">Every meaningful solution begins with understanding.</p>
+                                    <p className="text-18 mb-[10px]">Direction creates momentum.</p>
                                     
-                                    <p className="text-18">We take time to understand your business, your users, and the challenges standing in the way of growth. The better the questions, the better the outcome.</p>
+                                    <p className="text-18">Ideas become impactful when backed by clarity. We bring together research, insights, and business goals to build a roadmap that gives every decision a purpose.</p>
                                 </div>
                             </div>
                         </div>
@@ -168,9 +168,9 @@ const ProcessNew = () => {
                                         </svg>
                                     </h3>
 
-                                    <p className="text-18 mb-[10px]">Every meaningful solution begins with understanding.</p>
+                                    <p className="text-18 mb-[10px]">Creativity with intention.</p>
                                     
-                                    <p className="text-18">We take time to understand your business, your users, and the challenges standing in the way of growth. The better the questions, the better the outcome.</p>
+                                    <p className="text-18">We design experiences, identities, and interactions that feel intuitive, leave an impression, and make your brand impossible to overlook.</p>
                                 </div>
                             </div>
                         </div>
@@ -211,9 +211,9 @@ const ProcessNew = () => {
                                         </svg>
                                     </h3>
 
-                                    <p className="text-18 mb-[10px]">Every meaningful solution begins with understanding.</p>
+                                    <p className="text-18 mb-[10px]">Built for the real world.</p>
                                     
-                                    <p className="text-18">We take time to understand your business, your users, and the challenges standing in the way of growth. The better the questions, the better the outcome.</p>
+                                    <p className="text-18">From websites to digital products, we develop solutions that are scalable, reliable, and engineered to perform long after launch.</p>
                                 </div>
                             </div>
                         </div>
@@ -255,9 +255,9 @@ const ProcessNew = () => {
                                         </svg>
                                     </h3>
 
-                                    <p className="text-18 mb-[10px]">Every meaningful solution begins with understanding.</p>
+                                    <p className="text-18 mb-[10px]">The details shape the experience.</p>
                                     
-                                    <p className="text-18">We take time to understand your business, your users, and the challenges standing in the way of growth. The better the questions, the better the outcome.</p>
+                                    <p className="text-18">We test, improve, and fine-tune every interaction because the smallest refinements often make the biggest difference.</p>
                                 </div>
                             </div>
                         </div>
@@ -290,9 +290,9 @@ const ProcessNew = () => {
                                         </svg>
                                     </h3>
 
-                                    <p className="text-18 mb-[10px]">Every meaningful solution begins with understanding.</p>
+                                    <p className="text-18 mb-[10px]">Launch is where the journey expands.</p>
                                     
-                                    <p className="text-18">We take time to understand your business, your users, and the challenges standing in the way of growth. The better the questions, the better the outcome.</p>
+                                    <p className="text-18">We deliver solutions with precision and stay invested in their growth, ensuring they continue to create value as your business evolves.</p>
                                 </div>
                             </div>
                         </div>

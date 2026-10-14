@@ -37,7 +37,7 @@ export default function AboutHeroSectionDesktop() {
                 scrollTrigger: {
                     trigger: ".about-hero-section-desktop",
                     start: "top -300px",
-                    end: "top -600px",
+                    end: () => (window.innerWidth < 480 ? "top -1050px" : window.innerWidth > 1199 ? "top -600px" : "top -900px"),
                     scrub: true,
                 }
             }
@@ -51,7 +51,7 @@ export default function AboutHeroSectionDesktop() {
                 scrollTrigger: {
                     trigger: ".about-hero-section-desktop",
                     start: "top -300px",
-                    end: "top -600px",
+                    end: () => (window.innerWidth < 480 ? "top -1050px" : window.innerWidth > 1199 ? "top -600px" : "top -900px"),
                     scrub: true,
                 }
             }
