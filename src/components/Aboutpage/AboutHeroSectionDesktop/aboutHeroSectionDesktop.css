@@ -183,7 +183,7 @@
 @media (max-width: 767px) {
     .abt-hero-play-btn { width: 60px; height: 60px; }
     .about-hero-section-title p { gap: 10px; }
-    .about-hero-section-title { gap: 0; }
+    .about-hero-section-title { gap: 20px; }
     .about-hero-txt { font-size: 120px; line-height: 120px; }
 }
 
