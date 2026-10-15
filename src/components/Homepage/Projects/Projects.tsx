@@ -5,16 +5,16 @@ import gsap from "gsap";
 import "./projects.css";
 
 const CDN_URL = "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev";
-type ProjectItem = { id: string; title: string; serviceProvided: string; videoSrc: string; thumbNail: string; foreGroundColor: "black" | "white"; };
+type ProjectItem = { id: string; title: string; servicesChip: string, serviceProvided: string; videoSrc: string; thumbNail: string; foreGroundColor: "black" | "white"; };
 
 const PROJECT_DATA: ProjectItem[] = [
-    { id: "proj-1", title: "DJK", serviceProvided: "Website Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/djk-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/djk-project-tmbn.png`, foreGroundColor: "black" },
-    { id: "proj-2", title: "A.U.T.O.B.O.T", serviceProvided: "Book Design", videoSrc: `${CDN_URL}/images/homepage/projects/autobot-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/autobot-project-tmbn.png`, foreGroundColor: "white" },
-    { id: "proj-3", title: "Cameriz", serviceProvided: "E-commerce Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/cameriz-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/cameriz-project-tmbn.png`, foreGroundColor: "black" },
-    { id: "proj-4", title: "DashCore", serviceProvided: "SaaS Product Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/ra-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/ra-project-tmbn.png`, foreGroundColor: "white" },
-    { id: "proj-5", title: "Steamovap", serviceProvided: "Website Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/steamovap-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/steamovap-project-tmbn.png`, foreGroundColor: "black" },
-    { id: "proj-6", title: "Mugoray", serviceProvided: "Branding, Social Media Management, E-commerce Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/mugoray-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/mugoray-project-tmbn.png`, foreGroundColor: "white" },
-    { id: "proj-7", title: "Lalita", serviceProvided: "Branding & Social Media Management", videoSrc: `${CDN_URL}/images/homepage/projects/lalita-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/lalita-project-tmbn.png`, foreGroundColor: "white" },
+    { id: "proj-1", title: "DJK", servicesChip: "A, B, C, D", serviceProvided: "Website Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/djk-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/djk-project-tmbn.png`, foreGroundColor: "black" },
+    { id: "proj-2", title: "A.U.T.O.B.O.T", servicesChip: "A, B, C", serviceProvided: "Book Design", videoSrc: `${CDN_URL}/images/homepage/projects/autobot-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/autobot-project-tmbn.png`, foreGroundColor: "white" },
+    { id: "proj-3", title: "Cameriz", servicesChip: "A, B, C, D, E", serviceProvided: "E-commerce Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/cameriz-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/cameriz-project-tmbn.png`, foreGroundColor: "black" },
+    { id: "proj-4", title: "DashCore", servicesChip: "A, B", serviceProvided: "SaaS Product Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/ra-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/ra-project-tmbn.png`, foreGroundColor: "white" },
+    { id: "proj-5", title: "Steamovap", servicesChip: "A, B, C", serviceProvided: "Website Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/steamovap-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/steamovap-project-tmbn.png`, foreGroundColor: "black" },
+    { id: "proj-6", title: "Mugoray", servicesChip: "A, B, C, D", serviceProvided: "Branding, Social Media Management, E-commerce Design & Development", videoSrc: `${CDN_URL}/images/homepage/projects/mugoray-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/mugoray-project-tmbn.png`, foreGroundColor: "white" },
+    { id: "proj-7", title: "Lalita", servicesChip: "A, B, C, D, E", serviceProvided: "Branding & Social Media Management", videoSrc: `${CDN_URL}/images/homepage/projects/lalita-project.mp4`, thumbNail: `${CDN_URL}/images/homepage/projects/lalita-project-tmbn.png`, foreGroundColor: "white" },
 ];
 
 export default function Projects() {

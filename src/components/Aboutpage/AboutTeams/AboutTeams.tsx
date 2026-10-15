@@ -51,13 +51,13 @@ const AboutTeams = () => {
                                     <div className="abt-author-story w-[400px] bg-[#040E36] h-[max-content]">
                                         <p className='text-18 font-normal text-[white]'>Yogesh brings a balance of strategic thinking, execution, and a constant drive to make things better. He believes ideas become valuable when they are thoughtfully built and made to work in the real world. From shaping solutions to pushing projects forward, he plays a key role in turning the RarePixels vision into meaningful work.</p>
                                         <div className='teams-authorname pt-[20px] mt-[20px]'>
-                                            <h3 className='h5 font-semibold text-[white]'>Yogesh</h3>
+                                            <h3 className='h5 font-semibold text-[white]'>Yogesh Patel</h3>
                                             <p className='text-18 font-normal text-[white]'>Co-founder</p>
                                         </div>
                                     </div>
 
                                     <div className="abt-author-image relative z-[2]">
-                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-author.webp" alt="" width={417} height={516}></Image>
+                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/yogesh-sir.webp" alt="" width={417} height={516}></Image>
                                     </div>
                                 </div>
                             </SwiperSlide>
