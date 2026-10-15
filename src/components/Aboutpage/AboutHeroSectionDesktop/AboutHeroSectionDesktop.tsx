@@ -4,6 +4,7 @@ import "./aboutHeroSectionDesktop.css"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -11,10 +12,35 @@ if (typeof window !== "undefined") {
 
 export default function AboutHeroSectionDesktop() {
 
-    // const targetHeight = window.innerWidth < 480? "15vh" : window.innerWidth < 1200 ? "15vh" : "15vh";
+    const videoRef = useRef<HTMLVideoElement | null>(null);
     const targetHeight = "15vh";
+    // const targetHeight = window.innerWidth < 480? "15vh" : window.innerWidth < 1200 ? "15vh" : "15vh";
 
     useGSAP(() => {
+        ScrollTrigger.create({
+            trigger: ".about-hero-inner",
+            start: "top bottom",
+            end: "bottom top",
+            onEnter: () => {
+                if (videoRef.current) {
+                    videoRef.current.muted = false;
+                    videoRef.current.play().catch(() => {});
+                }
+            },
+            onLeave: () => {
+                videoRef.current?.pause();
+            },
+            onEnterBack: () => {
+                if (videoRef.current) {
+                    videoRef.current.muted = false;
+                    videoRef.current.play().catch(() => {});
+                }
+            },
+            onLeaveBack: () => {
+                videoRef.current?.pause();
+            },
+        });
+
         gsap.fromTo(".abt-hero-video",
             { height: "100vh" },
             { 
@@ -62,7 +88,7 @@ export default function AboutHeroSectionDesktop() {
         <section id="first-section" className="about-hero-section-desktop">
             <div className="about-hero-inner">
                 <div className="abt-hero-video">
-                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-hero/rare-second-anniversary.mp4" autoPlay playsInline muted loop></video>
+                    <video ref={videoRef} src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-hero/rare-second-anniversary.mp4" autoPlay playsInline muted loop></video>
                 </div>
 
                 <div className="about-text-vid-clip">

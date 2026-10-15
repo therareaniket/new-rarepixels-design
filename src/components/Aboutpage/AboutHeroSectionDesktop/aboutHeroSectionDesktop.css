@@ -11,7 +11,7 @@
     font-weight: bolder;
     text-align: center; 
     text-decoration: none; 
-    --bg-opacity: 1;
+    /* --bg-opacity: 1;
     background-image: linear-gradient(
         rgba(0, 0, 0, var(--bg-opacity)), 
         rgba(0, 0, 0, var(--bg-opacity))
@@ -19,9 +19,21 @@
     -webkit-background-clip: text;
     background-clip: text; 
     -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: transparent; */
     margin-bottom: 0 !important;
+    
+    color: #ffffff;
+    text-shadow: 
+    -5px -5px 0 #ED0180,  
+     5px -5px 0 #ED0180,
+    -5px  5px 0 #ED0180,
+     5px  5px 0 #ED0180,
+     0px -5px 0 #ED0180,
+     0px  5px 0 #ED0180,
+    -5px  0px 0 #ED0180,
+     5px  0px 0 #ED0180;
 }
+
 .about-hero-section-title { display: flex;  align-items: flex-start;  justify-content: space-between; }
 .about-hero-section-title h1 { width: 626px; }
 .about-hero-section-title p { display: flex; flex-direction: column; gap: 18px; width: 687px; }
