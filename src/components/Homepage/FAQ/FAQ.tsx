@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
 import gsap from "gsap";
@@ -98,6 +98,8 @@ const FAQ = () => {
             });
         }
     };
+
+    
     return (
         <section className='section'>
             <div className="container">
@@ -127,9 +129,11 @@ const FAQ = () => {
                                             </AccordionTrigger>
 
                                             <AccordionContent className="faq-content">
+                                                <div className="faq-content-inner">
                                                 <p className="text-18 font-normal text-[black]">
                                                     {faq.answer}
                                                 </p>
+                                                </div>
                                             </AccordionContent>
                                         </AccordionItem>
                                     </div>
@@ -150,9 +154,11 @@ const FAQ = () => {
                                                 </AccordionTrigger>
 
                                                 <AccordionContent className="faq-content">
+                                                    <div className="faq-content-inner">
                                                     <p className="text-18 font-normal text-black">
                                                         {faq.answer}
                                                     </p>
+                                                    </div>
                                                 </AccordionContent>
                                             </AccordionItem>
                                         </div>

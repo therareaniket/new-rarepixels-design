@@ -1,31 +1,44 @@
 /* custom */
 
 .services-why-busi-card { height: 370px; }
-.services-why-businesses-choose-rarepixels { position: relative; justify-content: space-between; }
-
-.services-why-busi-card { flex-shrink: 0; gap: 40px; transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1); }
-
-.services-why-businesses-choose-rarepixels:has(.services-why-busi-card-3:hover) { justify-content: flex-end; }
-
+.services-why-businesses-choose-rarepixels {
+    --hover-duration: 2s;
+    --hover-easing: cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.services-why-busi-card-2, .services-why-busi-card-3 { margin-left: auto; }
+.services-why-busi-card {
+    height: 370px;
+    flex-shrink: 0;
+    gap: 40px;
+    transform: translate3d(0, 0, 0);
+    transition: transform var(--hover-duration) var(--hover-easing);
+    will-change: transform;
+}
 .services-why-busi-description {
-    width: 0;
+    width: 354px;
+    max-width: 0;
     opacity: 0;
     overflow: hidden;
     flex-shrink: 0;
-    transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    transition: max-width var(--hover-duration) var(--hover-easing) 0.08s, opacity 0.25s ease 0s;
+    will-change: max-width, opacity;
 }
 
 .services-why-busi-description p { width: 354px; }
-.services-why-busi-card:hover .services-why-busi-description { width: 354px; opacity: 1; }
+.services-why-busi-card:hover .services-why-busi-description { max-width: 354px; opacity: 1; transition-delay: 0s, 0.12s; }
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-2, 
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover) .services-why-busi-card-3 { transform: translate3d(200px, 0, 0); }
 
-.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-2 { transform: translateX(200px); }
-.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-1:hover ) .services-why-busi-card-3 { transform: translateX(200px); }
-.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-2:hover ) .services-why-busi-card-3 { transform: translateX(200px); }
-.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-1 { transform: translateX(-200px); }
-.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-2 { transform: translateX(-200px); }
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-2:hover ) .services-why-busi-card-3 { transform: translate3d(200px, 0, 0); }
+
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-1,
+.services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-2 { transform: translate3d(-200px, 0, 0); }
 
 .services-why-businesses-choose-rarepixels-tablet { display: none; }
-
 
 /* responsive */
 
