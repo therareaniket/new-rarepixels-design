@@ -11,13 +11,25 @@ const AboutOurValues = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
-        gsap.fromTo(".abt-our-values-pointer", 
-            { opacity: 0, scale: 0.5, y: 100 }, 
-            { opacity: 1, scale: 1, y: 0, duration: 0.8, delay: 0.3, stagger: 0.5, 
+        gsap.fromTo(".abt-values-image",
+            { opacity: 0, y: 100 },
+            {
+                opacity: 1, y: 0, duration: 0.9, delay: 0,
+                scrollTrigger: {
+                    trigger: ".abt-our-values-left",
+                    start: "top 40%",
+                }
+            })
+
+        gsap.fromTo(".abt-our-values-pointer",
+            { opacity: 0, scale: 0.5, y: 100 },
+            {
+                opacity: 1, scale: 1, y: 0, duration: 0.8, delay: 0.3, stagger: 0.5,
                 scrollTrigger: {
                     trigger: ".abt-our-values-right",
                     start: "top 70%",
-            }})
+                }
+            })
     }, [])
 
     return (
@@ -32,7 +44,7 @@ const AboutOurValues = () => {
                         </div>
 
                         <div className="abt-our-values-gif w-[692px] h-[458px] mt-[60px]">
-                            <Image className='' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/our-values-people.webp" alt='abt-values' width={692} height={485}></Image>
+                            <Image className='abt-values-image' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/our-values-people.webp" alt='abt-values' width={692} height={485}></Image>
                         </div>
                     </div>
 

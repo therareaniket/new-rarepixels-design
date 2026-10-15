@@ -34,6 +34,10 @@
 
 .faq-accordion-wrapper { cursor: pointer; }
 
+.website-link { transition: all 0.5s ease-in-out; }
+.website-link:hover { background-color: #061651; }
+
+
 /* TEXT UTILS */
 @layer base {
   h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { font-weight: 600; }

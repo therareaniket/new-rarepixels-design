@@ -10,8 +10,224 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ServicesSection = () => {
 
+	// const sectionRef = useRef<HTMLDivElement | null>(null);
+
+	// useLayoutEffect(() => {
+	// 	const section = sectionRef.current;
+
+	// 	if (!section) return;
+
+	// 	const ctx = gsap.context(() => {
+	// 		const circleWrapper = section.querySelector<HTMLElement>(".services-circle-wrapper");
+	// 		const circleRotator = section.querySelector<HTMLElement>(".services-circle-rotator");
+	// 		const activeDotPosition = section.querySelector<HTMLElement>( ".services-active-dot-position" );
+	// 		const serviceContents = gsap.utils.toArray<HTMLElement>( ".services-text-pointers", section );
+	// 		const serviceNumbers = gsap.utils.toArray<HTMLElement>( ".services-number", section );
+	// 		const serviceVisuals = gsap.utils.toArray<HTMLElement>( ".services-visuals-items", section );
+
+	// 		if (
+	// 			!circleWrapper ||
+	// 			!circleRotator ||
+	// 			!activeDotPosition ||
+	// 			serviceContents.length !== 4 ||
+	// 			serviceNumbers.length !== 4 ||
+	// 			serviceVisuals.length !== 4
+	// 		) {
+	// 			return;
+	// 		}
+
+	// 		const validCircleWrapper = circleWrapper;
+	// 		const totalSteps = serviceContents.length;
+	// 		const themeColors = [ "#D5D8E2", "#FBF9E9", "#FCD4E9", "#F5F8F5", ];
+
+	// 		let currentStep = 0;
+	// 		let isAnimating = false;
+	// 		let isObserverActive = false;
+
+	// 		let sectionTrigger: ScrollTrigger | null = null;
+	// 		function getCSSAngle(variableName: string) {
+	// 			const value = getComputedStyle(validCircleWrapper)
+	// 				.getPropertyValue(variableName)
+	// 				.trim();
+
+	// 			return parseFloat(value) || 0;
+	// 		}
+
+	// 		function getNumberStartAngle() { return getCSSAngle("--number-start-angle"); }
+	// 		function getNumberGap() { return getCSSAngle("--number-gap"); }
+	// 		function getCircleRotation(step: number) { return step * -getNumberGap(); }
+	// 		function getDotRotation(step: number) {
+	// 			const startAngle = getNumberStartAngle();
+	// 			const circleRotation = getCircleRotation(step);
+	// 			return startAngle - circleRotation;
+	// 		}
+
+	// 		gsap.set(section, { backgroundColor: themeColors[0], });
+	// 		gsap.set(circleRotator, { rotation: getCircleRotation(0), transformOrigin: "50% 50%", });
+	// 		gsap.set(activeDotPosition, { rotation: getDotRotation(0), transformOrigin: "left center", });
+	// 		gsap.set(serviceContents, { autoAlpha: 0, y: 60, pointerEvents: "none", });
+	// 		gsap.set(serviceContents[0], { autoAlpha: 1, y: 0, pointerEvents: "auto", });
+	// 		gsap.set(serviceNumbers, { opacity: 0.5, });
+	// 		gsap.set(serviceNumbers[0], { opacity: 1, });
+	// 		gsap.set(serviceVisuals, { autoAlpha: 0, scale: 0.6, transformOrigin: "50% 50%", pointerEvents: "none",});
+	// 		gsap.set(serviceVisuals[0], { autoAlpha: 1, scale: 1, pointerEvents: "auto",});
+
+	// 		function setActiveStep(step: number) {
+	// 			currentStep = step;
+	// 			isAnimating = false;
+
+	// 			gsap.killTweensOf([
+	// 				section,
+	// 				circleRotator,
+	// 				activeDotPosition,
+	// 				...serviceContents,
+	// 				...serviceNumbers,
+	// 				...serviceVisuals,
+	// 			]);
+
+	// 			gsap.set(section, { backgroundColor: themeColors[step], });
+	// 			gsap.set(circleRotator, { rotation: getCircleRotation(step), });
+	// 			gsap.set(activeDotPosition, { rotation: getDotRotation(step), });
+	// 			gsap.set(serviceContents, { autoAlpha: 0,y: 60,pointerEvents: "none", });
+	// 			gsap.set(serviceContents[step], { autoAlpha: 1, y: 0, pointerEvents: "auto",});
+	// 			gsap.set(serviceNumbers, { opacity: 0.5, });
+	// 			gsap.set(serviceNumbers[step], { opacity: 1, });
+	// 			gsap.set(serviceVisuals, {autoAlpha: 0,scale: 0.6,pointerEvents: "none",});
+	// 			gsap.set(serviceVisuals[step], { autoAlpha: 1, scale: 1, pointerEvents: "auto",});
+	// 		}
+	// 		function goToStep(nextStep: number) {
+	// 			if (isAnimating) return;
+	// 			if (nextStep >= totalSteps) {
+	// 				disableObserver();
+
+	// 				if (sectionTrigger) {
+	// 					window.scrollTo({
+	// 						top: sectionTrigger.end + 2,
+	// 						behavior: "auto",
+	// 					});
+	// 				}
+
+	// 				return;
+	// 			}
+	// 			if (nextStep < 0) {
+	// 				disableObserver();
+
+	// 				if (sectionTrigger) {
+	// 					window.scrollTo({
+	// 						top: Math.max(
+	// 							0,
+	// 							sectionTrigger.start - 2
+	// 						),
+	// 						behavior: "auto",
+	// 					});
+	// 				}
+
+	// 				return;
+	// 			}
+
+	// 			if (nextStep === currentStep) return;
+
+	// 			const previousContent =	serviceContents[currentStep];
+	// 			const nextContent =	serviceContents[nextStep];
+	// 			const previousNumber =	serviceNumbers[currentStep];
+	// 			const nextNumber =	serviceNumbers[nextStep];
+	// 			const previousVisual =	serviceVisuals[currentStep];
+	// 			const nextVisual =	serviceVisuals[nextStep];
+
+	// 			isAnimating = true;
+	// 			currentStep = nextStep;
+
+	// 			const circleRotation = getCircleRotation(currentStep);
+	// 			const dotRotation =	getDotRotation(currentStep);
+	// 			gsap.set(nextContent, {	autoAlpha: 0, y: 60,pointerEvents: "none",});
+	// 			gsap.set(nextVisual, {autoAlpha: 0,scale: 0.6,pointerEvents: "none",});
+	// 			const stepTimeline = gsap.timeline({
+	// 				defaults: { overwrite: "auto", },
+	// 				onComplete: () => { isAnimating = false; },
+	// 				onInterrupt: () => { isAnimating = false; },
+	// 			});
+	// 			stepTimeline.to( section, {backgroundColor: themeColors[nextStep], duration: 0.7, ease: "power2.inOut",}, 0);
+	// 			stepTimeline.to( previousContent,{ autoAlpha: 0, y: -60, pointerEvents: "none", duration: 0.35, ease: "power2.in",}, 0);
+	// 			stepTimeline.to( circleRotator,{ rotation: circleRotation, duration: 0.7,ease: "power2.inOut",}, 0);
+	// 			stepTimeline.to( activeDotPosition, {rotation: dotRotation, duration: 0.7, ease: "power2.inOut",}, 0);
+	// 			stepTimeline.to( previousNumber, {opacity: 0.5, duration: 0.3, ease: "power2.out",} ,0);
+	// 			stepTimeline.to( nextNumber, {opacity: 1, duration: 0.3, ease: "power2.out",}, 0.35);
+	// 			stepTimeline.to( previousVisual, {autoAlpha: 0, scale: 0.6, pointerEvents: "none", duration: 0.35, ease: "power2.in",}, 0);
+	// 			stepTimeline.to( nextVisual, {autoAlpha: 1, scale: 1, pointerEvents: "auto", duration: 1, ease: "back.out(1.5)",}, 0.2);
+	// 			stepTimeline.to( nextContent,{autoAlpha: 1, y: 0,pointerEvents: "auto", duration: 0.5, ease: "power2.out",}, 0.25);
+	// 		}
+
+	// 		const scrollObserver = ScrollTrigger.observe({
+	// 			target: window,
+	// 			type: "wheel,touch",
+	// 			preventDefault: true,
+	// 			allowClicks: true,
+	// 			tolerance: 10,
+	// 			onDown: () => { goToStep(currentStep + 1); },
+	// 			onUp: () => { goToStep(currentStep - 1); },
+	// 		});
+
+	// 		scrollObserver.disable();
+
+	// 		function enableObserver(
+	// 			position: "start" | "end"
+	// 		) {
+	// 			if (isObserverActive) return;
+
+	// 			isObserverActive = true;
+
+	// 			if (sectionTrigger) {
+	// 				const holdPosition =
+	// 					position === "start"
+	// 						? sectionTrigger.start + 1
+	// 						: sectionTrigger.end - 1;
+
+	// 				window.scrollTo({
+	// 					top: holdPosition,
+	// 					behavior: "auto",
+	// 				});
+	// 			}
+
+	// 			scrollObserver.enable();
+	// 		}
+
+	// 		function disableObserver() { isObserverActive = false; scrollObserver.disable(); }
+
+	// 		sectionTrigger = ScrollTrigger.create({
+	// 			id: "services-circle",
+	// 			trigger: section,
+	// 			start: "top top",
+	// 			end: "+=100%",
+	// 			pin: true,
+	// 			pinSpacing: true,
+	// 			anticipatePin: 1,
+	// 			invalidateOnRefresh: true,
+
+	// 			onEnter: () => { setActiveStep(0); enableObserver("start"); },
+	// 			onEnterBack: () => { setActiveStep(totalSteps - 1); enableObserver("end"); },
+	// 			onLeave: () => { disableObserver(); },
+	// 			onLeaveBack: () => { disableObserver(); },
+	// 		});
+
+	// 		const refreshFrame = requestAnimationFrame(() => {
+	// 			ScrollTrigger.refresh();
+	// 		});
+
+	// 		return () => {
+	// 			cancelAnimationFrame(refreshFrame);
+	// 			scrollObserver.kill();
+	// 			sectionTrigger?.kill();
+	// 		};
+	// 	}, section);
+
+	// 	return () => {
+	// 		ctx.revert();
+	// 	};
+	// }, []);
+
 	return (
-		<section className=" py-[40px] services-circle-section">
+		<section className=" py-[40px] services-circle-section bg-[#D5D8E2]">
+			{/* <div ref={sectionRef} className="services-circle-inner"> */}
 			<div className="services-circle-inner">
 				<div className="container relative">
 					<div className="services-section-wrapper flex items-center w-[100%]">
