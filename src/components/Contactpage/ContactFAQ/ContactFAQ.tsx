@@ -128,7 +128,7 @@ const ContactFAQ = () => {
                                                 </h3>
                                             </AccordionTrigger>
 
-                                            <AccordionContent className="faq-content">
+                                            <AccordionContent className="faq-content pl-[40px] pb-[20px] pr-[20px]">
                                                 <p className="text-18 font-normal text-[black]">
                                                     {faq.answer}
                                                 </p>
@@ -151,7 +151,7 @@ const ContactFAQ = () => {
                                                     </h3>
                                                 </AccordionTrigger>
 
-                                                <AccordionContent className="faq-content">
+                                                <AccordionContent className="faq-content pr-[20px]">
                                                     <p className="text-18 font-normal text-black">
                                                         {faq.answer}
                                                     </p>

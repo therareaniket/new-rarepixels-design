@@ -1,6 +1,7 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import Image from 'next/image';
 import Link from 'next/link';
 import gsap from "gsap";
@@ -60,46 +61,98 @@ const FAQ = () => {
 
     const [expanded, setExpanded] = useState(false);
     const [showAll, setShowAll] = useState(false);
+    const faqListRef = useRef<HTMLDivElement>(null);
+    const isAnimatingRef = useRef(false);
 
     const handleToggle = () => {
-        if (!expanded) {
-            setShowAll(true);
+        const faqList = faqListRef.current;
 
-            setTimeout(() => {
-                gsap.fromTo(
-                    ".extra-faq",
-                    {
-                        opacity: 0,
-                        y: -30,
+        if (!faqList || isAnimatingRef.current) return;
+
+        isAnimatingRef.current = true;
+
+        gsap.killTweensOf(faqList);
+        gsap.killTweensOf( faqList.querySelectorAll<HTMLElement>(".extra-faq") );
+        if (!expanded) { const startHeight = faqList.offsetHeight;
+            flushSync(() => { setShowAll(true); setExpanded(true); });
+
+            const endHeight = faqList.scrollHeight;
+            const extraFaqs = faqList.querySelectorAll<HTMLElement>(".extra-faq");
+            gsap.set(faqList, { height: startHeight, overflow: "hidden", });
+            gsap.set(extraFaqs, { opacity: 0, });
+            gsap
+                .timeline({
+                    onComplete: () => {
+                        gsap.set(faqList, {
+                            height: "auto",
+                            overflow: "visible",
+                            clearProps: "willChange",
+                        });
+
+                        gsap.set(extraFaqs, {
+                            clearProps: "opacity,willChange",
+                        });
+
+                        isAnimatingRef.current = false;
                     },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.6,
-                        stagger: 0.08,
-                        ease: "power3.out",
-                    }
-                );
-            }, 50);
+                })
+                .to(faqList, { height: endHeight, duration: 1, ease: "power3.inOut", willChange: "height", })
+                .to( extraFaqs, { opacity: 1, duration: 1, stagger: 0.05, ease: "power2.out", willChange: "opacity", }, 0.2 );
 
-            setExpanded(true);
-        }
-        else {
-            gsap.to(".extra-faq", {
-                opacity: 0,
-                y: -30,
-                duration: 0.4,
-                stagger: 0.05,
-                ease: "power3.in",
-                onComplete: () => {
-                    setShowAll(false);
-                    setExpanded(false);
-                },
-            });
+        } else {
+            const baseFaqs = faqList.querySelectorAll<HTMLElement>(".base-faq");
+            const extraFaqs = faqList.querySelectorAll<HTMLElement>(".extra-faq");
+            const lastBaseFaq = baseFaqs[baseFaqs.length - 1];
+            if (!lastBaseFaq) { isAnimatingRef.current = false; return; }
+
+            const startHeight = faqList.offsetHeight;
+
+            const faqListRect = faqList.getBoundingClientRect();
+            const lastBaseRect = lastBaseFaq.getBoundingClientRect();
+            const endHeight = lastBaseRect.bottom - faqListRect.top;
+            gsap.set(faqList, { height: startHeight, overflow: "hidden", });
+
+            gsap
+                .timeline({
+                    onComplete: () => {
+                        flushSync(() => {
+                            setShowAll(false);
+                            setExpanded(false);
+                        });
+
+                        gsap.set(faqList, {
+                            height: "auto",
+                            overflow: "visible",
+                            clearProps: "willChange",
+                        });
+
+                        isAnimatingRef.current = false;
+                    },
+                })
+                .to(extraFaqs, {
+                    opacity: 0,
+                    duration: 1,
+                    stagger: {
+                        each: 0.03,
+                        from: "end",
+                    },
+                    ease: "power2.in",
+                    willChange: "opacity",
+                })
+                .to(
+                    faqList,
+                    {
+                        height: endHeight,
+                        duration: 1,
+                        ease: "power3.inOut",
+                        willChange: "height",
+                    },
+                    0
+                );
         }
     };
 
-    
+
     return (
         <section className='section'>
             <div className="container">
@@ -114,9 +167,9 @@ const FAQ = () => {
 
                     <div className="faq-small-container container-sm ">
                         <div className={`faq-expand-wrapper mt-[60px] ${expanded ? "expanded" : ""}`}>
-                            <Accordion defaultValue={["faq-1"]} className="faq-accordion-wrapper flex flex-col gap-[20px]" >
+                            <Accordion ref={faqListRef} defaultValue={["faq-1"]} className="faq-accordion-wrapper flex flex-col gap-[20px]" >
                                 {faqs.slice(0, 5).map((faq, index) =>
-                                    <div className="accordion-item-wrapper flex gap-[20px] " key={index}>
+                                    <div className="accordion-item-wrapper base-faq flex gap-[20px] " key={index}>
                                         <span className="accordion-number text-18 font-semibold flex text-[#A5B4A5] items-center justify-center w-[52px] h-[52px]  bg-[#F5F8F5] rounded-[20px]">
                                             {index + 1}
                                         </span>
@@ -128,12 +181,10 @@ const FAQ = () => {
                                                 </h3>
                                             </AccordionTrigger>
 
-                                            <AccordionContent className="faq-content">
-                                                <div className="faq-content-inner">
+                                            <AccordionContent className="faq-content pl-[40px] pb-[20px] pr-[20px]">
                                                 <p className="text-18 font-normal text-[black]">
                                                     {faq.answer}
                                                 </p>
-                                                </div>
                                             </AccordionContent>
                                         </AccordionItem>
                                     </div>
@@ -153,12 +204,10 @@ const FAQ = () => {
                                                     </h3>
                                                 </AccordionTrigger>
 
-                                                <AccordionContent className="faq-content">
-                                                    <div className="faq-content-inner">
+                                                <AccordionContent className="faq-content pl-[40px] pb-[20px] pr-[20px]">
                                                     <p className="text-18 font-normal text-black">
                                                         {faq.answer}
                                                     </p>
-                                                    </div>
                                                 </AccordionContent>
                                             </AccordionItem>
                                         </div>
@@ -166,7 +215,7 @@ const FAQ = () => {
                             </Accordion>
 
                             <div className="faq-btn-wrapper-arrow flex gap-[20px] justify-end mt-[30px]">
-                                <button type="button" className="expand-faq" onClick={handleToggle} >
+                                <button type="button" className="expand-faq cursor-pointer" onClick={handleToggle}  >
                                     {/* <Image src="/images/faq-down-arrow.svg" alt="faq" width={30} height={52} className={expanded ? 'rotate-180 transition-all' : 'transition-all'} /> */}
                                     <span className="text-18 text-normal text-[#ED0180]">
                                         {expanded ? "Less FAQs" : "More FAQs"}

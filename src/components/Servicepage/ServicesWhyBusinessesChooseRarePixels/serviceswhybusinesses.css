@@ -7,9 +7,10 @@
     position: relative;
     display: flex;
     align-items: flex-end;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
-.services-why-busi-card-2, .services-why-busi-card-3 { margin-left: auto; }
+.services-why-businesses-choose-rarepixels:has(.services-why-busi-card-3:hover) { justify-content: flex-end; }
+
 .services-why-busi-card {
     height: 370px;
     flex-shrink: 0;
@@ -39,6 +40,7 @@
 .services-why-businesses-choose-rarepixels:has( .services-why-busi-card-3:hover ) .services-why-busi-card-2 { transform: translate3d(-200px, 0, 0); }
 
 .services-why-businesses-choose-rarepixels-tablet { display: none; }
+
 
 /* responsive */
 

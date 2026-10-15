@@ -1,11 +1,18 @@
 /*  custom */
 
-.faq-accordion { width: 100%; justify-content: space-between; }
-.faq-accordion-title { padding: 20px; width: 100%; }
+.faq-accordion { width: 100%; border-radius: 20px; }
+.faq-accordion-title { width: 100%; padding: 20px; cursor: pointer; }
+.faq-accordion-title:hover { text-decoration: none; }
 .faq-accordion-title h3 { width: 100%; }
-.faq-content { padding: 0 50px 20px; }
-.faq-accordion-title:hover { text-decoration: none; } 
-
+.faq-accordion-panel { height: var(--accordion-panel-height); overflow: hidden; transition: height 500ms cubic-bezier(0.22, 1, 0.36, 1); }
+.faq-accordion-panel[data-starting-style] { height: 0; }
+.faq-accordion-panel[data-ending-style] { height: 0; }
+.faq-accordion { transition: background-color 300ms ease, border-radius 300ms ease; }
+@media (prefers-reduced-motion: reduce) {
+  .faq-accordion-panel {
+    transition: none;
+  }
+}
 
 /* responsive */
 @media (max-width: 1799px) { }

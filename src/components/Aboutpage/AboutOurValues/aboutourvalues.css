@@ -20,8 +20,8 @@
     .abt-our-values-left { width: 525px; }
     .abt-our-values-title .website-subtitle-mt { width: 100%; }
     .abt-our-values-gif { width: 100%; height: 400px; margin-top: 40px; }
-    .abt-our-values-pointer  { width: 580px; }
-    .abt-our-values-text { width: 580px; }
+    .abt-our-values-pointer  { width: 620px; }
+    .abt-our-values-text { width: calc( 100% - 66px ); }
     .our-values-icon { width: 46px; height: 46px; }
 }
 
@@ -31,8 +31,8 @@
     .abt-our-values-left { width: 550px; }
     .abt-our-values-pointer { padding-bottom: 18px; margin-bottom: 18px; width: 510px; }
     .our-values-icon { width: 44px; height: 44px; }
-    .abt-our-values-text { width: 480px; }
-    .abt-our-values-gif img { padding: 10px; }
+    .abt-our-values-text { width: calc( 100% - 64px ); }
+    /* .abt-our-values-gif img { padding: 10px; } */
     .our-values-icon img { width: 20px; height: 20px; }
 }
 
