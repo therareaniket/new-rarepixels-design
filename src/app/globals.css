@@ -36,6 +36,9 @@
 
 .website-link { transition: all 0.5s ease-in-out; }
 .website-link:hover { background-color: #061651; }
+/* .dark-backg:hover { background-color: white; color: #061651; } */
+.dark-backg { border: 2px solid transparent; }
+.dark-backg:hover { background-color: transparent; border: 2px solid #ED0180; }
 
 
 /* TEXT UTILS */

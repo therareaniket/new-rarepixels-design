@@ -61,7 +61,7 @@ const Industries = () => {
                         <p className='w-[680px] max-w-full flex flex-col justify-center text-18'>
                             <span>Every industry is different.</span>
 
-                            <span>But the need to earn trust, create memorable experiences, and stay relevant isn't.</span>
+                            <span>But the need to earn trust, create memorable experiences, and stay relevant isn&apos;t.</span>
                         </p>
                     </div>
 
@@ -94,7 +94,7 @@ const Industries = () => {
                                     <h3 className="text-80">Technology & SaaS</h3>
 
                                     <p className="flex flex-col gap-[10px] text-18">
-                                        <span>Complex products fail when users don't understand them.</span>
+                                        <span>Complex products fail when users don&apos;t understand them.</span>
 
                                         <span>We transform powerful SaaS platforms into intuitive experiences that drive adoption, retention, and growth.</span>
                                     </p>
@@ -196,7 +196,7 @@ const Industries = () => {
                                     <h3 className="text-80">E-commerce & Retail</h3>
 
                                     <p className="flex flex-col gap-[10px] text-18">
-                                        <span>Customers don't buy products. They buy experiences.</span>
+                                        <span>Customers don&apos;t buy products. They buy experiences.</span>
 
                                         <span>We build shopping journeys that reduce hesitation, increase conversions, and encourage repeat purchases.</span>
                                     </p>
@@ -298,7 +298,7 @@ const Industries = () => {
                                     <h3 className="text-80">Emerging & AI Tech</h3>
 
                                     <p className="flex flex-col gap-[10px] text-18">
-                                        <span>Innovation means little if people can't understand it.</span>
+                                        <span>Innovation means little if people can&apos;t understand it.</span>
 
                                         <span>We humanize emerging technologies through experiences that make complex products easier to adopt and trust.</span>
                                     </p>
