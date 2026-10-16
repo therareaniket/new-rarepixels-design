@@ -18,7 +18,8 @@ const ServicesSection = () => {
 			const numbers = gsap.utils.toArray<HTMLElement>(".services-number")
 			const contents = gsap.utils.toArray<HTMLElement>(".services-text-pointers")
 			const element = gsap.utils.toArray<HTMLElement>(".services-visuals-items")
-			const backgroundColors = [ "#D5D8E2", "#FBF9E9", "#FCD4E9", "#F5F8F5", ]
+			const backgroundColors = ["#D5D8E2", "#FBF9E9", "#FCD4E9", "#F5F8F5",]
+			const circleWrapper = sectionRef.current?.querySelector<HTMLElement>(".services-circle-wrapper")
 
 			if (!rotator || !numbers.length || !contents.length || !element.length) return
 			gsap.set(contents, { autoAlpha: 0, y: 60, })
@@ -27,6 +28,13 @@ const ServicesSection = () => {
 			gsap.set(element[0], { autoAlpha: 1, scale: 1, })
 			gsap.set(numbers, { opacity: (index) => (index === 0 ? 1 : 0.5), })
 			gsap.set(sectionRef.current, { backgroundColor: backgroundColors[0], })
+
+			const getRotationPerStep = () => {
+				if (!circleWrapper) return -90
+				const styles = getComputedStyle(circleWrapper)
+				const numberGap = parseFloat( styles.getPropertyValue("--number-gap") )
+				return -numberGap
+			}
 
 			const timeline = gsap.timeline({
 				defaults: { ease: "none", },
@@ -53,14 +61,14 @@ const ServicesSection = () => {
 				const currentElement = element[index]
 
 				const stepStart = index - 1
-				timeline.to(rotator, { rotation: -90 * index, duration: 1, }, stepStart)
+				timeline.to(rotator, { rotation: () => getRotationPerStep() * index, duration: 1, }, stepStart)
 				timeline.to(previousContent, { autoAlpha: 0, y: -60, duration: 0.3, ease: "power2.in", }, stepStart + 0.35)
 				timeline.fromTo(currentContent, { autoAlpha: 0, y: 120, }, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out", }, stepStart + 0.6)
 				timeline.to(previousElement, { autoAlpha: 0, opacity: 0, scale: 0.5, duration: 0.3, ease: "power2.in", }, stepStart + 0.35)
 				timeline.fromTo(currentElement, { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.9, ease: "power2.out", }, stepStart + 0.6)
 				timeline.to(numbers, { opacity: (numberIndex) => numberIndex === index ? 1 : 0.5, duration: 0.2, ease: "none", }, stepStart + 0.8)
 				timeline.addLabel(`service-${index + 1}`, index)
-				timeline.to( sectionRef.current, { backgroundColor: backgroundColors[index], duration: 1, ease: "none", }, stepStart )
+				timeline.to(sectionRef.current, { backgroundColor: backgroundColors[index], duration: 1, ease: "none", }, stepStart)
 			}
 		}, sectionRef)
 
