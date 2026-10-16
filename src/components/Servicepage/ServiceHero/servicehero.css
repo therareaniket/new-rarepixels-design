@@ -87,6 +87,8 @@
     .services-section { padding-top: 100px; }
 
     .services-hero-right { width: 100%; padding-bottom: 50px; }
+
+    .services-hero-section { height: max-content; }
 }
 
 @media (max-width: 839px) { 
@@ -119,6 +121,8 @@
     
     @keyframes services-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .services-strip { animation: services-marquee 30s infinite linear; }
+    .servcies-hero-wrapper { padding-top: 110px; }
+
 }
 
 @media (max-width: 439px) { 

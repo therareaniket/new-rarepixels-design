@@ -22,6 +22,8 @@ const ServicesSection = () => {
 			const circleWrapper = sectionRef.current?.querySelector<HTMLElement>(".services-circle-wrapper")
 
 			if (!rotator || !numbers.length || !contents.length || !element.length) return
+
+
 			gsap.set(contents, { autoAlpha: 0, y: 60, })
 			gsap.set(contents[0], { autoAlpha: 1, y: 0, })
 			gsap.set(element, { autoAlpha: 0, scale: 1, })
@@ -38,18 +40,7 @@ const ServicesSection = () => {
 
 			const timeline = gsap.timeline({
 				defaults: { ease: "none", },
-
-				scrollTrigger: {
-					trigger: sectionRef.current,
-					start: "top top",
-					end: "bottom bottom",
-					scrub: 1,
-					snap: {
-						snapTo: "labelsDirectional",
-						duration: 0.5,
-						delay: 0,
-					},
-				},
+				scrollTrigger: { trigger: sectionRef.current, start: "top top", end: "bottom bottom", scrub: true, snap: { snapTo: "labelsDirectional", duration: 0.5, delay: 0, }, },
 			})
 
 			timeline.addLabel("service-1", 0)
@@ -64,8 +55,8 @@ const ServicesSection = () => {
 				timeline.to(rotator, { rotation: () => getRotationPerStep() * index, duration: 1, }, stepStart)
 				timeline.to(previousContent, { autoAlpha: 0, y: -60, duration: 0.3, ease: "power2.in", }, stepStart + 0.35)
 				timeline.fromTo(currentContent, { autoAlpha: 0, y: 120, }, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out", }, stepStart + 0.6)
-				timeline.to(previousElement, { autoAlpha: 0, opacity: 0, scale: 0.5, duration: 0.3, ease: "power2.in", }, stepStart + 0.35)
-				timeline.fromTo(currentElement, { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.9, ease: "power2.out", }, stepStart + 0.6)
+				timeline.to(previousElement, { autoAlpha: 0, opacity: 0, scale: 0.5, duration: 0.6, ease: "power2.in", }, stepStart + 0.35)
+				timeline.fromTo(currentElement, { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 1, ease: "power2.out", }, stepStart + 0.6)
 				timeline.to(numbers, { opacity: (numberIndex) => numberIndex === index ? 1 : 0.5, duration: 0.2, ease: "none", }, stepStart + 0.8)
 				timeline.addLabel(`service-${index + 1}`, index)
 				timeline.to(sectionRef.current, { backgroundColor: backgroundColors[index], duration: 1, ease: "none", }, stepStart)

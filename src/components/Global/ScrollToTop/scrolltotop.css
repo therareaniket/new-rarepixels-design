@@ -1,5 +1,8 @@
 /* custom */
 
+.scroll-top-btn { transition: all 0.8s ease-in-out; }
+.scroll-top-btn:hover { background-color: #061651; }
+
 /* responsive */
 
 @media (max-width: 1799px) { 

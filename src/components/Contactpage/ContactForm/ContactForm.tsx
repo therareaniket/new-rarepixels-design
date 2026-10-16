@@ -83,7 +83,7 @@ const ContactForm = () => {
                             </label>
                             <input type="file" id="file-upload" className="sr-only" />
 
-                            <button title="Submit" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] w-[max-content] website-link">Submit <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></button>
+                            <button title="Submit" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] w-[max-content] website-link cursor-pointer">Submit <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></button>
                         </div>
                     </div>
                 </div>
