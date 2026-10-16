@@ -1,6 +1,6 @@
 /* custom */
 
-.services-circle-section { position: relative; height: calc(100vh * 4);  }
+.services-circle-section { position: relative; height: calc(100svh * 4);  }
 .services-circle-inner { position: sticky; top: 0; height: 100svh; display: flex; align-items: center; justify-content: center; overflow: hidden;  }
 
 .services-circle-wrapper {
@@ -64,9 +64,24 @@
     border-radius: 50%;
 }
 
-.services-desktop-text { position: relative; width: 100%; height: 100%; z-index: 10; }
-.services-text-pointers { position: absolute; top: 0; left: 0; width: 100%; visibility: hidden; z-index: 10; }
-.services-text-pointers:first-child { visibility: visible; }
+.services-text-wrapper { --content-gap: 400px; position: relative; width: 689px; height: 520px;  z-index: 10; }
+.services-desktop-text { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; gap: var(--content-gap); z-index: 10; will-change: transform; }
+.services-text-pointers {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    visibility: visible;
+    opacity: 1;
+}
+
+.services-circle-inner > .container { width: 100%; height: 100vh; }
+.services-section-wrapper { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; }
+.services-card-wrapper { position: relative; display: flex; align-items: center; }
 
 .services-visual-wrapper { position: relative; width: 100%; height: 100%; }
 
@@ -80,8 +95,8 @@
 	will-change: transform, opacity;
 }
 
-.services-visuals-items svg { display: block; width: 100%; height: 100%; object-fit: contain; }
-.services-visuals-items:first-child { visibility: visible; }
+.services-visuals-items svg { display: block; width: 80%; height: 80%; object-fit: contain; }
+/* .services-visuals-items:first-child { visibility: visible; } */
 
 .services-content-chips a { 
     background: rgba(255, 255, 255, 0);
