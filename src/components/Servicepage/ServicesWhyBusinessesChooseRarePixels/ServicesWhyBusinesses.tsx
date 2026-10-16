@@ -31,7 +31,7 @@ const ServicesWhyBusinesses = () => {
     }, []);
 
     return (
-        <section className="section overflow-hidden">
+        <section className="section overflow-hidden" style={{ padding: 0 }}>
             <div className="container">
                 <div className="srvsd-business-title text-center">
                     <h2 className="font-semibold">Why Businesses Choose RarePixels</h2>

@@ -101,7 +101,7 @@ const AboutFAQ = () => {
     };
 
     return (
-        <section className='section'>
+        <section className='section' style={{ paddingTop: 0 }}>
             <div className="container">
                 <div className="faq-title">
                     <div className="hm-faq-title">

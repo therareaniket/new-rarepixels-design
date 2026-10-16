@@ -1,8 +1,9 @@
 .project-list video { width: 100%; height: 100%; object-fit: cover; }
-.active-project-name { display: flex; align-items: center; width: 500px; height: 70px; }
+.active-project-name { display: flex; align-items: center; width: 500px; height: 70px; display: none; }
 .active-project-name .h4 { line-height: 1; margin-bottom: 0; }
 .projects-controller button { padding: 8px 14px; }
 .projects-controller button svg { width: 10px; }
+
 
 @media (max-width: 1799px) {
     .project-list { width: 870px; height: 480px; }
@@ -75,6 +76,9 @@
     .active-project-title-controller { flex-direction: column; }
     .active-project-title-controller .h5 { width: 100%; }
     .active-project-name { height: 70px; }
+    .active-project-name { display: block; }
+    .active-project-chip-wrapper { display: none; }
+    .projects-controller button { border-radius: 16px; }
 }
 
 @media (max-width: 479px) {}
@@ -82,15 +86,15 @@
 @media (max-width: 439px) {
     .project-list { width: 320px; height: 400px; }
     .active-project-title-controller { width: 320px; }
-    .active-project-name { height: 80px; margin-bottom: 20px; }
+    .active-project-name { height: 80px; margin-bottom: 0px; }
 }
 
 @media (max-width: 400px) {
     .project-list { width: 280px; height: 350px; border-radius: 20px; }
     .projects-list { gap: 20px; }
-    .active-project-name { height: 60px; }
+    .active-project-name { height: 60px; display: flex; }
     .active-project-title-controller .h5 { font-size: 18px; line-height: 26px; }
-    .active-project-title-controller { gap: 10px; margin-top: 10px; }
+    .active-project-title-controller { gap: 10px; margin-top: 20px; }
 }
 
 @media (max-width: 374px) {}

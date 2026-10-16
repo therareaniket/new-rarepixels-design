@@ -33,7 +33,7 @@ const AboutOurValues = () => {
     }, [])
 
     return (
-        <section className='section'>
+        <section className='section' style={{ padding: 0 }}>
             <div className="container">
                 <div className="abt-our-values-wrapper flex items-end justify-between">
                     <div className="abt-our-values-left">
