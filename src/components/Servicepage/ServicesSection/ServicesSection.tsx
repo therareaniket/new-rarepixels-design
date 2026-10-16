@@ -23,6 +23,7 @@ const ServicesSection = () => {
 
 			if (!rotator || !numbers.length || !contents.length || !element.length) return
 
+			const isMobile = window.innerWidth <=839
 
 			gsap.set(contents, { autoAlpha: 0, y: 60, })
 			gsap.set(contents[0], { autoAlpha: 1, y: 0, })
@@ -34,13 +35,31 @@ const ServicesSection = () => {
 			const getRotationPerStep = () => {
 				if (!circleWrapper) return -90
 				const styles = getComputedStyle(circleWrapper)
-				const numberGap = parseFloat( styles.getPropertyValue("--number-gap") )
-				return -numberGap
+				const gapValue = styles.getPropertyValue("--number-gap").trim()
+				const parsedGap = parseFloat(gapValue)
+
+				if (isNaN(parsedGap)) return -90
+				const isMobile = window.innerWidth <= 839
+
+				if (isMobile) { return gapValue.startsWith("-") ? -parsedGap : parsedGap }
+				return gapValue.startsWith("-") ? parsedGap : -parsedGap
 			}
 
 			const timeline = gsap.timeline({
-				defaults: { ease: "none", },
-				scrollTrigger: { trigger: sectionRef.current, start: "top top", end: "bottom bottom", scrub: true, snap: { snapTo: "labelsDirectional", duration: 0.5, delay: 0, }, },
+				defaults: { ease: "none" },
+				scrollTrigger: {
+					trigger: sectionRef.current,
+					start: "top top",
+					end: "bottom bottom",
+					scrub: 0.5,
+					invalidateOnRefresh: true,
+					snap: window.innerWidth > 839 ? {
+						snapTo: "labelsDirectional",
+						duration: 0.3,
+						delay: 0.0,
+						ease: "power1.inOut"
+					} : undefined,
+				},
 			})
 
 			timeline.addLabel("service-1", 0)
@@ -53,10 +72,10 @@ const ServicesSection = () => {
 
 				const stepStart = index - 1
 				timeline.to(rotator, { rotation: () => getRotationPerStep() * index, duration: 1, }, stepStart)
-				timeline.to(previousContent, { autoAlpha: 0, y: -60, duration: 0.3, ease: "power2.in", }, stepStart + 0.35)
-				timeline.fromTo(currentContent, { autoAlpha: 0, y: 120, }, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out", }, stepStart + 0.6)
-				timeline.to(previousElement, { autoAlpha: 0, opacity: 0, scale: 0.5, duration: 0.6, ease: "power2.in", }, stepStart + 0.35)
-				timeline.fromTo(currentElement, { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 1, ease: "power2.out", }, stepStart + 0.6)
+				timeline.to(previousContent, { autoAlpha: 0, y: 0, duration: 0.3, ease: "power2.in", }, stepStart + 0.35)
+				timeline.fromTo(currentContent, { autoAlpha: 0, y: 200, }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out", }, stepStart + 0.6)
+				timeline.to(previousElement, { autoAlpha: 0, y: isMobile ? -60 : 60 , duration: 0.3, ease: "power2.in", }, stepStart + 0.35)
+				timeline.fromTo(currentElement, { autoAlpha: 0, y: isMobile ? 120 : -120 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out", }, stepStart + 0.6)
 				timeline.to(numbers, { opacity: (numberIndex) => numberIndex === index ? 1 : 0.5, duration: 0.2, ease: "none", }, stepStart + 0.8)
 				timeline.addLabel(`service-${index + 1}`, index)
 				timeline.to(sectionRef.current, { backgroundColor: backgroundColors[index], duration: 1, ease: "none", }, stepStart)
