@@ -277,7 +277,7 @@
 }
 
 @media (max-width: 400px) and (max-height: 700px) { 
-    .services-circle-wrapper { --circle-size: 400px; top: -47%; --number-distance: calc((var(--circle-size) / 2) + 28px); }
+    .services-circle-wrapper { --circle-size: 425px; top: -47%; --number-distance: calc((var(--circle-size) / 2) + 28px); }
     .services-content-chips { gap: 6px; margin-top: 18px; }
     .services-section-wrapper { padding-bottom: 0; gap: 5px; }
     .services-text-wrapper p { margin-top: 6px; }
