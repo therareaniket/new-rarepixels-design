@@ -266,7 +266,7 @@
 }
 
 @media (max-width: 400px) { 
-    .services-circle-wrapper { --circle-size: 470px; --number-distance: calc((var(--circle-size) / 2) + 20px); }
+    .services-circle-wrapper { --circle-size: 440px; --number-distance: calc((var(--circle-size) / 2) + 20px); top: -39%; }
     .services-number { font-size: 20px; line-height: 26px; }
     .services-content-chips { gap: 8px; }
     .services-content-chips a { padding: 6px 18px; }
