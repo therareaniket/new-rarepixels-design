@@ -14,26 +14,28 @@ export default function AboutHeroSectionDesktop() {
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const targetHeight = "15vh";
+    const musicPause = window.innerWidth > 1024 ? "bottom 550px" : "bottom -100px";
 
     useGSAP(() => {
         ScrollTrigger.create({
             trigger: ".about-hero-inner",
             start: "top bottom",
-            end: "bottom top",
+            end: musicPause,
             onLeave: () => {
                 videoRef.current?.pause();
+                setIsPlaying(false);
             },
-            onEnterBack: () => {
-                if (isPlaying) {
-                    videoRef.current?.play().catch(() => {});
-                }
-            }, 
+            // onEnterBack: () => {
+            //     if (isPlaying) {
+            //         videoRef.current?.play().catch(() => {});
+            //     }
+            // }, 
         });
 
         ScrollTrigger.create({
             trigger: ".about-hero-inner",
             start: "top bottom",
-            end: "bottom top",
+            end: musicPause,
             onLeave: () => {
                 videoRef.current?.pause();
             },

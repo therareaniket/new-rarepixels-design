@@ -39,7 +39,9 @@
     .abt-life-card-8 { width: 370px; height: 258px; }
 }
 
-@media (max-width: 1359px) { }
+@media (max-width: 1359px) {
+    .life-at-rarepixels-col-3 { transform: translateY(0); }
+}
 
 @media (max-width: 1359px) and (max-height: 600px) { 
     .life-at-rarepixels-card-wrapper { margin-top: 20px; }
