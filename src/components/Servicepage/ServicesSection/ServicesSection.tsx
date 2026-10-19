@@ -21,66 +21,129 @@ const ServicesSection = () => {
 			const contentViewport = section.querySelector<HTMLElement>(".services-text-wrapper");
 			const circleRotator = section.querySelector<HTMLElement>(".services-circle-rotator");
 			const circleWrapper = section.querySelector<HTMLElement>(".services-circle-wrapper");
-			const contentPanels = gsap.utils.toArray<HTMLElement>(".services-text-pointers", section);
-			const visualItems = gsap.utils.toArray<HTMLElement>(".services-visuals-items", section);
 			const activeDot = section.querySelector<HTMLElement>(".services-active-dot");
 			const activeDotPosition = section.querySelector<HTMLElement>(".services-active-dot-position");
+			const contentPanels = gsap.utils.toArray<HTMLElement>(".services-text-pointers", section);
+			const visualItems = gsap.utils.toArray<HTMLElement>(".services-visuals-items", section);
 			const numberItems = gsap.utils.toArray<HTMLElement>(".services-number", section);
 
 			if (!contentTrack || !contentViewport || !circleRotator || !circleWrapper || !activeDot || !activeDotPosition || contentPanels.length === 0 || visualItems.length === 0 || numberItems.length === 0) { return; }
-
 			const transitions = contentPanels.length - 1;
+
 			const sectionColors = ["#D5D8E2", "#FBF9E9", "#FCD4E9", "#F5F8F5",];
+			const getPanelDistance = () => {
+				const trackStyles = window.getComputedStyle(contentTrack);
+				const contentGap = Number.parseFloat(trackStyles.rowGap) || 0;
+				return contentViewport.offsetHeight + contentGap;
+			};
 
-			const getPanelDistance = () => { const trackStyles = window.getComputedStyle(contentTrack); const contentGap = Number.parseFloat(trackStyles.rowGap) || 0; return contentViewport.offsetHeight + contentGap; };
-			const getNumberGap = () => { const circleStyles = window.getComputedStyle(circleWrapper); const numberGap = circleStyles.getPropertyValue("--number-gap").trim(); return Number.parseFloat(numberGap) || 0; };
-			const getNumberStartAngle = () => { const circleStyles = window.getComputedStyle(circleWrapper); const startAngle = circleStyles.getPropertyValue("--number-start-angle").trim(); return Number.parseFloat(startAngle) || 0; };
-			const getNumberAngle = (index: number) => { return getNumberStartAngle() + getNumberGap() * index; };
+			const getNumberGap = () => {
+				const circleStyles = window.getComputedStyle(circleWrapper);
+				return (Number.parseFloat(circleStyles.getPropertyValue("--number-gap").trim()) || 0);
+			};
 
-			gsap.set(section, { backgroundColor: sectionColors[0], });
-			gsap.set(contentTrack, { y: 0, });
-			gsap.set(contentPanels, { scale: 0.7, transformOrigin: "50% 50%", });
-			gsap.set(contentPanels[0], { scale: 1, });
-			gsap.set(circleRotator, { rotation: 0, transformOrigin: "50% 50%", });
-			gsap.set(visualItems, { autoAlpha: 0, scale: 0.65, y: 60, transformOrigin: "50% 50%", });
-			gsap.set(visualItems[0], { autoAlpha: 1, scale: 1, y: 0, });
-			gsap.set(activeDotPosition, { rotation: () => getNumberStartAngle(), transformOrigin: "left center", });
-			gsap.set(activeDot, { scale: 1, transformOrigin: "50% 50%", });
-			gsap.set(numberItems, { xPercent: -50, yPercent: -50, rotation: (index) => -getNumberAngle(index), transformOrigin: "50% 50%", });
+			const getNumberStartAngle = () => {
+				const circleStyles = window.getComputedStyle(circleWrapper);
+				return (Number.parseFloat(circleStyles.getPropertyValue("--number-start-angle").trim()) || 0);
+			};
 
-			const timeline = gsap.timeline({
-				defaults: { ease: "none", },
+			const getNumberAngle = (index: number) => { return (getNumberStartAngle() + getNumberGap() * index); };
+			const media = gsap.matchMedia();
 
-				scrollTrigger: {
-					trigger: section,
-					start: "top top",
-					end: "bottom bottom",
-					scrub: 4,
-					invalidateOnRefresh: true,
-				},
+			media.add("(min-width: 840px)", () => {
+				gsap.set(section, { backgroundColor: sectionColors[0], });
+				gsap.set(contentTrack, { y: 0, });
+				gsap.set(contentPanels, { clearProps: "position,top,left,inset", scale: 0.7, autoAlpha: 1, transformOrigin: "50% 50%", });
+				gsap.set(contentPanels[0], { scale: 1, });
+				gsap.set(circleRotator, { rotation: 0, transformOrigin: "50% 50%", });
+				gsap.set(numberItems, { xPercent: -50, yPercent: -50, rotation: (index) => -getNumberAngle(index), transformOrigin: "50% 50%", });
+				gsap.set(visualItems, { autoAlpha: 0, scale: 0.65, y: 60, transformOrigin: "50% 50%", });
+				gsap.set(visualItems[0], { autoAlpha: 1, scale: 1, y: 0, });
+				gsap.set(activeDotPosition, { rotation: getNumberStartAngle(), transformOrigin: "left center", });
+				gsap.set(activeDot, { scale: 1, transformOrigin: "50% 50%", });
+
+				const timeline = gsap.timeline({
+					defaults: { ease: "none", },
+
+					scrollTrigger: {
+						trigger: section,
+						start: "top top",
+						end: "bottom bottom",
+						scrub: 1,
+						invalidateOnRefresh: true,
+					},
+				});
+
+				timeline.to(contentTrack, { y: () => -(getPanelDistance() * transitions), duration: transitions, }, 0);
+				timeline.to(circleRotator, { rotation: () => -(getNumberGap() * transitions), duration: transitions, }, 0);
+				numberItems.forEach((numberItem, index) => { timeline.to(numberItem, { rotation: () => { const circleRotation = -(getNumberGap() * transitions); return -(getNumberAngle(index) + circleRotation); }, duration: transitions, }, 0); });
+
+				for (let index = 1; index < contentPanels.length; index++
+				) {
+					const previousVisual = visualItems[index - 1];
+					const nextVisual = visualItems[index];
+					const nextContent = contentPanels[index];
+					const transitionStart = index - 1;
+					const transitionMiddle = transitionStart + 0.5;
+					timeline.to(section, { backgroundColor: sectionColors[index], duration: 0.5, }, transitionMiddle);
+					timeline.to(previousVisual, { autoAlpha: 0, scale: 0.7, y: -60, duration: 0.65, }, transitionStart);
+					timeline.fromTo(nextVisual, { autoAlpha: 0, scale: 0.65, y: 60, }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.65, immediateRender: false, }, transitionStart + 0.35);
+					timeline.fromTo(nextContent, { scale: 0.7, }, { scale: 1, duration: 1, immediateRender: false, }, transitionStart);
+					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5, }, transitionStart);
+					timeline.to(activeDot, { scale: 0, duration: 0.5, }, transitionStart);
+					timeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5, }, transitionMiddle);
+					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5, }, transitionMiddle);
+					timeline.to(activeDot, { scale: 1, duration: 0.5, }, transitionMiddle);
+				}
 			});
 
-			timeline.to(contentTrack, { y: () => { return -(getPanelDistance() * transitions); }, duration: transitions, }, 0);
-				timeline.to( circleRotator, { rotation: () => -(getNumberGap() * transitions), duration: transitions, ease: "none", }, 0 );
-				numberItems.forEach((numberItem, index) => { timeline.to( numberItem, { rotation: () => { const initialNumberAngle = getNumberAngle(index); const finalCircleRotation = -(getNumberGap() * transitions); return -(initialNumberAngle + finalCircleRotation); }, duration: transitions, ease: "none", }, 0 ); });
+			media.add("(max-width: 839px)", () => {
+				gsap.set(section, {backgroundColor: sectionColors[0],});
+				gsap.set(contentTrack, { x: 0,y: 0,clearProps: "transform",});
+				gsap.set(contentPanels, {position: "absolute",inset: 0,y: 100,scale: 0.9,autoAlpha: 0,pointerEvents: "none",transformOrigin: "50% 50%",});
+				gsap.set(contentPanels[0], { y: 0,scale: 1,autoAlpha: 1,pointerEvents: "auto",});
+				gsap.set(visualItems, {y: 80,scale: 0.8,autoAlpha: 0,transformOrigin: "50% 50%",});
+				gsap.set(visualItems[0], {y: 0,scale: 1,autoAlpha: 1,});
+				gsap.set(circleRotator, {rotation: 0,transformOrigin: "50% 50%",});
+				gsap.set(numberItems, { xPercent: -50,yPercent: -50, rotation: (index) => -getNumberAngle(index),transformOrigin: "50% 50%",});
+				gsap.set(activeDotPosition, {rotation: getNumberStartAngle(),transformOrigin: "left center",});
+				gsap.set(activeDot, {scale: 1,transformOrigin: "50% 50%",});
+				const mobileTimeline = gsap.timeline({
+					defaults: {ease: "none",},
+					scrollTrigger: {
+						trigger: section,
+						start: "top top",
+						end: "bottom bottom",
+						scrub: 1,
+						invalidateOnRefresh: true,
+					},
+				});
+				mobileTimeline.to( circleRotator, {rotation: () =>-(getNumberGap() * transitions), duration: transitions,ease: "none",},0);
+				numberItems.forEach((numberItem, numberIndex) => { mobileTimeline.to( numberItem, { rotation: () => { const finalCircleRotation = -(getNumberGap() * transitions); return -( getNumberAngle(numberIndex) + finalCircleRotation);},duration: transitions,ease: "none",},0);});
 
-			for (let index = 1; index < visualItems.length; index++) {
-				const previousVisual = visualItems[index - 1];
-				const nextVisual = visualItems[index];
-				const transitionStart = index - 1;
-				const transitionMiddle = transitionStart + 0.5;
-				// const previousContent = contentPanels[index - 1];
-				const nextContent = contentPanels[index];
-				timeline.to(section, { backgroundColor: sectionColors[index], duration: 0.5, ease: "none", }, transitionMiddle);
-				timeline.to(previousVisual, { autoAlpha: 0, scale: 0.7, y: -60, duration: 0.65, }, transitionStart);
-				timeline.fromTo(nextVisual, { autoAlpha: 0, scale: 0.65, y: 60, }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.65, }, transitionStart + 0.35);
-				timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5, ease: "none", }, transitionStart);
-				timeline.to(activeDot, { scale: 0, duration: 0.5, ease: "none", }, transitionStart);
-				timeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5, }, transitionMiddle);
-				timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5, ease: "none", }, transitionMiddle);
-				timeline.to(activeDot, { scale: 1, duration: 0.5, ease: "none", }, transitionMiddle);
-				timeline.fromTo(nextContent, { scale: 0.7, }, { scale: 1, duration: 1, ease: "none", immediateRender: false, }, transitionStart);
-			}
+				for ( let index = 1; index < contentPanels.length; index++
+				) {
+					const previousContent = contentPanels[index - 1];
+					const nextContent = contentPanels[index];
+					const previousVisual = visualItems[index - 1];
+					const nextVisual = visualItems[index];
+					const transitionStart = index - 1;
+					const transitionMiddle = transitionStart + 0.5;
+					mobileTimeline.to(previousContent,{y: -100,scale: 0.9,autoAlpha: 0,pointerEvents: "none",duration: 0.5,ease: "power2.in",},transitionStart);
+					mobileTimeline.fromTo( nextContent,{y: 100,scale: 0.9,autoAlpha: 0,pointerEvents: "none",},{y: 0,scale: 1,autoAlpha: 1,pointerEvents: "auto",duration: 0.5,ease: "power2.out",immediateRender: false,},transitionMiddle);
+					mobileTimeline.to(previousVisual,{y: -80,scale: 0.8,autoAlpha: 0,duration: 0.45,ease: "power2.in",},transitionStart);
+					mobileTimeline.fromTo(nextVisual,{y: 80,scale: 0.8,autoAlpha: 0,},{y: 0,scale: 1,autoAlpha: 1,duration: 0.55,ease: "power2.out",immediateRender: false,},transitionStart + 0.45);
+					mobileTimeline.to(section,{backgroundColor: sectionColors[index],duration: 0.5,ease: "none",},transitionMiddle );
+					mobileTimeline.to( activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5, ease: "none", }, transitionStart );
+					mobileTimeline.to( activeDot,{ scale: 0, duration: 0.5, ease: "none", }, transitionStart );
+					mobileTimeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5, }, transitionMiddle);
+					mobileTimeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5, ease: "none", }, transitionMiddle);
+					mobileTimeline.to(activeDot, { scale: 1, duration: 0.5, ease: "none", }, transitionMiddle);
+				}
+				return () => { mobileTimeline.scrollTrigger?.kill(); mobileTimeline.kill(); };
+			});
+
+			return () => { media.revert(); };
 		}, sectionRef);
 
 		return () => { context.revert(); };
