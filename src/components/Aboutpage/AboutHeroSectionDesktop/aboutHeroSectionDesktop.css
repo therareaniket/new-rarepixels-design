@@ -145,7 +145,17 @@
 
 @media (max-width: 1359px) {
     .about-hero-section-title h1 { width: 400px; }
-    .about-hero-txt { font-size: 230px; line-height: 230px; }
+    .about-hero-txt { font-size: 230px; line-height: 230px;
+        text-shadow: 
+        -3px -3px 0 #ED0180,  
+        3px -3px 0 #ED0180,
+        -3px  3px 0 #ED0180,
+        3px  3px 0 #ED0180,
+        0px -3px 0 #ED0180,
+        0px  3px 0 #ED0180,
+        -3px  0px 0 #ED0180,
+        3px  0px 0 #ED0180;
+    }
 }
 
 @media (max-width: 1199px) {

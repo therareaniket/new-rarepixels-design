@@ -11,11 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutTimeline () {
 
     useGSAP( () => {
-        if(typeof window !== 'undefined' && window.innerWidth <= 1024 && window.innerHeight > 770) {
-            gsap.set(".year-detail-info-2024 .h4, .year-detail-info-2024 .details-info-text img, .year-detail-info-2024 .details-info-text p", 
-                { scale: 1, opacity: 1, },
-            )
-            }
+        if(typeof window !== 'undefined' && window.innerWidth <= 1024 && window.innerHeight > 770) {}
 
         else if(typeof window !== 'undefined' && window.innerWidth >= 1024) {
             const dotPosition =  window.innerWidth < 768 ? "300px" : window.innerWidth < 840 ? "400px" : window.innerWidth < 1200 ? "450px" : window.innerWidth < 1440 ? "400px" : "500px";
@@ -299,7 +295,7 @@ export default function AboutTimeline () {
 
                                             <h3 className="h4 text-sb text-white">Purposeful Growth</h3>
                     
-                                            <p className="text-18 text-white">From the very beginning, our focus extended beyond aesthetics. Every project was approached with a commitment to understanding business goals, user needs, and long-term growth opportunities. This foundation shaped the way we work today combining creativity with execution to deliver experiences that are both visually compelling and strategically effective.</p>
+                                            <p className="text-18 text-white">Every project brought new challenges, fresh perspectives, and valuable opportunities to grow. As RarePixels expanded its reach, we continued refining our approach and strengthening our expertise across multiple disciplines. The trust placed in us by growing brands allowed us to take on more ambitious projects, and create experiences that combined creativity, strategy, and technology.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -313,7 +309,7 @@ export default function AboutTimeline () {
 
                                             <h3 className="h4 text-sb text-white">Shaping What&apos;s Next</h3>
 
-                                            <p className="text-18 text-white">From the very beginning, our focus extended beyond aesthetics. Every project was approached with a commitment to understanding business goals, user needs, and long-term growth opportunities. This foundation shaped the way we work today combining creativity with execution to deliver experiences that are both visually compelling and strategically effective.</p>
+                                            <p className="text-18 text-white">Today, RarePixels continues to evolve as a creative and technology partner for ambitious brands. We remain focused on helping businesses create meaningful experiences through innovation, collaboration, and purposeful execution. Every project we take on reflects our commitment to quality, creativity, and delivering value that extends far beyond the final deliverable.</p>
                                         </div>
                                     </div>
                                 </div>

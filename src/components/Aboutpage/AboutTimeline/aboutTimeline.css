@@ -64,12 +64,21 @@
 
 @media (max-width: 1024px) {
     .year-timeline-line { display: none; }
-    .timeline-section { height: max-content; }
-    .year-detail-info { width: 85%; position: static; margin: 0 auto; margin-top: 50px; height: 330px; padding: 40px; border-radius: 20px; border: 1px solid rgba(198, 198, 198, 0.2); }
+    /* .timeline-section { height: max-content; } */
+    .year-detail-info { position: static; margin: 0 auto; margin-top: 50px; padding: 40px; border-radius: 20px; border: 1px solid rgba(198, 198, 198, 0.2); }
     .tab-timeline-string-svg svg { margin: 0 auto; }
     .year-description-tablet { height: 100%; }
     .details-info-text { align-items: center; }
     .timeline-subtitles { margin-top: 20px; gap: 10px; }
+
+    .timeline-section { height: 250vh; }
+    .details-info-text { flex-direction: column-reverse; gap: 40px; }
+    .year-detail-info { width: 926px; height: 600px; }
+    .timeline-image { width: 240px; }
+    .details-info-text div { width: 100%; }
+    .year-description-tablet { width: max-content; display: flex; gap: 60px; }
+    .abt-tl-sticky { overflow: hidden; }
+    .details-info-text div h3.h4 { margin-bottom: 10px; }
 }
 
 @media (max-width: 1024px) and (max-height: 770px) {
@@ -77,10 +86,12 @@
     .year-timeline-line { display: block; }
     .timeline-subtitles { width: 70%; margin-top: 26px; gap: 10px; }
     .years-dot { bottom: 2px; }
-    .details-info-text { align-items: start; }
-    .year-description-tablet { height: 320px; }
+    .details-info-text { flex-direction: row; align-items: start; }
+    .year-description-tablet { width: auto; height: 320px; display: block; }
     .year-detail-info { width: 100%; position: absolute; margin: none; padding: 0; margin-top: 50px; height: auto; border-radius: 0px; border: none; }
     .details-info-text div h3:first-child { display: none; }
+
+    .details-info-text div { width: 450px; }
 }
 
 

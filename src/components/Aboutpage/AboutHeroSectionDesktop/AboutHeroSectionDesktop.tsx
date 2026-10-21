@@ -4,7 +4,7 @@ import "./aboutHeroSectionDesktop.css"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +14,9 @@ export default function AboutHeroSectionDesktop() {
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const targetHeight = "15vh";
-    const musicPause = window.innerWidth > 1024 ? "bottom 550px" : "bottom -100px";
+    const [musicPause, setMusicPause] = useState("bottom -100px");
+
+    useEffect(() => { setMusicPause(window.innerWidth > 1024 ? "bottom 550px" : "bottom -100px");}, []);
 
     useGSAP(() => {
         ScrollTrigger.create({
