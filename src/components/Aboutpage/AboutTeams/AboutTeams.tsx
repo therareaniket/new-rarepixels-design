@@ -41,7 +41,8 @@ const AboutTeams = () => {
                                     </div>
 
                                     <div className="abt-author-image relative z-[2]">
-                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-author.webp" alt="" width={417} height={516}></Image>
+                                        <Image src="/abt-teams-img/our-og-mam.png" alt="" width={417} height={516}></Image>
+                                        {/* <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-author.webp" alt="" width={417} height={516}></Image> */}
                                     </div>
                                 </div>
                             </SwiperSlide>
@@ -57,7 +58,8 @@ const AboutTeams = () => {
                                     </div>
 
                                     <div className="abt-author-image relative z-[2]">
-                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/yogesh-sir.webp" alt="" width={417} height={516}></Image>
+                                        <Image src="/abt-teams-img/our-og-sir.png" alt="" width={417} height={516}></Image>
+                                        {/* <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/yogesh-sir.webp" alt="" width={417} height={516}></Image> */}
                                     </div>
                                 </div>
                             </SwiperSlide>

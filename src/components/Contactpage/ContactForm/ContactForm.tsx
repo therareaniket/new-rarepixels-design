@@ -69,7 +69,7 @@ const ContactForm = () => {
                 formData.append('file', attachedFile);
             }
 
-            const res = await fetch('/api/contact', {
+            const res = await fetch('api/contact', {
                 method: 'POST',
                 body: formData,
             });
@@ -85,7 +85,7 @@ const ContactForm = () => {
             } else {
                 setStatusText('Something went wrong. Please try again.');
             }
-        } catch (err) {
+        } catch {
             setStatusText('An error occurred. Please try again.');
         } finally {
             setLoading(false);
@@ -179,7 +179,7 @@ const ContactForm = () => {
                             </div>
                             <input type="file" id="file-upload" className="sr-only" onChange={handleFileChange} />
 
-                            {validationError && (<p className="mb-[20px] text-16 font-medium text-red-600"> ⚠️ {validationError} </p>)}
+                            {validationError && (<p className="mb-[20px] text-16 font-medium text-red-600"> {validationError} </p>)}
 
                             <button
                                 type="submit"

@@ -239,7 +239,7 @@ const ContactHero = () => {
                     <div ref={heroImageRef} className="contact-hero-image w-[560px] h-[485px]">
                         <Image
                             className="w-[100%] h-[100%] object-contain"
-                            src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/hero/contact-hero-svg.svg"
+                            src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/hero/contact-hero-img.png"
                             alt="contact-hero"
                             width={560}
                             height={485}
@@ -249,14 +249,7 @@ const ContactHero = () => {
             </div>
 
             <div className="contact-hero-bg-lines absolute top-[50%] translate-y-[-50%] w-[100%] h-[max-content] z-[-1]">
-                <svg
-                    ref={waveSvgRef}
-                    viewBox="0 0 1920 585"
-                    preserveAspectRatio="xMidYMid meet"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                >
+                <svg ref={waveSvgRef} viewBox="0 0 1920 585" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" >
                     <g opacity="0.1">
                         {WAVE_PATHS.map((path, index) => (
                             <g key={`contact-wave-${index}`}>
@@ -284,15 +277,7 @@ const ContactHero = () => {
                     </g>
                 </svg>
 
-                <svg
-                    ref={mobileWaveSvgRef}
-                    className="cnct-hero-bg-image-for-mobile hidden"
-                    viewBox="0 0 1920 339"
-                    preserveAspectRatio="xMidYMid meet"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                >
+                <svg ref={mobileWaveSvgRef} className="cnct-hero-bg-image-for-mobile hidden" viewBox="0 0 1920 339" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" >
                     <g opacity="0.1">
                         {MOBILE_WAVE_PATHS.map((path, index) => (
                             <g key={`mobile-contact-wave-${index}`}>

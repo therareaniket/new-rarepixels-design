@@ -22,6 +22,7 @@
     .hm-inquiry-detail { margin-top: 50px; }
     .hm-inquiry-text-area { margin-top: 10px; }
     .hm-inquiry-text-area textarea { width: 620px; }
+    .cnct-upload { margin-bottom: 40px; }
 }   
 
 @media (max-width: 1599px) and (max-height: 750px) {}
@@ -42,7 +43,9 @@
 @media (max-width: 1359px) and (max-height: 600px) { }
 
 @media (max-width: 1199px) { 
-    .hm-inquiry-detail { margin-top: 40px; }
+    .hm-inquiry-detail { margin: 40px 0;}
+    .cnct-upload { font-size: 18px; line-height: 26px; margin-bottom: 0; }
+    .cnct-upload-icon { width: 26px; height: 26px; } 
 }
 
 @media (max-width: 1024px) { }
@@ -52,6 +55,8 @@
 @media (max-width: 991px) { 
     .hm-inquiry-detail input { width: 226px; }
     .hm-inquiry-form-title p { width: 100%; }
+    .cnct-upload { gap: 10px; padding: 8px 16px; margin-bottom: 0; }
+    .cnct-upload-icon { width: 18px; height: 18px; }
 }
 
 @media (max-width: 839px) { }
@@ -71,6 +76,7 @@
     .hm-inquiry-text-area textarea { width: 100%; }
     .hm-inquiry-field { margin-bottom: 15px; }
     .cnct-form-checkbox-option label { padding: 6px 12px; }
+    .cnct-upload-icon { width: 20px; height: 20px; }
 }
 
 @media (max-width: 479px) { }
@@ -78,7 +84,6 @@
 @media (max-width: 439px) { 
     .hm-inquiry-field h3 { display: flex; flex-direction: column; gap: 10px; }
     .cnct-form-checkbox { gap: 10px 15px; }
-
 }
 
 @media (max-width: 400px) { }
