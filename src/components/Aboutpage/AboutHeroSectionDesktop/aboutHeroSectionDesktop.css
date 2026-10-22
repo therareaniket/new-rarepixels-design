@@ -186,7 +186,6 @@
 }
 
 @media (max-width: 839px) {
-    .about-hero-section-desktop { height: 320vh; }
     .about-hero-txt { font-size: 140px; line-height: 140px; }
 }
 

@@ -130,6 +130,8 @@
     .details-info-text div { width: 100%; }
     .timeline-image { width: 120px; }
     .year-description-tablet .year-detail-info { margin-top: 20px; }
+    .year-description-tablet .year-detail-info { height: 630px; }
+    .year-description-tablet .year-detail-info-2025, .year-description-tablet .year-detail-info-2026 { top: 40px; }
 }
 
 @media (max-width: 767px) {
@@ -167,6 +169,7 @@
     .bold-subtitle { display: none; }
     .timeline-image-art { width: 160px !important; height: 160px !important; }
     .year-description-tablet { gap: 30px; padding-top: 25px; }
+    .year-description-tablet .year-detail-info-2025, .year-description-tablet .year-detail-info-2026 { top: 25px; }
 }
 
 @media (max-width: 374px) {}

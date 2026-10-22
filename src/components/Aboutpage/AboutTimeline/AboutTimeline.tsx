@@ -393,8 +393,6 @@ export default function AboutTimeline() {
     useGSAP(() => {
         if (typeof window === "undefined") return;
 
-        // These two queries MUST mirror the breakpoints in aboutTimeline.css,
-        // otherwise the layout and the animation can disagree (e.g. 440px–767px).
         const CARD_SLIDER_QUERY = "(max-width: 767px), (min-width: 768px) and (max-width: 1024px) and (min-height: 771px)";
         const DESKTOP_QUERY = "(min-width: 1025px), (min-width: 768px) and (max-width: 1024px) and (max-height: 770px)";
 
@@ -406,10 +404,7 @@ export default function AboutTimeline() {
             const line = ".year-description-tablet .tablet-timeline-progress-line";
 
             // Cards 2025 & 2026 wait off-screen on the LEFT (Industries uses +102 for the right side)
-            gsap.set(cardsAfterFirst, { xPercent: -110 });
-
-            // Progress line: full width, scaled to 0 so it can "draw" from left to right
-            gsap.set(line, { width: "calc(100% - 30px)", scaleX: 0, transformOrigin: "left center" });
+            gsap.set(cardsAfterFirst, { xPercent: -120 });
 
             const tl = gsap.timeline({
                 defaults: { ease: "none" },
@@ -428,10 +423,8 @@ export default function AboutTimeline() {
 
             tl.addLabel("first")
               .to(".year-description-tablet .year-detail-info-2025", { xPercent: 0, duration: 1 })
-              .to(line, { scaleX: 0.5, duration: 1 }, "<")
               .addLabel("second")
               .to(".year-description-tablet .year-detail-info-2026", { xPercent: 0, duration: 1 })
-              .to(line, { scaleX: 1, duration: 1 }, "<")
               .addLabel("third");
         });
 
