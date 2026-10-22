@@ -218,7 +218,7 @@ const FAQ = () => {
                                 <button type="button" className="expand-faq cursor-pointer" onClick={handleToggle}  >
                                     {/* <Image src="/images/faq-down-arrow.svg" alt="faq" width={30} height={52} className={expanded ? 'rotate-180 transition-all' : 'transition-all'} /> */}
                                     <span className="text-18 text-normal text-[#ED0180]">
-                                        {expanded ? "Less FAQs" : "More FAQs"}
+                                        {expanded ? "Less" : "More"}
                                     </span>
                                 </button>
 

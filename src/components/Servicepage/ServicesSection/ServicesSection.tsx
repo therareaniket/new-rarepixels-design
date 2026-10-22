@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ServicesSection = () => {
 	const sectionRef = useRef<HTMLElement | null>(null);
-
+	
 	useLayoutEffect(() => {
 		const context = gsap.context(() => {
 			if (!sectionRef.current) return;
@@ -27,10 +27,23 @@ const ServicesSection = () => {
 			const visualItems = gsap.utils.toArray<HTMLElement>(".services-visuals-items", section);
 			const numberItems = gsap.utils.toArray<HTMLElement>(".services-number", section);
 
-			if (!contentTrack || !contentViewport || !circleRotator || !circleWrapper || !activeDot || !activeDotPosition || contentPanels.length === 0 || visualItems.length === 0 || numberItems.length === 0) { return; }
-			const transitions = contentPanels.length - 1;
+			if (
+				!contentTrack ||
+				!contentViewport ||
+				!circleRotator ||
+				!circleWrapper ||
+				!activeDot ||
+				!activeDotPosition ||
+				contentPanels.length === 0 ||
+				visualItems.length === 0 ||
+				numberItems.length === 0
+			) {
+				return;
+			}
 
-			const sectionColors = ["#D5D8E2", "#FBF9E9", "#FCD4E9", "#F5F8F5",];
+			const transitions = contentPanels.length - 1;
+			const sectionColors = ["#D5D8E2", "#FBF9E9", "#FCD4E9", "#F5F8F5"];
+
 			const getPanelDistance = () => {
 				const trackStyles = window.getComputedStyle(contentTrack);
 				const contentGap = Number.parseFloat(trackStyles.rowGap) || 0;
@@ -39,32 +52,62 @@ const ServicesSection = () => {
 
 			const getNumberGap = () => {
 				const circleStyles = window.getComputedStyle(circleWrapper);
-				return (Number.parseFloat(circleStyles.getPropertyValue("--number-gap").trim()) || 0);
+				return Number.parseFloat(circleStyles.getPropertyValue("--number-gap").trim()) || 0;
 			};
 
 			const getNumberStartAngle = () => {
 				const circleStyles = window.getComputedStyle(circleWrapper);
-				return (Number.parseFloat(circleStyles.getPropertyValue("--number-start-angle").trim()) || 0);
+				return Number.parseFloat(circleStyles.getPropertyValue("--number-start-angle").trim()) || 0;
 			};
 
-			const getNumberAngle = (index: number) => { return (getNumberStartAngle() + getNumberGap() * index); };
+			const getNumberAngle = (index: number) => {
+				return getNumberStartAngle() + getNumberGap() * index;
+			};
+
+			const initSvgPaths = () => {
+				visualItems.forEach((item) => {
+					const paths = item.querySelectorAll<SVGPathElement>("svg path");
+					paths.forEach((path) => {
+						const length = path.getTotalLength() || 2000;
+						gsap.set(path, {
+							strokeDasharray: length,
+							strokeDashoffset: length,
+						});
+					});
+				});
+			};
+
 			const media = gsap.matchMedia();
 
 			media.add("(min-width: 840px)", () => {
-				gsap.set(section, { backgroundColor: sectionColors[0], });
-				gsap.set(contentTrack, { y: 0, });
-				gsap.set(contentPanels, { clearProps: "position,top,left,inset", scale: 0.7, autoAlpha: 1, transformOrigin: "50% 50%", });
-				gsap.set(contentPanels[0], { scale: 1, });
-				gsap.set(circleRotator, { rotation: 0, transformOrigin: "50% 50%", });
-				gsap.set(numberItems, { xPercent: -50, yPercent: -50, rotation: (index) => -getNumberAngle(index), transformOrigin: "50% 50%", });
-				gsap.set(visualItems, { autoAlpha: 0, scale: 0.65, y: 60, transformOrigin: "50% 50%", });
-				gsap.set(visualItems[0], { autoAlpha: 1, scale: 1, y: 0, });
-				gsap.set(activeDotPosition, { rotation: getNumberStartAngle(), transformOrigin: "left center", });
-				gsap.set(activeDot, { scale: 1, transformOrigin: "50% 50%", });
+				initSvgPaths();
+
+				gsap.set(section, { backgroundColor: sectionColors[0] });
+				gsap.set(contentTrack, { y: 0 });
+				gsap.set(contentPanels, {
+					clearProps: "position,top,left,inset",
+					scale: 0.7,
+					autoAlpha: 1,
+					transformOrigin: "50% 50%",
+				});
+				gsap.set(contentPanels[0], { scale: 1 });
+				gsap.set(circleRotator, { rotation: 0, transformOrigin: "50% 50%" });
+				gsap.set(numberItems, {
+					xPercent: -50,
+					yPercent: -50,
+					rotation: (index) => -getNumberAngle(index),
+					transformOrigin: "50% 50%",
+				});
+				gsap.set(visualItems, { autoAlpha: 0, scale: 0.65, y: 60, transformOrigin: "50% 50%" });
+				gsap.set(visualItems[0], { autoAlpha: 1, scale: 1, y: 0 });
+				gsap.set(activeDotPosition, { rotation: getNumberStartAngle(), transformOrigin: "left center" });
+				gsap.set(activeDot, { scale: 1, transformOrigin: "50% 50%" });
+
+				const firstPaths = visualItems[0].querySelectorAll<SVGPathElement>("svg path");
+				gsap.to(firstPaths, { strokeDashoffset: 0, duration: 1, ease: "power2.out" });
 
 				const timeline = gsap.timeline({
-					defaults: { ease: "none", },
-
+					defaults: { ease: "none" },
 					scrollTrigger: {
 						trigger: section,
 						start: "top top",
@@ -74,42 +117,87 @@ const ServicesSection = () => {
 					},
 				});
 
-				timeline.to(contentTrack, { y: () => -(getPanelDistance() * transitions), duration: transitions, }, 0);
-				timeline.to(circleRotator, { rotation: () => -(getNumberGap() * transitions), duration: transitions, }, 0);
-				numberItems.forEach((numberItem, index) => { timeline.to(numberItem, { rotation: () => { const circleRotation = -(getNumberGap() * transitions); return -(getNumberAngle(index) + circleRotation); }, duration: transitions, }, 0); });
+				timeline.to(contentTrack, { y: () => -(getPanelDistance() * transitions), duration: transitions }, 0);
+				timeline.to(circleRotator, { rotation: () => -(getNumberGap() * transitions), duration: transitions }, 0);
+				numberItems.forEach((numberItem, index) => {
+					timeline.to(
+						numberItem,
+						{
+							rotation: () => {
+								const circleRotation = -(getNumberGap() * transitions);
+								return -(getNumberAngle(index) + circleRotation);
+							},
+							duration: transitions,
+						},
+						0
+					);
+				});
 
-				for (let index = 1; index < contentPanels.length; index++
-				) {
+				for (let index = 1; index < contentPanels.length; index++) {
 					const previousVisual = visualItems[index - 1];
 					const nextVisual = visualItems[index];
 					const nextContent = contentPanels[index];
 					const transitionStart = index - 1;
 					const transitionMiddle = transitionStart + 0.5;
-					timeline.to(section, { backgroundColor: sectionColors[index], duration: 0.5, }, transitionMiddle);
-					timeline.to(previousVisual, { autoAlpha: 0, scale: 0.7, y: -60, duration: 0.65, }, transitionStart);
-					timeline.fromTo(nextVisual, { autoAlpha: 0, scale: 0.65, y: 60, }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.65, immediateRender: false, }, transitionStart + 0.35);
-					timeline.fromTo(nextContent, { scale: 0.7, }, { scale: 1, duration: 1, immediateRender: false, }, transitionStart);
-					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5, }, transitionStart);
-					timeline.to(activeDot, { scale: 0, duration: 0.5, }, transitionStart);
-					timeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5, }, transitionMiddle);
-					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5, }, transitionMiddle);
-					timeline.to(activeDot, { scale: 1, duration: 0.5, }, transitionMiddle);
+					const nextPaths = nextVisual.querySelectorAll<SVGPathElement>("svg path");
+
+					timeline.to(section, { backgroundColor: sectionColors[index], duration: 0.5 }, transitionMiddle);
+					timeline.to(previousVisual, { autoAlpha: 0, scale: 0.7, y: -60, duration: 0.65 }, transitionStart);
+
+					timeline.fromTo(
+						nextVisual,
+						{ autoAlpha: 0, scale: 0.65, y: 60 },
+						{ autoAlpha: 1, scale: 1, y: 0, duration: 0.65, immediateRender: false },
+						transitionStart + 0.35
+					);
+
+					timeline.to(
+						nextPaths,
+						{ strokeDashoffset: 0, duration: 0.65, ease: "power2.out" },
+						transitionStart + 0.35
+					);
+
+					timeline.fromTo(nextContent, { scale: 0.7 }, { scale: 1, duration: 1, immediateRender: false }, transitionStart);
+					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5 }, transitionStart);
+					timeline.to(activeDot, { scale: 0, duration: 0.5 }, transitionStart);
+					timeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5 }, transitionMiddle);
+					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5 }, transitionMiddle);
+					timeline.to(activeDot, { scale: 1, duration: 0.5 }, transitionMiddle);
 				}
 			});
 
 			media.add("(max-width: 839px)", () => {
-				gsap.set(section, {backgroundColor: sectionColors[0],});
-				gsap.set(contentTrack, { x: 0,y: 0,clearProps: "transform",});
-				gsap.set(contentPanels, {position: "absolute",inset: 0,y: 100,scale: 0.9,autoAlpha: 0,pointerEvents: "none",transformOrigin: "50% 50%",});
-				gsap.set(contentPanels[0], { y: 0,scale: 1,autoAlpha: 1,pointerEvents: "auto",});
-				gsap.set(visualItems, {y: 80,scale: 0.8,autoAlpha: 0,transformOrigin: "50% 50%",});
-				gsap.set(visualItems[0], {y: 0,scale: 1,autoAlpha: 1,});
-				gsap.set(circleRotator, {rotation: 0,transformOrigin: "50% 50%",});
-				gsap.set(numberItems, { xPercent: -50,yPercent: -50, rotation: (index) => -getNumberAngle(index),transformOrigin: "50% 50%",});
-				gsap.set(activeDotPosition, {rotation: getNumberStartAngle(),transformOrigin: "left center",});
-				gsap.set(activeDot, {scale: 1,transformOrigin: "50% 50%",});
+				initSvgPaths();
+
+				gsap.set(section, { backgroundColor: sectionColors[0] });
+				gsap.set(contentTrack, { x: 0, y: 0, clearProps: "transform" });
+				gsap.set(contentPanels, {
+					position: "absolute",
+					inset: 0,
+					y: 100,
+					scale: 0.9,
+					autoAlpha: 0,
+					pointerEvents: "none",
+					transformOrigin: "50% 50%",
+				});
+				gsap.set(contentPanels[0], { y: 0, scale: 1, autoAlpha: 1, pointerEvents: "auto" });
+				gsap.set(visualItems, { y: 80, scale: 0.8, autoAlpha: 0, transformOrigin: "50% 50%" });
+				gsap.set(visualItems[0], { y: 0, scale: 1, autoAlpha: 1 });
+				gsap.set(circleRotator, { rotation: 0, transformOrigin: "50% 50%" });
+				gsap.set(numberItems, {
+					xPercent: -50,
+					yPercent: -50,
+					rotation: (index) => -getNumberAngle(index),
+					transformOrigin: "50% 50%",
+				});
+				gsap.set(activeDotPosition, { rotation: getNumberStartAngle(), transformOrigin: "left center" });
+				gsap.set(activeDot, { scale: 1, transformOrigin: "50% 50%" });
+
+				const firstPaths = visualItems[0].querySelectorAll<SVGPathElement>("svg path");
+				gsap.to(firstPaths, { strokeDashoffset: 0, duration: 1, ease: "power2.out" });
+
 				const mobileTimeline = gsap.timeline({
-					defaults: {ease: "none",},
+					defaults: { ease: "none" },
 					scrollTrigger: {
 						trigger: section,
 						start: "top top",
@@ -118,35 +206,75 @@ const ServicesSection = () => {
 						invalidateOnRefresh: true,
 					},
 				});
-				mobileTimeline.to( circleRotator, {rotation: () =>-(getNumberGap() * transitions), duration: transitions,ease: "none",},0);
-				numberItems.forEach((numberItem, numberIndex) => { mobileTimeline.to( numberItem, { rotation: () => { const finalCircleRotation = -(getNumberGap() * transitions); return -( getNumberAngle(numberIndex) + finalCircleRotation);},duration: transitions,ease: "none",},0);});
 
-				for ( let index = 1; index < contentPanels.length; index++
-				) {
+				mobileTimeline.to(circleRotator, { rotation: () => -(getNumberGap() * transitions), duration: transitions, ease: "none" }, 0);
+				numberItems.forEach((numberItem, numberIndex) => {
+					mobileTimeline.to(
+						numberItem,
+						{
+							rotation: () => {
+								const finalCircleRotation = -(getNumberGap() * transitions);
+								return -(getNumberAngle(numberIndex) + finalCircleRotation);
+							},
+							duration: transitions,
+							ease: "none",
+						},
+						0
+					);
+				});
+
+				for (let index = 1; index < contentPanels.length; index++) {
 					const previousContent = contentPanels[index - 1];
 					const nextContent = contentPanels[index];
 					const previousVisual = visualItems[index - 1];
 					const nextVisual = visualItems[index];
 					const transitionStart = index - 1;
 					const transitionMiddle = transitionStart + 0.5;
-					mobileTimeline.to(previousContent,{y: -100,scale: 0.9,autoAlpha: 0,pointerEvents: "none",duration: 0.5,ease: "power2.in",},transitionStart);
-					mobileTimeline.fromTo( nextContent,{y: 100,scale: 0.9,autoAlpha: 0,pointerEvents: "none",},{y: 0,scale: 1,autoAlpha: 1,pointerEvents: "auto",duration: 0.5,ease: "power2.out",immediateRender: false,},transitionMiddle);
-					mobileTimeline.to(previousVisual,{y: -80,scale: 0.8,autoAlpha: 0,duration: 0.45,ease: "power2.in",},transitionStart);
-					mobileTimeline.fromTo(nextVisual,{y: 80,scale: 0.8,autoAlpha: 0,},{y: 0,scale: 1,autoAlpha: 1,duration: 0.55,ease: "power2.out",immediateRender: false,},transitionStart + 0.45);
-					mobileTimeline.to(section,{backgroundColor: sectionColors[index],duration: 0.5,ease: "none",},transitionMiddle );
-					mobileTimeline.to( activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5, ease: "none", }, transitionStart );
-					mobileTimeline.to( activeDot,{ scale: 0, duration: 0.5, ease: "none", }, transitionStart );
-					mobileTimeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5, }, transitionMiddle);
-					mobileTimeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5, ease: "none", }, transitionMiddle);
-					mobileTimeline.to(activeDot, { scale: 1, duration: 0.5, ease: "none", }, transitionMiddle);
+					const nextPaths = nextVisual.querySelectorAll<SVGPathElement>("svg path");
+
+					mobileTimeline.to(previousContent, { y: -100, scale: 0.9, autoAlpha: 0, pointerEvents: "none", duration: 0.5, ease: "power2.in" }, transitionStart);
+					mobileTimeline.fromTo(
+						nextContent,
+						{ y: 100, scale: 0.9, autoAlpha: 0, pointerEvents: "none" },
+						{ y: 0, scale: 1, autoAlpha: 1, pointerEvents: "auto", duration: 0.5, ease: "power2.out", immediateRender: false },
+						transitionMiddle
+					);
+					mobileTimeline.to(previousVisual, { y: -80, scale: 0.8, autoAlpha: 0, duration: 0.45, ease: "power2.in" }, transitionStart);
+					mobileTimeline.fromTo(
+						nextVisual,
+						{ y: 80, scale: 0.8, autoAlpha: 0 },
+						{ y: 0, scale: 1, autoAlpha: 1, duration: 0.55, ease: "power2.out", immediateRender: false },
+						transitionStart + 0.45
+					);
+
+					mobileTimeline.to(
+						nextPaths,
+						{ strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
+						transitionStart + 0.45
+					);
+
+					mobileTimeline.to(section, { backgroundColor: sectionColors[index], duration: 0.5, ease: "none" }, transitionMiddle);
+					mobileTimeline.to(activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5, ease: "none" }, transitionStart);
+					mobileTimeline.to(activeDot, { scale: 0, duration: 0.5, ease: "none" }, transitionStart);
+					mobileTimeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5 }, transitionMiddle);
+					mobileTimeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5, ease: "none" }, transitionMiddle);
+					mobileTimeline.to(activeDot, { scale: 1, duration: 0.5, ease: "none" }, transitionMiddle);
 				}
-				return () => { mobileTimeline.scrollTrigger?.kill(); mobileTimeline.kill(); };
+
+				return () => {
+					mobileTimeline.scrollTrigger?.kill();
+					mobileTimeline.kill();
+				};
 			});
 
-			return () => { media.revert(); };
+			return () => {
+				media.revert();
+			};
 		}, sectionRef);
 
-		return () => { context.revert(); };
+		return () => {
+			context.revert();
+		};
 	}, []);
 
 	return (

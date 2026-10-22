@@ -79,6 +79,7 @@
     .active-project-name { display: block; }
     .active-project-chip-wrapper { display: none; }
     .projects-controller button { border-radius: 16px; }
+
 }
 
 @media (max-width: 479px) {}

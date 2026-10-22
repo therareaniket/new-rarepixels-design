@@ -106,16 +106,93 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* services element aniamtion */
+
+/* services ui-ux element */
+
+.services-ui-ux-svg { width: 100%; height: 100%; object-fit: contain; }
+
+.services-ui-ux-svg path {
+    fill: none !important;
+    stroke: rgba(164, 171, 199, 0.5);
+    stroke-width: 0.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 0;
+}
+.serv-uiux:hover .services-ui-ux-svg path { animation: draw-uiux-svg 5s ease forwards; }
+
+@keyframes draw-uiux-svg { from { stroke-dashoffset: 2000; } to { stroke-dashoffset: 0; } }
+
+/* services  web&app development */
+
+.services-development-svg { width: 100%; height: 100%; object-fit: contain; }
+
+.services-development-svg path {
+    fill: none !important;
+    stroke: rgba(239, 231, 168, 0.8);
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 15000;
+    stroke-dashoffset: 0;
+}
+
+.serv-card-dev:hover .services-development-svg path { animation: draw-development-svg 100s linear forwards; }
+
+@keyframes draw-development-svg {
+    from { stroke-dashoffset: 15000; }
+    to { stroke-dashoffset: 0; }
+}
+
+/* services brand identity */
+
+.services-brand-identity-svg { width: 100%; height: 100%; object-fit: contain; }
+
+.services-brand-identity-svg path {
+    fill: transparent !important;
+    stroke: rgba(249, 170, 212, 0.5);
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 0;
+}
+
+.serv-brand-desi:hover .services-brand-identity-svg path { animation: draw-brand-identity-svg 5s ease-in-out forwards, fill-brand-identity-svg 0.6s ease-in-out 5s forwards; }
+
+@keyframes draw-brand-identity-svg { from { stroke-dashoffset: 3000; } to { stroke-dashoffset: 0; } }
+@keyframes fill-brand-identity-svg { from { fill: transparent; } to { fill: rgba(249, 170, 212, 0.5); } }
+
+/* services sm management */
+
+.serv-sm-management { width: 100%; height: 100%; object-fit: contain; }
+
+.serv-sm-management path {
+    fill: transparent !important;
+    stroke: #cfdfcf;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 0;
+}
+
+.serv-sm-manage:hover .serv-sm-management path { animation: draw-sm-management 5s ease-in-out forwards, fill-sm-management 0.6s ease-in-out 5s forwards; }
+
+@keyframes draw-sm-management { from { stroke-dashoffset: 1200; } to { stroke-dashoffset: 0; } }
 
 
 /* responsive */
 @media (max-width: 1799px) { 
     .services-text-wrapper { width: 620px; height: 495px; transform: translateX(10px); }
     .services-element-wrapper { width: 450px; height: 450px; }
+    .services-circle-wrapper { left: -480px; }
 }
 
 @media (max-width: 1599px) { 
-    .services-circle-wrapper { --circle-size: 600px; left: -345px; }
+    .services-circle-wrapper { --circle-size: 600px; left: -395px; }
 
     .services-text-wrapper { width: 560px; height: 470px; transform: translateX(26px); }
     .services-text-wrapper p { width: 100%; }
@@ -146,7 +223,7 @@
     /* .services-circle-wrapper { --number-gap: 30deg; } */
     .services-text-wrapper { width: 610px; transform: translateX(-50px); }
     .services-element-wrapper { width: 360px; height: 360px; right: 0; }
-    .services-circle-wrapper { left: -280px; }
+    .services-circle-wrapper { left: -305px; }
 
 }
 
