@@ -21,7 +21,7 @@ const Industries = () => {
                     trigger: root.current,
                     start: "top top",
                     end: "bottom bottom",
-                    scrub: 1,
+                    scrub: 2,
                     snap: {
                         snapTo: "labelsDirectional", // go to next/prev label based on scroll direction
                         // duration: { min: 0.5, max: 1 },

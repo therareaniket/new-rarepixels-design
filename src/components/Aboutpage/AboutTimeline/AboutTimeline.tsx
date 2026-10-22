@@ -21,41 +21,7 @@ export default function AboutTimeline() {
         const useHorizontalAnimation = isMobile || isTallTablet;
 
         if (useHorizontalAnimation) {
-            const tabletTrack = document.querySelector<HTMLElement>(".year-description-tablet");
-            const contentBoxes = gsap.utils.toArray<HTMLElement>(".year-description-tablet .year-detail-info");
 
-            if (!tabletTrack || contentBoxes.length < 2) { return; }
-
-            const getMoveDistance = () => {
-                const firstCard = contentBoxes[0];
-                const lastCard = contentBoxes[contentBoxes.length - 1];
-
-                return (lastCard.offsetLeft - firstCard.offsetLeft);
-            };
-
-            gsap.fromTo(
-                tabletTrack,
-                { x: 0, },
-                {
-                    x: () => -getMoveDistance(),
-                    ease: "none",
-
-                    scrollTrigger: {
-                        trigger: ".timeline-section",
-                        start: "top top",
-                        end: "bottom bottom",
-                        scrub: 1,
-                        invalidateOnRefresh: true,
-
-                        snap: {
-                            snapTo: 1 / (contentBoxes.length - 1),
-                            duration: { min: 0.3, max: 0.6, },
-                            delay: 0.05,
-                            ease: "power2.inOut",
-                        },
-                    },
-                }
-            );
         } else {
             const dotPosition = screenWidth < 840 ? "400px" : screenWidth < 1200 ? "450px" : screenWidth < 1440 ? "400px" : "500px";
 
