@@ -11,27 +11,33 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutTimeline() {
 
     useGSAP(() => {
-        if ( typeof window !== "undefined" && window.innerWidth <= 1024 && window.innerHeight > 770 ) {
-            const tabletTrack = document.querySelector( ".year-description-tablet" );
-            const contentBoxes = gsap.utils.toArray<HTMLElement>( ".year-description-tablet .year-detail-info" );
+        if (typeof window === "undefined") return;
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
 
-            if (!tabletTrack || contentBoxes.length < 2) return;
+        const isMobile = screenWidth < 768;
+
+        const isTallTablet = screenWidth >= 768 && screenWidth <= 1024 && screenHeight > 770;
+        const useHorizontalAnimation = isMobile || isTallTablet;
+
+        if (useHorizontalAnimation) {
+            const tabletTrack = document.querySelector<HTMLElement>(".year-description-tablet");
+            const contentBoxes = gsap.utils.toArray<HTMLElement>(".year-description-tablet .year-detail-info");
+
+            if (!tabletTrack || contentBoxes.length < 2) { return; }
 
             const getMoveDistance = () => {
                 const firstCard = contentBoxes[0];
                 const lastCard = contentBoxes[contentBoxes.length - 1];
 
-                return lastCard.offsetLeft - firstCard.offsetLeft;
+                return (lastCard.offsetLeft - firstCard.offsetLeft);
             };
 
             gsap.fromTo(
                 tabletTrack,
-                {
-                    x: 0,
-                },
+                { x: 0, },
                 {
                     x: () => -getMoveDistance(),
-
                     ease: "none",
 
                     scrollTrigger: {
@@ -43,28 +49,21 @@ export default function AboutTimeline() {
 
                         snap: {
                             snapTo: 1 / (contentBoxes.length - 1),
-
-                            duration: {
-                                min: 0.3,
-                                max: 0.6,
-                            },
-
+                            duration: { min: 0.3, max: 0.6, },
                             delay: 0.05,
                             ease: "power2.inOut",
                         },
                     },
                 }
             );
-        }
+        } else {
+            const dotPosition = screenWidth < 840 ? "400px" : screenWidth < 1200 ? "450px" : screenWidth < 1440 ? "400px" : "500px";
 
-        else if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
-            const dotPosition = window.innerWidth < 768 ? "300px" : window.innerWidth < 840 ? "400px" : window.innerWidth < 1200 ? "450px" : window.innerWidth < 1440 ? "400px" : "500px";
-            const yearFontSize = window.innerWidth < 576 ? "26px" : "34px"
-            const yearFontSizeActive = window.innerWidth < 576 ? "40px" : "64px"
-
+            const yearFontSize = screenWidth < 576 ? "26px" : "34px";
+            const yearFontSizeActive = screenWidth < 576 ? "40px" : "64px";
             gsap.set(".years-dot", { right: "100%", fontSize: yearFontSize, color: "rgba(253, 253, 253, 0.2)", });
-            gsap.set(".the-dot", { backgroundColor: "#363E5E" });
-            gsap.set(".year-detail-info .h4, .details-info-text img,  .details-info-text p", { opacity: 0, scale: 0.5 });
+            gsap.set(".the-dot", { backgroundColor: "#363E5E", });
+            gsap.set(` .year-description-desktop .year-detail-info .h4, .year-description-desktop .details-info-text img, .year-description-desktop .details-info-text p `, { opacity: 0, scale: 0.5, });
 
             // FOR TIMELINE OF YEAR 2024
             gsap.to(".years-dot-2024",
@@ -262,7 +261,6 @@ export default function AboutTimeline() {
         }
     });
 
-
     return (
         <>
             <section className="timeline-section bg-[#040E36]">
@@ -323,13 +321,15 @@ export default function AboutTimeline() {
                                 </div>
                             </div>
 
-                            <div className="year-description year-description-tablet">
+                            <div className="year-description year-description-tablet relative">
                                 <div className="year-detail-info year-detail-info-2024">
                                     <div className="details-info-text">
-                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-timeline/timeline-2024.svg" alt="timeline-2024" width={200} height={260} className="timeline-image"></Image>
+                                        <div className="timeline-image-art">
+                                            <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-timeline/timeline-2024.svg" alt="timeline-2024" width={200} height={260} className="timeline-image"></Image>
+                                        </div>
 
                                         <div>
-                                            <h3 className="h1 text-white mb-[20px]">2024</h3>
+                                            <h3 className="timeline-year-title h1 text-white mb-[20px]">2024</h3>
 
                                             <h3 className="h4 text-sb text-white">The Launch of RarePixels</h3>
 
@@ -340,10 +340,12 @@ export default function AboutTimeline() {
 
                                 <div className="year-detail-info year-detail-info-2025">
                                     <div className="details-info-text">
-                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-timeline/timeline-2025.svg" alt="timeline-2024" width={200} height={260} className="timeline-image"></Image>
+                                        <div className="timeline-image-art">
+                                            <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-timeline/timeline-2025.svg" alt="timeline-2024" width={200} height={260} className="timeline-image"></Image>
+                                        </div>
 
                                         <div>
-                                            <h3 className="h1 text-white mb-[20px]">2025</h3>
+                                            <h3 className="timeline-year-title h1 text-white mb-[20px]">2025</h3>
 
                                             <h3 className="h4 text-sb text-white">Purposeful Growth</h3>
 
@@ -354,10 +356,12 @@ export default function AboutTimeline() {
 
                                 <div className="year-detail-info year-detail-info-2026">
                                     <div className="details-info-text">
-                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-timeline/timeline-2026.svg" alt="timeline-2024" width={200} height={260} className="timeline-image"></Image>
+                                        <div className="timeline-image-art">
+                                            <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-timeline/timeline-2026.svg" alt="timeline-2024" width={200} height={260} className="timeline-image"></Image>
+                                        </div>
 
                                         <div>
-                                            <h3 className="h1 text-white mb-[20px]">2026</h3>
+                                            <h3 className="timeline-year-title h1 text-white mb-[20px]">2026</h3>
 
                                             <h3 className="h4 text-sb text-white">Shaping What&apos;s Next</h3>
 
@@ -365,6 +369,8 @@ export default function AboutTimeline() {
                                         </div>
                                     </div>
                                 </div>
+
+                                <span className="tablet-timeline-progress-line" aria-hidden="true" />
                             </div>
                         </div>
                     </div>
