@@ -273,6 +273,7 @@
     .services-section-wrapper { padding-bottom: 30px; }
     .services-active-dot { width: 16px; height: 16px; }
     .services-active-dot-inner { width: 8px; height: 8px; }
+    /* .services-circle-section { padding: 0; } */
 
 }
 
