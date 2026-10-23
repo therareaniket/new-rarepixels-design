@@ -60,6 +60,20 @@ const ServicesSection = () => {
 				return Number.parseFloat(circleStyles.getPropertyValue("--number-start-angle").trim()) || 0;
 			};
 
+			const getNumberOffset = (
+				property:
+					| "--active-number-offset"
+					| "--inactive-number-offset"
+			) => {
+				const circleStyles = window.getComputedStyle(circleWrapper);
+
+				return (
+					Number.parseFloat(
+						circleStyles.getPropertyValue(property).trim()
+					) || 0
+				);
+			};
+
 			const getNumberAngle = (index: number) => {
 				return getNumberStartAngle() + getNumberGap() * index;
 			};
@@ -104,7 +118,8 @@ const ServicesSection = () => {
 				gsap.set(contentPanels, { clearProps: "position,top,left,inset", scale: 0.7, autoAlpha: 1, transformOrigin: "50% 50%", });
 				gsap.set(contentPanels[0], { scale: 1 });
 				gsap.set(circleRotator, { rotation: 0, transformOrigin: "50% 50%" });
-				gsap.set(numberItems, { xPercent: -50, yPercent: -50, rotation: (index) => -getNumberAngle(index), transformOrigin: "50% 50%", });
+				gsap.set(numberItems, { xPercent: -50, yPercent: -50, rotation: (index) => -getNumberAngle(index), opacity: 0.5, scale: 0.75, paddingLeft: '25px', "--current-number-offset": () => `${getNumberOffset("--inactive-number-offset")}px`, transformOrigin: "50% 50%", });
+				gsap.set(numberItems[0], { opacity: 1, scale: 1, paddingLeft: '0', "--current-number-offset": () => `${getNumberOffset("--active-number-offset")}px`, });
 				gsap.set(visualItems, { autoAlpha: 0, scale: 0.65, y: 60, transformOrigin: "50% 50%" });
 				gsap.set(visualItems[0], { autoAlpha: 1, scale: 1, y: 0 });
 				restartSvgAnimation(visualItems[0]);
@@ -121,14 +136,14 @@ const ServicesSection = () => {
 						scrub: 1,
 						invalidateOnRefresh: true,
 
-						onRefresh: (self) => { const nextIndex = Math.min( visualItems.length - 1, Math.round(self.progress * transitions) ); activateVisualDrawing(nextIndex); },
-						onUpdate: (self) => { const nextIndex = Math.min( visualItems.length - 1, Math.round(self.progress * transitions) ); activateVisualDrawing(nextIndex); },
+						onRefresh: (self) => { const nextIndex = Math.min(visualItems.length - 1, Math.round(self.progress * transitions)); activateVisualDrawing(nextIndex); },
+						onUpdate: (self) => { const nextIndex = Math.min(visualItems.length - 1, Math.round(self.progress * transitions)); activateVisualDrawing(nextIndex); },
 					},
 				});
 
 				timeline.to(contentTrack, { y: () => -(getPanelDistance() * transitions), duration: transitions }, 0);
 				timeline.to(circleRotator, { rotation: () => -(getNumberGap() * transitions), duration: transitions }, 0);
-				numberItems.forEach((numberItem, index) => { timeline.to( numberItem, { rotation: () => { const circleRotation = -(getNumberGap() * transitions); return -(getNumberAngle(index) + circleRotation); }, duration: transitions, }, 0 ); });
+				numberItems.forEach((numberItem, index) => { timeline.to(numberItem, { rotation: () => { const circleRotation = -(getNumberGap() * transitions); return -(getNumberAngle(index) + circleRotation); }, duration: transitions, }, 0); });
 
 				for (let index = 1; index < contentPanels.length; index++) {
 					const previousVisual = visualItems[index - 1];
@@ -136,16 +151,50 @@ const ServicesSection = () => {
 					const nextContent = contentPanels[index];
 					const transitionStart = index - 1;
 					const transitionMiddle = transitionStart + 0.5;
+					const previousNumber = numberItems[index - 1];
+					const nextNumber = numberItems[index];
 
 					timeline.to(section, { backgroundColor: sectionColors[index], duration: 0.5 }, transitionMiddle);
 					timeline.to(previousVisual, { autoAlpha: 0, scale: 0.7, y: -60, duration: 0.65 }, transitionStart);
-					timeline.fromTo( nextVisual, { autoAlpha: 0, scale: 0.65, y: 60, }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.65, ease: "power2.out", immediateRender: false, }, transitionStart + 0.35 );
+					timeline.fromTo(nextVisual, { autoAlpha: 0, scale: 0.65, y: 60, }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.65, ease: "power2.out", immediateRender: false, }, transitionStart + 0.35);
 					timeline.fromTo(nextContent, { scale: 0.7 }, { scale: 1, duration: 1, immediateRender: false }, transitionStart);
 					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5 }, transitionStart);
 					timeline.to(activeDot, { scale: 0, duration: 0.5 }, transitionStart);
 					timeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5 }, transitionMiddle);
 					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5 }, transitionMiddle);
 					timeline.to(activeDot, { scale: 1, duration: 0.5 }, transitionMiddle);
+					timeline.to(
+						previousNumber,
+						{
+							opacity: 0.5,
+							scale: 0.75,
+							paddingLeft: '25px',
+							"--current-number-offset": () => `${getNumberOffset("--inactive-number-offset")}px`,
+							duration: 0.5,
+							ease: "power2.inOut",
+						},
+						transitionStart
+					);
+
+					timeline.fromTo(
+						nextNumber,
+						{
+							opacity: 0.5,
+							scale: 0.75,
+							paddingLeft: '25px',
+							"--current-number-offset": () => `${getNumberOffset("--inactive-number-offset")}px`,
+						},
+						{
+							opacity: 1,
+							scale: 1,
+							paddingLeft: '0',
+							"--current-number-offset": () => `${getNumberOffset("--active-number-offset")}px`,
+							duration: 0.5,
+							ease: "power2.inOut",
+							immediateRender: false,
+						},
+						transitionStart
+					);
 				}
 			});
 
@@ -157,12 +206,8 @@ const ServicesSection = () => {
 				gsap.set(visualItems, { y: 80, scale: 0.8, autoAlpha: 0, transformOrigin: "50% 50%" });
 				gsap.set(visualItems[0], { y: 0, scale: 1, autoAlpha: 1 });
 				gsap.set(circleRotator, { rotation: 0, transformOrigin: "50% 50%" });
-				gsap.set(numberItems, {
-					xPercent: -50,
-					yPercent: -50,
-					rotation: (index) => -getNumberAngle(index),
-					transformOrigin: "50% 50%",
-				});
+				gsap.set(numberItems, { xPercent: -50, yPercent: -50, rotation: (index) => -getNumberAngle(index), opacity: 0.5, scale: 0.75, transformOrigin: "50% 50%", });
+				gsap.set(numberItems[0], { opacity: 1, scale: 1, });
 				gsap.set(activeDotPosition, { rotation: getNumberStartAngle(), transformOrigin: "left center" });
 				gsap.set(activeDot, { scale: 1, transformOrigin: "50% 50%" });
 
@@ -175,8 +220,8 @@ const ServicesSection = () => {
 						end: "bottom bottom",
 						scrub: 1,
 						invalidateOnRefresh: true,
-						onRefresh: (self) => { const nextIndex = Math.min( visualItems.length - 1, Math.round(self.progress * transitions) ); activateVisualDrawing(nextIndex); },
-						onUpdate: (self) => { const nextIndex = Math.min( visualItems.length - 1, Math.round(self.progress * transitions) ); activateVisualDrawing(nextIndex); },
+						onRefresh: (self) => { const nextIndex = Math.min(visualItems.length - 1, Math.round(self.progress * transitions)); activateVisualDrawing(nextIndex); },
+						onUpdate: (self) => { const nextIndex = Math.min(visualItems.length - 1, Math.round(self.progress * transitions)); activateVisualDrawing(nextIndex); },
 					},
 				});
 
@@ -203,22 +248,21 @@ const ServicesSection = () => {
 					const nextVisual = visualItems[index];
 					const transitionStart = index - 1;
 					const transitionMiddle = transitionStart + 0.5;
+					const previousNumber = numberItems[index - 1];
+					const nextNumber = numberItems[index];
 
 					mobileTimeline.to(previousContent, { y: -100, scale: 0.9, autoAlpha: 0, pointerEvents: "none", duration: 0.5, ease: "power2.in" }, transitionStart);
-					mobileTimeline.fromTo(
-						nextContent,
-						{ y: 100, scale: 0.9, autoAlpha: 0, pointerEvents: "none" },
-						{ y: 0, scale: 1, autoAlpha: 1, pointerEvents: "auto", duration: 0.5, ease: "power2.out", immediateRender: false },
-						transitionMiddle
-					);
+					mobileTimeline.fromTo( nextContent, { y: 100, scale: 0.9, autoAlpha: 0, pointerEvents: "none" }, { y: 0, scale: 1, autoAlpha: 1, pointerEvents: "auto", duration: 0.5, ease: "power2.out", immediateRender: false }, transitionMiddle );
 					mobileTimeline.to(previousVisual, { y: -80, scale: 0.8, autoAlpha: 0, duration: 0.45, ease: "power2.in" }, transitionStart);
-					mobileTimeline.fromTo( nextVisual, { y: 80, scale: 0.8, autoAlpha: 0, }, { y: 0, scale: 1, autoAlpha: 1, duration: 0.55, ease: "power2.out", immediateRender: false, }, transitionStart + 0.45 );
+					mobileTimeline.fromTo(nextVisual, { y: 80, scale: 0.8, autoAlpha: 0, }, { y: 0, scale: 1, autoAlpha: 1, duration: 0.55, ease: "power2.out", immediateRender: false, }, transitionStart + 0.45);
 					mobileTimeline.to(section, { backgroundColor: sectionColors[index], duration: 0.5, ease: "none" }, transitionMiddle);
 					mobileTimeline.to(activeDotPosition, { rotation: () => getNumberStartAngle() - getNumberGap() * 0.5, duration: 0.5, ease: "none" }, transitionStart);
 					mobileTimeline.to(activeDot, { scale: 0, duration: 0.5, ease: "none" }, transitionStart);
 					mobileTimeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5 }, transitionMiddle);
 					mobileTimeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5, ease: "none" }, transitionMiddle);
 					mobileTimeline.to(activeDot, { scale: 1, duration: 0.5, ease: "none" }, transitionMiddle);
+					mobileTimeline.to(previousNumber, { opacity: 0.5, scale: 0.75, duration: 0.5, ease: "power2.inOut", }, transitionStart);
+					mobileTimeline.fromTo(nextNumber, { opacity: 0.5, scale: 0.75, }, { opacity: 1, scale: 1, duration: 0.5, ease: "power2.inOut", immediateRender: false, }, transitionStart);
 				}
 
 				return () => {
@@ -270,8 +314,8 @@ const ServicesSection = () => {
 							</div>
 						</div>
 
-						<div className="services-card-wrapper services-card-desktop">
-							<div className="services-text-wrapper w-[689px] translate-x-[65%]">
+						<div className="services-card-wrapper services-card-desktop w-[689px] translate-x-[65%]">
+							<div className="services-text-wrapper ">
 								<div className="services-desktop-text ">
 									<div className="services-ui-ux-text services-text-pointers">
 										<h2 className="font-semibold ">UI/UX Design Services</h2>

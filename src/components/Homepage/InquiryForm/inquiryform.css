@@ -4,9 +4,9 @@
 .cnct-form-checkbox-option { margin-bottom: 0 !important; }
 .cnct-form-checkbox-option input { position: absolute; width: 1px; height: 1px; opacity: 0; }
 .cnct-form-checkbox-option label { display: inline-flex; align-items: center; padding: 12px 20px; border: 1px solid #B8B8B8; border-radius: 50px; cursor: pointer; transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease; margin-bottom: 0; }
-.cnct-form-checkbox-option label:hover { border-color: #222; }
+.cnct-form-checkbox-option label:hover { border-color: #E8DB7D; }
 .cnct-form-checkbox-option input:focus-visible + label { outline: 2px solid #ED0180; outline-offset: 3px; }
-.cnct-form-checkbox-option input:checked + label { background-color: #222; border-color: #222; color: #fff; }
+.cnct-form-checkbox-option input:checked + label { background-color: #efe7a8; border-color: #efe7a8; color: #000; }
 
 .hm-inquiry-detail input { font-size: 18px; line-height: 18px; margin-bottom: 10px; padding-bottom: 5px; width: 250px; color: #979595; }
 .hm-inquiry-text-area textarea { color: #979595; }
@@ -22,7 +22,9 @@
     .hm-inquiry-detail { margin-top: 50px; }
     .hm-inquiry-text-area { margin-top: 10px; }
     .hm-inquiry-text-area textarea { width: 620px; }
-    .cnct-upload { margin-bottom: 40px; }
+    .cnct-upload { margin-bottom: 0; }
+    .hm-inquiry-detail { margin-bottom: 40px; }
+    .cnct-upload { padding: 8px 16px; }
 }   
 
 @media (max-width: 1599px) and (max-height: 750px) {}
@@ -44,8 +46,7 @@
 
 @media (max-width: 1199px) { 
     .hm-inquiry-detail { margin: 40px 0;}
-    .cnct-upload { font-size: 18px; line-height: 26px; margin-bottom: 0; }
-    .cnct-upload-icon { width: 26px; height: 26px; } 
+
 }
 
 @media (max-width: 1024px) { }
@@ -57,6 +58,7 @@
     .hm-inquiry-form-title p { width: 100%; }
     .cnct-upload { gap: 10px; padding: 8px 16px; margin-bottom: 0; }
     .cnct-upload-icon { width: 18px; height: 18px; }
+    .hm-inquiry-detail { margin-bottom: 30px; }
 }
 
 @media (max-width: 839px) { }
@@ -77,6 +79,8 @@
     .hm-inquiry-field { margin-bottom: 15px; }
     .cnct-form-checkbox-option label { padding: 6px 12px; }
     .cnct-upload-icon { width: 20px; height: 20px; }
+    .cnct-upload { padding: 6px 12px; }
+    .hm-inquiry-tablet { margin-top: 0; }
 }
 
 @media (max-width: 479px) { }
