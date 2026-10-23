@@ -94,6 +94,9 @@
     .year-description-tablet .year-detail-info { position: relative; z-index: 1; }
     .year-description-tablet .timeline-year-title { position: relative; background-color: #040E36; }
     .year-description-tablet .year-detail-info-2025, .year-description-tablet .year-detail-info-2026 { background-color: #040E36; position: absolute; top: 0px; left: 0; margin-top: 0; }
+
+    .details-info-text .h1 { width: 100%;  }
+    .timeline-line-tab { display: block; position: absolute; top: 50%; z-index: 1; width: 100%; height: 2px; background-color: #ED0180;  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (max-height: 770px) {

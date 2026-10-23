@@ -402,10 +402,10 @@ export default function AboutTimeline() {
         // ─────────────── MOBILE + TABLET (card slider, left → right) ───────────────
         mm.add(CARD_SLIDER_QUERY, () => {
             const cardsAfterFirst = ".year-description-tablet .year-detail-info-2025, .year-description-tablet .year-detail-info-2026";
-            const line = ".year-description-tablet .tablet-timeline-progress-line";
 
             // Cards 2025 & 2026 wait off-screen on the LEFT (Industries uses +102 for the right side)
             gsap.set(cardsAfterFirst, { xPercent: -120 });
+            // gsap.set(".timeline-year-title span:first-child", { left: "0%", })
 
             const tl = gsap.timeline({
                 defaults: { ease: "none" },
@@ -707,7 +707,10 @@ export default function AboutTimeline() {
                                         </div>
 
                                         <div>
-                                            <h3 className="timeline-year-title h1 text-white mb-[20px]">2024</h3>
+                                            <h3 className="timeline-year-title timeline-year-title-2024 h1 text-white mb-[20px] relative">
+                                                <span className="relative z-2 bg-[#040E36] pr-[10px]">2024</span>
+                                                <span className="timeline-line-tab timeline-line-tab-2024"></span>
+                                            </h3>
 
                                             <h3 className="h4 text-sb text-white">The Launch of RarePixels</h3>
 
@@ -723,7 +726,10 @@ export default function AboutTimeline() {
                                         </div>
 
                                         <div>
-                                            <h3 className="timeline-year-title h1 text-white mb-[20px]">2025</h3>
+                                            <h3 className="timeline-year-title timeline-year-title-2025 h1 text-white mb-[20px] relative">
+                                                <span className="relative z-2 bg-[#040E36] pr-[10px]">2025</span>
+                                                <span className="timeline-line-tab timeline-line-tab-2025"></span>
+                                            </h3>
 
                                             <h3 className="h4 text-sb text-white">Purposeful Growth</h3>
 
@@ -739,7 +745,10 @@ export default function AboutTimeline() {
                                         </div>
 
                                         <div>
-                                            <h3 className="timeline-year-title h1 text-white mb-[20px]">2026</h3>
+                                            <h3 className="timeline-year-title timeline-year-title-2026 h1 text-white mb-[20px] relative">
+                                                <span className="relative z-2 bg-[#040E36] pr-[10px]">2026</span>
+                                                <span className="timeline-line-tab timeline-line-tab-2026"></span>
+                                            </h3>
 
                                             <h3 className="h4 text-sb text-white">Shaping What&apos;s Next</h3>
 
@@ -747,8 +756,6 @@ export default function AboutTimeline() {
                                         </div>
                                     </div>
                                 </div>
-
-                                <span className="tablet-timeline-progress-line" aria-hidden="true" />
                             </div>
                         </div>
                     </div>
