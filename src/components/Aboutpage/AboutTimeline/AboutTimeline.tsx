@@ -392,6 +392,7 @@ export default function AboutTimeline() {
 
     useGSAP(() => {
         if (typeof window === "undefined") return;
+        window.scrollTo(0, 0);
 
         const CARD_SLIDER_QUERY = "(max-width: 767px), (min-width: 768px) and (max-width: 1024px) and (min-height: 771px)";
         const DESKTOP_QUERY = "(min-width: 1025px), (min-width: 768px) and (max-width: 1024px) and (max-height: 770px)";
@@ -634,7 +635,8 @@ export default function AboutTimeline() {
             )
         });
 
-        return () => mm.revert();
+        const timer = setTimeout(() => { ScrollTrigger.refresh(); }, 100);
+        return () => { clearTimeout(timer); mm.revert(); }
     });
 
     return (

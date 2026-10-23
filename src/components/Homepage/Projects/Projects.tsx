@@ -120,11 +120,19 @@ export default function Projects() {
 				</div>
 
 				<div className="active-project-title-controller w-[1000px] mt-[30px] flex items-center justify-between">
-					<div className="active-project-name">
+					{/* <div className="active-project-name">
 						<span className="h5 font-medium text-black">
 							{PROJECT_DATA[settledIndex].serviceProvided}
 						</span>
-					</div>
+					</div> */}
+
+                    <div className="active-project-name flex flex-wrap gap-2">
+                        {PROJECT_DATA[settledIndex].servicesChip.split(",").map((chip, i) => (
+                            <span key={i} className="inline-block bg-[#ED0180] text-white font-semibold px-[14px] py-[6px] rounded-[18px] text-18">
+                                {chip.trim()}
+                            </span>
+                        ))}
+                    </div>
 
 					<div className="projects-controller w-max p-[2px] bg-[#EDEDED] flex items-center rounded-full " style={{ display: "flex" }}>
 						<button className="hover:cursor-pointer hover:bg-white px-[14px] py-[6px] transform scale-x-[-1] rounded-full leading-1 transition-all" 
@@ -178,10 +186,9 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(({ project, ind
     const handleClick = () => { onSetActive(index); };
 
     return (
-        <div ref={ref} onClick={handleClick} 
-            className={`project-list w-[1000px] h-[550px] rounded-[20px] relative overflow-hidden flex-shrink-0 cursor-pointer ${ isActive ? "active" : "" }`}>
+        <div ref={ref} onClick={handleClick} className={`project-list w-[1000px] h-[550px] rounded-[20px] relative overflow-hidden flex-shrink-0 ${ isActive ? "active" : "" }`}>
 			<video ref={videoRef} className="project-video w-full h-full object-cover" src={project.videoSrc} poster={project.thumbNail} loop muted playsInline />
-            {/* {isActive && ( */}
+            
             <div className={`absolute left-[20px] bottom-[20px] flex flex-wrap gap-2 z-10 active-project-chip-wrapper transition-all duration-500 ease-in-out ${ isActive  ? "opacity-100 translate-y-0 pointer-events-auto"  : "opacity-0 translate-y-2 pointer-events-none"}`}>
                 {project.servicesChip.split(",").map((chip, i) => (
                     <span  key={i}  className="bg-[#ED0180] text-white font-semibold px-[14px] py-[6px] rounded-[18px] text-18">
@@ -189,7 +196,6 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(({ project, ind
                     </span>
                 ))}
             </div>
-            {/* )} */}
         </div>
     );
 });

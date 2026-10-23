@@ -140,7 +140,6 @@
     .year-description-tablet .year-detail-info { padding: 30px; height: 555px; }
 }
 
-
 @media (max-width: 639px) {
     .year-description-tablet .year-detail-info { margin-top: 0; height: 510px; }
     .timeline-image-art { width: 200px !important; height: 200px; }

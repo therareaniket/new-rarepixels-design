@@ -39,9 +39,9 @@
     .stats-card h3 { font-size: 52px; line-height: 52px; }
     .stats-subtitle { height: 40px; }
 
-    .stats-card-2, .stats-card-3, .stats-card-4, .stats-card-7 { width: 295px; height: 350px; }
+    .stats-card-2, .stats-card-3, .stats-card-4, .stats-card-7 { width: 290px; height: 350px; }
     .stats-card-1, .stats-card-5 { width: 280px; height: 350px; }
-    .stats-card-6 { width: 590px; height: 350px; }
+    .stats-card-6 { width: calc(290px * 2); height: 350px; }
     .stats-card-2 .stast-card-image, .stats-card-3 .stast-card-image, .stats-card-4 .stast-card-image, .stats-card-7 .stast-card-image { height: 140px; }
     .stats-card-6 .stast-card-image { height: 235px; }
 }
