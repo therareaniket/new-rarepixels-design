@@ -106,89 +106,56 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* services element aniamtion */
+/* Initial hidden path */
 
-/* services ui-ux element */
-
-.services-ui-ux-svg { width: 100%; height: 100%; object-fit: contain; }
-
-.services-ui-ux-svg path {
-    fill: none !important;
-    stroke: rgba(164, 171, 199, 0.5);
-    stroke-width: 0.8;
+.services-visuals-items svg { display: block; width: 80%; height: 80%; object-fit: contain; overflow: visible; }
+.services-visuals-items svg path {
+    fill: transparent;
+    stroke: var(--svg-path-color);
+    stroke-width: var(--svg-stroke-width, 1px);
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 0;
+    stroke-dasharray: var(--svg-dash-length);
+    stroke-dashoffset: var(--svg-dash-length);
+    will-change: stroke-dashoffset, fill;
 }
-.serv-uiux:hover .services-ui-ux-svg path { animation: draw-uiux-svg 5s ease forwards; }
-
-@keyframes draw-uiux-svg { from { stroke-dashoffset: 2000; } to { stroke-dashoffset: 0; } }
-
-/* services  web&app development */
-
-.services-development-svg { width: 100%; height: 100%; object-fit: contain; }
-
-.services-development-svg path {
-    fill: none !important;
-    stroke: rgba(239, 231, 168, 0.8);
-    stroke-width: 1px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 15000;
-    stroke-dashoffset: 0;
+.services-ui-ux { --svg-path-color: rgba(164, 171, 199, 0.5); --svg-dash-length: 2000; --svg-draw-duration: 8s; --svg-stroke-width: 0.8px; }
+.services-web-development { --svg-path-color: rgba(239, 231, 168, 0.8); --svg-fill-color: rgba(239, 231, 168, 0.8); --svg-dash-length: 15000; --svg-draw-duration: 50s; --svg-stroke-width: 1px; }
+.services-brand-identity { --svg-path-color: rgba(249, 170, 212, 0.5); --svg-fill-color: rgba(249, 170, 212, 0.5); --svg-dash-length: 3000; --svg-draw-duration: 7s; --svg-stroke-width: 1px; }
+.services-social-media { --svg-path-color: #cfdfcf; --svg-fill-color: #cfdfcf; --svg-dash-length: 1200; --svg-draw-duration: 6s; --svg-stroke-width: 1px; }
+.services-visuals-items.is-drawing svg path {
+    animation-name: services-draw-path;
+    animation-duration: var(--svg-draw-duration);
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 }
 
-.serv-card-dev:hover .services-development-svg path { animation: draw-development-svg 100s linear forwards; }
 
-@keyframes draw-development-svg {
-    from { stroke-dashoffset: 15000; }
+.services-brand-identity.is-drawing svg path,
+.services-social-media.is-drawing svg path {
+    animation-name: services-draw-path, services-fill-path;
+    animation-duration: var(--svg-draw-duration), 0.6s;
+    animation-delay: 0s, var(--svg-draw-duration);
+    animation-timing-function: ease-in-out, ease-in-out;
+    animation-fill-mode: forwards, forwards;
+}
+
+@keyframes services-draw-path {
+    from { stroke-dashoffset: var(--svg-dash-length); }
     to { stroke-dashoffset: 0; }
 }
 
-/* services brand identity */
-
-.services-brand-identity-svg { width: 100%; height: 100%; object-fit: contain; }
-
-.services-brand-identity-svg path {
-    fill: transparent !important;
-    stroke: rgba(249, 170, 212, 0.5);
-    stroke-width: 1px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 3000;
-    stroke-dashoffset: 0;
+@keyframes services-fill-path {
+    from { fill: transparent; }
+    to { fill: var(--svg-fill-color); }
 }
-
-.serv-brand-desi:hover .services-brand-identity-svg path { animation: draw-brand-identity-svg 5s ease-in-out forwards, fill-brand-identity-svg 0.6s ease-in-out 5s forwards; }
-
-@keyframes draw-brand-identity-svg { from { stroke-dashoffset: 3000; } to { stroke-dashoffset: 0; } }
-@keyframes fill-brand-identity-svg { from { fill: transparent; } to { fill: rgba(249, 170, 212, 0.5); } }
-
-/* services sm management */
-
-.serv-sm-management { width: 100%; height: 100%; object-fit: contain; }
-
-.serv-sm-management path {
-    fill: transparent !important;
-    stroke: #cfdfcf;
-    stroke-width: 1px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 1200;
-    stroke-dashoffset: 0;
-}
-
-.serv-sm-manage:hover .serv-sm-management path { animation: draw-sm-management 5s ease-in-out forwards, fill-sm-management 0.6s ease-in-out 5s forwards; }
-
-@keyframes draw-sm-management { from { stroke-dashoffset: 1200; } to { stroke-dashoffset: 0; } }
 
 
 /* responsive */
 @media (max-width: 1799px) { 
     .services-text-wrapper { width: 620px; height: 495px; transform: translateX(10px); }
     .services-element-wrapper { width: 450px; height: 450px; }
-    .services-circle-wrapper { left: -480px; }
+    .services-circle-wrapper { left: -395px; --circle-size: 650px }
 }
 
 @media (max-width: 1599px) { 
@@ -239,41 +206,52 @@
     .services-element-wrapper { width: 280px; height: 280px; }
 }
 
-@media (max-width: 1024px) { 
-    .services-card-wrapper { display: flex; flex-direction: column;  }
-    .services-text-wrapper { transform: translate(0); width: 560px; }
+@media (max-width: 839px), (min-width: 840px) and (max-width: 1024px) and (min-height: 771px) {
+    .services-circle-wrapper {
+        --circle-size: 700px;
+        --number-start-angle: 90deg;
+        --number-gap: -30deg;
+        --number-distance: calc((var(--circle-size) / 2) + 40px);
+        left: 50%;
+        top: -500px;
+        transform: translateX(-50%);
+    }
 
-    .services-card-desktop { flex-direction: column-reverse; gap: 70px; }
-    
-    .services-section-wrapper { justify-content: end; }
-    .services-circle-wrapper { --circle-size: 514px; left: -250px; }
-
-    .translate-x-\[65\%\] { --tw-translate-x: 0; }
-    .translate-y-\[-50\%\] { --tw-translate-y : 0; }
-    .services-element-wrapper { position: static; transform: none; width: 100%; height: 360px; }
+    .services-active-dot-position { top: 50%; left: 50%; transform-origin: left center; }
+    .services-section-wrapper { flex-direction: column-reverse; justify-content: center; padding-top: 230px; }
+    .services-card-wrapper { width: 100%; }
+    .services-text-wrapper { position: relative; width: 90%; height: 405px; transform: translateX(0); }
+    .translate-x-\[65\%\] { --tw-translate-x : 0 }
+    .translate-y-\[-50\%\] { --tw-translate-y: 0 }
+    .services-desktop-text { position: relative; width: 100%; height: 100%; display: block; transform: none; }
+    .services-text-pointers {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        visibility: visible;
+        pointer-events: none;
+        will-change: transform, opacity;
+    }
+    .services-element-wrapper { position: relative; width: 350px; height: 350px; top: 0; }
+    .services-visual-wrapper { position: relative; width: 100%; height: 100%; transform: none; }
+    .services-visuals-items { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; will-change: transform, opacity; }
+    .services-card-desktop { align-items: center; gap: 30px; }
 
 }
 
-@media (max-width: 1024px) and (max-height: 770px) { 
-    .services-text-wrapper { width: 526px; height: 405px; transform: translateX(-35px); }
-    .services-element-wrapper { position: absolute; width: 320px; height: 320px; top: 50%;  transform: translateY(-50%); z-index: -1; }
+@media (min-width: 840px) and (max-width: 1024px) and (max-height: 770px) {
+    .services-text-wrapper { width: 570px; height: 405px; transform: translateX(-35px); }
+    .services-element-wrapper { position: absolute; width: 320px; height: 320px; top: 70%;  transform: translateY(-50%); z-index: -1; }
 
-    .services-circle-wrapper { --circle-size: 473px; left: -229px; }
+    .services-circle-wrapper { --circle-size: 433px; left: -234px; }
 }
 
-@media (max-width: 991px) { 
-    .services-card-wrapper { display: flex; flex-direction: column;  }
-    .services-text-wrapper { transform: translate(0); width: 535px; height: 405px; }
-
-    .services-card-desktop { flex-direction: column-reverse; gap: 70px; }
-    
-    .services-section-wrapper { justify-content: end; }
-    .services-circle-wrapper { --circle-size: 984px; left: -917px; }
-
-    .translate-x-\[65\%\] { --tw-translate-x: 0; }
-    .translate-y-\[-50\%\] { --tw-translate-y : 0; }
-    .services-element-wrapper { position: static; transform: none; width: 100%; height: 360px; }
-}
+@media (max-width: 991px) { }
 
 @media (max-width: 839px) {
     .services-circle-wrapper {
