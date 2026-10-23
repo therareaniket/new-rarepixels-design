@@ -24,7 +24,6 @@
     .hm-inquiry-text-area textarea { width: 620px; }
     .cnct-upload { margin-bottom: 0; }
     .hm-inquiry-detail { margin-bottom: 40px; }
-    .cnct-upload { padding: 8px 16px; }
 }   
 
 @media (max-width: 1599px) and (max-height: 750px) {}
@@ -35,6 +34,7 @@
     .cnct-form-checkbox-option label { padding: 8px 16px; }
 
     .cnct-form-checkbox { gap: 15px; }
+    .cnct-upload { padding: 8px 16px; }
 }
 
 @media (max-width: 1359px) { 
