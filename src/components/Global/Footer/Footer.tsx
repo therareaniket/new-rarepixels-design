@@ -154,7 +154,7 @@ export default function Footer() {
 
                                         <li className="text-18 text-rg text-[#C6C6C6]"><Link href="/Services" title="services" style={linkStyle('/Services')}>Services</Link> </li>
                                         <li className="text-18 text-rg text-[#C6C6C6]"><Link href="#" title="life at rpd">Life at RPD</Link> </li>
-                                        <li className="text-18 text-rg text-[#C6C6C6]"><Link href="#" title="articles">Articles</Link> </li>
+                                        <li className="text-18 text-rg text-[#C6C6C6]"><Link href="/Blog" title="articles" style={linkStyle('/About')}>Articles</Link> </li>
                                         <li className="text-18 text-rg text-[#C6C6C6]"><Link href="/Contact" title="contact" style={linkStyle('/Contact')}>Contact</Link> </li>
                                     </ul>
                                 </div>
