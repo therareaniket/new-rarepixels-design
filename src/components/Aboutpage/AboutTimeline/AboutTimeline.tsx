@@ -432,11 +432,11 @@ export default function AboutTimeline() {
 
             tl.addLabel("first")
                 .to(card2025, { xPercent: 0, duration: 1, })
-                .to( year2024, { x: () => getYearEndPosition(year2024), duration: 1, }, "<" )
+                .to( year2024, { x: () => getYearEndPosition(year2024), duration: 0.8, }, "<" )
                 .addLabel("second")
 
                 .to(card2026, { xPercent: 0, duration: 1, })
-                .to( year2025, { x: () => getYearEndPosition(year2025), duration: 1, }, "<" )
+                .to( year2025, { x: () => getYearEndPosition(year2025), duration: 0.8, }, "<" )
 
                 .addLabel("third");
 

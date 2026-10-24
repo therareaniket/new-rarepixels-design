@@ -30,6 +30,7 @@
 .section { padding: 150px 0; }
 .container { max-width: calc(1600px + 40px); margin: 0 auto; padding: 0 20px; }
 .container-sm { max-width: 1476px; margin: 0 auto; padding: 0 18px; }
+.blog-container-sm { max-width: calc(1000px + 36px); margin: 0 auto; padding: 0 18px; }
 ::selection { background-color: var(--primary); color: var(--white); }
 
 .faq-accordion-wrapper { cursor: pointer; }
