@@ -48,7 +48,7 @@ const Blog = () => {
                         </div>
 
                         <p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                            <Link href="#">Read More</Link>
+                            <Link href="/Blogdetail">Read More</Link>
                         </p>
                     </div>
 
@@ -129,7 +129,7 @@ const Blog = () => {
                                             </div>
 
                                             <p className='text-18 font-normal mt-[30px] blog-redirect'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                                                <Link href="#">Read More</Link>
+                                                <Link href="/Blogdetail">Read More</Link>
                                             </p>
                                         </div>
                                     </div>

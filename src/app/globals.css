@@ -72,6 +72,7 @@
 	.container { max-width: calc(1360px + 36px); }
 	.section   { padding: 100px 0px; }
 	.container-sm { max-width: calc(1224px + 36px);  }
+	.blog-container-sm { max-width: calc(944px + 36px); }
 
 	h1, .h1{ font-size: 56px; line-height: 64px; }
 	h2, .h2{ font-size: 44px; line-height: 50px; }
@@ -90,6 +91,7 @@
     .container { max-width: calc(1248px + 36px); }   
 	.section   { padding: 90px 0px; }
 	.container-sm { max-width: calc(1123px + 36px); }
+	.blog-container-sm { max-width: calc(864px + 36px); }
 
 	h1, .h1 { font-size: 52px; line-height: 60px; }
 	h2, .h2 { font-size: 42px; line-height: 50px; }
@@ -111,6 +113,7 @@
 @media (max-width: 1439px) {
 	.container { max-width: calc(1156px + 36px); }   
 	.container-sm { max-width: calc(950px + 36px); }
+	.blog-container-sm { max-width: calc(774px + 36px); }
 
 	h1, .h1 { font-size: 46px; line-height: 54px; }
 	h2, .h2 { font-size: 36px; line-height: 44px; }
@@ -129,6 +132,7 @@
 	/* .container { max-width: calc(1100px + 36px); }    */
 	.section   { padding: 80px 0px; }
 	.container-sm { max-width: calc(864px + 36px); }
+	.blog-container-sm { max-width: calc(684px + 36px); }
 
 	h1, .h1 { font-size: 40px; line-height: 48px; }
 	h2, .h2 { font-size: 32px; line-height: 40px; }
@@ -172,6 +176,7 @@
 @media (max-width: 991px) {
     .container { max-width: calc(704px + 36px); }   .section   { padding: 80px 0px; }
     .container-sm { max-width: calc(640px + 36px); }
+	.blog-container-sm { max-width: calc(634px + 36px); }
 
 	h1, .h1 { font-size: 40px; line-height: 48px; }
 	h2, .h2 { font-size: 32px; line-height: 40px; }
@@ -196,6 +201,7 @@
 @media (max-width: 767px) {
     .container { max-width: calc(608px + 36px); }   .section   { padding: 60px 0px; }
     .container-sm { width: 100%; }
+	.blog-container-sm { max-width: 100%; }
 }
 
 @media (max-width: 639px) {
@@ -248,6 +254,7 @@
 }
 
 @media (max-width: 400px) {
+	.text-20 { font-size: 16px; line-height: 22px; }
     .container { width: 100%; max-width: 100%; }  .section { padding: 40px 0px; }
 
 	.website-link.text-20 { font-size: 16px; line-height: 20px; padding: 8px 18px; }
