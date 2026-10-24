@@ -101,7 +101,7 @@ const ServiceHero = () => {
                     </div>
 
                     <div className="services-hero-right w-[744px]">
-                        <h1 className='text-[black]'>We Build <span className='text-[#ED0180]'>Experiences</span>  That Businesses Choose First Worldwide</h1>
+                        <h1 className='text-[black]'>   <span className='text-[#ED0180]'>Experiences</span>  That Businesses Choose First Worldwide</h1>
 
                         <p className='text-18 font-normal text-[black] mt-[108px] services-hero-subtitile'>It has stood the test of time and proceeds Elevate your brand with RarePixels Design everything from strategy to advertising & scale.</p>
 

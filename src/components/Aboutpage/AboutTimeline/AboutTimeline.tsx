@@ -399,34 +399,51 @@ export default function AboutTimeline() {
 
         const mm = gsap.matchMedia();
 
-        // ─────────────── MOBILE + TABLET (card slider, left → right) ───────────────
         mm.add(CARD_SLIDER_QUERY, () => {
-            const cardsAfterFirst = ".year-description-tablet .year-detail-info-2025, .year-description-tablet .year-detail-info-2026";
+            const card2025 = document.querySelector<HTMLElement>(".year-description-tablet .year-detail-info-2025" );
+            const card2026 = document.querySelector<HTMLElement>( ".year-description-tablet .year-detail-info-2026" );
+            const year2024 = document.querySelector<HTMLElement>( ".year-description-tablet .timeline-year-title-2024 > span:first-child" );
+            const year2025 = document.querySelector<HTMLElement>( ".year-description-tablet .timeline-year-title-2025 > span:first-child" );
+            const year2026 = document.querySelector<HTMLElement>( ".year-description-tablet .timeline-year-title-2026 > span:first-child" );
+            if ( !card2025 || !card2026 || !year2024 || !year2025 || !year2026 ) {
+                return;
+            }
+            gsap.set([card2025, card2026], { xPercent: -120, });
+            gsap.set([year2024, year2025, year2026], { x: 0, });
 
-            // Cards 2025 & 2026 wait off-screen on the LEFT (Industries uses +102 for the right side)
-            gsap.set(cardsAfterFirst, { xPercent: -120 });
-            // gsap.set(".timeline-year-title span:first-child", { left: "0%", })
+            const getYearEndPosition = (year: HTMLElement) => {
+                const title = year.parentElement;
+                if (!title) return 0;
+                return Math.max( 0, title.clientWidth - year.offsetWidth );
+            };
 
             const tl = gsap.timeline({
-                defaults: { ease: "none" },
+                defaults: { ease: "none", },
+
                 scrollTrigger: {
                     trigger: ".timeline-section",
                     start: "top top",
                     end: "bottom bottom",
                     scrub: 2,
-                    snap: {
-                        snapTo: "labelsDirectional", // snap to next/prev card based on scroll direction
-                        duration: 0.8,
-                        delay: 0,
-                    },
+                    invalidateOnRefresh: true,
+                    snap: { snapTo: "labelsDirectional", duration: 0.8, delay: 0, },
                 },
             });
 
             tl.addLabel("first")
-              .to(".year-description-tablet .year-detail-info-2025", { xPercent: 0, duration: 1 })
-              .addLabel("second")
-              .to(".year-description-tablet .year-detail-info-2026", { xPercent: 0, duration: 1 })
-              .addLabel("third");
+                .to(card2025, { xPercent: 0, duration: 1, })
+                .to( year2024, { x: () => getYearEndPosition(year2024), duration: 1, }, "<" )
+                .addLabel("second")
+
+                .to(card2026, { xPercent: 0, duration: 1, })
+                .to( year2025, { x: () => getYearEndPosition(year2025), duration: 1, }, "<" )
+
+                .addLabel("third");
+
+            return () => {
+                tl.scrollTrigger?.kill();
+                tl.kill();
+            };
         });
 
         // ─────────────── DESKTOP (unchanged logic) ───────────────
