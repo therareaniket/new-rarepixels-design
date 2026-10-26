@@ -129,7 +129,7 @@ const Blog = () => {
                                             </div>
 
                                             <p className='text-18 font-normal mt-[30px] blog-redirect'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                                                <Link href="/Blogdetail" title='Go to the Articles'>Read More</Link>
+                                                <Link href="/Blogdetail" title='Go to the Article' aria-label="Read more about two years of agency milestones">Read More</Link>
                                             </p>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@ const Blog = () => {
                                             </div>
 
                                             <p className='text-18 font-normal mt-[30px] blog-redirect'>A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
-                                                <Link href="#">Read More</Link>
+                                                <Link href="/Blogdetail" title='Go to the Article' aria-label="Read more about user experience vs visually attractive interfaces">Read More</Link>
                                             </p>
                                         </div>
                                     </div>
