@@ -145,9 +145,7 @@ const InquiryForm = () => {
                     </div>
 
                     <div className="flex items-center gap-[15px] mb-[40px]">
-                        <label
-                            htmlFor="file-upload"
-                            role="button"
+                        <label htmlFor="file-upload"
                             className="custom-button py-[12px] px-[20px] rounded-[50px] border border-[#8C8C8C] text-18 font-normal w-[max-content] flex items-center gap-[10px] cnct-upload cursor-pointer"
                             onClick={(e) => { e.preventDefault(); const fileInput = document.getElementById('file-upload') as HTMLInputElement | null; fileInput?.click(); }}
                         >
