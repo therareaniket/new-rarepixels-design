@@ -1,0 +1,6 @@
+/* custom */
+
+.bloglisting-title-wrapper { margin: 0 auto; text-align: center; }
+.bloglisting-tab-wrapper { margin: 0 auto; gap: 12px; }
+
+.data-active\:text-foreground[data-active] { background-color: #ed0180; color: #fff; border: 1px solid #ed0180; }

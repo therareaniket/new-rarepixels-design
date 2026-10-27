@@ -1,8 +1,10 @@
 'use client';
 
+import './bloglistinghero.css'
+
 const BlogListingHero = () => {
   return (
-    <section className='h-[450px] bg-[#040E36] mt-[68px] flex items-center justify-center text-[white]'>
+    <section className='blog-listing-hero h-[450px] bg-[#040E36] mt-[68px] flex items-center justify-center text-[white]'>
 		<div className="blog-container-sm">
 			<h1 className="font-semibold">Design Thinking. Business Results. </h1>
 

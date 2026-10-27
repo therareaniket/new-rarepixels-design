@@ -19,16 +19,25 @@ const BlogTopCards = () => {
 					modules={[Autoplay]}
 					slidesPerView="auto"
 					centeredSlides={true}
+					watchSlidesProgress={true}
 					spaceBetween={32}
 					speed={1000}
 					loop={true}
+					loopAdditionalSlides={2}
+					roundLengths={true}
 					grabCursor={true}
-					autoplay={{
-						delay: 2500,
-						disableOnInteraction: false,
-						pauseOnMouseEnter: false,
-					}}
+					preventInteractionOnTransition={true}
+					// autoplay={{
+					// 	delay: 4000,
+					// 	disableOnInteraction: false,
+					// 	pauseOnMouseEnter: false,
+					// 	waitForTransition: true,
+					// }}
 					className="blog-top-cardswiper-wrapper"
+					breakpoints={{
+						0: { centeredSlides: false, spaceBetween: 12, },
+						480: { spaceBetween: 20 }
+					}}
 				>
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]"></div>
@@ -36,7 +45,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -58,7 +67,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -69,7 +78,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -91,7 +100,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -102,7 +111,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -124,7 +133,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -135,7 +144,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -157,7 +166,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -168,7 +177,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -190,7 +199,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -201,7 +210,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -223,7 +232,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -234,7 +243,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -256,7 +265,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -267,7 +276,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -289,7 +298,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -300,7 +309,7 @@ const BlogTopCards = () => {
 						<div className="blog-top-card-content">
 							<h2 className='h3 font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
 
-							<div className='flex items-center justify-between mt-[20px]'>
+							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
 								<div className="blog-author-name">
 									<p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
 										<span>By Bina Yogesh</span>
@@ -322,7 +331,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blogdetail">Read More</Link>
+								<Link href="/Blogdetail" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
