@@ -48,7 +48,7 @@ const Blog = () => {
                         </div>
 
                         <p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                            <Link href="/Blogdetail" title='Go to the Articles'>Read More <span className="sr-only">about our two-year milestone article</span></Link>
+                            <Link href="https://www.rarepixelsdesign.in/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='Go to the Articles' target='_blank'>Read More <span className="sr-only">about our two-year milestone article</span></Link>
                         </p>
                     </div>
 
@@ -81,7 +81,7 @@ const Blog = () => {
                                 </div>
 
                                 <p className='text-18 font-normal mt-[30px] blog-redirect'>A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
-                                    <Link href="#">Read More</Link>
+                                    <Link href="https://rarepixelsdesign.in/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='blogs' target='_blank'>Read More</Link>
                                 </p>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ const Blog = () => {
                                             </div>
 
                                             <p className='text-18 font-normal mt-[30px] blog-redirect'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                                                <Link href="/Blogdetail" title='Go to the Article'>Read More <span className="sr-only">about our two-year milestone article</span></Link>
+                                                <Link href="https://www.rarepixelsdesign.in/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='Go to the Article' target='_blank'>Read More <span className="sr-only">about our two-year milestone article</span></Link>
                                             </p>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@ const Blog = () => {
                                             </div>
 
                                             <p className='text-18 font-normal mt-[30px] blog-redirect'>A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
-                                                <Link href="/Blogdetail" title='Go to the Article'>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span></Link>
+                                                <Link href="https://rarepixelsdesign.in/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='Go to the Article' target='_blank'>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span></Link>
                                             </p>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@ const Blog = () => {
                                 <p className=' text-18 font-normal text-[#C6C6C6] mt-[20px]'>Thoughtful perspectives on design, development, branding, and digital strategy. Practical ideas shaped by real projects, real challenges, and real business outcomes.</p>
                             </div>
 
-                            <Link href="/Blog" title="Start Your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg">View All Categories <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                            <Link href="/Articles" title="Start Your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg" target='_blank'>View All Categories <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,15 @@
 /* custom */
 
 .bloglisting-title-wrapper { margin: 0 auto; text-align: center; }
-.bloglisting-tab-wrapper { margin: 0 auto; gap: 12px; }
 
 .data-active\:text-foreground[data-active] { background-color: #ed0180; color: #fff; border: 1px solid #ed0180; }
+.bloglisting-layout { display: flex; flex-direction: column; gap: 70px; }
+.bloglisting-tab-wrapper { padding-top: 70px; position: sticky; top: 0; display: flex; flex-direction: row; justify-content: center; gap: 12px; margin: 0 auto; overflow: hidden; }
+.bloglisting-content-wrapper { width: 100%; }
+.blog-listing-tab { 
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(12px);
+    /* -webkit-backdrop-filter: blur(12px); */
+}
+.blog-listing-card-wrapper { flex-wrap: wrap; }
+.blog-listing-card { width: calc(50% - 20px); }

@@ -27,12 +27,12 @@ const BlogTopCards = () => {
 					roundLengths={true}
 					grabCursor={true}
 					preventInteractionOnTransition={true}
-					// autoplay={{
-					// 	delay: 4000,
-					// 	disableOnInteraction: false,
-					// 	pauseOnMouseEnter: false,
-					// 	waitForTransition: true,
-					// }}
+					autoplay={{
+						delay: 1500,
+						disableOnInteraction: false,
+						pauseOnMouseEnter: false,
+						waitForTransition: true,
+					}}
 					className="blog-top-cardswiper-wrapper"
 					breakpoints={{
 						0: { centeredSlides: false, spaceBetween: 12, },
