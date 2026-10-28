@@ -124,6 +124,7 @@
     .blog-detail-type-tablet { gap: 30px 15px; }
     .blog-detail-author-wrapper, .blog-post-date, .blog-post-cate, .blog-post-read { width: calc( 50% - 15px ); }
     .blog-detail-cover-image { height: 250px; }
+    .list-disc { padding-left: 25px; } 
 }
 
 @media (max-width: 400px) {

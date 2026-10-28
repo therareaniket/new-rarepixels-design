@@ -4,6 +4,9 @@ import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
 
+const blogUrl = "https://rarepixelsdesign.in/Blog/choosing-ui-ux-design-company-in-2025";
+const blogTitle = "From Unknown to Unforgettable: How Branding Makes Businesses Recognisable";
+
 const ChoosingUiUxDesignCompanyIn2025AreYouPrioritizingCostOverQuality = () => {
     return (
         <>
@@ -83,21 +86,62 @@ const ChoosingUiUxDesignCompanyIn2025AreYouPrioritizingCostOverQuality = () => {
                         <div className="blog-detail-reading-layout">
                             <aside className="blog-social-icons-column">
                                 <div className="blog-social-icons-wrapper">
-                                    <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                        <span className='icon-linkedin'></span>
-                                    </div>
-                                    <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                        <span className='icon-instagram'></span>
-                                    </div>
-                                    <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                        <span className='icon-threads'></span>
-                                    </div>
-                                    <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                        <span className='icon-facebook'></span>
-                                    </div>
-                                    <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                        <span className='icon-twitter'></span>
-                                    </div>
+                                    <a
+                                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                                            blogUrl
+                                        )}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Share on LinkedIn"
+                                        className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
+                                    >
+                                        <span className="icon-linkedin"></span>
+                                    </a>
+
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(blogUrl)
+                                            alert('Link copied!')
+                                        }}
+                                        className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
+
+                                    >
+                                        <span className="icon-instagram"></span>
+                                    </button>
+
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(blogUrl)
+                                            alert('Link copied!')
+                                        }}
+                                        className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
+                                    >
+                                        <span className="icon-threads"></span>
+                                    </button>
+
+                                    <a
+                                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                                            blogUrl
+                                        )}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
+                                    >
+                                        <span className="icon-facebook"></span>
+                                    </a>
+
+                                    <a
+                                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                                            blogUrl
+                                        )}&text=${encodeURIComponent(blogTitle)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Share on X"
+                                        className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
+                                    >
+                                        <span className="icon-twitter"></span>
+                                    </a>
+
                                 </div>
                             </aside>
 
@@ -190,11 +234,10 @@ const ChoosingUiUxDesignCompanyIn2025AreYouPrioritizingCostOverQuality = () => {
                                 <h2 className="h3 mb-[20px] mt-[40px] font-semibold">Conclusion: Good UI/UX Design is a Smart Investment</h2>
 
                                 <p className="font-normal text-20 mt-[20px]">Choosing a UI/UX design company isn’t just about price—it’s about getting a team that understands your business, your customers, and what makes great design work.</p>
-                            
-                                <p className="font-normal text-20 mt-[20px]">By focusing on quality, you’ll create a better experience for your users, increase your sales, and strengthen your brand’s reputation. With <Link href="https://www.rarepixelsdesign.in/" target='_blank' className='text-[#ed0180]'>RarePixels Design</Link>, you get expert-driven, user-friendly solutions that help your business grow.</p>
-                            
-                                <p className="font-semibold text-20 mt-[20px]">Looking for a design team that truly understands your needs? Contact Rare Pixels Design today!</p>
 
+                                <p className="font-normal text-20 mt-[20px]">By focusing on quality, you’ll create a better experience for your users, increase your sales, and strengthen your brand’s reputation. With <Link href="https://www.rarepixelsdesign.in/" target='_blank' className='text-[#ed0180]'>RarePixels Design</Link>, you get expert-driven, user-friendly solutions that help your business grow.</p>
+
+                                <p className="font-semibold text-20 mt-[20px]">Looking for a design team that truly understands your needs? Contact Rare Pixels Design today!</p>
                             </article>
                         </div>
                     </div>
