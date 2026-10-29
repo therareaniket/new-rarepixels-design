@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import './blogdetail.css'
 
-const blogUrl = "https://rarepixelsdesign.in/blog/rarepixels-1st-anniversary-celebration";
+const blogUrl = "https://www.rarepixelsdesign.in/Blog/rarepixels-turns-2-the-big-game-is-still-loading";
 const blogTitle = "RarePixels Turns One - A Year of Pixels, People & Pure Magic";
 
 const RarePixelsTurns2TheBigGameIsStillLoading = () => {
