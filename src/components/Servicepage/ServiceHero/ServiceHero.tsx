@@ -101,9 +101,9 @@ const ServiceHero = () => {
                     </div>
 
                     <div className="services-hero-right w-[744px]">
-                        <h1 className='text-[black]'>   <span className='text-[#ED0180]'>Experiences</span>  That Businesses Choose First Worldwide</h1>
+                        <h1 className='text-[black]'> Everything Your <span className='text-[#ED0180]'>Brand</span> Needs to Move Forward.</h1>
 
-                        <p className='text-18 font-normal text-[black] mt-[108px] services-hero-subtitile'>It has stood the test of time and proceeds Elevate your brand with RarePixels Design everything from strategy to advertising & scale.</p>
+                        <p className='text-18 font-normal text-[black] mt-[108px] services-hero-subtitile'>From brand identity and digital design to development and social media, we bring strategy and creativity together to build solutions that solve real problems and create meaningful business impact.</p>
 
                         <div className="services-hero-left services-hero-video-tablet hidden w-[790] h-[760px]">
                             <video className='services-video' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/services-listing/hero/serv-hero-globe-white.mp4" autoPlay muted loop playsInline width={790} height={760}></video>
@@ -129,7 +129,7 @@ const ServiceHero = () => {
                                     </div>
                                 </div>
 
-                                <p className='text-18 font-medium text-[black] w-[200px] mt-[6px]'>Bespoke Digital Products Engineered </p>
+                                <p className='text-18 font-medium text-[black] w-[200px] mt-[6px]'>Digital Products Engineered</p>
                             </div>
                         </div>
                     </div>

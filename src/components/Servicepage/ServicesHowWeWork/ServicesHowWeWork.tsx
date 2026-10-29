@@ -11,35 +11,35 @@ const workSteps = [
         title: " UI/UX Design Services",
         // title: "UI/UX Design",
         // subtitle: "Good solutions begin with good questions.",
-        description: "Your digital product exists but users are not engaging with it the way you expected. Visitors drop off before converting. Journeys feel complicated. Interfaces feel unclear. UI/UX design fixes the experience that is costing you users — and revenue.",
+        description: "Visitors drop off. Users get stuck. Good ideas get lost in confusing experiences. We make digital products easier to understand, navigate, and use, turning every interaction into a step towards the outcome your business wants.",
     },
     {
         number: " 02",
         title: "Web & App Development",
         // title: "Web & App Development",
         // subtitle: "Every direction needs a reason.",
-        description: "Your current platform cannot do what your business needs. You have outgrown off-the-shelf solutions. You need a custom website, web application, SaaS platform, or e-commerce build engineered specifically around how your business operates.",
+        description: "When ready-made solutions fall short, we build what your business actually needs. From custom websites and web applications to mobile apps and SaaS platforms, we turn complex requirements into reliable digital products built to perform and grow with you.",
     },
     {
         number: "03",
         title: " Brand Identity Design",
         // title: "Brand Identity Design",
         // subtitle: "Where thinking becomes something visible.",
-        description: "Your business has evolved but your brand has not kept up. Or you are launching something new and need an identity that is completely original — a visual language, a brand strategy, and a positioning that belongs entirely to you.",
+        description: "If your brand feels forgettable, inconsistent, or disconnected from who you are today, it's time for a rethink. We build distinctive identities around your purpose, personality, and positioning, giving people a reason to recognise you, remember you, and choose you.",
     },
     {
         number: "04",
         title: " Social Media Management",
         // title: "Social Media Management",
         // subtitle: "Built specifically - never assembled from parts.",
-        description: "Your brand is on social platforms but without a real strategy behind it. Content is inconsistent. Engagement is low. You are not sure what is working or why. Social media management builds the presence your brand deserves — consistently and measurably.",
+        description: "A busy feed means little if the right people aren't paying attention. We bring strategy, creativity, and consistency to your social presence, creating content that starts conversations, builds recognition, and turns everyday scrolling into meaningful brand connections.",
     },
     {
         number: "05",
         title: " Graphics & Print Media Design",
         // title: "Graphics & Print Media Design",
         // subtitle: "Improved until it performs exactly as designed.",
-        description: "Your digital brand is strong but your physical presence does not match it. Brochures, packaging, catalogues, outdoor advertising, and trade show materials — all designed to carry your brand identity into the physical world with the same standard as your digital presence.",
+        description: "From brochures and packaging to catalogues and outdoor creatives, every physical touchpoint shapes how people see your business. We create print and graphic assets that carry your brand identity beyond digital, making every detail feel considered, consistent, and unmistakably yours.",
     },
     // {
     //     number: " 06",
@@ -216,7 +216,7 @@ const ServicesHowWeWork = () => {
 
                     <div className="srvs-how-we-work-wrapper flex justify-between items-start">
                         <div className="services-how-we-work-title">
-                            <h2>Not Sure Which Service You Need? </h2>
+                            <h2>Not Sure Where to Start? </h2>
 
                             {/* <p className='text-18 flex flex-col gap-[18] website-subtitle-mt w-[687px]'>
                                 <span className='font-bold'>No Guesswork. No Shortcuts. No Off-The-Shelf.</span>
@@ -224,7 +224,7 @@ const ServicesHowWeWork = () => {
                         </div>
 
                         <div className="services-how-er-work-subtitle w-[687px]">
-                            <span className='font-normal text-18'>Most businesses know what problem they are trying to solve. They are less sure which service solves it. Here is how to find the right starting point.</span>
+                            <span className='font-normal text-18'>You know what you want to improve. We help you figure out what it takes to get there. Whether it&apos;s your brand, digital experience, or growth strategy, we&apos;ll help you find the right starting point and build a way forward.</span>
                         </div>
                     </div>
 

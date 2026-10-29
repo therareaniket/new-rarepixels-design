@@ -128,6 +128,7 @@
 @media (max-width: 439px) { 
     /* .services-stats-wrapper { margin-top: 30px; } */
     .services-hero-left { width: 100%; }
+    .servcies-hero-wrapper { padding-top: 80px; }
 }
 
 @media (max-width: 400px) { 

@@ -324,8 +324,8 @@ const ServicesSection = () => {
 									<div className="services-ui-ux-text services-text-pointers">
 										<h2 className="font-semibold ">UI/UX Design Services</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
-											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
-											<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
+											<span>We design digital experiences around real people and real needs. From the first click to the final conversion, every screen, interaction, and detail has a purpose. No borrowed templates. No design for the sake of aesthetics. Just thoughtful, user-led design that makes complex things simpler, products easier to use, and businesses easier to choose. </span>
+											<span>From research and experience strategy to pixel-perfect interfaces, we turn user insights into experiences that look right, feel natural, and work beautifully.</span>
 										</p>
 
 										<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
@@ -336,68 +336,66 @@ const ServicesSection = () => {
 											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Product & App Design</Link>
 											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Design Systems</Link>
 											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Dashboard & Data Experience</Link>
-											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Prototype & Validation</Link>
 										</div>
 									</div>
 
 									<div className="services-web-development-text services-text-pointers">
 										<h2 className="font-semibold ">Web & App Development</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
-											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
-											<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
+											<span>We turn ideas into reliable digital products that do more than look good. From high-performing websites to feature-rich apps, we build digital experiences that are fast, functional, and made around real business needs. </span>
+											<span>Every line of code has a purpose. Every feature solves a problem. And every product is built with the flexibility to evolve as your business grows.</span>
 										</p>
 
 										<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
-											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Experience Strategy & Research</Link>
-											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Website Design</Link>
-											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Interface Design</Link>
-											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Interaction & Motion Design</Link>
-											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Product & App Design</Link>
-											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Design Systems</Link>
-											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Dashboard & Data Experience</Link>
-											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Prototype & Validation</Link>
+											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Website Development</Link>
+											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Web Application Development</Link>
+											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Mobile App Development</Link>
+											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Custom Software Development</Link>
+											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Frontend & Backend Development</Link>
+											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">API Integration</Link>
+											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">E-commerce Development</Link>
+											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Product Development</Link>
+											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Prototype & Validation </Link>
 										</div>
 									</div>
 
 									<div className="services-brand-identity-text services-text-pointers">
 										<h2 className="font-semibold ">Brand Identity Design</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
-											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
-											<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
+											<span>Your brand is more than a logo. It’s the feeling people associate with your business, the story they remember, and the difference they recognise. We build distinctive brand identities that bring your purpose, personality, and positioning to life.</span>
+											<span>From visual identity to the smallest brand detail, every element works together to tell a consistent story. So your brand doesn’t just show up. It stands out, connects with the right people, and stays with them.  </span>
 										</p>
 
 										<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
-											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Experience Strategy & Research</Link>
-											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Website Design</Link>
-											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Interface Design</Link>
-											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Interaction & Motion Design</Link>
-											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Product & App Design</Link>
-											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Design Systems</Link>
-											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Dashboard & Data Experience</Link>
-											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Prototype & Validation</Link>
+											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Brand Strategy & Positioning</Link>
+											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Logo Design</Link>
+											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Visual Identity Systems</Link>
+											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Brand Guidelines</Link>
+											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Typography & Colour Systems</Link>
+											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Brand Collateral Design</Link>
+											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Brand Refresh & Rebranding</Link>
 										</div>
 									</div>
 
 									<div className="services-sm-management-text services-text-pointers">
 										<h2 className="font-semibold ">SM Management</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
-											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
-											<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
+											<span>Social media is more than showing up in the feed. It&apos;s about giving people a reason to stop, connect, and remember your brand. We create platform-specific content that reflects your brand&apos;s personality, speaks to the right audience, and keeps your communication consistent.</span>
+											<span>From content planning and creative development to publishing and performance tracking, every move has a purpose. We help turn everyday posts into meaningful interactions and a stronger brand presence. </span>
 										</p>
 
 										<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
-											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Experience Strategy & Research</Link>
-											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Website Design</Link>
-											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Interface Design</Link>
-											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Interaction & Motion Design</Link>
-											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Product & App Design</Link>
-											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Design Systems</Link>
-											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Dashboard & Data Experience</Link>
-											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Prototype & Validation</Link>
+											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Social Media Strategy</Link>
+											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Content Planning & Calendars</Link>
+											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Creative Design & Copywriting</Link>
+											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Reels & Short-Form Videos</Link>
+											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Community Management</Link>
+											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Social Media Publishing</Link>
+											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Performance Tracking & Reporting</Link>
 										</div>
 									</div>
 
-									<div className="services-sm-management-text services-text-pointers">
+									<div className="services-print-media-text services-text-pointers">
 										<h2 className="font-semibold ">Graphics & Print Media Design</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>

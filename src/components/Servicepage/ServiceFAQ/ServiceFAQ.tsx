@@ -15,24 +15,24 @@ import './servicefaq.css'
 
 const faqs = [
     {
-        question: "What services does Rare Pixels Design offer?",
-        answer: "Rare Pixels Design offers five core services - UI/UX design, custom web and app development, brand identity design, social media management, and graphics and print media design. Each service is delivered across multiple specializations, totaling 27 expert services across design and technology. Every service is purpose built no templates, no off-the-shelf solutions."
+        question: "How do I know which service is right for my business?",
+        answer: "You don't need to have it all figured out. Tell us what you're trying to achieve, what's not working, or what you want to build. We'll help you identify the right service, whether that's branding, design, development, social media, or a combination of them."
     },
     {
-        question: "Do you offer all services together or individually?",
-        answer: "Both. Many clients come to us for a single service - a brand identity, a platform build, or a social media strategy. Others engage us across multiple disciplines simultaneously. We are equally effective working on a single focused brief or as a full-service partner across design, engineering, and brand."
+        question: "Can RarePixels handle both design and development?",
+        answer: "Absolutely. We bring design and development together to create digital experiences that look good and work seamlessly. From UI/UX design to website, web application, and mobile app development, we can help take your idea from the first sketch to a working product."
     },
     {
-        question: "How do you approach a project that needs multiple services? ",
-        answer: "We assign a dedicated project lead who coordinates across all disciplines. When a project spans design, development, and brand - the teams work in parallel with shared goals and a unified strategy. The client has one point of contact throughout, not multiple agency relationships to manage. "
+        question: "Can you work with an existing brand or digital product? ",
+        answer: "Yes. Whether you need a brand refresh, a website redesign, better user experiences, or a stronger social media presence, we can build on what you already have. We'll first understand what's working, what's missing, and where things can improve. "
     },
     {
-        question: "Do you work with businesses outside India?",
-        answer: "Yes. We work with clients across India, the USA, the UK, and the Middle East. With studios in Ahmedabad, India and Pennsylvania, USA - we cover multiple time zones and are experienced in delivering across international markets. "
+        question: "What if I only need one specific service?",
+        answer: "That's perfectly fine. You can work with us for a single requirement, whether it's a logo, website, app, social media management, or print design. If your needs change later, we can explore how other services might support your next steps."
     },
     {
-        question: "How long does a typical project take? ",
-        answer: "Timeline depends entirely on the service and scope. A brand identity project typically takes 4–6 weeks. A website design and development project takes 8–12 weeks. A custom SaaS platform or web application takes 12–20 weeks. We provide a specific timeline in every proposal."
+        question: " How does a project with RarePixels get started? ",
+        answer: "It starts with a conversation. We'll learn about your business, goals, audience, and challenges before discussing the right approach. Once we're aligned on the scope, deliverables, timeline, and investment, we'll map out the next steps and get things moving."
     },
     // {
     //     question: "Do you manage social media for businesses?",

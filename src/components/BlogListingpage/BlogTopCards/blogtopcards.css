@@ -70,7 +70,6 @@
 @media (max-width: 1439px) { }
 
 @media (max-width: 1359px) { 
-    .blog-listing-hero { height: 320px; }
     .blog-top-swiper { width: 620px !important; }
     .blog-listing-author-wrapper { margin-top: 15px; }  
     .blog-redirect { margin-top: 20px; }
@@ -94,7 +93,7 @@
     .blog-author-name .text-18 { gap: 4px; }
     .blog-top-card-image { height: 300px; }
     .blog-top-swiper { width: 490px !important; }
-    .blog-listing-hero { height: max-content; }
+    /* .blog-listing-hero { height: max-content; } */
 }
 
 @media (max-width: 839px) { }

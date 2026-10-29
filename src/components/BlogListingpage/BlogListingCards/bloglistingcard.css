@@ -4,7 +4,7 @@
 
 .data-active\:text-foreground[data-active] { background-color: #ed0180; color: #fff; border: 1px solid #ed0180; }
 .bloglisting-layout { display: flex; flex-direction: column; gap: 70px; }
-.bloglisting-tab-wrapper { padding-top: 70px; position: sticky; top: 35px; display: flex; flex-direction: row; justify-content: center; gap: 12px; margin: 0 auto; overflow: hidden; }
+.bloglisting-tab-wrapper { padding-top: 70px; position: sticky; top: 20px; display: flex; flex-direction: row; justify-content: center; gap: 12px; margin: 0 auto; overflow: hidden; }
 .bloglisting-content-wrapper { width: 100%; }
 .blog-listing-tab { 
     background: rgba(255, 255, 255, 0);
@@ -74,27 +74,27 @@
 @media (max-width: 639px) {
 
     .bloglisting-title-wrapper { width: 100%; }
-    .bloglisting-layout { overflow: visible; }
     .bloglisting-tab-wrapper {
-        width: 100%;
+        width: calc(100% + 20px);
+        margin-right: -20px;
         overflow-x: auto;
         overflow-y: hidden;
         flex-wrap: nowrap;
         justify-content: flex-start;
-        margin: 0;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
     }
+
     .bloglisting-tab-wrapper::-webkit-scrollbar { display: none; }
-    .blog-listing-tab { flex-shrink: 0; white-space: nowrap;
-    }
+    .blog-listing-tab { flex: 0 0 auto; white-space: nowrap; }
 }
 
-@media (max-width: 575px) { 
+@media (max-width: 575px) {
+
     .blog-listing-card { width: 100%; }
     .blog-listing-card-wrapper { gap: 25px; }
     .blog-listing-image { height: 250px; }
-    .bloglisting-tab-wrapper { top: 40px; }
+    .bloglisting-tab-wrapper { top: 15px; }
 }
 
 @media (max-width: 479px) { 
