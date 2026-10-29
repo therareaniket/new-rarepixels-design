@@ -42,7 +42,7 @@ const BlogTopCards = () => {
 				>
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -70,14 +70,14 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Every business starts somewhere. A new name. A new idea. A website. A product. Perhaps a logo that represents the beginning of something ambitious.
-								<Link href="/Blog/from-unknown-to-unforgettable-branding" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
+								<Link href="/Blog/from-unknown-to-unforgettable-branding"  style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/ux-falls-short.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/ux-falls-short.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -105,14 +105,14 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>At some point, almost every business tries to handle UI/UX on its own. It makes sense in the beginning. You want to move fast, save costs, and keep control. 
-								<Link href="/Blog/diy-ui-ux-vs-experts-business-growth" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
+								<Link href="/Blog/diy-ui-ux-vs-experts-business-growth"  style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -140,14 +140,14 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
+								<Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading"  style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -175,14 +175,14 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Every business wants to look good. A clean website.Modern visuals. Smooth animations. A stylish interface.
-								<Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
+								<Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers"  style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/UX-Makes-Users-Lose-Interest.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Makes-Users-Lose-Interest.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -210,14 +210,14 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>There’s a strange pattern happening across the digital world. More apps. More websites. More platforms. More tools. And yet… everything feels the same.
-								<Link href="/Blog/emotion-in-ui-ux-and-user-loyalty" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
+								<Link href="/Blog/emotion-in-ui-ux-and-user-loyalty"  style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/UX-Strategies-That-Can-Double-Your-Client-Retention.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Strategies-That-Can-Double-Your-Client-Retention.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -245,14 +245,14 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Getting Customers Is Difficult. Keeping Them Is Even Harder. Most businesses spend heavily on marketing, ads, outreach, and lead generation. 
-								<Link href="/Blog/ui-ux-strategies-client-retention" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
+								<Link href="/Blog/ui-ux-strategies-client-retention"  style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/UX-Turns-Social-Media-Traffic-into-Result.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Turns-Social-Media-Traffic-into-Result.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -280,7 +280,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-18 font-normal mt-[30px]'>Social Media Today Is Doing Its Job Better Than Ever Posts reach thousands. Ads drive clicks. Campaigns generate buzz.
-								<Link href="/Blog/ui-ux-social-media-marketing-success" target='_blank' style={{ color: '#ED0180' }}>Read More</Link>
+								<Link href="/Blog/ui-ux-social-media-marketing-success"  style={{ color: '#ED0180' }}>Read More</Link>
 							</p>
 						</div>
 					</SwiperSlide>

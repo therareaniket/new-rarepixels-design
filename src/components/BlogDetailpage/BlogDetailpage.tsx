@@ -14,7 +14,7 @@ const BlogDetailpage = () => {
                         <div className="blod-detail-type blog-detail-type-desktop flex items-center justify-between mt-[40px]">
                             <div className="blog-detail-author-wrapper flex items-center gap-[22px]">
                                 <div className="blog-detail-author-img w-[90px] h-[90px] bg-[#D9D9D9] rounded-full">
-                                    <Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
+                                    <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
                                 </div>
 
                                 <p className="text-18 text-[white] flex flex-col">
@@ -44,7 +44,7 @@ const BlogDetailpage = () => {
                         <div className="blod-detail-type blog-detail-type-tablet hidden flex items-center justify-between mt-[40px]">
                             <div className="blog-detail-author-wrapper flex items-center gap-[22px]">
                                 <div className="blog-detail-author-img w-[90px] h-[90px] bg-[#D9D9D9] rounded-full">
-                                    <Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
+                                    <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
 
                                 </div>
 
@@ -76,7 +76,7 @@ const BlogDetailpage = () => {
             <div className="section bg-[#FBF8F5] relative">
                 <div className="blog-detail-content-wrapper blog-container-sm">
                     <div className="blog-detail-cover-image w-[100%] h-[562] bg-[black]">
-                        <Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/blog-detail-cover.png" alt="blog-detail-image" width={1000} height={562}></Image>
+                        <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/blog-detail-cover.png" alt="blog-detail-image" width={1000} height={562}></Image>
                     </div>
 
                     <div className="blog-detail-reading-layout">

@@ -9,6 +9,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Image from 'next/image';
 
 const Blog = () => {
     return (
@@ -22,7 +23,9 @@ const Blog = () => {
 
                 <div className="hm-blog-wrapper flex align-start gap-[30px] mt-[60px]">
                     <div className="hm-blog-left w-[785px] blog-card-desktop">
-                        <div className="hm-blog-image-l w-[100%] h-[442px] rounded-[20px] bg-[black]"></div>
+                        <div className="hm-blog-image-l w-[100%] h-[442px] rounded-[20px] bg-[black] overflow-hidden">
+                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                        </div>
 
                         <h3 className='font-semibold mt-[30px] mb-[20px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h3>
 
@@ -48,13 +51,15 @@ const Blog = () => {
                         </div>
 
                         <p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                            <Link href="https://www.rarepixelsdesign.in/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='Go to the Articles' target='_blank'>Read More <span className="sr-only">about our two-year milestone article</span></Link>
+                            <Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='Go to the Articles' >Read More <span className="sr-only">about our two-year milestone article</span></Link>
                         </p>
                     </div>
 
                     <div className="hm-blog-right w-[785px]">
                         <div className="hm-small-blog-card w-[100%] h-[434px] flex items-start justify-between blog-card-desktop">
-                            <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black]"></div>
+                            <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
+                                <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                            </div>
 
                             <div className="hm-blog-text w-[405px]">
                                 <h3 className='font-semibold'>Why Serious Businesses Invest in UX Masters, Not Just Creative Designers</h3>
@@ -81,7 +86,7 @@ const Blog = () => {
                                 </div>
 
                                 <p className='text-18 font-normal mt-[30px] blog-redirect'>A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
-                                    <Link href="https://rarepixelsdesign.in/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='blogs' target='_blank'>Read More</Link>
+                                    <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='blogs' >Read More</Link>
                                 </p>
                             </div>
                         </div>
@@ -102,7 +107,9 @@ const Blog = () => {
                             >
                                 <SwiperSlide>
                                     <div className="blog-swiper-slide">
-                                        <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black]"></div>
+                                        <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
+                                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                                        </div>
 
                                         <div className="hm-blog-text w-[405px]">
                                             <h3 className='font-semibold'>RarePixels Turns 2. The Big Game Is Still Loading.</h3>
@@ -129,7 +136,7 @@ const Blog = () => {
                                             </div>
 
                                             <p className='text-18 font-normal mt-[30px] blog-redirect'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                                                <Link href="https://www.rarepixelsdesign.in/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='Go to the Article' target='_blank'>Read More <span className="sr-only">about our two-year milestone article</span></Link>
+                                                <Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='Go to the Article' >Read More <span className="sr-only">about our two-year milestone article</span></Link>
                                             </p>
                                         </div>
                                     </div>
@@ -137,7 +144,9 @@ const Blog = () => {
 
                                 <SwiperSlide>
                                     <div className="blog-swiper-slide">
-                                        <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black]"></div>
+                                        <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
+                                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                                        </div>
 
                                         <div className="hm-blog-text w-[405px]">
                                             <h3 className='font-semibold'>Why Serious Businesses Invest in UX Masters, Not Just Creative Designers</h3>
@@ -164,7 +173,7 @@ const Blog = () => {
                                             </div>
 
                                             <p className='text-18 font-normal mt-[30px] blog-redirect'>A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
-                                                <Link href="https://rarepixelsdesign.in/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='Go to the Article' target='_blank'>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span></Link>
+                                                <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='Go to the Article' >Read More <span className="sr-only">about user experience vs visually attractive interfaces</span></Link>
                                             </p>
                                         </div>
                                     </div>
@@ -181,7 +190,7 @@ const Blog = () => {
                                 <p className=' text-18 font-normal text-[#C6C6C6] mt-[20px]'>Thoughtful perspectives on design, development, branding, and digital strategy. Practical ideas shaped by real projects, real challenges, and real business outcomes.</p>
                             </div>
 
-                            <Link href="/Articles" title="Start Your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg" target='_blank'>View All Categories <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                            <Link href="/Articles" title="Start Your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg" >View All Categories <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                         </div>
                     </div>
                 </div>

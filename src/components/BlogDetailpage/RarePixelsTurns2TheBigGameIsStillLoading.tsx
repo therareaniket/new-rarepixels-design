@@ -17,7 +17,7 @@ const RarePixelsTurns2TheBigGameIsStillLoading = () => {
                         <div className="blod-detail-type blog-detail-type-desktop flex items-center justify-between mt-[40px]">
                             <div className="blog-detail-author-wrapper flex items-center gap-[22px]">
                                 <div className="blog-detail-author-img w-[90px] h-[90px] bg-[#D9D9D9] rounded-full">
-                                    <Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
+                                    <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
                                 </div>
 
                                 <p className="text-18 text-[white] flex flex-col">
@@ -47,7 +47,7 @@ const RarePixelsTurns2TheBigGameIsStillLoading = () => {
                         <div className="blod-detail-type blog-detail-type-tablet hidden flex items-center justify-between mt-[40px]">
                             <div className="blog-detail-author-wrapper flex items-center gap-[22px]">
                                 <div className="blog-detail-author-img w-[90px] h-[90px] bg-[#D9D9D9] rounded-full">
-                                    <Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
+                                    <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
                                 </div>
 
                                 <p className="text-18 text-[white] flex flex-col">
@@ -78,7 +78,7 @@ const RarePixelsTurns2TheBigGameIsStillLoading = () => {
             <div className="section bg-[#FBF8F5] relative">
                 <div className="blog-detail-content-wrapper blog-container-sm">
                     <div className="blog-detail-cover-image w-[100%] h-[562] bg-[black]">
-                        <Image className='w-[100%] h-[100%] object-cover' src="/blog-detail/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                        <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
                     </div>
 
                     <div className="blog-detail-reading-layout">
@@ -202,7 +202,7 @@ const RarePixelsTurns2TheBigGameIsStillLoading = () => {
 
                             <p className="font-normal text-20 mt-[20px]">Reflecting on the journey, Founder Bina shared:</p>
 
-                            <p className="font-normal text-20 mt-[20px]"><em>“I started RarePixels because I knew design could do so much more than what most people were settling for. I had a vision for a place where strategy, creativity, and experience all speak the same language. Building a team that gets that, that pushes every brief further without being asked — that&apos;s been the most rewarding part of this journey. Two years of RarePixels has only made the vision bigger.”</em></p>
+                            <p className="font-semibold text-20 mt-[20px]"><em>“I started RarePixels because I knew design could do so much more than what most people were settling for. I had a vision for a place where strategy, creativity, and experience all speak the same language. Building a team that gets that, that pushes every brief further without being asked — that&apos;s been the most rewarding part of this journey. Two years of RarePixels has only made the vision bigger.”</em></p>
 
                             <p className="font-normal text-20 mt-[20px]">That vision continues to shape everything we do today.</p>
 

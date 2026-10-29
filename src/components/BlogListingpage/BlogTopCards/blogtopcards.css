@@ -1,5 +1,5 @@
 .blog-top-card-title { margin: 0 auto; }
-.blog-top-card-swiper { width: 100%; overflow: hidden; perspective: 1600px; }
+.blog-top-card-swiper { width: 100%; overflow: hidden; perspective: 1200px; }
 .blog-top-cardswiper-wrapper { width: 100%; overflow: visible !important; padding-bottom: 90px; }
 .blog-top-cardswiper-wrapper .swiper-wrapper { align-items: flex-start; transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important; }
 .blog-top-swiper {
@@ -94,6 +94,7 @@
     .blog-author-name .text-18 { gap: 4px; }
     .blog-top-card-image { height: 300px; }
     .blog-top-swiper { width: 490px !important; }
+    .blog-listing-hero { height: max-content; }
 }
 
 @media (max-width: 839px) { }
