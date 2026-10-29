@@ -385,13 +385,13 @@ const ServicesSection = () => {
 										</p>
 
 										<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
-											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Social Media Strategy</Link>
-											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Content Planning & Calendars</Link>
-											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Creative Design & Copywriting</Link>
+											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Social Strategy</Link>
+											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Content Planning</Link>
+											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Creative Content</Link>
 											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Reels & Short-Form Videos</Link>
-											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Community Management</Link>
-											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Social Media Publishing</Link>
-											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Performance Tracking & Reporting</Link>
+											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Community Care</Link>
+											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Social Publishing</Link>
+											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Performance Reports</Link>
 										</div>
 									</div>
 

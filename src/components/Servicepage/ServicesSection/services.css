@@ -339,7 +339,7 @@
 
 @media (max-width: 439px) { 
     .services-circle-wrapper { --circle-size: 512px; }
-    .services-text-pointers p span:nth-child(2) { display: none; } 
+    .services-text-pointers p span:nth-child(1) { display: none; } 
     .services-element-wrapper { width: 250px; height: 250px; }
     .services-content-chips { margin-top: 25px; }
     .services-section-wrapper { gap: 15px; }
@@ -368,7 +368,7 @@
     .services-active-dot { width: 14px; height: 14px; }
     .services-text-pointers h2 { font-size: 24px; line-height: 32px; }
     .services-content-chips a { font-size: 12px; line-height: 20px; padding: 4px 16px; }
-    .services-text-wrapper { height: 350px; }
+    .services-text-wrapper { height: 390px; }
 }
 
 @media (max-width: 374px) { 

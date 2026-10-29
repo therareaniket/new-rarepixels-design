@@ -86,7 +86,7 @@ const Blog = () => {
                                 </div>
 
                                 <p className='text-18 font-normal mt-[30px] blog-redirect'>A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
-                                    <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='blogs' >Read More</Link>
+                                    <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='blogs' >Read More <span className="sr-only">about our two-year milestone article</span></Link>
                                 </p>
                             </div>
                         </div>
