@@ -2,6 +2,7 @@ import ScrollToTopButton from "@/components/Global/ScrollToTop/ScrollToTopButton
 import About from "@/components/Homepage/About/About";
 import Blog from "@/components/Homepage/Blog/Blog";
 import FAQ from "@/components/Homepage/FAQ/FAQ";
+import GooeyHero from "@/components/Homepage/GooeyHero/GooeyHero";
 import Hero from "@/components/Homepage/Hero/Hero";
 import Industries from "@/components/Homepage/Industries/Industries";
 import InquiryForm from "@/components/Homepage/InquiryForm/InquiryForm";
@@ -16,6 +17,7 @@ export default function Home() {
     return (
         <>
             <Hero />
+            {/* <GooeyHero /> */}
             <Testimonials />
             <About />
             <Services />
