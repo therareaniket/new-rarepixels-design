@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons'
 
 const TheImportanceOfUiUxDesign = () => {
     return (
@@ -81,25 +82,7 @@ const TheImportanceOfUiUxDesign = () => {
                     </div>
 
                     <div className="blog-detail-reading-layout">
-                        <aside className="blog-social-icons-column">
-                            <div className="blog-social-icons-wrapper">
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-linkedin'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-instagram'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-threads'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-facebook'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-twitter'></span>
-                                </div>
-                            </div>
-                        </aside>
+                        <SocialShareIcons currentBlogHref="/Blog/the-importance-of-ui-ux-design-in-modern-web-development" />
 
                         <article className="blog-detail-content-text pt-[80px]">
                             <p className="font-normal text-20" style={{ marginTop: '0' }}>In the digital age, where websites and apps serve as primary touchpoints between businesses and consumers, the importance of UI/UX design cannot be overstated. A well-designed user interface (UI) coupled with an exceptional user experience (UX) can significantly influence the success of a digital product.</p>

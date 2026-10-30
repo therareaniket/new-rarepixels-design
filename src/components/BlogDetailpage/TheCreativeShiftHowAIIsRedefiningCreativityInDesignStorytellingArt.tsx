@@ -4,6 +4,7 @@ import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons'
 
 const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () => {
     return (
@@ -81,25 +82,7 @@ const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () =>
                     </div>
 
                     <div className="blog-detail-reading-layout">
-                        <aside className="blog-social-icons-column">
-                            <div className="blog-social-icons-wrapper">
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-linkedin'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-instagram'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-threads'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-facebook'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-twitter'></span>
-                                </div>
-                            </div>
-                        </aside>
+                        <SocialShareIcons currentBlogHref="/Blog/the-creative-shift-how-ai-is-redefining" />
 
                         <article className="blog-detail-content-text pt-[80px]">
                             <p className="font-normal text-20" style={{ marginTop: '0' }}>Let’s start with a little confession: we all have that one teammate who loves extra whitespace and that other one who wants to throw colors at the canvas like it owes them money. Sound familiar? At Rarepixels, we actually made a comic about it. Two designers. Two mindsets. One big design duel. Spoiler alert: both were right. Because creativity isn’t about choosing sides; it’s about blending perspectives.</p>

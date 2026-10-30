@@ -3,9 +3,7 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
-
-const blogUrl = "https://rarepixelsdesign.in/Blog/design-for-people-not-praise";
-const blogTitle = "Design for People, Not for Praise: The Shift That Changes Everything";
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons';
 
 const DesignForPeopleNotForPraiseTheShiftThatChangesEverything = () => {
     return (
@@ -83,66 +81,7 @@ const DesignForPeopleNotForPraiseTheShiftThatChangesEverything = () => {
                     </div>
 
                     <div className="blog-detail-reading-layout">
-                        <aside className="blog-social-icons-column">
-                            <div className="blog-social-icons-wrapper">
-                                <a
-                                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                                        blogUrl
-                                    )}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Share on LinkedIn"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-linkedin"></span>
-                                </a>
-
-                                <button
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(blogUrl)
-                                        alert('Link copied!')
-                                    }}
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-
-                                >
-                                    <span className="icon-instagram"></span>
-                                </button>
-
-                                <button
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(blogUrl)
-                                        alert('Link copied!')
-                                    }}
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-threads"></span>
-                                </button>
-
-                                <a
-                                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                                        blogUrl
-                                    )}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-facebook"></span>
-                                </a>
-
-                                <a
-                                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                                        blogUrl
-                                    )}&text=${encodeURIComponent(blogTitle)}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Share on X"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-twitter"></span>
-                                </a>
-
-                            </div>
-                        </aside>
+                        <SocialShareIcons currentBlogHref="/Blog/design-for-people-not-praise" />
 
                         <article className="blog-detail-content-text pt-[80px]">
                             <h2 className="h3 mb-[20px] mt-0 font-semibold">The Hard Truth About Design Briefs</h2>

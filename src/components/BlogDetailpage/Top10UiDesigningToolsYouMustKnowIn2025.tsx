@@ -4,6 +4,7 @@ import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons'
 
 const Top10UiDesigningToolsYouMustKnowIn2025 = () => {
 	return (
@@ -81,25 +82,7 @@ const Top10UiDesigningToolsYouMustKnowIn2025 = () => {
 					</div>
 
 					<div className="blog-detail-reading-layout">
-						<aside className="blog-social-icons-column">
-							<div className="blog-social-icons-wrapper">
-								<div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-									<span className='icon-linkedin'></span>
-								</div>
-								<div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-									<span className='icon-instagram'></span>
-								</div>
-								<div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-									<span className='icon-threads'></span>
-								</div>
-								<div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-									<span className='icon-facebook'></span>
-								</div>
-								<div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-									<span className='icon-twitter'></span>
-								</div>
-							</div>
-						</aside>
+                        <SocialShareIcons currentBlogHref="/Blog/top-10-ui-designing-tools-you-must-know" />
 
 						<article className="blog-detail-content-text pt-[80px]">
 							<p className="font-normal text-20" style={{ marginTop: '0' }}>“Have you ever opened an app or visited a website and thought, ‘Wow, this looks amazing!’? Chances are, the magic you witnessed was a result of exceptional UI design. Behind those sleek interfaces and intuitive interactions lie powerful tools that help designers bring ideas to life.</p>

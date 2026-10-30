@@ -4,6 +4,7 @@ import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons'
 
 
 const RebrandingYourBusinessSmartMoveorJustaCoverUpLetsBreakItDown = () => {
@@ -82,25 +83,7 @@ const RebrandingYourBusinessSmartMoveorJustaCoverUpLetsBreakItDown = () => {
                     </div>
 
                     <div className="blog-detail-reading-layout">
-                        <aside className="blog-social-icons-column">
-                            <div className="blog-social-icons-wrapper">
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-linkedin'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-instagram'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-threads'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-facebook'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-twitter'></span>
-                                </div>
-                            </div>
-                        </aside>
+                        <SocialShareIcons currentBlogHref="/Blog/rebranding-your-business-smart-move-or-just-coverup" />
 
                         <article className="blog-detail-content-text pt-[80px]">
                             <p className="font-normal text-20" style={{ marginTop: '0' }}>Let’s be real—businesses evolve. Markets change, trends shift, and sometimes, what worked yesterday just doesn’t cut it today. That’s where rebranding steps into the spotlight. But here’s the catch: is it always a strategic leap forward, or is it just a way to sweep chaos under the rug?</p>

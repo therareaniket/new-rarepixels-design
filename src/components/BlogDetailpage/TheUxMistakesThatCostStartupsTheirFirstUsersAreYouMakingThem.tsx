@@ -4,6 +4,7 @@ import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons'
 
 const TheUxMistakesThatCostStartupsTheirFirstUsersAreYouMakingThem = () => {
     return (
@@ -81,25 +82,7 @@ const TheUxMistakesThatCostStartupsTheirFirstUsersAreYouMakingThem = () => {
                     </div>
 
                     <div className="blog-detail-reading-layout">
-                        <aside className="blog-social-icons-column">
-                            <div className="blog-social-icons-wrapper">
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-linkedin'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-instagram'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-threads'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-facebook'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-twitter'></span>
-                                </div>
-                            </div>
-                        </aside>
+                        <SocialShareIcons currentBlogHref="/Blog/the-ux-mistakes-that-cost-startups-their-first-1000-users-are-you-making-them" />
 
                         <article className="blog-detail-content-text pt-[80px]">
                             <p className="mb-[20px] mt-0 font-normal text-20">Every Startup Dreams About That Moment</p>

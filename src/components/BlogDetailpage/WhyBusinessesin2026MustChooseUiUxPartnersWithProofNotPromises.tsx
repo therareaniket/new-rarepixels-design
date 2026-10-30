@@ -4,6 +4,7 @@ import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons'
 
 const WhyBusinessesin2026MustChooseUiUxPartnersWithProofNotPromises = () => {
     return (
@@ -81,25 +82,7 @@ const WhyBusinessesin2026MustChooseUiUxPartnersWithProofNotPromises = () => {
                     </div>
 
                     <div className="blog-detail-reading-layout">
-                        <aside className="blog-social-icons-column">
-                            <div className="blog-social-icons-wrapper">
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-linkedin'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-instagram'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-threads'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-facebook'></span>
-                                </div>
-                                <div className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-[white] flex items-center justify-center'>
-                                    <span className='icon-twitter'></span>
-                                </div>
-                            </div>
-                        </aside>
+                        <SocialShareIcons currentBlogHref="/Blog/choose-proven-ui-ux-partners-2026" />
 
                         <article className="blog-detail-content-text pt-[80px]">
                             <p className="font-normal text-20">For a long time, choosing a UI/UX partner was driven by optimism.</p>

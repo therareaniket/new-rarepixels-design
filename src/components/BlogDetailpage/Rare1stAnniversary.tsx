@@ -6,9 +6,7 @@ import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
-
-const blogUrl = "https://rarepixelsdesign.in/blog/rarepixels-1st-anniversary-celebration";
-const blogTitle = "RarePixels Turns One - A Year of Pixels, People & Pure Magic";
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons';
 
 const Rare1stAnniversary = () => {
     return (
@@ -86,66 +84,7 @@ const Rare1stAnniversary = () => {
                     </div>
 
                     <div className="blog-detail-reading-layout">
-                        <aside className="blog-social-icons-column">
-                            <div className="blog-social-icons-wrapper">
-                                <a
-                                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                                        blogUrl
-                                    )}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Share on LinkedIn"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-linkedin"></span>
-                                </a>
-
-                                <button
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(blogUrl)
-                                        alert('Link copied!')
-                                    }}
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-
-                                >
-                                    <span className="icon-instagram"></span>
-                                </button>
-
-                                <button
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(blogUrl)
-                                        alert('Link copied!')
-                                    }}
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-threads"></span>
-                                </button>
-
-                                <a
-                                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                                        blogUrl
-                                    )}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-facebook"></span>
-                                </a>
-
-                                <a
-                                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                                        blogUrl
-                                    )}&text=${encodeURIComponent(blogTitle)}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Share on X"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-twitter"></span>
-                                </a>
-
-                            </div>
-                        </aside>
+                        <SocialShareIcons currentBlogHref="/Blog/rarepixels-1st-anniversary-celebration" />
 
                         <article className="blog-detail-content-text pt-[80px]">
                             <p className="font-normal text-20" style={{ marginTop: '0' }}>They say a picture is worth a thousand words—but at RarePixels, every picture tells a story. As RarePixels celebrates its first anniversary, we took a step back to relive the moments that made this journey unforgettable. From creative chaos to calming chai breaks, intense deadlines to light-hearted dinners, our year has been a vibrant collage of learning, laughter, and love for design.</p>

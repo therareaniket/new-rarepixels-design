@@ -3,9 +3,7 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
-
-const blogUrl = "https://www.rarepixelsdesign.in/Blog/rarepixels-turns-2-the-big-game-is-still-loading";
-const blogTitle = "RarePixels Turns One - A Year of Pixels, People & Pure Magic";
+import SocialShareIcons from './SocialShareIcons/SocialShareIcons';
 
 const RarePixelsTurns2TheBigGameIsStillLoading = () => {
     return (
@@ -83,66 +81,7 @@ const RarePixelsTurns2TheBigGameIsStillLoading = () => {
                     </div>
 
                     <div className="blog-detail-reading-layout">
-                        <aside className="blog-social-icons-column">
-                            <div className="blog-social-icons-wrapper">
-                                <a
-                                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                                        blogUrl
-                                    )}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Share on LinkedIn"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-linkedin"></span>
-                                </a>
-
-                                <button
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(blogUrl)
-                                        alert('Link copied!')
-                                    }}
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-
-                                >
-                                    <span className="icon-instagram"></span>
-                                </button>
-
-                                <button
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(blogUrl)
-                                        alert('Link copied!')
-                                    }}
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-threads"></span>
-                                </button>
-
-                                <a
-                                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                                        blogUrl
-                                    )}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-facebook"></span>
-                                </a>
-
-                                <a
-                                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                                        blogUrl
-                                    )}&text=${encodeURIComponent(blogTitle)}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Share on X"
-                                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center"
-                                >
-                                    <span className="icon-twitter"></span>
-                                </a>
-
-                            </div>
-                        </aside>
+                        <SocialShareIcons currentBlogHref="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" />
 
                         <article className="blog-detail-content-text pt-[80px]">
                             <p className="font-normal text-20">On June 18 2026, RarePixels completed two incredible years.</p>
