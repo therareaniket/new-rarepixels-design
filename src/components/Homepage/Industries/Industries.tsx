@@ -1,19 +1,26 @@
 "use client"
 
+import LazyVideo from "@/components/Global/LazyVideos/LazyVideo"
 import "./industries.css"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState  } from "react"
+
+const TOTAL = 8
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Industries = () => {
     const root = useRef<HTMLElement>(null)
 
+    const [loadedUpTo, setLoadedUpTo] = useState(-1)
+
     useEffect(() => {
         const ctx = gsap.context(() => {
             gsap.set(".indust-list:not(:nth-child(1))", { xPercent: 102 })
             // gsap.set(".indust-list:nth-child(3)", { xPercent: 102 })
+
+            ScrollTrigger.create({ trigger: root.current, start: "top 150%", once: true, onEnter: () => setLoadedUpTo((p) => Math.max(p, 1)),})
 
             const tl = gsap.timeline({
                 defaults: { ease: "none" },
@@ -27,6 +34,10 @@ const Industries = () => {
                         // duration: { min: 0.5, max: 1 },
                         duration: 0.8,
                         delay: 0,
+                    },
+                    onUpdate: (self) => {
+                        const idx = Math.round(self.progress * (TOTAL - 1))
+                        setLoadedUpTo((p) => (idx + 1 > p ? idx + 1 : p))
                     },
                 },
             })
@@ -69,7 +80,7 @@ const Industries = () => {
                         <div className="indust-lists w-[1600px] h-[550px] relative">
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/technology-and-saas.mp4" loop autoPlay muted playsInline width={1000} height={550}></video>
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/technology-and-saas.mp4" load={loadedUpTo >= 0} playWhenVisible loop width={1000} height={550}/>
 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>
@@ -103,7 +114,7 @@ const Industries = () => {
 
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/finance.mp4" loop autoPlay muted playsInline width={1000} height={550}></video>
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/finance.mp4" load={loadedUpTo >= 1} playWhenVisible loop width={1000} height={550}/>
 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>
@@ -137,7 +148,7 @@ const Industries = () => {
 
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/healthcare.mp4" loop autoPlay muted playsInline width={1000} height={550}></video>
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/healthcare.mp4" load={loadedUpTo >= 2} playWhenVisible loop width={1000} height={550}/>
 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>
@@ -171,7 +182,7 @@ const Industries = () => {
 
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/e-commerce.mp4" loop autoPlay muted playsInline width={1000} height={550}></video>
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/e-commerce.mp4" load={loadedUpTo >= 3} playWhenVisible loop width={1000} height={550}/>
                                 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>
@@ -205,7 +216,7 @@ const Industries = () => {
 
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/real-estate.mp4" loop autoPlay muted playsInline width={1000} height={550}></video>
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/real-estate.mp4" load={loadedUpTo >= 4} playWhenVisible loop width={1000} height={550}/>
 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>
@@ -239,7 +250,7 @@ const Industries = () => {
 
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/education-industry.mp4" loop autoPlay muted playsInline width={1000} height={550}></video>
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/education-industry.mp4" load={loadedUpTo >= 5} playWhenVisible loop width={1000} height={550}/>
                                 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>
@@ -273,7 +284,7 @@ const Industries = () => {
 
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/ai-industry.mp4" loop autoPlay muted playsInline width={1000} height={550}></video>
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/ai-industry.mp4" load={loadedUpTo >= 6} playWhenVisible loop width={1000} height={550}/>
                                 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>
@@ -307,7 +318,7 @@ const Industries = () => {
 
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <video src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/food-industry.mp4" loop autoPlay muted playsInline width={1000} height={550}></video>
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/food-industry.mp4" load={loadedUpTo >= 7} playWhenVisible loop width={1000} height={550}/>
                                 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>

@@ -23,6 +23,19 @@ export default function Projects() {
     const [settledIndex, setSettledIndex] = useState(0);
     const [direction, setDirection] = useState<1 | -1>(1);
 
+    const sectionRef = useRef<HTMLElement>(null);
+    const [sectionNear, setSectionNear] = useState(false);
+
+    useEffect(() => {
+        const el = sectionRef.current;
+        if (!el) return;
+        const io = new IntersectionObserver(([e]) => {
+            if (e.isIntersecting) { setSectionNear(true); io.disconnect(); }
+        }, { rootMargin: "400px 0px" });
+        io.observe(el);
+        return () => io.disconnect();
+    }, []);
+
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const prevIndexRef = useRef<number>(0);
 
@@ -97,7 +110,7 @@ export default function Projects() {
     }, [activeIndex]);
 
   	return (
-    	<section className="section projects">
+    	<section className="section projects" ref={sectionRef}>
 			<div className="container overflow-hidden">
 				<div className="project-titles text-center">
                     <h2 className="mb-[20px]">Our Projects</h2>
@@ -112,7 +125,8 @@ export default function Projects() {
                                 ref={(el) => { cardRefs.current[index] = el; }} 
                                 project={project} 
                                 index={index} 
-                                isActive={index === settledIndex} 
+                                isActive={index === settledIndex}
+                                shouldLoad={sectionNear && Math.abs(index - activeIndex) <= 1}
                                 onSetActive={handleSetActive}
                             />
 						))}
@@ -163,31 +177,32 @@ export default function Projects() {
   	);
 }
 
-interface ProjectCardProps { project: ProjectItem; index: number; isActive: boolean; onSetActive: (index: number) => void; }
-const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(({ project, index, isActive, onSetActive }, ref) => {
+interface ProjectCardProps { project: ProjectItem; index: number; isActive: boolean; shouldLoad: boolean; onSetActive: (index: number) => void; }
+
+const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(({ project, index, isActive, shouldLoad, onSetActive }, ref) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
-    useEffect(() => {
-        if (!videoRef.current) return;
+    const [armed, setArmed] = useState(false);
+    useEffect(() => { if (shouldLoad) setArmed(true); }, [shouldLoad]);
 
-        if (isActive) { 
-            const playPromise = videoRef.current.play();
-            if (playPromise !== undefined) { 
-                playPromise.then(() => setIsVideoPlaying(true)).catch(() => setIsVideoPlaying(false)); 
-            }
-        } else { 
-            videoRef.current.pause(); 
-            videoRef.current.currentTime = 0; 
-            setIsVideoPlaying(false); 
+    useEffect(() => {
+        const v = videoRef.current;
+        if (!v) return;
+        if (isActive && armed) {
+            v.play().then(() => setIsVideoPlaying(true)).catch(() => setIsVideoPlaying(false));
+        } else if (!isActive) {
+            v.pause();
+            v.currentTime = 0;
+            setIsVideoPlaying(false);
         }
-    }, [isActive]);
+    }, [isActive, armed]);
 
     const handleClick = () => { onSetActive(index); };
 
     return (
         <div ref={ref} onClick={handleClick} className={`project-list w-[1000px] h-[550px] rounded-[20px] relative overflow-hidden flex-shrink-0 ${ isActive ? "active" : "" }`}>
-			<video ref={videoRef} className="project-video w-full h-full object-cover" src={project.videoSrc} poster={project.thumbNail} loop muted playsInline />
+			<video ref={videoRef} className="project-video w-full h-full object-cover" src={armed ? project.videoSrc : undefined} preload={armed ? "auto" : "none"} poster={project.thumbNail} loop muted playsInline />
             
             <div className={`absolute left-[20px] bottom-[20px] flex flex-wrap gap-2 z-10 active-project-chip-wrapper transition-all duration-500 ease-in-out ${ isActive  ? "opacity-100 translate-y-0 pointer-events-auto"  : "opacity-0 translate-y-2 pointer-events-none"}`}>
                 {project.servicesChip.split(",").map((chip, i) => (

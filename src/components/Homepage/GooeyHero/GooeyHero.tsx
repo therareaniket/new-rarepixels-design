@@ -96,9 +96,9 @@ export default function GooeyHero() {
 				{/* Revealed Layer */}
 				<div className="absolute inset-0 z-20 flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332]"
 					style={{ mask: "url(#smudge-mask)", WebkitMask: "url(#smudge-mask)"}} >
-					<h3 className="text-[clamp(3rem,5vw,6rem)] font-bold uppercase leading-[0.9] text-center max-w-4xl font-casko">
+					<h2 className="h3 text-[clamp(3rem,5vw,6rem)] font-bold uppercase leading-[0.9] text-center max-w-4xl font-casko">
 						THE THINGS WORTH FINDING ARE NEVER ON THE SURFACE. THEY LIVE IN THE PARTS YOU ALMOST SCROLLED PAST.
-					</h3>
+					</h2>
 				</div>
 
 				<svg ref={svgRef} className="absolute top-0 left-0 pointer-events-none z-30" xmlns="http://www.w3.org/2000/svg" >
