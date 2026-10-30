@@ -3,13 +3,14 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
 
 const blogUrl = "https://rarepixelsdesign.in/blog/ui-ux-social-media-marketing-success";
 const blogTitle = "How UI/UX Design Decides Whether Your Social Media Traffic Stays or Leaves";
 
 const PracticesforDesigningMobileFriendlyInterfaces = () => {
     return (
-        <section>
+        <section id='blog-detail-section'>
             <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
                     <div className="blog-detail-hero-text py-[80px] ">
@@ -221,6 +222,11 @@ const PracticesforDesigningMobileFriendlyInterfaces = () => {
                     </div>
                 </div>
             </div>
+
+            <RelatedBlogPopup
+                currentBlogHref="/Blog/practices-for-designing-mobile-friendly"
+                currentCategory="UI/UX"
+            />
         </section>
     )
 }

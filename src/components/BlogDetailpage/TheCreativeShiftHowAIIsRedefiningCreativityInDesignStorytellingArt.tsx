@@ -3,10 +3,11 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
 
 const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () => {
     return (
-        <section>
+        <section id='blog-detail-section'>
             <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
                     <div className="blog-detail-hero-text py-[80px] ">
@@ -32,7 +33,7 @@ const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () =>
 
                                 <div className="blog-post-cate text-18 text-[white]">
                                     <p className="font-normal">Category</p>
-                                    <p className="font-semibold">UX/UI Design</p>
+                                    <p className="font-semibold">Comic</p>
                                 </div>
 
                                 <div className="blog-post-read text-18 text-[white]">
@@ -61,7 +62,7 @@ const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () =>
 
                             <div className="blog-post-cate text-18 text-[white]">
                                 <p className="font-normal">Category</p>
-                                <p className="font-semibold">UX/UI Design</p>
+                                <p className="font-semibold">Comic</p>
                             </div>
 
                             <div className="blog-post-read text-18 text-[white]">
@@ -201,6 +202,11 @@ const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () =>
                     </div>
                 </div>
             </div>
+
+            <RelatedBlogPopup
+                currentBlogHref="/Blog/the-creative-shift-how-ai-is-redefining"
+                currentCategory="Comic"
+            />
         </section>
     )
 }

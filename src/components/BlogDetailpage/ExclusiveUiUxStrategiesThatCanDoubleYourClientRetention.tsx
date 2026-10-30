@@ -2,13 +2,14 @@
 
 import Image from 'next/image'
 import './blogdetail.css'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
 
 const blogUrl = "https://rarepixelsdesign.in/Blog/ui-ux-strategies-client-retention";
 const blogTitle = "Exclusive UI/UX Strategies That Can Double Your Client Retention";
 
 const ExclusiveUiUxStrategiesThatCanDoubleYourClientRetention = () => {
     return (
-        <section>
+        <section id='blog-detail-section'>
             <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
                     <div className="blog-detail-hero-text py-[80px] ">
@@ -428,6 +429,11 @@ const ExclusiveUiUxStrategiesThatCanDoubleYourClientRetention = () => {
                     </div>
                 </div>
             </div>
+
+            <RelatedBlogPopup
+                currentBlogHref="/Blog/ui-ux-strategies-client-retention"
+                currentCategory="UI/UX"
+            />
         </section>
     )
 }

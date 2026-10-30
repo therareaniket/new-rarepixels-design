@@ -2,13 +2,14 @@
 
 import Image from 'next/image'
 import './blogdetail.css'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
 
 const blogUrl = "https://www.rarepixelsdesign.in/Blog/rarepixels-turns-2-the-big-game-is-still-loading";
 const blogTitle = "RarePixels Turns One - A Year of Pixels, People & Pure Magic";
 
 const RarePixelsTurns2TheBigGameIsStillLoading = () => {
     return (
-        <section>
+        <section id='blog-detail-section'>
             <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
                     <div className="blog-detail-hero-text py-[80px] ">
@@ -34,7 +35,7 @@ const RarePixelsTurns2TheBigGameIsStillLoading = () => {
 
                                 <div className="blog-post-cate text-18 text-[white]">
                                     <p className="font-normal">Category</p>
-                                    <p className="font-semibold">UX/UI Design</p>
+                                    <p className="font-semibold">Life at RarePixels</p>
                                 </div>
 
                                 <div className="blog-post-read text-18 text-[white]">
@@ -63,7 +64,7 @@ const RarePixelsTurns2TheBigGameIsStillLoading = () => {
 
                             <div className="blog-post-cate text-18 text-[white]">
                                 <p className="font-normal">Category</p>
-                                <p className="font-semibold">UX/UI Design</p>
+                                <p className="font-semibold">Life at RarePixels</p>
                             </div>
 
                             <div className="blog-post-read text-18 text-[white]">
@@ -314,6 +315,11 @@ const RarePixelsTurns2TheBigGameIsStillLoading = () => {
                     </div>
                 </div>
             </div>
+
+            <RelatedBlogPopup
+                currentBlogHref="/Blog/rarepixels-turns-2-the-big-game-is-still-loading"
+                currentCategory="Life at Rarepixels"
+            />
         </section>
     )
 }

@@ -348,7 +348,7 @@ const ServicesSection = () => {
 
 										<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
 											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Website Development</Link>
-											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Web Application Development</Link>
+											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Web App Development</Link>
 											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Mobile App Development</Link>
 											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Custom Software Development</Link>
 											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Frontend & Backend Development</Link>
@@ -398,19 +398,19 @@ const ServicesSection = () => {
 									<div className="services-print-media-text services-text-pointers">
 										<h2 className="font-semibold ">Graphics & Print Media Design</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
-											<span>We design digital experiences that feel effortless from the first click to the final action. Every interface is built around how your users actually think and behave - not adapted from a template or copied from a trend. </span>
-											<span>From initial research through to pixel-perfect delivery, every design decision is intentional and grounded in real user insight. </span>
+											<span>Your brand deserves to look as good in the real world as it does on screen. From marketing creatives and brochures to packaging and large-format prints, we create visuals that capture attention, communicate clearly, and keep your brand recognisable.</span>
+											<span>Every colour, layout, typeface, and detail has a role to play. We bring creativity and consistency together to make sure your brand leaves the right impression, wherever people encounter it.</span>
 										</p>
 
 										<div className="services-content-chips mt-[60px] flex gap-[12px] flex-wrap">
-											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Experience Strategy & Research</Link>
-											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Website Design</Link>
-											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Interface Design</Link>
-											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Interaction & Motion Design</Link>
-											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Product & App Design</Link>
-											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Design Systems</Link>
-											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Dashboard & Data Experience</Link>
-											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Prototype & Validation</Link>
+											<Link href="#" title="Experience Strategy & Research" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Marketing & Promotional Creatives</Link>
+											<Link href="#" title="Website Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Brochure & Catalogue Design</Link>
+											<Link href="#" title="Interface Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Packaging Design</Link>
+											<Link href="#" title="Interaction & Motion Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Print & Editorial Design</Link>
+											<Link href="#" title="Product & App Design" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Business Stationery</Link>
+											<Link href="#" title="Design Systems" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Outdoor & Large-Format Graphics</Link>
+											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Digital Graphics</Link>
+											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Infographics & Presentation Design</Link>
 										</div>
 									</div>
 								</div>

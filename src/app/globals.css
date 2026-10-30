@@ -125,7 +125,7 @@
     .text-80 { font-size: 68px; line-height: 68px; }
 	.text-20 { font-size: 16px; line-height: 22px; }
 	.text-18 { font-size: 14px; line-height: 20px; }
-	.text-16 { font-size: 12px; line-height: 24px; }
+	.text-16 { font-size: 12px; line-height: 20px; }
 }
 
 @media (max-width: 1359px) {

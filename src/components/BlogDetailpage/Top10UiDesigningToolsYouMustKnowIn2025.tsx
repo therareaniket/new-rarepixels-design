@@ -3,10 +3,11 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
 
 const Top10UiDesigningToolsYouMustKnowIn2025 = () => {
 	return (
-		<section>
+		<section id='blog-detail-section'>
 			<div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
 				<div className="blog-container-sm">
 					<div className="blog-detail-hero-text py-[80px] ">
@@ -32,7 +33,7 @@ const Top10UiDesigningToolsYouMustKnowIn2025 = () => {
 
 								<div className="blog-post-cate text-18 text-[white]">
 									<p className="font-normal">Category</p>
-									<p className="font-semibold">UX/UI Design</p>
+									<p className="font-semibold">Technical</p>
 								</div>
 
 								<div className="blog-post-read text-18 text-[white]">
@@ -61,7 +62,7 @@ const Top10UiDesigningToolsYouMustKnowIn2025 = () => {
 
 							<div className="blog-post-cate text-18 text-[white]">
 								<p className="font-normal">Category</p>
-								<p className="font-semibold">UX/UI Design</p>
+								<p className="font-semibold">Technical</p>
 							</div>
 
 							<div className="blog-post-read text-18 text-[white]">
@@ -162,17 +163,22 @@ const Top10UiDesigningToolsYouMustKnowIn2025 = () => {
 							<h2 className="h3 mb-[20px] mt-[40px] font-semibold">Looking Ahead</h2>
 
 							<p className="font-normal text-20 mt-[20px]">The field of UI design is advancing rapidly, and the tools mentioned above are at the forefront of this evolution. By mastering these tools, you’ll not only enhance your design skills but also ensure your work stays relevant in the competitive market of 2025.</p>
-							
+
 							<h2 className="h3 mb-[20px] mt-[40px] font-semibold">Conclusion</h2>
-							
+
 							<p className="font-normal text-20 mt-[20px]">Staying ahead in the design world means constantly updating your toolkit. These 10 tools are shaping the future of UI design and empowering designers to create experiences that users will love.</p>
 
-                            <p className="font-normal text-20 mt-[20px]">Whether you’re a seasoned designer or just starting, exploring these tools will undoubtedly elevate your craft. If you’re looking to collaborate with a professional team that leverages these cutting-edge tools, consider partnering with a top-tier <Link href="https://www.rarepixelsdesign.in/" target='_blank' className='text-[#ed0180]'>UI designing company in India</Link> to bring your vision to life. </p>
+							<p className="font-normal text-20 mt-[20px]">Whether you’re a seasoned designer or just starting, exploring these tools will undoubtedly elevate your craft. If you’re looking to collaborate with a professional team that leverages these cutting-edge tools, consider partnering with a top-tier <Link href="https://www.rarepixelsdesign.in/" target='_blank' className='text-[#ed0180]'>UI designing company in India</Link> to bring your vision to life. </p>
 
 						</article>
 					</div>
 				</div>
 			</div>
+
+			<RelatedBlogPopup
+				currentBlogHref="/Blog/top-10-ui-designing-tools-you-must-know"
+				currentCategory="Technical"
+			/>
 		</section>
 	)
 }

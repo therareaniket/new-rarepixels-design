@@ -5,13 +5,14 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
 
 const blogUrl = "https://rarepixelsdesign.in/blog/rarepixels-1st-anniversary-celebration";
 const blogTitle = "RarePixels Turns One - A Year of Pixels, People & Pure Magic";
 
 const Rare1stAnniversary = () => {
     return (
-        <section>
+        <section id='blog-detail-section'>
             <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
                     <div className="blog-detail-hero-text py-[80px] ">
@@ -37,7 +38,7 @@ const Rare1stAnniversary = () => {
 
                                 <div className="blog-post-cate text-18 text-[white]">
                                     <p className="font-normal">Category</p>
-                                    <p className="font-semibold">UX/UI Design</p>
+                                    <p className="font-semibold">Life at RarePixels</p>
                                 </div>
 
                                 <div className="blog-post-read text-18 text-[white]">
@@ -66,7 +67,7 @@ const Rare1stAnniversary = () => {
 
                             <div className="blog-post-cate text-18 text-[white]">
                                 <p className="font-normal">Category</p>
-                                <p className="font-semibold">UX/UI Design</p>
+                                <p className="font-semibold">Life at RarePixels</p>
                             </div>
 
                             <div className="blog-post-read text-18 text-[white]">
@@ -247,6 +248,11 @@ const Rare1stAnniversary = () => {
                     </div>
                 </div>
             </div>
+
+            <RelatedBlogPopup
+                currentBlogHref="/Blog/rarepixels-1st-anniversary-celebration"
+                currentCategory="Life at Rarepixels"
+            />
         </section>
     )
 }

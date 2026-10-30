@@ -3,10 +3,11 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
 
 const TrendingReelsvsRealBrandingWhatBusinessesMightGetWrongin2026 = () => {
 	return (
-		<section>
+		<section id='blog-detail-section'>
 			<div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
 				<div className="blog-container-sm">
 					<div className="blog-detail-hero-text py-[80px] ">
@@ -32,7 +33,7 @@ const TrendingReelsvsRealBrandingWhatBusinessesMightGetWrongin2026 = () => {
 
 								<div className="blog-post-cate text-18 text-[white]">
 									<p className="font-normal">Category</p>
-									<p className="font-semibold">UX/UI Design</p>
+									<p className="font-semibold">Branding</p>
 								</div>
 
 								<div className="blog-post-read text-18 text-[white]">
@@ -61,7 +62,7 @@ const TrendingReelsvsRealBrandingWhatBusinessesMightGetWrongin2026 = () => {
 
 							<div className="blog-post-cate text-18 text-[white]">
 								<p className="font-normal">Category</p>
-								<p className="font-semibold">UX/UI Design</p>
+								<p className="font-semibold">Branding</p>
 							</div>
 
 							<div className="blog-post-read text-18 text-[white]">
@@ -348,6 +349,11 @@ const TrendingReelsvsRealBrandingWhatBusinessesMightGetWrongin2026 = () => {
 					</div>
 				</div>
 			</div>
+
+			<RelatedBlogPopup
+				currentBlogHref="/Blog/trending-reels-vs-real-branding-what-businesses-might-get-wrong-in-2026"
+				currentCategory="Branding"
+			/>
 		</section>
 	)
 }

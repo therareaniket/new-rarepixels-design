@@ -3,11 +3,12 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup'
 
 const WillAiGeneratedUiDesignsReplaceHumanDesigners = () => {
     return (
         <>
-            <section>
+            <section id='blog-detail-section'>
                 <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                     <div className="blog-container-sm">
                         <div className="blog-detail-hero-text py-[80px] ">
@@ -181,7 +182,7 @@ const WillAiGeneratedUiDesignsReplaceHumanDesigners = () => {
                                 <h2 className="h3 mb-[20px] mt-[40px] font-semibold">The Future: Will AI Take Over UI/UX Jobs?</h2>
 
                                 <p className="font-normal text-20 mt-[20px]">Alright, let’s be real. Will AI replace UI/UX designers completely? No. But will it change the way designers work? Absolutely.</p>
-                                
+
                                 <p className="font-normal text-20 mt-[20px]">Here’s what we can expect:</p>
 
                                 <p className="font-semibold text-20 mt-[20px]">1. AI Will Become a Designer’s Assistant, Not a Replacement</p>
@@ -203,17 +204,22 @@ const WillAiGeneratedUiDesignsReplaceHumanDesigners = () => {
                                 <h2 className="h3 mb-[20px] mt-[40px] font-semibold">Conclusion: Designers, You’re Safe (For Now)</h2>
 
                                 <p className="font-normal text-20 mt-[20px]">So, should UI/UX designers be worried? Nope. AI can help speed up processes, but it will never replace human creativity, problem-solving, and emotional intelligence.</p>
-                                
+
                                 <p className="font-normal text-20 mt-[20px]">If you’re a UI/UX designer, the key is to embrace AI as a tool, not a threat. Use it to boost efficiency, automate boring tasks, and free up time for bigger creative challenges.</p>
-                                
+
                                 <p className="font-normal text-20 mt-[20px]">At the end of the day, businesses looking for high-quality  <Link href="https://www.rarepixelsdesign.in/" target='_blank' className='text-[#ed0180]'>UI UX design services</Link> will always prefer the touch of a real, experienced designer over an AI-generated template.</p>
-                            
+
                                 <p className="font-normal text-20 mt-[20px]">So, keep designing, keep innovating, and don’t let the robots scare you just yet.</p>
 
                             </article>
                         </div>
                     </div>
                 </div>
+
+                <RelatedBlogPopup
+                    currentBlogHref="/Blog/will-ai-generated-ui-design-replace-human"
+                    currentCategory="UI/UX"
+                />
             </section>
         </>
     )

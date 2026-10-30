@@ -55,7 +55,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="services-why-busi-description pb-[60px]">
-                            <p>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p>We look beyond what&apos;s already been done. Every challenge gets a fresh perspective, every idea is questioned, and every solution is built with the intention of giving your business a distinct place in the market.</p>
                         </div>
                     </div>
 
@@ -73,7 +73,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="services-why-busi-description pb-[60px]">
-                            <p>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p>We don&apos;t jump straight into creating. We ask questions, understand your goals, study your audience, and find the right direction before making the first move. Because good execution starts with clear thinking.</p>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="services-why-busi-description pb-[60px] text-right">
-                            <p>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p>Good work should do more than look impressive. It should make a difference. From stronger brand recognition to better user experiences and digital performance, we focus on outcomes that matter and progress you can actually track.</p>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="sservices-business-tablet-text">
-                            <p className='text-18'>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p className='text-18'>We look beyond what&apos;s already been done. Every challenge gets a fresh perspective, every idea is questioned, and every solution is built with the intention of giving your business a distinct place in the market.</p>
                         </div>
                     </div>
 
@@ -130,7 +130,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="sservices-business-tablet-text">
-                            <p className='text-18'>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p className='text-18'>We don&apos;t jump straight into creating. We ask questions, understand your goals, study your audience, and find the right direction before making the first move. Because good execution starts with clear thinking.</p>
                         </div>
                     </div>
 
@@ -148,7 +148,7 @@ const ServicesWhyBusinesses = () => {
                         </div>
 
                         <div className="sservices-business-tablet-text">
-                            <p className='text-18'>No templates. No recycled frameworks. Every deliverable - whether it is a brand identity, a platform, or a content strategy is conceived specifically for your business.</p>
+                            <p className='text-18'>Good work should do more than look impressive. It should make a difference. From stronger brand recognition to better user experiences and digital performance, we focus on outcomes that matter and progress you can actually track.</p>
                         </div>
                     </div>
                 </div>

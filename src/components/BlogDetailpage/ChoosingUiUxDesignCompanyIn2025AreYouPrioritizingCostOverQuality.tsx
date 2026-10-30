@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import './blogdetail.css'
 import Link from 'next/link'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
 
 const blogUrl = "https://rarepixelsdesign.in/Blog/choosing-ui-ux-design-company-in-2025";
 const blogTitle = "From Unknown to Unforgettable: How Branding Makes Businesses Recognisable";
@@ -10,7 +11,7 @@ const blogTitle = "From Unknown to Unforgettable: How Branding Makes Businesses 
 const ChoosingUiUxDesignCompanyIn2025AreYouPrioritizingCostOverQuality = () => {
     return (
         <>
-            <section>
+            <section id='blog-detail-section'>
                 <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                     <div className="blog-container-sm">
                         <div className="blog-detail-hero-text py-[80px] ">
@@ -242,6 +243,11 @@ const ChoosingUiUxDesignCompanyIn2025AreYouPrioritizingCostOverQuality = () => {
                         </div>
                     </div>
                 </div>
+
+                <RelatedBlogPopup
+                    currentBlogHref="/Blog/choosing-ui-ux-design-company-in-2025"
+                    currentCategory="UI/UX"
+                />
             </section>
         </>
     )

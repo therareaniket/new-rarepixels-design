@@ -10,12 +10,12 @@ const ServicesSpecialized = () => {
                 <div className="services-special-wrapper flex items-center justify-between">
                     <div className="services-special-left flex justify-between">
                         <h2 className='font-semibold flex flex-col services-spec-h2-tablet'>
-                            The work is always original.<br /> The thinking is always strategic.<br /> The execution is always precise.
+                            One Vision. <br /> One Team.<br /> Everything Connected.
                         </h2>
 
                         <p className='text-18 flex flex-col gap-[18px] w-[45%]'>
-                            <span className='font-regular'>Most businesses work with multiple agencies, one for design, another for development, a third for social. The result is inconsistent output, broken communication, and work that never quite fits together. </span>
-                            <span className='font-semibold'>At RarePixels, all services sit under one creative team. That means your brand identity, your website, your social content, and your print materials are all built from the same brief, the same strategy, and the same standard of craft.</span>
+                            <span className='font-regular'>Different agencies often mean different ideas, disconnected communication, and a brand experience that doesn&apos;t quite come together.</span>
+                            <span className='font-semibold'>At RarePixels, strategy, branding, design, development, and social media work as parts of one bigger picture. Every team works towards the same vision, every detail follows the same direction, and every deliverable feels like it belongs. No disconnected pieces. Just one consistent experience built around your business.</span>
                         </p>
                     </div>
 

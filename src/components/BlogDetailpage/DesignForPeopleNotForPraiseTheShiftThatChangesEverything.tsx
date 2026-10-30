@@ -2,13 +2,14 @@
 
 import Image from 'next/image'
 import './blogdetail.css'
+import RelatedBlogPopup from './RelatedBlofPopup/RelatedBlogPopup';
 
 const blogUrl = "https://rarepixelsdesign.in/Blog/design-for-people-not-praise";
 const blogTitle = "Design for People, Not for Praise: The Shift That Changes Everything";
 
 const DesignForPeopleNotForPraiseTheShiftThatChangesEverything = () => {
     return (
-        <section>
+        <section id='blog-detail-section'>
             <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
                     <div className="blog-detail-hero-text py-[80px] ">
@@ -340,6 +341,11 @@ const DesignForPeopleNotForPraiseTheShiftThatChangesEverything = () => {
                     </div>
                 </div>
             </div>
+
+            <RelatedBlogPopup
+                currentBlogHref="/Blog/design-for-people-not-praise"
+                currentCategory="UI/UX"
+            />
         </section>
     )
 }
