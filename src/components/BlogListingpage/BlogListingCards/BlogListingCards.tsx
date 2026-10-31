@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import './bloglistingcard.css'
 import { Tabs, TabsContent, TabsList, TabsTrigger, } from "@/components/ui/tabs"
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, } from "react";
 import { blogs } from '@/data/blogs';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,64 +16,148 @@ const BlogListingCards = () => {
 
 	const categories = ["All", "UI/UX", "Technical", "Life at Rarepixels", "Branding", "Comic",];
 
-	const sectionRef = useRef<HTMLDivElement>(null);
+	type TabPosition = "normal" | "fixed" | "section-end";
 
-	const handleTabChange = () => {
-		sectionRef.current?.scrollIntoView({
-			behavior: "smooth",
-			block: "start",
-		});
+	const [activeCategory, setActiveCategory] = useState("All");
+
+	const sectionRef = useRef<HTMLDivElement>(null);
+	const isCategoryChangingRef = useRef(false);
+	const tabStateRef = useRef<TabPosition>("normal");
+	const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+	const previousSectionBottomRef = useRef<number | null>(null);
+
+	const handleTabChange = (nextCategory: string) => {
+		const section = sectionRef.current;
+
+		if (!section || nextCategory === activeCategory) return;
+		if (tabStateRef.current === "section-end") {
+			previousSectionBottomRef.current =
+				section.getBoundingClientRect().bottom +
+				window.scrollY;
+			isCategoryChangingRef.current = true;
+		} else {
+			previousSectionBottomRef.current = null;
+		}
+
+		setActiveCategory(nextCategory);
 	};
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const section = sectionRef.current;
 		if (!section) return;
 		const tabs = section.querySelector<HTMLElement>( ".bloglisting-tab-wrapper" );
-		const tabsPlaceholder = section.querySelector<HTMLElement>( ".blog-list-tabs" );
-		if (!tabs || !tabsPlaceholder) return;
+		if (!tabs) return;
 
-		let flipAnimation: gsap.core.Timeline | null = null;
-
-		const changeTabState = (
-			state: "normal" | "fixed" | "section-end"
-		) => {
-			flipAnimation?.kill();
-			const flipState = Flip.getState(tabs);
-			tabs.classList.remove("is-bottom", "is-section-end");
-
-			if (state === "fixed") { tabs.classList.add("is-bottom"); }
-			if (state === "section-end") { tabs.classList.add("is-section-end"); }
-			flipAnimation = Flip.from(flipState, {
-				duration: 0.8,
-				ease: "power3.inOut",
-				nested: true,
-				overwrite: true,
+		const previousSectionBottom = previousSectionBottomRef.current;
+		if (
+			tabStateRef.current !== "section-end" ||
+			previousSectionBottom === null
+		) {
+			requestAnimationFrame(() => {
+				ScrollTrigger.refresh();
 			});
-		};
 
-		const scrollTrigger = ScrollTrigger.create({
-			trigger: tabsPlaceholder,
-			start: "bottom bottom-=20",
-			endTrigger: section,
-			end: "bottom bottom-=20",
-			onEnter: () => { changeTabState("fixed"); },
-			onLeave: () => { changeTabState("section-end"); },
-			onEnterBack: () => { changeTabState("fixed"); },
-			onLeaveBack: () => { changeTabState("normal"); },
-			invalidateOnRefresh: true,
+			return;
+		}
+
+		gsap.killTweensOf(tabs);
+
+		tabs.classList.remove("is-bottom");
+		tabs.classList.add("is-section-end");
+
+		gsap.set(tabs, { clearProps: "transform", });
+		const newSectionBottom = section.getBoundingClientRect().bottom + window.scrollY;
+		const heightDifference = newSectionBottom - previousSectionBottom;
+		window.scrollBy({ top: heightDifference, behavior: "auto", });
+
+		requestAnimationFrame(() => {
+			tabs.classList.remove("is-bottom");
+			tabs.classList.add("is-section-end");
+
+			tabStateRef.current = "section-end";
+
+			ScrollTrigger.refresh();
+
+			requestAnimationFrame(() => {
+				tabs.classList.remove("is-bottom");
+				tabs.classList.add("is-section-end");
+
+				gsap.set(tabs, { clearProps: "transform", });
+
+				tabStateRef.current = "section-end";
+				previousSectionBottomRef.current = null;
+				isCategoryChangingRef.current = false;
+			});
 		});
+	}, [activeCategory]);
 
-		const handleResize = () => { ScrollTrigger.refresh(); };
-		window.addEventListener("resize", handleResize);
+	useEffect(() => {
+    const section = sectionRef.current;
 
-		return () => {
-			window.removeEventListener("resize", handleResize);
-			flipAnimation?.kill();
-			scrollTrigger.kill();
-			tabs.classList.remove("is-bottom", "is-section-end");
-			gsap.set(tabs, { clearProps: "transform", });
-		};
-	}, []);
+    if (!section) return;
+
+    const tabs = section.querySelector<HTMLElement>( ".bloglisting-tab-wrapper" );
+    const tabsPlaceholder = section.querySelector<HTMLElement>( ".blog-list-tabs" );
+
+    if (!tabs || !tabsPlaceholder) return;
+
+	let flipAnimation: gsap.core.Timeline | null = null;
+
+    const changeTabState = (state: TabPosition) => {
+        if (isCategoryChangingRef.current) return;
+        if (tabStateRef.current === state) return;
+
+        flipAnimation?.kill();
+        const flipState = Flip.getState(tabs);
+        tabs.classList.remove( "is-bottom", "is-section-end" );
+        if (state === "fixed") { tabs.classList.add("is-bottom"); }
+        if (state === "section-end") { tabs.classList.add("is-section-end"); }
+
+        tabStateRef.current = state;
+
+        flipAnimation = Flip.from(flipState, {
+            duration: 0.8,
+            ease: "power3.inOut",
+            nested: true,
+            overwrite: true,
+        });
+    };
+
+    scrollTriggerRef.current = ScrollTrigger.create({
+        trigger: tabsPlaceholder,
+        start: "bottom bottom-=20",
+        endTrigger: section,
+        end: "bottom bottom-=20",
+
+        onEnter: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
+        onLeave: () => { if (isCategoryChangingRef.current) return; changeTabState("section-end"); },
+        onEnterBack: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
+        onLeaveBack: () => { if (isCategoryChangingRef.current) return; changeTabState("normal"); },
+
+        invalidateOnRefresh: true,
+    });
+
+    const scrollTrigger = scrollTriggerRef.current;
+
+    const handleResize = () => {
+        ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+        window.removeEventListener( "resize", handleResize );
+
+        flipAnimation?.kill();
+        scrollTrigger.kill();
+
+        tabs.classList.remove( "is-bottom", "is-section-end" );
+        gsap.set(tabs, { clearProps: "transform", });
+
+        tabStateRef.current = "normal";
+        scrollTriggerRef.current = null;
+    };
+}, []);
 
 	return (
 		<section ref={sectionRef} className='section blog-listing-cate-section' >
@@ -83,7 +167,11 @@ const BlogListingCards = () => {
 					<p className='text-18 font-normal mt-[30px]'>A collection of thoughts, learnings, and perspectives from our work in design, technology, and building impactful digital experiences.</p>
 				</div>
 
-				<Tabs defaultValue="All" onValueChange={handleTabChange} className="bloglisting-layout">
+				<Tabs
+					value={activeCategory}
+					onValueChange={handleTabChange}
+					className="bloglisting-layout"
+				>
 					<div className="blog-list-tabs">
 						<div className="bloglisting-tab-sticky-wrap">
 							<TabsList className="bloglisting-tab-wrapper">

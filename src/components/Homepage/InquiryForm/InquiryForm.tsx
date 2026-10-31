@@ -161,7 +161,7 @@ const InquiryForm = () => {
 
                     {validationError && (<p className="mb-[20px] text-16 font-medium text-red-600"> {validationError} </p>)}
 
-                    <button type="submit" disabled={loading} title="Submit" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] w-[max-content] website-link cursor-pointer disabled:opacity-50" >
+                    <button type="submit" disabled={loading} title="Start your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] w-[max-content] website-link cursor-pointer disabled:opacity-50" >
                         {loading ? 'Sending...' : 'Start your Project'}{' '}
                         <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span>
                     </button>

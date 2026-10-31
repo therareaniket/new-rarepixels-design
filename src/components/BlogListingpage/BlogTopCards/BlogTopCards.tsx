@@ -70,7 +70,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-[white] text-[white] text-18 font-normal mt-[30px]'>Every business starts somewhere. A new name. A new idea. A website. A product. Perhaps a logo that represents the beginning of something ambitious.
-								<Link href="/Blog/from-unknown-to-unforgettable-branding"  style={{ color: '#ED0180' }}>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
+								<Link href="/Blog/from-unknown-to-unforgettable-branding" title='from-unknown-to-unforgettable-branding' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -105,7 +105,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>At some point, almost every business tries to handle UI/UX on its own. It makes sense in the beginning. You want to move fast, save costs, and keep control. 
-								<Link href="/Blog/diy-ui-ux-vs-experts-business-growth"  style={{ color: '#ED0180' }}>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
+								<Link href="/Blog/diy-ui-ux-vs-experts-business-growth" title='diy-ui-ux-vs-experts-business-growth'  style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -140,7 +140,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading"  style={{ color: '#ED0180' }}>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
+								<Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading"  title='rarepixels-turns-2' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -175,7 +175,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Every business wants to look good. A clean website.Modern visuals. Smooth animations. A stylish interface.
-								<Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers"  style={{ color: '#ED0180' }}>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
+								<Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='why-businesses-need-ux-master' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -210,7 +210,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>There’s a strange pattern happening across the digital world. More apps. More websites. More platforms. More tools. And yet… everything feels the same.
-								<Link href="/Blog/emotion-in-ui-ux-and-user-loyalty"  style={{ color: '#ED0180' }}>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
+								<Link href="/Blog/emotion-in-ui-ux-and-user-loyalty" title='emotion-in-ui-ux-and-user-loyalty' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -245,7 +245,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Getting Customers Is Difficult. Keeping Them Is Even Harder. Most businesses spend heavily on marketing, ads, outreach, and lead generation. 
-								<Link href="/Blog/ui-ux-strategies-client-retention"  style={{ color: '#ED0180' }}>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
+								<Link href="/Blog/ui-ux-strategies-client-retention" title='ui-ux-strategies-client-retention' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
 							</p>
 						</div>
 					</SwiperSlide>
@@ -280,7 +280,7 @@ const BlogTopCards = () => {
 							</div>
 
 							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Social Media Today Is Doing Its Job Better Than Ever Posts reach thousands. Ads drive clicks. Campaigns generate buzz.
-								<Link href="/Blog/ui-ux-social-media-marketing-success"  style={{ color: '#ED0180' }}>Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
+								<Link href="/Blog/ui-ux-social-media-marketing-success" title='ui-ux-social-media-marketing-success' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
 							</p>
 						</div>
 					</SwiperSlide>
