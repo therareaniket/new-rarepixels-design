@@ -25,7 +25,7 @@ export default function Home() {
             <WhyChooseUs />
             <ProcessNew />
             <Projects />
-            <Statistics />
+            {/* <Statistics /> */}
             <Blog />
             <FAQ />
             <InquiryForm />

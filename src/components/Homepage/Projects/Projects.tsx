@@ -117,7 +117,7 @@ export default function Projects() {
                     <p className="text-18">A curated selection of work that reflects how we design, build, and deliver impactful digital experiences.</p>
                 </div>
 
-				<div className="projects-lists-wrapper overflow-hidden">
+				<div className="projects-lists-wrapper ">
 					<div className="projects-list flex mt-[50px] gap-[30px] w-max">
 						{PROJECT_DATA.map((project, index) => (
 							<ProjectCard 
@@ -148,7 +148,7 @@ export default function Projects() {
                         ))}
                     </div>
 
-					<div className="projects-controller w-max p-[2px] bg-[#EDEDED] flex items-center rounded-full " style={{ display: "flex" }}>
+					<div className="projects-controller w-max p-[2px] bg-[#EDEDED] flex items-center rounded-full relative z-[10]" style={{ display: "flex" }}>
 						<button className="hover:cursor-pointer hover:bg-white px-[14px] py-[6px] transform scale-x-[-1] rounded-full leading-1 transition-all" 
 							type="button" 
 							aria-label="previous-button"
