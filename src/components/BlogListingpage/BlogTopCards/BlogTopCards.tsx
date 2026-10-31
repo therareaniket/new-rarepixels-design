@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 const BlogTopCards = () => {
 	return (
-		<section id="first-section" className='section bg-[#040E36] mt-[69px] blog-top-card-section'>
+		<section id="first-section" className='section bg-[#040E36] blog-top-card-section'>
 			<div className="blog-top-card-title w-[1000px] text-[white]">
 				<h2 className='font-semibold'>Design Thinking. Business Results.</h2>
 				<p className='text-18 font-normal mt-[20px]'>Practical guides, industry insight, and behind-the-scenes thinking from a studio that builds brands, websites, and digital experiences from scratch — for businesses that take design seriously. </p>
