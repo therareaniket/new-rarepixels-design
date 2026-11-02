@@ -45,7 +45,7 @@ const BlogListingCards = () => {
 	useLayoutEffect(() => {
 		const section = sectionRef.current;
 		if (!section) return;
-		const tabs = section.querySelector<HTMLElement>( ".bloglisting-tab-wrapper" );
+		const tabs = section.querySelector<HTMLElement>(".bloglisting-tab-wrapper");
 		if (!tabs) return;
 
 		const previousSectionBottom = previousSectionBottomRef.current;
@@ -92,72 +92,70 @@ const BlogListingCards = () => {
 	}, [activeCategory]);
 
 	useEffect(() => {
-    const section = sectionRef.current;
+		const section = sectionRef.current;
 
-    if (!section) return;
+		if (!section) return;
 
-    const tabs = section.querySelector<HTMLElement>( ".bloglisting-tab-wrapper" );
-    const tabsPlaceholder = section.querySelector<HTMLElement>( ".blog-list-tabs" );
+		const tabs = section.querySelector<HTMLElement>(".bloglisting-tab-wrapper");
+		const tabsPlaceholder = section.querySelector<HTMLElement>(".blog-list-tabs");
 
-    if (!tabs || !tabsPlaceholder) return;
+		if (!tabs || !tabsPlaceholder) return;
 
-	let flipAnimation: gsap.core.Timeline | null = null;
+		let flipAnimation: gsap.core.Timeline | null = null;
 
-    const changeTabState = (state: TabPosition) => {
-        if (isCategoryChangingRef.current) return;
-        if (tabStateRef.current === state) return;
+		const changeTabState = (state: TabPosition) => {
+			if (isCategoryChangingRef.current) return;
+			if (tabStateRef.current === state) return;
 
-        flipAnimation?.kill();
-        const flipState = Flip.getState(tabs);
-        tabs.classList.remove( "is-bottom", "is-section-end" );
-        if (state === "fixed") { tabs.classList.add("is-bottom"); }
-        if (state === "section-end") { tabs.classList.add("is-section-end"); }
+			flipAnimation?.kill();
+			const flipState = Flip.getState(tabs);
+			tabs.classList.remove("is-bottom", "is-section-end");
+			if (state === "fixed") { tabs.classList.add("is-bottom"); }
+			if (state === "section-end") { tabs.classList.add("is-section-end"); }
 
-        tabStateRef.current = state;
+			tabStateRef.current = state;
 
-        flipAnimation = Flip.from(flipState, {
-            duration: 0.8,
-            ease: "power3.inOut",
-            nested: true,
-            overwrite: true,
-        });
-    };
+			flipAnimation = Flip.from(flipState, {
+				duration: 1.6,
+				ease: "power3.inOut",
+				nested: true,
+				overwrite: true,
+			});
+		};
 
-    scrollTriggerRef.current = ScrollTrigger.create({
-        trigger: tabsPlaceholder,
-        start: "bottom bottom-=20",
-        endTrigger: section,
-        end: "bottom bottom-=20",
+		scrollTriggerRef.current = ScrollTrigger.create({
+			trigger: tabsPlaceholder,
+			start: "top top",
+			endTrigger: section,
+			end: "bottom bottom-=20",
 
-        onEnter: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
-        onLeave: () => { if (isCategoryChangingRef.current) return; changeTabState("section-end"); },
-        onEnterBack: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
-        onLeaveBack: () => { if (isCategoryChangingRef.current) return; changeTabState("normal"); },
+			onEnter: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
+			onLeave: () => { if (isCategoryChangingRef.current) return; changeTabState("section-end"); },
+			onEnterBack: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
+			onLeaveBack: () => { if (isCategoryChangingRef.current) return; changeTabState("normal"); },
 
-        invalidateOnRefresh: true,
-    });
+			invalidateOnRefresh: true,
+		});
 
-    const scrollTrigger = scrollTriggerRef.current;
+		const scrollTrigger = scrollTriggerRef.current;
 
-    const handleResize = () => {
-        ScrollTrigger.refresh();
-    };
+		const handleResize = () => { ScrollTrigger.refresh(); };
 
-    window.addEventListener("resize", handleResize);
+		window.addEventListener("resize", handleResize);
 
-    return () => {
-        window.removeEventListener( "resize", handleResize );
+		return () => {
+			window.removeEventListener("resize", handleResize);
 
-        flipAnimation?.kill();
-        scrollTrigger.kill();
+			flipAnimation?.kill();
+			scrollTrigger.kill();
 
-        tabs.classList.remove( "is-bottom", "is-section-end" );
-        gsap.set(tabs, { clearProps: "transform", });
+			tabs.classList.remove("is-bottom", "is-section-end");
+			gsap.set(tabs, { clearProps: "transform", });
 
-        tabStateRef.current = "normal";
-        scrollTriggerRef.current = null;
-    };
-}, []);
+			tabStateRef.current = "normal";
+			scrollTriggerRef.current = null;
+		};
+	}, []);
 
 	return (
 		<section ref={sectionRef} className='section blog-listing-cate-section' >
