@@ -9,6 +9,7 @@ import InquiryForm from "@/components/Homepage/InquiryForm/InquiryForm";
 import ProcessNew from "@/components/Homepage/ProcessNew/ProcessNew";
 import Projects from "@/components/Homepage/Projects/Projects";
 import Services from "@/components/Homepage/Services/Services";
+import LazyStatistics from "@/components/Homepage/Statistics/LazyStatistics";
 import Statistics from "@/components/Homepage/Statistics/Statistics";
 import Testimonials from "@/components/Homepage/Testimonials/Testimonials";
 import WhyChooseUs from "@/components/Homepage/WhyChooseUs/WhyChooseUs";
@@ -26,6 +27,7 @@ export default function Home() {
             <ProcessNew />
             <Projects />
             {/* <Statistics /> */}
+            <LazyStatistics />
             <Blog />
             <FAQ />
             <InquiryForm />
