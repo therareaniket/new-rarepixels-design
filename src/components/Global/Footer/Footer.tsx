@@ -243,7 +243,7 @@ export default function Footer() {
                     </div>
 
                     <div className="rare-pixels-company-logo">
-                        <Image className="footer-site-logo relative z-[2]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/rarepixels-footer-logo.svg" alt="website-logo" width={1600} height={260}></Image>
+                        <Image className="footer-site-logo relative z-[2]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/rarepixels-footer-logo.svg" alt="website-logo" width={1600} height={260} draggable={false}></Image>
                     </div>
 
                     <div className="footer-copyright">
@@ -260,9 +260,9 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <Image className="footer-pixel-1" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/footer-pixel-1.svg" alt="footer-pixel-1" width={386} height={262}></Image>
-                    <Image className="footer-pixel-2" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/footer-pixel-2.svg" alt="footer-pixel-2" width={166} height={124}></Image>
-                    <Image className="footer-pixel-3" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/footer-pixel-3.svg" alt="footer-pixel-3" width={369} height={262}></Image>
+                    <Image className="footer-pixel-1" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/footer-pixel-1.svg" alt="footer-pixel-1" width={386} height={262} draggable={false}></Image>
+                    <Image className="footer-pixel-2" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/footer-pixel-2.svg" alt="footer-pixel-2" width={166} height={124} draggable={false}></Image>
+                    <Image className="footer-pixel-3" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/global/footer-pixel-3.svg" alt="footer-pixel-3" width={369} height={262} draggable={false}></Image>
                 </div>
             </footer>
         </>

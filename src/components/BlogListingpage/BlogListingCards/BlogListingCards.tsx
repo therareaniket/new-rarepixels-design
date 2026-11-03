@@ -211,7 +211,7 @@ const BlogListingCards = () => {
 									{(category === "All" ? blogs : blogs.filter((blog) => blog.category === category)).map((blog) => (
 										<Link key={blog.href} href={blog.href} title={blog.title} className="block blog-listing-card" >
 											<div className="blog-listing-image w-[100%] h-[400px] rounded-[20px] overflow-hidden">
-												<Image className="w-[100%] h-[100%] object-cover" src={blog.image} alt={blog.title} width={1000} height={562} />
+												<Image className="w-[100%] h-[100%] object-cover" src={blog.image} alt={blog.title} width={1000} height={562} draggable={false} />
 											</div>
 											<h3 className="h6 font-semibold mt-[20px]"> {blog.title} </h3>
 										</Link>

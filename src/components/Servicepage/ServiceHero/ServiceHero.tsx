@@ -2,95 +2,8 @@
 
 import Image from "next/image";
 import "./servicehero.css";
-import gsap from "gsap";
-import { useEffect } from "react";
 
 const ServiceHero = () => {
-
-    useEffect(() => {
-        const strip = document.querySelector<HTMLElement>(".services-strip");
-
-        if (!strip) return;
-
-        const items = gsap.utils.toArray<HTMLElement>(".services-strip span");
-        if (!items.length) return;
-
-        const maxScale = 1.3;
-        const bound = 300;
-        const maxPush = 50;
-
-        let lastScrollY = window.scrollY;
-        let stripX = 0;
-
-        gsap.set(items, { transformOrigin: "50% 350%" });
-
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            const scrollDifference = currentScrollY - lastScrollY;
-
-            stripX -= scrollDifference * 0.4;
-
-            gsap.to(strip, {
-                x: stripX,
-                duration: 1,
-                overwrite: "auto"
-            });
-
-            lastScrollY = currentScrollY;
-        };
-
-        const handleMouseMove = (event: MouseEvent) => {
-            items.forEach((item) => {
-                const rect = item.getBoundingClientRect();
-                const itemCenter = rect.left + rect.width / 2;
-
-                const distance = itemCenter - event.clientX;
-
-                let scale = 1;
-                let x = 0;
-
-                if (Math.abs(distance) < bound) {
-                    const normalized = distance / bound;
-
-                    const influence = Math.cos(normalized * Math.PI / 2);
-
-                    scale = 1 + (maxScale - 1) * influence;
-
-                    x = Math.sin(normalized * Math.PI / 2) * maxPush;
-                } else {
-                    x = distance < 0 ? -maxPush : maxPush;
-                }
-
-                gsap.to(item, {
-                    duration: 1,
-                    scale,
-                    x,
-                    overwrite: true
-                });
-            });
-        };
-
-        const handleMouseLeave = () => {
-            gsap.to(items, {
-                duration: 0.3,
-                scale: 1,
-                x: 0,
-                overwrite: true
-            });
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-
-        strip.addEventListener("mousemove", handleMouseMove);
-        strip.addEventListener("mouseleave", handleMouseLeave);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-
-            strip.removeEventListener("mousemove", handleMouseMove);
-            strip.removeEventListener("mouseleave", handleMouseLeave);
-        };
-    }, []);
 
     return (
         <section id='first-section' className=" bg-[white] services-hero-section overflow-hidden">
@@ -135,61 +48,6 @@ const ServiceHero = () => {
                     </div>
                 </div>
             </div>
-
-            {/* <div className="services-hero-animation-strip w-[max-content]">
-                <div className="services-strip flex items-start gap-[26px]">
-                    <span className='h4 text-[black]'>UXUI Design</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'> Branding</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Digital Marketing</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Development</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Strategy</span>
-                    <span className='h4 text-[black]'> * </span>
-                    <span className='h4 text-[black]'>UXUI Design</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'> Branding</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Digital Marketing</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Development</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Strategy</span>
-                    <span className='h4 text-[black]'> * </span>
-                    <span className='h4 text-[black]'>UXUI Design</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'> Branding</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Digital Marketing</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Development</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Strategy</span>
-                    <span className='h4 text-[black]'> * </span>
-                    <span className='h4 text-[black]'>UXUI Design</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'> Branding</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Digital Marketing</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Development</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Strategy</span>
-                    <span className='h4 text-[black]'> * </span>
-                    <span className='h4 text-[black]'>UXUI Design</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'> Branding</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Digital Marketing</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Development</span>
-                    <span className='h4 text-[black]'>*</span>
-                    <span className='h4 text-[black]'>Strategy</span>
-                    <span className='h4 text-[black]'> * </span>
-                </div>
-            </div> */}
         </section>
     )
 }

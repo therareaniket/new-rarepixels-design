@@ -44,14 +44,14 @@ const AboutOurValues = () => {
                         </div>
 
                         <div className="abt-our-values-gif w-[692px] h-[458px] mt-[60px]">
-                            <Image className='abt-values-image' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/our-values-people.webp" alt='abt-values' width={692} height={485}></Image>
+                            <Image className='abt-values-image' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/our-values-people.webp" alt='abt-values' width={692} height={485} draggable={false}></Image>
                         </div>
                     </div>
 
                     <div className="abt-our-values-right">
                         <div className="abt-our-values-pointer flex items-start gap-[20px] w-[660px]">
                             <div className='our-values-icon w-[52px] h-[52px] bg-[#c6d9c6] flex justify-center items-center rounded-[10px]'>
-                                <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/creative.svg" alt='abt-values' width={24} height={24}></Image>
+                                <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/creative.svg" alt='abt-values' width={24} height={24} draggable={false}></Image>
                             </div>
 
                             <div className="abt-our-values-text w-[585px]">
@@ -63,7 +63,7 @@ const AboutOurValues = () => {
 
                         <div className="abt-our-values-pointer flex items-start gap-[20px] w-[660px]">
                             <div className='our-values-icon w-[52px] h-[52px] bg-[#c6d9c6] flex justify-center items-center rounded-[10px]'>
-                                <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/strategic.svg" alt='abt-values' width={24} height={24}></Image>
+                                <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/strategic.svg" alt='abt-values' width={24} height={24} draggable={false}></Image>
                             </div>
 
                             <div className="abt-our-values-text w-[585px]">
@@ -75,7 +75,7 @@ const AboutOurValues = () => {
 
                         <div className="abt-our-values-pointer flex items-start gap-[20px] w-[660px]">
                             <div className='our-values-icon w-[52px] h-[52px] bg-[#c6d9c6] flex justify-center items-center rounded-[10px]'>
-                                <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/communication.svg" alt='abt-values' width={24} height={24}></Image>
+                                <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/communication.svg" alt='abt-values' width={24} height={24} draggable={false}></Image>
                             </div>
 
                             <div className="abt-our-values-text w-[585px]">
@@ -87,7 +87,7 @@ const AboutOurValues = () => {
 
                         <div className="abt-our-values-pointer flex items-start gap-[20px] w-[660px]">
                             <div className='our-values-icon w-[52px] h-[52px] bg-[#c6d9c6] flex justify-center items-center rounded-[10px]'>
-                                <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/ownership.svg" alt='abt-values' width={24} height={24}></Image>
+                                <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-our-values/ownership.svg" alt='abt-values' width={24} height={24} draggable={false}></Image>
                             </div>
 
                             <div className="abt-our-values-text w-[585px]">

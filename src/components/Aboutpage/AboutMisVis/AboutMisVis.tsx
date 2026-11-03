@@ -13,11 +13,11 @@ const AboutMisVis = () => {
 
                         <p className="h3 font-semibold mt-[40px]">Ideas Create Possibilities. Design Shapes Experiences. Execution Makes Them Real.</p>
 
-                        <Image className="abt-quote-image absolute top-[0] left-[0]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-mis-vis/mis-vis-bg-quote.svg" alt='' width={307} height={327}></Image>
+                        <Image className="abt-quote-image absolute top-[0] left-[0]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-mis-vis/mis-vis-bg-quote.svg" alt='' width={307} height={327} draggable={false}></Image>
                     </div>
 
                     <div className="abt-mis-vis-copyright-img w-[265px] h-[225px] mr-[72px]">
-                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-mis-vis/vision-mission-original.png" alt='' width={265} height={225}></Image>
+                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-mis-vis/vision-mission-original.png" alt='' width={265} height={225} draggable={false}></Image>
                     </div>
                 </div>
 

@@ -73,10 +73,7 @@ const ServicesSection = () => {
 					) || 0
 				);
 			};
-
-			const getNumberAngle = (index: number) => {
-				return getNumberStartAngle() + getNumberGap() * index;
-			};
+			const getNumberAngle = (index: number) => { return getNumberStartAngle() + getNumberGap() * index; };
 
 			const desktopQuery =
 				"(min-width: 1025px), " +
@@ -163,38 +160,10 @@ const ServicesSection = () => {
 					timeline.set(activeDotPosition, { rotation: () => getNumberStartAngle() + getNumberGap() * 0.5 }, transitionMiddle);
 					timeline.to(activeDotPosition, { rotation: () => getNumberStartAngle(), duration: 0.5 }, transitionMiddle);
 					timeline.to(activeDot, { scale: 1, duration: 0.5 }, transitionMiddle);
-					timeline.to(
-						previousNumber,
-						{
-							opacity: 0.3,
-							scale: 0.75,
-							paddingLeft: '25px',
-							"--current-number-offset": () => `${getNumberOffset("--inactive-number-offset")}px`,
-							duration: 0.5,
-							ease: "power2.inOut",
-						},
-						transitionStart
-					);
-
-					timeline.fromTo(
-						nextNumber,
-						{
-							opacity: 0.3,
-							scale: 0.75,
-							paddingLeft: '25px',
-							"--current-number-offset": () => `${getNumberOffset("--inactive-number-offset")}px`,
-						},
-						{
-							opacity: 1,
-							scale: 1,
-							paddingLeft: '0',
-							"--current-number-offset": () => `${getNumberOffset("--active-number-offset")}px`,
-							duration: 0.5,
-							ease: "power2.inOut",
-							immediateRender: false,
-						},
-						transitionStart
-					);
+					timeline.to(previousNumber, { opacity: 0.3, scale: 0.75, paddingLeft: '25px', "--current-number-offset": () => `${getNumberOffset("--inactive-number-offset")}px`, duration: 0.5, ease: "power2.inOut", }, transitionStart);
+					timeline.fromTo(nextNumber,
+						{ opacity: 0.3, scale: 0.75, paddingLeft: '25px', "--current-number-offset": () => `${getNumberOffset("--inactive-number-offset")}px`, },
+						{ opacity: 1, scale: 1, paddingLeft: '0', "--current-number-offset": () => `${getNumberOffset("--active-number-offset")}px`, duration: 0.5, ease: "power2.inOut", immediateRender: false, }, transitionStart);
 				}
 			});
 
@@ -271,9 +240,7 @@ const ServicesSection = () => {
 				};
 			});
 
-			return () => {
-				media.revert();
-			};
+			return () => { media.revert(); };
 		}, sectionRef);
 
 		return () => {

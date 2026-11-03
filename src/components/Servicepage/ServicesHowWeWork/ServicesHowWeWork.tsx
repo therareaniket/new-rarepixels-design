@@ -9,49 +9,31 @@ const workSteps = [
     {
         number: "01",
         title: " UI/UX Design Services",
-        // title: "UI/UX Design",
-        // subtitle: "Good solutions begin with good questions.",
         description: "Visitors drop off. Users get stuck. Good ideas get lost in confusing experiences. We make digital products easier to understand, navigate, and use, turning every interaction into a step towards the outcome your business wants.",
     },
     {
         number: " 02",
         title: "Web & App Development",
-        // title: "Web & App Development",
-        // subtitle: "Every direction needs a reason.",
         description: "When ready-made solutions fall short, we build what your business actually needs. From custom websites and web applications to mobile apps and SaaS platforms, we turn complex requirements into reliable digital products built to perform and grow with you.",
     },
     {
         number: "03",
         title: " Brand Identity Design",
-        // title: "Brand Identity Design",
-        // subtitle: "Where thinking becomes something visible.",
         description: "If your brand feels forgettable, inconsistent, or disconnected from who you are today, it's time for a rethink. We build distinctive identities around your purpose, personality, and positioning, giving people a reason to recognise you, remember you, and choose you.",
     },
     {
         number: "04",
         title: " Social Media Management",
-        // title: "Social Media Management",
-        // subtitle: "Built specifically - never assembled from parts.",
         description: "A busy feed means little if the right people aren't paying attention. We bring strategy, creativity, and consistency to your social presence, creating content that starts conversations, builds recognition, and turns everyday scrolling into meaningful brand connections.",
     },
     {
         number: "05",
         title: " Graphics & Print Media Design",
-        // title: "Graphics & Print Media Design",
-        // subtitle: "Improved until it performs exactly as designed.",
         description: "From brochures and packaging to catalogues and outdoor creatives, every physical touchpoint shapes how people see your business. We create print and graphic assets that carry your brand identity beyond digital, making every detail feel considered, consistent, and unmistakably yours.",
     },
-    // {
-    //     number: " 06",
-    //     title: "Deliver",
-    //     // subtitle: "Launch is the beginning, not the end.",
-    //     description: "We hand over every project with full documentation, training where needed, and a clear plan for what comes next. The relationship does not end at delivery - it evolves.",
-    // },
 ];
 
 const ServicesHowWeWork = () => {
-    // gsap.registerPlugin();
-
     const sectionHowRef = useRef<HTMLElement | null>(null);
     const cardsWrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -217,10 +199,6 @@ const ServicesHowWeWork = () => {
                     <div className="srvs-how-we-work-wrapper flex justify-between items-start">
                         <div className="services-how-we-work-title">
                             <h2>Not Sure Where to Start? </h2>
-
-                            {/* <p className='text-18 flex flex-col gap-[18] website-subtitle-mt w-[687px]'>
-                                <span className='font-bold'>No Guesswork. No Shortcuts. No Off-The-Shelf.</span>
-                            </p> */}
                         </div>
 
                         <div className="services-how-er-work-subtitle w-[687px]">
@@ -234,8 +212,6 @@ const ServicesHowWeWork = () => {
                                 <div className='services-step-number text-18 font-semibold w-[200px]  py-[20px] text-center'>{step.number}</div>
                                 <div className="services-how-work-card w-[100%] h-[max-content] p-[60px]">
                                     <h3 className='font-semibold h1'>{step.title}</h3>
-
-                                    {/* <h4 className='h5 mt-[20px] mb-[14px]'>{step.subtitle}</h4> */}
 
                                     <p className='text-18px mt-[20px] font-normal w-[871px]'>{step.description}</p>
                                 </div>

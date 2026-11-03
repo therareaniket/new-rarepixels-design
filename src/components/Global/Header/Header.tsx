@@ -282,10 +282,10 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <Image src={`${CDN_URL}/images/global/header/megamenu-bg-pixel-top.svg`} alt="pixels-grp" width={105} height={70} className="mm-pixels-t absolute top-0 left-[450px] z-[1]"></Image>
-                    <Image src={`${CDN_URL}/images/global/header/megamenu-bg-pixel-top-right.svg`} alt="pixels-grp" width={105} height={70} className="mm-pixels-tr absolute top-[30px] right-0 z-[1]"></Image>
-                    <Image src={`${CDN_URL}/images/global/header/megamenu-bg-pixel-bottom-left.svg`} alt="pixels-grp" width={105} height={70} className="mm-pixels-bl absolute bottom-[200px] left-0 z-[1]"></Image>
-                    <Image src={`${CDN_URL}/images/global/header/megamenu-bg-pixel-bottom-right.svg`} alt="pixels-grp" width={105} height={70} className="mm-pixels-br absolute bottom-[90px] right-0 z-[1]"></Image>
+                    <Image src={`${CDN_URL}/images/global/header/megamenu-bg-pixel-top.svg`} alt="pixels-grp" width={105} height={70} className="mm-pixels-t absolute top-0 left-[450px] z-[1]" draggable={false}></Image>
+                    <Image src={`${CDN_URL}/images/global/header/megamenu-bg-pixel-top-right.svg`} alt="pixels-grp" width={105} height={70} className="mm-pixels-tr absolute top-[30px] right-0 z-[1]" draggable={false}></Image>
+                    <Image src={`${CDN_URL}/images/global/header/megamenu-bg-pixel-bottom-left.svg`} alt="pixels-grp" width={105} height={70} className="mm-pixels-bl absolute bottom-[200px] left-0 z-[1]" draggable={false}></Image>
+                    <Image src={`${CDN_URL}/images/global/header/megamenu-bg-pixel-bottom-right.svg`} alt="pixels-grp" width={105} height={70} className="mm-pixels-br absolute bottom-[90px] right-0 z-[1]" draggable={false}></Image>
                 </nav>
             )}
         </header>

@@ -11,6 +11,34 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from 'next/image';
 
+const siteUrl = "https://rarepixelsdesign.in";
+
+const shareBlog = {
+    title: "RarePixels Turns 2. The Big Game Is Still Loading.",
+    url: `${siteUrl}/Blog/rarepixels-turns-2-the-big-game-is-still-loading`,
+};
+
+const encodedUrl = encodeURIComponent(shareBlog.url);
+const encodedTitle = encodeURIComponent(shareBlog.title);
+
+const shareBlog2 = {
+    title: "Why Serious Businesses Invest in UX Masters, Not Just Creative Designers",
+    url: `${siteUrl}/Blog/why-businesses-need-ux-masters-not-just-creative-designers`,
+};
+
+const encodedUrl2 = encodeURIComponent(shareBlog2.url);
+const encodedTitle2 = encodeURIComponent(shareBlog2.title);
+
+const handleCopyLink = async (url: string) => {
+    try {
+        await navigator.clipboard.writeText(url);
+        alert("Link copied!");
+    } catch (error) {
+        console.error("Unable to copy blog link:", error);
+    }
+};
+
+
 const Blog = () => {
     return (
         <section className='section blog-section'>
@@ -24,7 +52,7 @@ const Blog = () => {
                 <div className="hm-blog-wrapper flex align-start gap-[30px] mt-[60px]">
                     <div className="hm-blog-left w-[785px] blog-card-desktop">
                         <div className="hm-blog-image-l w-[100%] h-[442px] rounded-[20px] bg-[black] overflow-hidden">
-                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" draggable={false} width={1000} height={562}></Image>
                         </div>
 
                         <h3 className='font-semibold mt-[30px] mb-[20px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h3>
@@ -41,12 +69,29 @@ const Blog = () => {
                             </div>
 
                             <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]">
-                                <span className='icon-linkedin'></span>
-                                <span className='icon-instagram'></span>
-                                <span className='icon-threads'></span>
-                                <span className='icon-facebook'></span>
-                                <span className='icon-twitter'></span>
-                                <span className='icon-youtube'></span>
+                                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" >
+                                    <span className="icon-linkedin"></span>
+                                </a>
+
+                                <button type="button" onClick={() => handleCopyLink(shareBlog.url)} aria-label="Copy link" >
+                                    <span className="icon-instagram"></span>
+                                </button>
+
+                                <button type="button" onClick={() => handleCopyLink(shareBlog.url)} aria-label="Copy link" >
+                                    <span className="icon-threads"></span>
+                                </button>
+
+                                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" >
+                                    <span className="icon-facebook"></span>
+                                </a>
+
+                                <a href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" >
+                                    <span className="icon-twitter"></span>
+                                </a>
+
+                                <a href={`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" >
+                                    <span className="icon-youtube"></span>
+                                </a>
                             </div>
                         </div>
 
@@ -58,7 +103,7 @@ const Blog = () => {
                     <div className="hm-blog-right w-[785px]">
                         <div className="hm-small-blog-card w-[100%] h-[434px] flex items-start justify-between blog-card-desktop">
                             <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
-                                <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                                <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" draggable={false} width={1000} height={562}></Image>
                             </div>
 
                             <div className="hm-blog-text w-[405px]">
@@ -76,12 +121,29 @@ const Blog = () => {
                                     </div>
 
                                     <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]">
-                                        <span className='icon-linkedin'></span>
-                                        <span className='icon-instagram'></span>
-                                        <span className='icon-threads'></span>
-                                        <span className='icon-facebook'></span>
-                                        <span className='icon-twitter'></span>
-                                        <span className='icon-youtube'></span>
+                                        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" >
+                                            <span className="icon-linkedin"></span>
+                                        </a>
+
+                                        <button type="button" onClick={() => handleCopyLink(shareBlog2.url)} aria-label="Copy link" >
+                                            <span className="icon-instagram"></span>
+                                        </button>
+
+                                        <button type="button" onClick={() => handleCopyLink(shareBlog2.url)} aria-label="Copy link" >
+                                            <span className="icon-threads"></span>
+                                        </button>
+
+                                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" >
+                                            <span className="icon-facebook"></span>
+                                        </a>
+
+                                        <a href={`https://twitter.com/intent/tweet?url=${encodedUrl2}&text=${encodedTitle2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" >
+                                            <span className="icon-twitter"></span>
+                                        </a>
+
+                                        <a href={`https://api.whatsapp.com/send?text=${encodedTitle2}%20${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" >
+                                            <span className="icon-youtube"></span>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -108,7 +170,7 @@ const Blog = () => {
                                 <SwiperSlide>
                                     <div className="blog-swiper-slide">
                                         <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
-                                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" draggable={false} width={1000} height={562}></Image>
                                         </div>
 
                                         <div className="hm-blog-text w-[405px]">
@@ -126,12 +188,29 @@ const Blog = () => {
                                                 </div>
 
                                                 <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]">
-                                                    <span className='icon-linkedin'></span>
-                                                    <span className='icon-instagram'></span>
-                                                    <span className='icon-threads'></span>
-                                                    <span className='icon-facebook'></span>
-                                                    <span className='icon-twitter'></span>
-                                                    <span className='icon-youtube'></span>
+                                                    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" >
+                                                        <span className="icon-linkedin"></span>
+                                                    </a>
+
+                                                    <button type="button" onClick={() => handleCopyLink(shareBlog.url)} aria-label="Copy link" >
+                                                        <span className="icon-instagram"></span>
+                                                    </button>
+
+                                                    <button type="button" onClick={() => handleCopyLink(shareBlog.url)} aria-label="Copy link" >
+                                                        <span className="icon-threads"></span>
+                                                    </button>
+
+                                                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" >
+                                                        <span className="icon-facebook"></span>
+                                                    </a>
+
+                                                    <a href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" >
+                                                        <span className="icon-twitter"></span>
+                                                    </a>
+
+                                                    <a href={`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" >
+                                                        <span className="icon-youtube"></span>
+                                                    </a>
                                                 </div>
                                             </div>
 
@@ -145,7 +224,7 @@ const Blog = () => {
                                 <SwiperSlide>
                                     <div className="blog-swiper-slide">
                                         <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
-                                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" draggable={false} width={1000} height={562}></Image>
                                         </div>
 
                                         <div className="hm-blog-text w-[405px]">
@@ -163,12 +242,29 @@ const Blog = () => {
                                                 </div>
 
                                                 <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]">
-                                                    <span className='icon-linkedin'></span>
-                                                    <span className='icon-instagram'></span>
-                                                    <span className='icon-threads'></span>
-                                                    <span className='icon-facebook'></span>
-                                                    <span className='icon-twitter'></span>
-                                                    <span className='icon-youtube'></span>
+                                                    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" >
+                                                        <span className="icon-linkedin"></span>
+                                                    </a>
+
+                                                    <button type="button" onClick={() => handleCopyLink(shareBlog2.url)} aria-label="Copy link" >
+                                                        <span className="icon-instagram"></span>
+                                                    </button>
+
+                                                    <button type="button" onClick={() => handleCopyLink(shareBlog2.url)} aria-label="Copy link" >
+                                                        <span className="icon-threads"></span>
+                                                    </button>
+
+                                                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" >
+                                                        <span className="icon-facebook"></span>
+                                                    </a>
+
+                                                    <a href={`https://twitter.com/intent/tweet?url=${encodedUrl2}&text=${encodedTitle2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" >
+                                                        <span className="icon-twitter"></span>
+                                                    </a>
+
+                                                    <a href={`https://api.whatsapp.com/send?text=${encodedTitle2}%20${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" >
+                                                        <span className="icon-youtube"></span>
+                                                    </a>
                                                 </div>
                                             </div>
 

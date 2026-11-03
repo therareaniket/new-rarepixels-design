@@ -42,23 +42,13 @@ const WhyChooseUs = () => {
                 } 
             )
         }
-
-        
+ 
         gsap.fromTo(".why-choose-us-hand-img", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 1,
             scrollTrigger: {
                 trigger: ".why-choose-small-container",
                 start: "top 40%",
             }}
         );
-
-        // gsap.to(".why-choose-eclipse", {
-        //     "--clip-right": "100%",
-        //     duration: 2,
-        //     scrollTrigger: {
-        //         trigger: ".why-choose-small-container",
-        //         start: "top 40%",
-        //     }
-        // });
     }, []);
 
     return (
@@ -109,7 +99,7 @@ const WhyChooseUs = () => {
 
                     <div className="why-choose-image-wrapper">
                         <div className="why-choose-us-hand-img relative z-[10]">
-                            <Image src={`${CDN_URL}/images/homepage/why-choose-us/why-choose-us-hand-web.webp`} alt="why-choose-us-hand-image" width={412} height={684} className="why-choose-hand absolute bottom-[0] left-[50%] translate-x-[-50%]" />
+                            <Image src={`${CDN_URL}/images/homepage/why-choose-us/why-choose-us-hand-web.webp`} alt="why-choose-us-hand-image" width={412} height={684} draggable={false} className="why-choose-hand absolute bottom-[0] left-[50%] translate-x-[-50%]" />
                         </div>
 
                         <div className="why-choose-us-bg-eclipse">
