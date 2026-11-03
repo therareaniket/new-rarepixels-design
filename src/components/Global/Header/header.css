@@ -1,4 +1,5 @@
-header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filter: blur(20px); }
+header { width: 100%; background-color: rgba(242, 242, 242, 0.6); }
+/* header { width: 100%; background-color: rgba(242, 242, 242, 0.6); backdrop-filter: blur(20px); } */
 .mm-icon { font-size: 24px; }
 .mm-pages-link li:hover { color: var(--primary); transition: color 0.3s ease-in-out; }
 .mm-pages-link li:hover .link-icon { background-color: var(--primary); color: var(--white); transition: all 0.3s ease-in-out; }

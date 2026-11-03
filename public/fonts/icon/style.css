@@ -1,13 +1,11 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?9q2s0s');
-  src:  url('fonts/icomoon.eot?9q2s0s#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?9q2s0s') format('truetype'),
-    url('fonts/icomoon.woff?9q2s0s') format('woff'),
-    url('fonts/icomoon.svg?9q2s0s#icomoon') format('svg');
+  src: url('fonts/icomoon.woff2?9q2s0s') format('woff2'),
+       url('fonts/icomoon.woff?9q2s0s') format('woff'),
+       url('fonts/icomoon.ttf?9q2s0s') format('truetype');
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  font-display: swap; /* Changed from 'block' to 'swap' */
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -24,6 +22,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* (Keep your existing .icon-* content declarations below this...) */
 
 .icon-service:before {
   content: "\e91c";
