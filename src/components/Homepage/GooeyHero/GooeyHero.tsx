@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,115 +16,83 @@ const CONFIG = {
 export default function GooeyHero() {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLElement>(null);
-    const svgRef = useRef<SVGSVGElement>(null);
-    const containerRef = useRef<SVGGElement>(null);
-
-    // Detect iOS / Safari safely on initial load without triggering cascading render warnings
-    const [isIOS] = useState(() => {
-        if (typeof window === "undefined") return false;
-        const ua = window.navigator.userAgent;
-        return /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-    });
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
         const hero = heroRef.current;
-        if (!hero) return;
+        const canvas = canvasRef.current;
+        if (!hero || !canvas) return;
 
-        const ctx = gsap.context(() => {
-            if (isIOS) {
-                // --- IOS / SAFARI BULLETPROOF FALLBACK ANIMATION ---
-                gsap.to(".ios-reveal-layer", {
-                    clipPath: "circle(150% at 50% 50%)",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: hero,
-                        start: "top top",
-                        end: "+=2000",
-                        pin: true,
-                        pinSpacing: true,
-                        scrub: 0.05,
-                        invalidateOnRefresh: true,
-                    },
-                });
-            } else {
-                // --- DESKTOP / ANDROID GOOEY SVG FILTER ANIMATION ---
-                const svg = svgRef.current;
-                const container = containerRef.current;
-                if (!svg || !container) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
 
-                const NS = "http://www.w3.org/2000/svg";
-                let circles: SVGCircleElement[] = [];
+        let animationFrameId: number;
 
-                const getZigZagPosition = (progress: number) => {
-                    const w = window.innerWidth;
-                    const h = window.innerHeight;
-                    const wave = Math.abs(((progress * CONFIG.zigzagFrequency) % 2) - 1);
-                    const offset = (wave - 0.5) * 2 * CONFIG.zigzagAmplitude;
-                    return { x: progress * w + offset, y: progress * h - offset };
-                };
+        const updateCanvasSize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        updateCanvasSize();
 
-                const buildCircles = () => {
-                    const w = window.innerWidth;
-                    const h = window.innerHeight;
-                    svg.setAttribute("width", `${w}`);
-                    svg.setAttribute("height", `${h}`);
-                    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+        const getZigZagPosition = (progress: number) => {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const wave = Math.abs(((progress * CONFIG.zigzagFrequency) % 2) - 1);
+            const offset = (wave - 0.5) * 2 * CONFIG.zigzagAmplitude;
+            return { x: progress * w + offset, y: progress * h - offset };
+        };
 
-                    container.replaceChildren();
-                    circles = [];
+        const renderCanvas = (progress: number) => {
+            const w = canvas.width;
+            const h = canvas.height;
 
-                    const baseRect = document.createElementNS(NS, "rect");
-                    baseRect.setAttribute("width", "100%");
-                    baseRect.setAttribute("height", "100%");
-                    baseRect.setAttribute("fill", "transparent");
-                    container.appendChild(baseRect);
+            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = "#FFFFFF";
 
-                    for (let i = 0; i < CONFIG.totalPoints; i++) {
-                        const { x, y } = getZigZagPosition(i / (CONFIG.totalPoints - 1));
-                        const c = document.createElementNS(NS, "circle");
-                        c.setAttribute("cx", String(x));
-                        c.setAttribute("cy", String(y));
-                        c.setAttribute("r", "0");
-                        c.setAttribute("fill", "#FFFFFF");
-                        container.appendChild(c);
-                        circles.push(c);
-                    }
-                };
-
-                buildCircles();
-
-                const render = (progress: number) => {
-                    circles.forEach((circle, index) => {
-                        const p = index / (CONFIG.totalPoints - 1);
-                        const r = progress >= p ? Math.min(1, (progress - p) * 4 + 0.3) * CONFIG.maxRadius : 0;
-                        circle.setAttribute("r", String(r));
-                    });
-                };
-
-                ScrollTrigger.create({
-                    trigger: hero,
-                    start: "top top",
-                    end: "+=2000",
-                    pin: true,
-                    pinSpacing: true,
-                    anticipatePin: 1,
-                    scrub: 0.05,
-                    refreshPriority: 1,
-                    invalidateOnRefresh: true,
-                    fastScrollEnd: true,
-                    onUpdate: (self) => render(self.progress),
-                    onRefresh: (self) => {
-                        buildCircles();
-                        render(self.progress);
-                    },
-                });
+            for (let i = 0; i < CONFIG.totalPoints; i++) {
+                const p = i / (CONFIG.totalPoints - 1);
+                const r = progress >= p ? Math.min(1, (progress - p) * 4 + 0.3) * CONFIG.maxRadius : 0;
+                
+                if (r > 0) {
+                    const pos = getZigZagPosition(p);
+                    ctx.beginPath();
+                    ctx.arc(pos.x, pos.y, r, 0, Math.PI * 2);
+                    ctx.fill();
+                }
             }
-        }, wrapperRef);
+        };
+
+        // Render initial state
+        renderCanvas(0);
+
+        const st = ScrollTrigger.create({
+            trigger: hero,
+            start: "top top",
+            end: "+=2000",
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            scrub: 0.05,
+            refreshPriority: 1,
+            invalidateOnRefresh: true,
+            fastScrollEnd: true,
+            onUpdate: (self) => {
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                animationFrameId = requestAnimationFrame(() => {
+                    renderCanvas(self.progress);
+                });
+            },
+            onRefresh: (self) => {
+                updateCanvasSize();
+                renderCanvas(self.progress);
+            },
+        });
 
         return () => {
-            ctx.revert();
+            st.kill();
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
         };
-    }, [isIOS]);
+    }, []);
 
     return (
         <div ref={wrapperRef} className="w-full">
@@ -136,47 +104,42 @@ export default function GooeyHero() {
                     </h1>
                 </div>
 
-                {/* Revealed Layer */}
-                <div
-                    className="ios-reveal-layer absolute inset-0 z-20 flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332]"
-                    style={
-                        isIOS
-                            ? {
-                                  clipPath: "circle(0% at 50% 50%)",
-                                  WebkitClipPath: "circle(0% at 50% 50%)",
-                              }
-                            : {
-                                  maskImage: "url(#smudge-mask)",
-                                  WebkitMaskImage: "url(#smudge-mask)",
-                                  maskPosition: "center",
-                                  WebkitMaskPosition: "center",
-                                  maskRepeat: "no-repeat",
-                                  WebkitMaskRepeat: "no-repeat",
-                                  maskSize: "cover",
-                                  WebkitMaskSize: "cover",
-                              }
-                    }
+                {/* Revealed Layer Masked directly by the Gooey SVG Filter */}
+                <div 
+                    className="absolute inset-0 z-20 flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332]"
+                    style={{ 
+                        mask: "url(#canvas-mask)",
+                        WebkitMask: "url(#canvas-mask)"
+                    }}
                 >
                     <h2 className="h3 text-[clamp(3rem,5vw,6rem)] font-bold uppercase leading-[0.9] text-center max-w-4xl font-casko">
-                        THE THINGS WORTH FINDING ARE NEVER ON THE SURFACE. THEY LIVE IN THE PARTS YOU ALMOST SCROLLED IN PAST.
+                        THE THINGS WORTH FINDING ARE NEVER ON THE SURFACE. THEY LIVE IN THE PARTS YOU ALMOST SCROLLED PAST.
                     </h2>
                 </div>
 
-                {/* SVG Filter rendered only on non-iOS devices */}
-                {!isIOS && (
-                    <svg ref={svgRef} className="absolute top-0 left-0 pointer-events-none z-30" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <filter id="smudge-goo" x="-50%" y="-50%" width="200%" height="200%" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                                <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur" />
-                                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 60 -14" result="goo" />
-                                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-                            </filter>
-                            <mask id="smudge-mask" maskUnits="userSpaceOnUse">
-                                <g ref={containerRef} filter="url(#smudge-goo)" />
-                            </mask>
-                        </defs>
-                    </svg>
-                )}
+                {/* Hidden canvas rendering engine & SVG filter definitions */}
+                <div className="absolute inset-0 pointer-events-none z-30 overflow-hidden">
+                    <canvas 
+                        ref={canvasRef} 
+                        className="absolute inset-0 w-full h-full block"
+                        style={{ filter: "url(#smudge-goo)" }}
+                    />
+                </div>
+
+                {/* SVG Gooey Filter & Mask Setup */}
+                <svg className="absolute w-0 h-0 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="smudge-goo" x="-50%" y="-50%" width="200%" height="200%" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur" />
+                            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 60 -14" result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                        </filter>
+                        {/* Mask definition using a white background fill that punches holes using the canvas filter stream */}
+                        <mask id="canvas-mask" maskUnits="userSpaceOnUse">
+                            <rect width="100%" height="100%" fill="black" />
+                        </mask>
+                    </defs>
+                </svg>
             </section>
         </div>
     );
