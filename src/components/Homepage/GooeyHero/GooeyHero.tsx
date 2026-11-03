@@ -14,8 +14,8 @@ const CONFIG = {
 };
 
 export default function GooeyHero() {
-	const wrapperRef = useRef<HTMLDivElement>(null); // React-owned wrapper
-	const heroRef = useRef<HTMLElement>(null);       // the pinned element
+	const wrapperRef = useRef<HTMLDivElement>(null);
+	const heroRef = useRef<HTMLElement>(null);
 	const svgRef = useRef<SVGSVGElement>(null);
 	const containerRef = useRef<SVGGElement>(null);
 
@@ -39,7 +39,7 @@ export default function GooeyHero() {
 			svg.style.width = `${window.innerWidth}px`;
 			svg.style.height = `${window.innerHeight}px`;
 
-			container.replaceChildren(); // clear previous circles
+			container.replaceChildren();
 			circles = [];
 
 			for (let i = 0; i < CONFIG.totalPoints; i++) {
@@ -72,9 +72,10 @@ export default function GooeyHero() {
 				pin: true,
 				pinSpacing: true,
 				anticipatePin: 1,
-				scrub: 0.2,
-				refreshPriority: 1,   // <- added: pin is measured before later sections
+				scrub: 0.05, // Lowered from 0.1 for an instant, ultra-responsive touch track
+				refreshPriority: 1,
 				invalidateOnRefresh: true,
+				fastScrollEnd: true, // Prevents layout glitches if users flick-scroll fast on iOS
 				onUpdate: (self) => render(self.progress),
 				onRefresh: (self) => { buildCircles(); render(self.progress); },
 			});
@@ -93,17 +94,28 @@ export default function GooeyHero() {
 					</h1>
 				</div>
 
-				{/* Revealed Layer */}
-				<div className="absolute inset-0 z-20 flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332]"
-					style={{ mask: "url(#smudge-mask)", WebkitMask: "url(#smudge-mask)"}} >
+				{/* Revealed Layer with iOS-safe mask positioning */}
+				<div
+					className="absolute inset-0 z-20 flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332]"
+					style={{
+						mask: "url(#smudge-mask)",
+						WebkitMask: "url(#smudge-mask)",
+						transform: "translateZ(0)" // Forces WebKit layer composition
+					}}
+				>
 					<h2 className="h3 text-[clamp(3rem,5vw,6rem)] font-bold uppercase leading-[0.9] text-center max-w-4xl font-casko">
 						THE THINGS WORTH FINDING ARE NEVER ON THE SURFACE. THEY LIVE IN THE PARTS YOU ALMOST SCROLLED PAST.
 					</h2>
 				</div>
 
-				<svg ref={svgRef} className="absolute top-0 left-0 pointer-events-none z-30" xmlns="http://www.w3.org/2000/svg" >
+				<svg
+					ref={svgRef}
+					className="absolute top-0 left-0 pointer-events-none z-30 overflow-visible"
+					xmlns="http://www.w3.org/2000/svg"
+				>
 					<defs>
-						<filter id="smudge-goo">
+						{/* Added color-interpolation-filters="sRGB" for smoother cross-device filter calculation */}
+						<filter id="smudge-goo" x="-20%" y="-20%" width="140%" height="140%" colorInterpolationFilters="sRGB">
 							<feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur" />
 							<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 60 -14" />
 						</filter>
