@@ -107,9 +107,28 @@ const BlogListingCards = () => {
 			if (isCategoryChangingRef.current) return;
 			if (tabStateRef.current === state) return;
 
+			const previousState = tabStateRef.current;
+
 			flipAnimation?.kill();
+			Flip.killFlipsOf(tabs);
+
+			const isFixedToSectionEnd = previousState === "fixed" && state === "section-end";
+			const isSectionEndToFixed = previousState === "section-end" && state === "fixed";
+
+			if (isFixedToSectionEnd || isSectionEndToFixed) {
+				gsap.set(tabs, { clearProps: "transform", });
+
+				tabs.classList.remove("is-bottom", "is-section-end");
+				if (state === "fixed") { tabs.classList.add("is-bottom"); }
+				if (state === "section-end") { tabs.classList.add("is-section-end"); }
+
+				tabStateRef.current = state;
+				return;
+			}
 			const flipState = Flip.getState(tabs);
+
 			tabs.classList.remove("is-bottom", "is-section-end");
+
 			if (state === "fixed") { tabs.classList.add("is-bottom"); }
 			if (state === "section-end") { tabs.classList.add("is-section-end"); }
 
@@ -120,6 +139,9 @@ const BlogListingCards = () => {
 				ease: "power3.inOut",
 				nested: true,
 				overwrite: true,
+				onComplete: () => {
+					flipAnimation = null;
+				},
 			});
 		};
 
@@ -127,7 +149,7 @@ const BlogListingCards = () => {
 			trigger: tabsPlaceholder,
 			start: "top top",
 			endTrigger: section,
-			end: "bottom bottom-=20",
+			end: "bottom bottom",
 
 			onEnter: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
 			onLeave: () => { if (isCategoryChangingRef.current) return; changeTabState("section-end"); },
