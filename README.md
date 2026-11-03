@@ -9,4 +9,4 @@
 
 ADDED THE API KEY INTO ENVIRONMENT VARIABLES
 
-Checking The Website Fonts
+checking the website fonts
