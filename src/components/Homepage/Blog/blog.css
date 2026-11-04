@@ -2,6 +2,8 @@
 
 .hm-blog-social-share span { font-size: 24px; }
 .blog-redirect a { color: #ED0180; text-decoration: dashed; padding-left: 3px; }
+.hm-blog-social-share span { cursor: pointer !important; transition: all 0.6s ease-in-out; }
+.hm-blog-social-share span:hover { color: #ED0180; }
 
 /* responsive */
 @media (max-width: 1799px) { 

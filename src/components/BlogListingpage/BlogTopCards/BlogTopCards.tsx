@@ -42,7 +42,7 @@ const BlogTopCards = () => {
 				>
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -77,7 +77,7 @@ const BlogTopCards = () => {
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/ux-falls-short.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/ux-falls-short.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -112,7 +112,7 @@ const BlogTopCards = () => {
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -147,7 +147,7 @@ const BlogTopCards = () => {
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -182,7 +182,7 @@ const BlogTopCards = () => {
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Makes-Users-Lose-Interest.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Makes-Users-Lose-Interest.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -217,7 +217,7 @@ const BlogTopCards = () => {
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Strategies-That-Can-Double-Your-Client-Retention.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Strategies-That-Can-Double-Your-Client-Retention.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 						</div>
 
 						<div className="blog-top-card-content">
@@ -252,7 +252,7 @@ const BlogTopCards = () => {
 
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Turns-Social-Media-Traffic-into-Result.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Turns-Social-Media-Traffic-into-Result.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 						</div>
 
 						<div className="blog-top-card-content">

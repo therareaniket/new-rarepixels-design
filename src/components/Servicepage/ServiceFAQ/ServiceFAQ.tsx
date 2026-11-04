@@ -34,26 +34,6 @@ const faqs = [
         question: " How does a project with RarePixels get started? ",
         answer: "It starts with a conversation. We'll learn about your business, goals, audience, and challenges before discussing the right approach. Once we're aligned on the scope, deliverables, timeline, and investment, we'll map out the next steps and get things moving."
     },
-    // {
-    //     question: "Do you manage social media for businesses?",
-    //     answer: "Yes. We create content strategies, creative assets, and campaigns that help brands grow."
-    // },
-    // {
-    //     question: "How do you approach a new project?",
-    //     answer: "Every project begins with understanding your business, users, and goals."
-    // },
-    // {
-    //     question: "Can RarePixels redesign an existing website or product?",
-    //     answer: "Yes. We redesign websites and products to improve usability, performance, and business results."
-    // },
-    // {
-    //     question: "Do you work with businesses outside India?",
-    //     answer: "Yes. We collaborate with businesses across multiple countries."
-    // },
-    // {
-    //     question: "How do I get started with RarePixels?",
-    //     answer: "Simply reach out through our contact page and we'll discuss the right approach."
-    // }
 ];
 
 
@@ -151,7 +131,7 @@ const ServiceFAQ = () => {
                                                     </h3>
                                                 </AccordionTrigger>
 
-                                                                                            <AccordionContent className="faq-content pl-[40px] pb-[20px] pr-[20px]">
+                                                <AccordionContent className="faq-content pl-[40px] pb-[20px] pr-[20px]">
                                                     <p className="text-18 font-normal text-black">
                                                         {faq.answer}
                                                     </p>

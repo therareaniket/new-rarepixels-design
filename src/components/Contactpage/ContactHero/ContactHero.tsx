@@ -237,13 +237,7 @@ const ContactHero = () => {
                     </div>
 
                     <div ref={heroImageRef} className="contact-hero-image w-[560px] h-[485px]">
-                        <Image
-                            className="w-[100%] h-[100%] object-contain"
-                            src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/hero/contact-hero-img.png"
-                            alt="contact-hero"
-                            width={560}
-                            height={485}
-                        />
+                        <Image className="w-[100%] h-[100%] object-contain" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/hero/contact-hero-img.png" alt="contact-hero" width={560} height={485} draggable={false} />
                     </div>
                 </div>
             </div>
@@ -253,25 +247,8 @@ const ContactHero = () => {
                     <g opacity="0.1">
                         {WAVE_PATHS.map((path, index) => (
                             <g key={`contact-wave-${index}`}>
-                                <path
-                                    ref={(el) => { mainSourcePathsRef.current[index] = el; }}
-                                    className="contact-wave-source"
-                                    d={path}
-                                    fill="none"
-                                    stroke="1"
-                                    visibility="hidden"
-                                    pointerEvents="none"
-                                />
-                                <path
-                                    ref={(el) => { mainAnimatedPathsRef.current[index] = el; }}
-                                    className="contact-wave-animated"
-                                    d={path}
-                                    fill="none"
-                                    stroke="black"
-                                    strokeWidth="1"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
+                                <path ref={(el) => { mainSourcePathsRef.current[index] = el; }} className="contact-wave-source" d={path} fill="none" stroke="1" visibility="hidden" pointerEvents="none" />
+                                <path ref={(el) => { mainAnimatedPathsRef.current[index] = el; }} className="contact-wave-animated" d={path} fill="none" stroke="black" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
                             </g>
                         ))}
                     </g>
@@ -281,25 +258,8 @@ const ContactHero = () => {
                     <g opacity="0.1">
                         {MOBILE_WAVE_PATHS.map((path, index) => (
                             <g key={`mobile-contact-wave-${index}`}>
-                                <path
-                                    ref={(el) => { mobileSourcePathsRef.current[index] = el; }}
-                                    className="contact-wave-source"
-                                    d={path}
-                                    fill="none"
-                                    stroke="1"
-                                    visibility="hidden"
-                                    pointerEvents="none"
-                                />
-                                <path
-                                    ref={(el) => { mobileAnimatedPathsRef.current[index] = el; }}
-                                    className="contact-wave-animated"
-                                    d={path}
-                                    fill="none"
-                                    stroke="black"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
+                                <path ref={(el) => { mobileSourcePathsRef.current[index] = el; }} className="contact-wave-source" d={path} fill="none" stroke="1" visibility="hidden" pointerEvents="none" />
+                                <path ref={(el) => { mobileAnimatedPathsRef.current[index] = el; }} className="contact-wave-animated" d={path} fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </g>
                         ))}
                     </g>

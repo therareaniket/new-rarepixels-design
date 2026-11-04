@@ -45,7 +45,7 @@ const BlogListingCards = () => {
 	useLayoutEffect(() => {
 		const section = sectionRef.current;
 		if (!section) return;
-		const tabs = section.querySelector<HTMLElement>( ".bloglisting-tab-wrapper" );
+		const tabs = section.querySelector<HTMLElement>(".bloglisting-tab-wrapper");
 		if (!tabs) return;
 
 		const previousSectionBottom = previousSectionBottomRef.current;
@@ -92,72 +92,92 @@ const BlogListingCards = () => {
 	}, [activeCategory]);
 
 	useEffect(() => {
-    const section = sectionRef.current;
+		const section = sectionRef.current;
 
-    if (!section) return;
+		if (!section) return;
 
-    const tabs = section.querySelector<HTMLElement>( ".bloglisting-tab-wrapper" );
-    const tabsPlaceholder = section.querySelector<HTMLElement>( ".blog-list-tabs" );
+		const tabs = section.querySelector<HTMLElement>(".bloglisting-tab-wrapper");
+		const tabsPlaceholder = section.querySelector<HTMLElement>(".blog-list-tabs");
 
-    if (!tabs || !tabsPlaceholder) return;
+		if (!tabs || !tabsPlaceholder) return;
 
-	let flipAnimation: gsap.core.Timeline | null = null;
+		let flipAnimation: gsap.core.Timeline | null = null;
 
-    const changeTabState = (state: TabPosition) => {
-        if (isCategoryChangingRef.current) return;
-        if (tabStateRef.current === state) return;
+		const changeTabState = (state: TabPosition) => {
+			if (isCategoryChangingRef.current) return;
+			if (tabStateRef.current === state) return;
 
-        flipAnimation?.kill();
-        const flipState = Flip.getState(tabs);
-        tabs.classList.remove( "is-bottom", "is-section-end" );
-        if (state === "fixed") { tabs.classList.add("is-bottom"); }
-        if (state === "section-end") { tabs.classList.add("is-section-end"); }
+			const previousState = tabStateRef.current;
 
-        tabStateRef.current = state;
+			flipAnimation?.kill();
+			Flip.killFlipsOf(tabs);
 
-        flipAnimation = Flip.from(flipState, {
-            duration: 0.8,
-            ease: "power3.inOut",
-            nested: true,
-            overwrite: true,
-        });
-    };
+			const isFixedToSectionEnd = previousState === "fixed" && state === "section-end";
+			const isSectionEndToFixed = previousState === "section-end" && state === "fixed";
 
-    scrollTriggerRef.current = ScrollTrigger.create({
-        trigger: tabsPlaceholder,
-        start: "bottom bottom-=20",
-        endTrigger: section,
-        end: "bottom bottom-=20",
+			if (isFixedToSectionEnd || isSectionEndToFixed) {
+				gsap.set(tabs, { clearProps: "transform", });
 
-        onEnter: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
-        onLeave: () => { if (isCategoryChangingRef.current) return; changeTabState("section-end"); },
-        onEnterBack: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
-        onLeaveBack: () => { if (isCategoryChangingRef.current) return; changeTabState("normal"); },
+				tabs.classList.remove("is-bottom", "is-section-end");
+				if (state === "fixed") { tabs.classList.add("is-bottom"); }
+				if (state === "section-end") { tabs.classList.add("is-section-end"); }
 
-        invalidateOnRefresh: true,
-    });
+				tabStateRef.current = state;
+				return;
+			}
+			const flipState = Flip.getState(tabs);
 
-    const scrollTrigger = scrollTriggerRef.current;
+			tabs.classList.remove("is-bottom", "is-section-end");
 
-    const handleResize = () => {
-        ScrollTrigger.refresh();
-    };
+			if (state === "fixed") { tabs.classList.add("is-bottom"); }
+			if (state === "section-end") { tabs.classList.add("is-section-end"); }
 
-    window.addEventListener("resize", handleResize);
+			tabStateRef.current = state;
 
-    return () => {
-        window.removeEventListener( "resize", handleResize );
+			flipAnimation = Flip.from(flipState, {
+				duration: 1.6,
+				ease: "power3.inOut",
+				nested: true,
+				overwrite: true,
+				onComplete: () => {
+					flipAnimation = null;
+				},
+			});
+		};
 
-        flipAnimation?.kill();
-        scrollTrigger.kill();
+		scrollTriggerRef.current = ScrollTrigger.create({
+			trigger: tabsPlaceholder,
+			start: "top top",
+			endTrigger: section,
+			end: "bottom bottom",
 
-        tabs.classList.remove( "is-bottom", "is-section-end" );
-        gsap.set(tabs, { clearProps: "transform", });
+			onEnter: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
+			onLeave: () => { if (isCategoryChangingRef.current) return; changeTabState("section-end"); },
+			onEnterBack: () => { if (isCategoryChangingRef.current) return; changeTabState("fixed"); },
+			onLeaveBack: () => { if (isCategoryChangingRef.current) return; changeTabState("normal"); },
 
-        tabStateRef.current = "normal";
-        scrollTriggerRef.current = null;
-    };
-}, []);
+			invalidateOnRefresh: true,
+		});
+
+		const scrollTrigger = scrollTriggerRef.current;
+
+		const handleResize = () => { ScrollTrigger.refresh(); };
+
+		window.addEventListener("resize", handleResize);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+
+			flipAnimation?.kill();
+			scrollTrigger.kill();
+
+			tabs.classList.remove("is-bottom", "is-section-end");
+			gsap.set(tabs, { clearProps: "transform", });
+
+			tabStateRef.current = "normal";
+			scrollTriggerRef.current = null;
+		};
+	}, []);
 
 	return (
 		<section ref={sectionRef} className='section blog-listing-cate-section' >
@@ -191,7 +211,7 @@ const BlogListingCards = () => {
 									{(category === "All" ? blogs : blogs.filter((blog) => blog.category === category)).map((blog) => (
 										<Link key={blog.href} href={blog.href} title={blog.title} className="block blog-listing-card" >
 											<div className="blog-listing-image w-[100%] h-[400px] rounded-[20px] overflow-hidden">
-												<Image className="w-[100%] h-[100%] object-cover" src={blog.image} alt={blog.title} width={1000} height={562} />
+												<Image className="w-[100%] h-[100%] object-cover" src={blog.image} alt={blog.title} width={1000} height={562} draggable={false} />
 											</div>
 											<h3 className="h6 font-semibold mt-[20px]"> {blog.title} </h3>
 										</Link>

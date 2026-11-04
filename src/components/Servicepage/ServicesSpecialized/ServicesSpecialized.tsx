@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import './servicesspeaiclaizes.css'
 
 const ServicesSpecialized = () => {
@@ -18,10 +17,6 @@ const ServicesSpecialized = () => {
                             <span className='font-semibold'>At RarePixels, strategy, branding, design, development, and social media work as parts of one bigger picture. Every team works towards the same vision, every detail follows the same direction, and every deliverable feels like it belongs. No disconnected pieces. Just one consistent experience built around your business.</span>
                         </p>
                     </div>
-
-                    {/* <div className="services-special-right w-[694] h-[462]">
-                        <Image src="/serv-spec/serv-spec-image.png" alt='services-apecialised-shape' width={694} height={462}></Image>
-                    </div> */}
                 </div>
             </div>
         </section>

@@ -109,7 +109,7 @@ const ContactForm = () => {
                                     <h4 className="h2 flex items-end gap-[5px]">Got 30 Minutes?</h4>
                                     <div className="skip-the-form w-[100%] h-[100%] mt-[10px]">
                                         <span className="skip-the-form-wrapper">
-                                            <Image className="mb-[10px] skip-the-form-image" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/skip-the-form.svg" alt="" width={163} height={30}></Image>
+                                            <Image className="mb-[10px] skip-the-form-image" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/skip-the-form.svg" alt="" width={163} height={30} draggable={false}></Image>
                                         </span>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@ const ContactForm = () => {
                             </div>
 
                             <div className="contact-cta-phone w-[208px] h-[219px] absolute bottom-[20px] right-[20px]">
-                                <Image className="w-[100%] h-[100%] object-contain" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/contact-cta-image.svg" alt="contact-call" width={208} height={219}></Image>
+                                <Image className="w-[100%] h-[100%] object-contain" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/contact-cta-image.svg" alt="contact-call" width={208} height={219} draggable={false}></Image>
                             </div>
                             <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" target="_blank" title="Book A Call" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link block w-[max-content] cnct-cta-for-tablet">Book A Call <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
                         </div>
@@ -167,13 +167,7 @@ const ContactForm = () => {
                                         {attachedFile ? attachedFile.name : 'Attach Your Document'}
                                     </span>
                                     <div className="w-[20px] h-[20px] cnct-upload-icon flex-shrink-0">
-                                        <Image
-                                            className="w-[100%] h-[100%]"
-                                            src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/upload-doc.svg"
-                                            alt="upload"
-                                            width={32}
-                                            height={32}
-                                        />
+                                        <Image className="w-[100%] h-[100%]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/upload-doc.svg" alt="upload" width={32} height={32} draggable={false} />
                                     </div>
                                 </label>
                             </div>

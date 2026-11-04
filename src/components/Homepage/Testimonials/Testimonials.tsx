@@ -256,12 +256,7 @@ const Testimonials = () => {
 					<div className="testimonial-fullscreen-player" onClick={(event) => event.stopPropagation()} >
 						<video src={selectedVideo} className="video-fullscreen" loop autoPlay controls onClick={(e) => e.stopPropagation()} > </video>
 
-						<button
-							type="button"
-							className="testimonial-video-close"
-							onClick={closeFullscreenVideo}
-							aria-label="Close testimonial video"
-						>
+						<button type="button" className="testimonial-video-close" onClick={closeFullscreenVideo} aria-label="Close testimonial video" >
 							<span>✕</span>
 						</button>
 					</div>

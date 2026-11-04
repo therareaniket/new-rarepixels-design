@@ -41,8 +41,7 @@ const AboutTeams = () => {
                                     </div>
 
                                     <div className="abt-author-image relative z-[2]">
-                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/our-og-mam.png" alt="" width={417} height={516}></Image>
-                                        {/* <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-author.webp" alt="" width={417} height={516}></Image> */}
+                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/our-og-mam.png" alt="" width={417} height={516} draggable={false}></Image>
                                     </div>
                                 </div>
                             </SwiperSlide>
@@ -58,8 +57,7 @@ const AboutTeams = () => {
                                     </div>
 
                                     <div className="abt-author-image relative z-[2]">
-                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/our-og-sir.png" alt="" width={417} height={516}></Image>
-                                        {/* <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/yogesh-sir.webp" alt="" width={417} height={516}></Image> */}
+                                        <Image src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/our-og-sir.png" alt="" width={417} height={516} draggable={false}></Image>
                                     </div>
                                 </div>
                             </SwiperSlide>
@@ -68,15 +66,15 @@ const AboutTeams = () => {
                 </div>
 
                 <div className="teams-sections-pixels">
-                    <Image className="teams-pixel-1 absolute top-[0] left-[0]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-pixel-1.svg" alt="teams-pixel" width={152} height={232}></Image>
-                    <Image className="teams-pixel-2 absolute top-[0] right-[0]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-pixel-2.svg" alt="teams-pixel" width={186} height={205}></Image>
-                    <Image className="teams-pixel-3 absolute bottom-[0] left-[0] z-[-1]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-pixel-3.svg" alt="teams-pixel" width={186} height={205}></Image>
-                    <Image className="teams-pixel-4 absolute bottom-[0] right-[0] z-[3]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-pixel-4.svg" alt="teams-pixel" width={312} height={296}></Image>
+                    <Image className="teams-pixel-1 absolute top-[0] left-[0]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-pixel-1.svg" alt="teams-pixel" width={152} height={232} draggable={false}></Image>
+                    <Image className="teams-pixel-2 absolute top-[0] right-[0]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-pixel-2.svg" alt="teams-pixel" width={186} height={205} draggable={false}></Image>
+                    <Image className="teams-pixel-3 absolute bottom-[0] left-[0] z-[-1]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-pixel-3.svg" alt="teams-pixel" width={186} height={205} draggable={false}></Image>
+                    <Image className="teams-pixel-4 absolute bottom-[0] right-[0] z-[3]" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/abt-teams/teams-pixel-4.svg" alt="teams-pixel" width={312} height={296} draggable={false}></Image>
                 </div>
                 </div>
             </div>
         </section>
-    )
+    ) 
 }
 
 export default AboutTeams
