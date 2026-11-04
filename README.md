@@ -10,3 +10,5 @@
 ADDED THE API KEY INTO ENVIRONMENT VARIABLES
 
 Checking The Website Fonts
+
+Added Blog Pop-up again in Mobile to check how it looks
