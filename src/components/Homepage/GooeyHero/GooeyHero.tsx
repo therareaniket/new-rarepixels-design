@@ -14,8 +14,8 @@ const CONFIG = {
 };
 
 export default function GooeyHero() {
-	const wrapperRef = useRef<HTMLDivElement>(null); // React-owned wrapper
-	const heroRef = useRef<HTMLElement>(null);       // the pinned element
+	const wrapperRef = useRef<HTMLDivElement>(null); 
+	const heroRef = useRef<HTMLElement>(null);       
 	const svgRef = useRef<SVGSVGElement>(null);
 	const containerRef = useRef<SVGGElement>(null);
 
@@ -36,10 +36,11 @@ export default function GooeyHero() {
 		};
 
 		const buildCircles = () => {
-			svg.style.width = `${window.innerWidth}px`;
-			svg.style.height = `${window.innerHeight}px`;
+			svg.setAttribute("width", `${window.innerWidth}`);
+			svg.setAttribute("height", `${window.innerHeight}`);
+			svg.setAttribute("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`);
 
-			container.replaceChildren(); // clear previous circles
+			container.replaceChildren(); 
 			circles = [];
 
 			for (let i = 0; i < CONFIG.totalPoints; i++) {
@@ -58,10 +59,13 @@ export default function GooeyHero() {
 			buildCircles();
 
 			const render = (progress: number) => {
-				circles.forEach((circle, index) => {
-					const p = index / (CONFIG.totalPoints - 1);
-					const r = progress >= p ? Math.min(1, (progress - p) * 4 + 0.3) * CONFIG.maxRadius : 0;
-					circle.setAttribute("r", String(r));
+				// Wrap inside requestAnimationFrame to force Safari to repaint on the next tick
+				requestAnimationFrame(() => {
+					circles.forEach((circle, index) => {
+						const p = index / (CONFIG.totalPoints - 1);
+						const r = progress >= p ? Math.min(1, (progress - p) * 4 + 0.3) * CONFIG.maxRadius : 0;
+						circle.setAttribute("r", String(r));
+					});
 				});
 			};
 
@@ -73,7 +77,7 @@ export default function GooeyHero() {
 				pinSpacing: true,
 				anticipatePin: 1,
 				scrub: 0.2,
-				refreshPriority: 1,   // <- added: pin is measured before later sections
+				refreshPriority: 1,   
 				invalidateOnRefresh: true,
 				onUpdate: (self) => render(self.progress),
 				onRefresh: (self) => { buildCircles(); render(self.progress); },
@@ -93,24 +97,40 @@ export default function GooeyHero() {
 					</h1>
 				</div>
 
-				{/* Revealed Layer */}
-				<div className="absolute inset-0 z-20 flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332]"
-					style={{ mask: "url(#smudge-mask)", WebkitMask: "url(#smudge-mask)"}} >
-					<h2 className="h3 text-[clamp(3rem,5vw,6rem)] font-bold uppercase leading-[0.9] text-center max-w-4xl font-casko">
-						THE THINGS WORTH FINDING ARE NEVER ON THE SURFACE. THEY LIVE IN THE PARTS YOU ALMOST SCROLLED PAST.
-					</h2>
-				</div>
-
-				<svg ref={svgRef} className="absolute top-0 left-0 pointer-events-none z-30" xmlns="http://www.w3.org/2000/svg" >
+				{/* 
+				  Optimised SVG Layer: Containing both the mask definition and the masked layer.
+				  Using foreignObject avoids CSS mask paint bugs on iOS Safari completely.
+				*/}
+				<svg 
+					ref={svgRef} 
+					className="absolute top-0 left-0 pointer-events-none w-full h-full z-20" 
+					xmlns="http://www.w3.org/2000/svg"
+					style={{ willChange: "transform", transform: "translateZ(0)" }}
+				>
 					<defs>
-						<filter id="smudge-goo">
+						<filter id="smudge-goo" colorInterpolationFilters="sRGB">
 							<feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur" />
 							<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 60 -14" />
 						</filter>
-						<mask id="smudge-mask">
-							<g ref={containerRef} filter="url(#smudge-goo)" />
+						<mask id="smudge-mask" maskUnits="userSpaceOnUse">
+							<g ref={containerRef} filter="url(#smudge-goo)" fill="#ffffff" />
 						</mask>
 					</defs>
+
+					{/* The Masked Wrapper Group */}
+					<g 
+						mask="url(#smudge-mask)" 
+						style={{ willChange: "mask-image, transform", transform: "translateZ(0)" }}
+					>
+						<foreignObject x="0" y="0" width="100%" height="100%">
+							{/* Revealed HTML Layer inside SVG */}
+							<div className="w-full h-full flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332] pointer-events-auto">
+								<h2 className="h3 text-[clamp(3rem,5vw,6rem)] font-bold uppercase leading-[0.9] text-center max-w-4xl font-casko">
+									THE THINGS WORTH FINDING ARE NEVER ON THE SURFACE. THEY LIVE IN THE PARTS YOU ALMOST SCROLLED PAST.
+								</h2>
+							</div>
+						</foreignObject>
+					</g>
 				</svg>
 			</section>
 		</div>
