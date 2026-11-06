@@ -39,7 +39,6 @@ export default function GooeyHero() {
 			const w = window.innerWidth;
 			const h = window.innerHeight;
 
-			// Fix 1: Properly set viewBox and dimensions so mobile coordinate space matches window
 			svg.setAttribute("width", `${w}`);
 			svg.setAttribute("height", `${h}`);
 			svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
@@ -53,7 +52,6 @@ export default function GooeyHero() {
 				c.setAttribute("cx", String(x));
 				c.setAttribute("cy", String(y));
 				c.setAttribute("r", "0");
-				// Fix 2: Explicitly set fill to white so iOS mask actually reveals the layer
 				c.setAttribute("fill", "#FFFFFF"); 
 				container.appendChild(c);
 				circles.push(c);
@@ -64,7 +62,6 @@ export default function GooeyHero() {
 			buildCircles();
 
 			const render = (progress: number) => {
-				// Wrap in requestAnimationFrame to sync with mobile Safari paint cycles
 				requestAnimationFrame(() => {
 					circles.forEach((circle, index) => {
 						const p = index / (CONFIG.totalPoints - 1);
@@ -94,33 +91,22 @@ export default function GooeyHero() {
 
 	return (
 		<div ref={wrapperRef}>
-			<section ref={heroRef} className="relative w-full h-screen overflow-hidden select-none">
+			<section ref={heroRef} className="relative w-full h-screen overflow-hidden select-none bg-[#2a2a2a]">
 				{/* Foreground Layer */}
-				<div className="absolute inset-0 z-10 flex flex-col justify-center items-center p-8 bg-[#2a2a2a] text-[#fed2ed]">
+				<div className="absolute inset-0 z-10 flex flex-col justify-center items-center p-8 text-[#fed2ed] pointer-events-none">
 					<h1 className="text-[clamp(5rem,22.5vw,20rem)] text-center font-bold uppercase leading-[1] font-casko">
 						Scroll Down
 					</h1>
 				</div>
 
-				{/* Revealed Layer (Fixed with GPU Acceleration hints for iOS Safari) */}
-				<div 
-					className="absolute inset-0 z-20 flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332]"
-					style={{ 
-						mask: "url(#smudge-mask)", 
-						WebkitMask: "url(#smudge-mask)",
-						willChange: "mask-image, -webkit-mask-image",
-						transform: "translateZ(0)"
-					}} 
-				>
-					<h2 className="h3 text-[clamp(3rem,5vw,6rem)] font-bold uppercase leading-[0.9] text-center max-w-4xl font-casko">
-						THE THINGS WORTH FINDING ARE NEVER ON THE SURFACE. THEY LIVE IN THE PARTS YOU ALMOST SCROLLED PAST.
-					</h2>
-				</div>
-
-				{/* SVG Filter & Mask Definition Layer */}
+				{/* 
+				  iOS Fix: Instead of using a CSS mask on an HTML div (which crashes when combined with SVG filters on WebKit), 
+				  we place the revealed content directly inside an SVG container controlled by the native SVG mask. 
+				  This forces iOS Safari to render the filter pipeline correctly.
+				*/}
 				<svg 
 					ref={svgRef} 
-					className="absolute top-0 left-0 pointer-events-none z-30 overflow-hidden" 
+					className="absolute top-0 left-0 w-full h-full z-20 pointer-events-none" 
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<defs>
@@ -132,6 +118,17 @@ export default function GooeyHero() {
 							<g ref={containerRef} filter="url(#smudge-goo)" />
 						</mask>
 					</defs>
+
+					{/* Masked group holding the revealed layer natively inside SVG */}
+					<g mask="url(#smudge-mask)">
+						<foreignObject x="0" y="0" width="100%" height="100%" className="overflow-visible pointer-events-auto">
+							<div className="w-full h-full flex flex-col justify-center items-center p-8 bg-[#cbc4c2] text-[#232332]">
+								<h2 className="h3 text-[clamp(3rem,5vw,6rem)] font-bold uppercase leading-[0.9] text-center max-w-4xl font-casko">
+									THE THINGS WORTH FINDING ARE NEVER ON THE SURFACE. THEY LIVE IN THE PARTS YOU ALMOST SCROLLED PAST.
+								</h2>
+							</div>
+						</foreignObject>
+					</g>
 				</svg>
 			</section>
 		</div>
