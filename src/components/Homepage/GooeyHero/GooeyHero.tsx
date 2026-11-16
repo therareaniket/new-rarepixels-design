@@ -14,8 +14,8 @@ const CONFIG = {
 };
 
 export default function GooeyHero() {
-	const wrapperRef = useRef<HTMLDivElement>(null); // 
-	const heroRef = useRef<HTMLElement>(null);       
+	const wrapperRef = useRef<HTMLDivElement>(null); // React-owned wrapper
+	const heroRef = useRef<HTMLElement>(null);       // the pinned element
 	const svgRef = useRef<SVGSVGElement>(null);
 	const containerRef = useRef<SVGGElement>(null);
 

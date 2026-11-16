@@ -10,10 +10,10 @@ import Image from 'next/image'
 const BlogTopCards = () => {
 	return (
 		<section id="first-section" className='section bg-[#040E36] blog-top-card-section'>
-			<div className="blog-top-card-title w-[1000px] text-[white]">
+			{/* <div className="blog-top-card-title w-[1000px] text-[white]">
 				<h2 className='font-semibold'>Design Thinking. Business Results.</h2>
 				<p className='text-18 font-normal mt-[20px]'>Practical guides, industry insight, and behind-the-scenes thinking from a studio that builds brands, websites, and digital experiences from scratch — for businesses that take design seriously. </p>
-			</div>
+			</div> */}
 
 			<div className="blog-top-card-swiper mt-[70px]">
 				<Swiper
@@ -42,7 +42,7 @@ const BlogTopCards = () => {
 				>
 					<SwiperSlide className='blog-top-swiper'>
 						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
+							<Image className='w-[100%] h-[100%] object-cover' loading='eager' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 						</div>
 
 						<div className="blog-top-card-content">

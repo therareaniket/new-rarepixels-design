@@ -26,18 +26,14 @@ const BlogListingCards = () => {
 	const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 	const previousSectionBottomRef = useRef<number | null>(null);
 
-	const handleTabChange = (nextCategory: string) => {
-		const section = sectionRef.current;
+	const shouldScrollToSectionTopRef = useRef(false);
 
-		if (!section || nextCategory === activeCategory) return;
-		if (tabStateRef.current === "section-end") {
-			previousSectionBottomRef.current =
-				section.getBoundingClientRect().bottom +
-				window.scrollY;
-			isCategoryChangingRef.current = true;
-		} else {
-			previousSectionBottomRef.current = null;
-		}
+	const handleTabChange = (nextCategory: string) => {
+		if (nextCategory === activeCategory) return;
+		isCategoryChangingRef.current = true;
+		shouldScrollToSectionTopRef.current = true;
+
+		previousSectionBottomRef.current = null;
 
 		setActiveCategory(nextCategory);
 	};
@@ -45,6 +41,28 @@ const BlogListingCards = () => {
 	useLayoutEffect(() => {
 		const section = sectionRef.current;
 		if (!section) return;
+
+		if (shouldScrollToSectionTopRef.current) {
+			shouldScrollToSectionTopRef.current = false;
+
+			const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+			requestAnimationFrame(() => {
+				ScrollTrigger.refresh();
+
+				requestAnimationFrame(() => {
+					window.scrollTo({
+						top: sectionTop,
+						behavior: "smooth",
+					});
+
+					isCategoryChangingRef.current = false;
+				});
+			});
+
+			return;
+		}
+
 		const tabs = section.querySelector<HTMLElement>(".bloglisting-tab-wrapper");
 		if (!tabs) return;
 
@@ -101,53 +119,53 @@ const BlogListingCards = () => {
 
 		if (!tabs || !tabsPlaceholder) return;
 
+		const getTriggerStart = () => {
+			const naturalStart = tabsPlaceholder.getBoundingClientRect().top + window.scrollY;
+			const naturalEnd = section.getBoundingClientRect().bottom + window.scrollY - window.innerHeight;
+
+			const minimumScrollDistance = 150;
+
+			if (naturalEnd - naturalStart >= minimumScrollDistance) {
+				return naturalStart;
+			}
+
+			return Math.max(0, naturalEnd - minimumScrollDistance);
+		};
+
 		let flipAnimation: gsap.core.Timeline | null = null;
 
 		const changeTabState = (state: TabPosition) => {
 			if (isCategoryChangingRef.current) return;
 			if (tabStateRef.current === state) return;
 
-			const previousState = tabStateRef.current;
-
 			flipAnimation?.kill();
 			Flip.killFlipsOf(tabs);
 
-			const isFixedToSectionEnd = previousState === "fixed" && state === "section-end";
-			const isSectionEndToFixed = previousState === "section-end" && state === "fixed";
-
-			if (isFixedToSectionEnd || isSectionEndToFixed) {
-				gsap.set(tabs, { clearProps: "transform", });
-
-				tabs.classList.remove("is-bottom", "is-section-end");
-				if (state === "fixed") { tabs.classList.add("is-bottom"); }
-				if (state === "section-end") { tabs.classList.add("is-section-end"); }
-
-				tabStateRef.current = state;
-				return;
-			}
-			const flipState = Flip.getState(tabs);
-
+			const flipState = Flip.getState(tabs, { props: "transform", });
 			tabs.classList.remove("is-bottom", "is-section-end");
-
 			if (state === "fixed") { tabs.classList.add("is-bottom"); }
 			if (state === "section-end") { tabs.classList.add("is-section-end"); }
 
 			tabStateRef.current = state;
 
 			flipAnimation = Flip.from(flipState, {
-				duration: 1.6,
-				ease: "power3.inOut",
+				duration: 0.9,
+				ease: "power2.out",
 				nested: true,
 				overwrite: true,
+				prune: true,
+
 				onComplete: () => {
 					flipAnimation = null;
+					gsap.set(tabs, { clearProps: "transform", });
 				},
+				onInterrupt: () => { flipAnimation = null; },
 			});
 		};
 
 		scrollTriggerRef.current = ScrollTrigger.create({
 			trigger: tabsPlaceholder,
-			start: "top top",
+			start: getTriggerStart,
 			endTrigger: section,
 			end: "bottom bottom",
 
@@ -180,18 +198,14 @@ const BlogListingCards = () => {
 	}, []);
 
 	return (
-		<section ref={sectionRef} className='section blog-listing-cate-section' >
+		<section ref={sectionRef} id='blog-listing-cate-section' className='section blog-listing-cate-section' >
 			<div className="container-sm">
 				<div className="bloglisting-title-wrapper w-[780px]">
 					<h2 className='font-semibold'>Top Picks</h2>
 					<p className='text-18 font-normal mt-[30px]'>A collection of thoughts, learnings, and perspectives from our work in design, technology, and building impactful digital experiences.</p>
 				</div>
 
-				<Tabs
-					value={activeCategory}
-					onValueChange={handleTabChange}
-					className="bloglisting-layout"
-				>
+				<Tabs value={activeCategory} onValueChange={handleTabChange} className="bloglisting-layout" >
 					<div className="blog-list-tabs">
 						<div className="bloglisting-tab-sticky-wrap">
 							<TabsList className="bloglisting-tab-wrapper">

@@ -51,6 +51,8 @@
     transition: opacity 700ms ease 200ms, transform 800ms cubic-bezier(0.22, 1, 0.36, 1) 100ms, visibility 0s linear 0s;
 }
 
+.blog-top-card-section { padding-top: 100px !important; }
+
 /* responsive */
 @media (max-width: 1799px) { 
     .blog-top-swiper { width: 730px !important; }
@@ -70,7 +72,10 @@
 
 @media (max-width: 1599px) and (max-height: 750px) {}
 
-@media (max-width: 1439px) { }
+@media (max-width: 1439px) { 
+    .blog-top-card-section { padding-top: 80px !important; }
+    .blog-redirect { margin-top: 20px; }
+}
 
 @media (max-width: 1359px) { 
     .blog-top-swiper { width: 620px !important; }
@@ -130,7 +135,8 @@
     .blog-top-swiper { width: 92% !important; }
 }
 
-@media (max-width: 400px) { }
+@media (max-width: 400px) { 
+}
 
 @media (max-width: 374px) { }
 
