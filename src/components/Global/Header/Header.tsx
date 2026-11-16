@@ -153,7 +153,7 @@ const Header = () => {
 
                                     <li>
                                         <Link href="/Articles" onClick={closeMegaMenu} className="w-[330px] flex gap-[10px]">
-                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]" style={linkStyle('/Articles')}><span className="mm-icon icon-newsmode"></span></span>
+                                            <span className="block link-icon flex justify-center items-center w-[52px] h-[52px] rounded-[20px] bg-[#ECF2EC]" style={linkStyleIcon('/Articles')}><span className="mm-icon icon-newsmode"></span></span>
 
                                             <div className="link-info">
                                                 <p className="link-title text-18 font-medium mb-[4px]" style={linkStyle('/Articles')}>Articles</p>
