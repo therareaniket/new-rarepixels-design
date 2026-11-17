@@ -29,6 +29,8 @@
 .blog-detail-content-text { min-width: 0; padding-top: 80px; }
 
 .blog-detail-cover-image { border-radius: 20px; overflow: hidden; }
+.blog-detail-cover-image-for-tablet { display: none; }
+
 
 /* responsive */
 
@@ -104,10 +106,19 @@
     .blog-social-icons-wrapper { flex-direction: column; }
     
     .blog-social-icons-wrapper a, .blog-social-icons-wrapper button { width: 32px; height: 32px; }
+    .related-blog-popup-link { padding: 8px; }
+    .blog-detail-cover-image-for-desktop { display: none; }
+    .blog-detail-cover-image-for-tablet { display: block; }
+
+    .blog-detail-hero { height: 680px; }
+
+    .blog-detail-hero-text h1 { margin-top: 30px; font-size: 30px; line-height: 38px; }
+
 }
 
 @media (max-width: 767px) {
-    .blog-detail-hero { height: 380px; }
+    .blog-detail-hero { height: 700px; }
+    .blog-detail-hero-text h1 { font-size: 28px; line-height: 36px; }
 }
 
 @media (max-width: 639px) {
@@ -126,9 +137,16 @@
     .blog-post-cate { padding-left: 68px; }
     .blog-social-icons-wrapper { gap: 10px; }
 
+    .blog-detail-hero-text h1 { font-size: 24px; line-height: 32px; }
+
+    .blog-detail-hero { height: 645px; }
+
 }
 
-@media (max-width: 479px) {}
+@media (max-width: 479px) {
+    .blog-detail-content-text { padding-top: 0; }
+    .blog-detail-hero { height: max-content; padding: 50px 0; }
+}
 
 @media (max-width: 439px) {
     .blog-detail-author-img { width: 36px; height: 36px; }
@@ -140,18 +158,15 @@
 }
 
 @media (max-width: 400px) {
-    .blog-detail-hero { height: 430px; }
+    /* .blog-detail-hero { height: 430px; } */
     .blog-social-icons-column { padding-top: 40px; }
-    .blog-detail-content-text { padding-top: 30px; }
     .blog-detail-content-text p { margin-top: 14px; }
     /* .blog-detail-content-text h3, .h3 { margin-bottom: 25px; } */
     /* .blog-social-icons-column { width: 100%; } */
     /* .blog-social-icons-wrapper { background-color: #040e36; width: max-content; border-radius: 8px; } */
 
-    .blog-detail-cover-image { height: 200px; }
-    .blog-detail-hero { height: 525px; }
+    .blog-detail-cover-image { height: 220px; }
     .blog-detail-hero-text h1 { font-size: 22px; line-height: 30px; margin-top: 20px; } 
-    .blog-detail-cover-image-for-desktop { display: none; }
 }
 
 @media (max-width: 374px) {}

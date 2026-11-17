@@ -12,6 +12,10 @@ const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () =>
             <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
                     <div className="blog-detail-hero-text py-[80px] ">
+                        <div className="blog-detail-cover-image blog-detail-cover-image-for-tablet w-[100%] h-[562] bg-[black]">
+                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/how-ai-is-redefining-creativity.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                        </div>
+
                         <h1 className="text-[white]">The Creative Shift: How AI is Redefining Creativity in Design, Storytelling & Art</h1>
 
                         <div className="blod-detail-type blog-detail-type-desktop flex items-center justify-between mt-[40px]">
@@ -77,7 +81,7 @@ const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () =>
 
             <div className="section bg-[#FBF8F5] relative">
                 <div className="blog-detail-content-wrapper blog-container-sm">
-                    <div className="blog-detail-cover-image w-[100%] h-[562] bg-[black]">
+                    <div className="blog-detail-cover-image blog-detail-cover-image-for-desktop w-[100%] h-[562] bg-[black]">
                         <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/how-ai-is-redefining-creativity.webp" alt="blog-detail-image" width={1000} height={562}></Image>
                     </div>
 
@@ -160,7 +164,7 @@ const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () =>
                             <h2 className="h3 mb-[20px] mt-[40px] font-semibold">So, What Does This Mean for the Future?</h2>
 
                             <p className="font-normal text-20 mt-[20px]">The lines between artist, storyteller, and coder are blurring. With AI in the mix, we’re all becoming creative technologists in some way.</p>
-                            
+
                             <p className="font-normal text-20 mt-[20px]">It means:</p>
 
                             <ul className="list-disc mt-[20px] pl-[40px]">
@@ -177,9 +181,9 @@ const TheCreativeShiftHowAIIsRedefiningCreativityInDesignStorytellingArt = () =>
                             <p className="font-normal text-20 mt-[20px]">Being one of the emerging <Link href="https://www.rarepixelsdesign.in/" target='_blank' className='text-[#ed0180]'>UI/UX companies in India</Link>, at Rarepixels, we don’t fear the AI wave. We ride it. We believe that the best ideas still come from human hearts and wild imaginations. But now, they have a little extra firepower.</p>
 
                             <p className="font-semibold text-20 mt-[20px]">So the next time your team argues over minimal vs. maximal design (again), maybe invite AI to the table. It might just surprise you with a third option – one that blends bold with balanced. One that turns creative conflict into creative chemistry.</p>
-                            
+
                             <p className="font-semibold text-20 mt-[20px]">Let’s face it: the future isn’t coming. It’s already here. And it’s asking to collaborate.</p>
-                            
+
                             <p className="font-semibold text-20 mt-[20px]">Are you in?</p>
                         </article>
                     </div>

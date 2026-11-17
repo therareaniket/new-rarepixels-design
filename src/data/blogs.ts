@@ -126,6 +126,7 @@ export const blogs: Blog[] = [
         image: "https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/why-MVP-is-your-best-friend.webp",
         category: "Technical",
     },
+
     {
         title: "UI/UX Outsourcing vs In-House Team: Which One Do You Prefer for Your Business?",
         href: "/Blog/ui-ux-outsourcing-vs-inhouse",

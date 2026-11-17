@@ -12,6 +12,10 @@ const Top10UiDesigningToolsYouMustKnowIn2025 = () => {
 			<div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
 				<div className="blog-container-sm">
 					<div className="blog-detail-hero-text py-[80px] ">
+						<div className="blog-detail-cover-image blog-detail-cover-image-for-tablet w-[100%] h-[562] bg-[black]">
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/top-10-UI-design-tools.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+						</div>
+
 						<h1 className="text-[white]">Top 10 UI Designing Tools You Must Know in 2025</h1>
 
 						<div className="blod-detail-type blog-detail-type-desktop flex items-center justify-between mt-[40px]">
@@ -77,12 +81,12 @@ const Top10UiDesigningToolsYouMustKnowIn2025 = () => {
 
 			<div className="section bg-[#FBF8F5] relative">
 				<div className="blog-detail-content-wrapper blog-container-sm">
-					<div className="blog-detail-cover-image w-[100%] h-[562] bg-[black]">
+					<div className="blog-detail-cover-image blog-detail-cover-image-for-desktop w-[100%] h-[562] bg-[black]">
 						<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/top-10-UI-design-tools.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 					</div>
 
 					<div className="blog-detail-reading-layout">
-                        <SocialShareIcons currentBlogHref="/Blog/top-10-ui-designing-tools-you-must-know" />
+						<SocialShareIcons currentBlogHref="/Blog/top-10-ui-designing-tools-you-must-know" />
 
 						<article className="blog-detail-content-text pt-[80px]">
 							<p className="font-normal text-20" style={{ marginTop: '0' }}>“Have you ever opened an app or visited a website and thought, ‘Wow, this looks amazing!’? Chances are, the magic you witnessed was a result of exceptional UI design. Behind those sleek interfaces and intuitive interactions lie powerful tools that help designers bring ideas to life.</p>

@@ -12,6 +12,10 @@ const Top10MistakesBusinessesAvoid = () => {
             <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
                     <div className="blog-detail-hero-text py-[80px] ">
+                        <div className="blog-detail-cover-image blog-detail-cover-image-for-tablet w-[100%] h-[562] bg-[black]">
+                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/work-coverize.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                        </div>
+
                         <h1 className="text-[white]">Top 10 Mistakes Businesses Should Avoid When Selecting a UI/UX Agency in 2025</h1>
 
                         <div className="blod-detail-type blog-detail-type-desktop flex items-center justify-between mt-[40px]">
@@ -77,7 +81,7 @@ const Top10MistakesBusinessesAvoid = () => {
 
             <div className="section bg-[#FBF8F5] relative">
                 <div className="blog-detail-content-wrapper blog-container-sm">
-                    <div className="blog-detail-cover-image w-[100%] h-[562] bg-[black]">
+                    <div className="blog-detail-cover-image blog-detail-cover-image-for-desktop w-[100%] h-[562] bg-[black]">
                         <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/work-coverize.webp" alt="blog-detail-image" width={1000} height={562}></Image>
                     </div>
 
@@ -148,9 +152,9 @@ const Top10MistakesBusinessesAvoid = () => {
                             <p className="font-normal text-20 mt-[20px]">Setting clear Key Performance Indicators (KPIs) and success metrics is crucial to determining whether the UI/UX design meets your business goals. Without these benchmarks, it’s difficult to assess whether your investment is paying off.</p>
 
                             <p className="font-normal text-20 mt-[20px]">KPIs could include metrics such as user engagement, conversion rates, or task completion rates. By establishing measurable goals from the outset, you ensure that the design team is focused on the right outcomes, and that the product delivers on its promises. A successful agency will work with you to define these metrics and ensure that the design is optimized to meet them.</p>
-                            
+
                             <p className="font-normal text-20 mt-[20px]">In conclusion, selecting the <Link href="https://www.rarepixelsdesign.in/" target='_blank' className='text-[#ed0180]'>right UI/UX agency</Link>  is a critical decision that can significantly impact the success of your product and overall business growth. It’s not just about finding a team with creative skills; it’s about choosing a partner who can align with your goals, understand your users, and offer a collaborative approach to the design process.</p>
-                            
+
                             <p className="font-normal text-20 mt-[20px]">By avoiding these common pitfalls and focusing on expertise, communication, scalability, and post-launch support, you can ensure that the agency you choose will be an invaluable asset in helping you create a user-centered product that drives long-term success.</p>
                         </article>
                     </div>

@@ -26,11 +26,11 @@ const workSteps = [
         title: " Social Media Management",
         description: "A busy feed means little if the right people aren't paying attention. We bring strategy, creativity, and consistency to your social presence, creating content that starts conversations, builds recognition, and turns everyday scrolling into meaningful brand connections.",
     },
-    {
-        number: "05",
-        title: " Graphics & Print Media Design",
-        description: "From brochures and packaging to catalogues and outdoor creatives, every physical touchpoint shapes how people see your business. We create print and graphic assets that carry your brand identity beyond digital, making every detail feel considered, consistent, and unmistakably yours.",
-    },
+    // {
+    //     number: "05",
+    //     title: " Graphics & Print Media Design",
+    //     description: "From brochures and packaging to catalogues and outdoor creatives, every physical touchpoint shapes how people see your business. We create print and graphic assets that carry your brand identity beyond digital, making every detail feel considered, consistent, and unmistakably yours.",
+    // },
 ];
 
 const ServicesHowWeWork = () => {

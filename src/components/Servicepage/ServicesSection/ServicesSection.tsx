@@ -272,9 +272,9 @@ const ServicesSection = () => {
 										<span className="services-number font-semibold h2">04</span>
 									</div>
 
-									<div className="services-number-position" style={{ "--number-index": 4 } as React.CSSProperties} >
+									{/* <div className="services-number-position" style={{ "--number-index": 4 } as React.CSSProperties} >
 										<span className="services-number font-semibold h2">05</span>
-									</div>
+									</div> */}
 								</div>
 							</div>
 
@@ -362,7 +362,7 @@ const ServicesSection = () => {
 										</div>
 									</div>
 
-									<div className="services-print-media-text services-text-pointers">
+									{/* <div className="services-print-media-text services-text-pointers">
 										<h2 className="font-semibold ">Graphics & Print Media Design</h2>
 										<p className="font-normal text-18 flex flex-col gap-[18px] mt-[20px] w-[602px]">
 											<span>Your brand deserves to look as good in the real world as it does on screen. From marketing creatives and brochures to packaging and large-format prints, we create visuals that capture attention, communicate clearly, and keep your brand recognisable.</span>
@@ -379,7 +379,7 @@ const ServicesSection = () => {
 											<Link href="#" title="Dashboard & Data Experience" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Digital Graphics</Link>
 											<Link href="#" title="Prototype & Validation" className="text-18 font-normal py-[8px] px-[20px] rounded-full ">Infographics & Presentation Design</Link>
 										</div>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>
@@ -492,7 +492,7 @@ const ServicesSection = () => {
 									</svg>
 								</div>
 
-								<div className="services-ui-ux w-[100%] h-[100%] services-visuals-items is-drawing object-contain flex items-center justify-center">
+								{/* <div className="services-ui-ux w-[100%] h-[100%] services-visuals-items is-drawing object-contain flex items-center justify-center">
 									<svg width="536" height="355" viewBox="0 0 300 199" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M11.0782 179.52C4.1436 167.514 70.6298 119.578 138.919 80.1692C207.209 40.7602 281.985 7.17579 288.919 19.1815C295.854 31.1871 229.368 79.1231 161.078 118.532C92.7887 157.941 18.0129 191.526 11.0782 179.52ZM287.682 19.8953C282.677 11.2292 221.994 33.8765 139.634 81.4056C102.717 102.71 69.1323 124.66 45.0582 143.226C21.9725 161.03 9.7295 174.329 12.3152 178.806C17.3209 187.472 78.0036 164.825 160.364 117.296C197.281 95.9913 230.865 74.0417 254.939 55.4754C278.025 37.6709 290.268 24.3719 287.682 19.8953Z" fill="#A4ABC7" fillOpacity="0.5" />
 										<path d="M18.9976 174.951C14.2502 166.732 32.1778 149.188 48.0505 135.914C70.2265 117.376 101.634 96.0935 136.497 75.9747C171.359 55.8559 205.508 39.3067 232.652 29.3827C252.086 22.2743 276.25 15.5275 281.001 23.7521C285.751 31.9766 267.821 49.5148 251.948 62.7888C229.772 81.3269 198.365 102.609 163.502 122.728C128.639 142.847 94.4906 159.396 67.3463 169.32C47.9122 176.428 23.7482 183.175 18.9976 174.951ZM279.764 24.4659C278.217 21.7888 270.575 17.0358 233.141 30.7268C206.07 40.6236 172.002 57.1338 137.205 77.2143C102.409 97.2949 71.07 118.53 48.9594 137.016C18.3802 162.574 18.6773 171.566 20.2236 174.243C21.77 176.92 29.4118 181.673 66.846 167.982C93.9176 158.085 127.986 141.575 162.782 121.495C197.579 101.414 228.912 80.182 251.028 61.6932C281.607 36.1346 281.31 27.1431 279.764 24.4659Z" fill="#A4ABC7" fillOpacity="0.5" />
@@ -512,7 +512,7 @@ const ServicesSection = () => {
 										<path d="M129.845 110.984C103.248 64.9373 91.2676 23.7621 102.572 17.2386C113.876 10.715 143.561 41.6731 170.158 87.7196C196.755 133.766 208.736 174.941 197.431 181.465C186.127 187.988 156.442 157.03 129.845 110.984ZM168.921 88.4335C156.375 66.7129 142.558 47.4702 130.013 34.242C117.856 21.4302 108.115 15.681 103.283 18.4695C98.4508 21.258 98.5558 32.5684 103.583 49.4944C108.769 66.962 118.536 88.5494 131.082 110.27C143.628 131.991 157.448 151.239 169.99 164.462C182.147 177.273 191.888 183.022 196.72 180.234C201.552 177.445 201.447 166.135 196.42 149.209C191.234 131.741 181.467 110.154 168.921 88.4335Z" fill="#A4ABC7" fillOpacity="0.5" />
 										<path d="M137.759 106.413C124.521 83.4946 113.286 61.2528 106.12 43.7726C98.6049 25.4339 96.5925 15.0917 100.143 13.0426C103.694 10.9934 111.645 17.901 123.78 33.581C135.342 48.5244 148.999 69.3759 162.234 92.2888C175.469 115.202 186.706 137.449 193.873 154.929C201.388 173.268 203.4 183.61 199.849 185.659C196.298 187.708 188.347 180.801 176.212 165.121C164.65 150.177 150.993 129.326 137.759 106.413ZM161.002 92.9994C147.796 70.1362 134.175 49.3455 122.655 34.4509C109.737 17.7585 102.929 13.0841 100.863 14.276C98.7978 15.4679 99.4379 23.702 107.447 43.2276C114.587 60.6494 125.795 82.8328 139.001 105.696C152.207 128.559 165.829 149.35 177.348 164.245C190.266 180.937 197.075 185.611 199.14 184.42C201.206 183.228 200.566 174.994 192.557 155.468C185.417 138.046 174.208 115.863 161.002 92.9994Z" fill="#A4ABC7" fillOpacity="0.5" />
 									</svg>
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</div>

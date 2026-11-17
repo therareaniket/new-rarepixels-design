@@ -12,6 +12,10 @@ const TheGapBetweenYouandYourCompetitorsIsntMarketingItUserExperience = () => {
 			<div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
 				<div className="blog-container-sm">
 					<div className="blog-detail-hero-text py-[80px] ">
+						<div className="blog-detail-cover-image blog-detail-cover-image-for-tablet w-[100%] h-[562] bg-[black]">
+							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/You-and-Your-Competitors.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+						</div>
+
 						<h1 className="text-[white]">The Gap Between You and Your Competitors Isn’t Marketing. It’s User Experience.</h1>
 
 						<div className="blod-detail-type blog-detail-type-desktop flex items-center justify-between mt-[40px]">
@@ -77,12 +81,12 @@ const TheGapBetweenYouandYourCompetitorsIsntMarketingItUserExperience = () => {
 
 			<div className="section bg-[#FBF8F5] relative">
 				<div className="blog-detail-content-wrapper blog-container-sm">
-					<div className="blog-detail-cover-image w-[100%] h-[562] bg-[black]">
+					<div className="blog-detail-cover-image blog-detail-cover-image-for-desktop w-[100%] h-[562] bg-[black]">
 						<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/You-and-Your-Competitors.webp" alt="blog-detail-image" width={1000} height={562}></Image>
 					</div>
 
 					<div className="blog-detail-reading-layout">
-                        <SocialShareIcons currentBlogHref="/Blog/the-gap-between-you-and-your-competitors-isnt-marketing-its-user-experience" />
+						<SocialShareIcons currentBlogHref="/Blog/the-gap-between-you-and-your-competitors-isnt-marketing-its-user-experience" />
 
 						<article className="blog-detail-content-text pt-[80px]">
 							<p className="font-normal text-20 mb-[20px]">Most Businesses Think They Know Why They’re Behind</p>
