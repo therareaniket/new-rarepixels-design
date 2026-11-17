@@ -250,7 +250,8 @@ const Industries = () => {
 
                             <div className="indust-list absolute top-0 left-0 bg-[#F7F2EC] w-full h-full flex justify-between">
                                 <div className="indust-video-wrapper w-[1000px] h-full relative">
-                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/education-industry.mp4" load={loadedUpTo >= 5} playWhenVisible loop width={1000} height={550}/>
+                                    {/* <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/education-industry.mp4" load={loadedUpTo >= 5} playWhenVisible loop width={1000} height={550}/> */}
+                                    <LazyVideo src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/homepage/industries/education-industry-new-compressed.mp4" load={loadedUpTo >= 5} playWhenVisible loop width={1000} height={550}/>
                                 
                                     <svg className="indust-top-left-svg absolute top-0 left-0" width="170" height="150" viewBox="0 0 170 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="50" height="50" fill="#F7F2EC"/>
