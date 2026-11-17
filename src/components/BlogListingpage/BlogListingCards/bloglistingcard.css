@@ -162,6 +162,8 @@
 
 @media (max-width: 400px) { 
     .blog-listing-image { height: 190px; }
+
+    .blog-listing-cate-section { padding-bottom: 75px; }
 }
 
 @media (max-width: 374px) { }
