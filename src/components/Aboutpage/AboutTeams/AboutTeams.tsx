@@ -28,7 +28,7 @@ const AboutTeams = () => {
                             slidesPerView={1}
                             spaceBetween={20}
                             speed={1000}
-                            autoplay={{ delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: false }}
+                            // autoplay={{ delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: false }}
                         >
                             <SwiperSlide className="flex items-end w-[100%]">
                                 <div className="abt-author-wrapper w-[100%] flex items-end">

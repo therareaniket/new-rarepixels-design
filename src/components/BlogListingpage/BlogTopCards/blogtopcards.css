@@ -53,6 +53,7 @@
 
 .blog-top-card-section { padding-top: 100px !important; }
 
+
 /* responsive */
 @media (max-width: 1799px) { 
     .blog-top-swiper { width: 730px !important; }
@@ -65,7 +66,7 @@
 @media (max-width: 1599px) { 
     .blog-top-swiper { width: 680px !important; }
     .blog-top-card-image { height: 385px; }
-    .blog-top-card-swiper { margin-top: 50px; }
+    .blog-top-card-swiper { margin-top: 30px; }
     .blog-top-card-title { width: 700px; }
     .blog-top-card-section { padding-top: 110px; }
 }
