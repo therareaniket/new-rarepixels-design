@@ -27,65 +27,337 @@ const BlogListingCards = () => {
 
 		if (!section || !tabWrapper) return;
 
+		let removeViewportListeners = () => { };
+
 		const context = gsap.context(() => {
-			const bottomGap = 50;
+			const DESKTOP_BOTTOM_GAP = 50;
+			const MOBILE_DOWN_BOTTOM_GAP = 50;
+			const MOBILE_UP_BOTTOM_GAP = 10;
 
-			const updateBottomSpace = () => {
+			const SAFETY_GAP = 30;
+			const DIRECTION_THRESHOLD = 12;
+
+			let previousDirection = 1;
+			let pendingDirection = 1;
+			let directionStartScroll = window.scrollY;
+
+			let hasReachedStickyPosition = false;
+
+			let currentBottomGap = window.matchMedia(
+				"(max-width: 575px)"
+			).matches
+				? MOBILE_DOWN_BOTTOM_GAP
+				: DESKTOP_BOTTOM_GAP;
+
+			let viewportUpdateFrame: number | null = null;
+
+			const isMobile = () => {
+				return window.matchMedia(
+					"(max-width: 575px)"
+				).matches;
+			};
+
+			const getBottomGap = (direction: number) => {
+				if (!isMobile()) {
+					return DESKTOP_BOTTOM_GAP;
+				}
+
+				return direction === -1
+					? MOBILE_UP_BOTTOM_GAP
+					: MOBILE_DOWN_BOTTOM_GAP;
+			};
+
+			const getVisibleViewportBottom = () => {
+				const visualViewport = window.visualViewport;
+
+				if (visualViewport) {
+					return (
+						visualViewport.offsetTop +
+						visualViewport.height
+					);
+				}
+
+				return window.innerHeight;
+			};
+
+			const calculateBottomTop = (bottomGap: number) => {
 				const wrapperHeight = tabWrapper.offsetHeight;
-				const safetyGap = 30;
+				const visibleViewportBottom =
+					getVisibleViewportBottom();
 
-				section.style.setProperty(
-					"--tab-bottom-space",
-					`${wrapperHeight + bottomGap + safetyGap}px`
+				return Math.max(
+					0,
+					visibleViewportBottom -
+					wrapperHeight -
+					bottomGap
 				);
 			};
 
-			const calculateBottomTop = () => {
+			const updateBottomSpace = () => {
 				const wrapperHeight = tabWrapper.offsetHeight;
 
-				return window.innerHeight - wrapperHeight - bottomGap;
+				const largestBottomGap = isMobile()
+					? MOBILE_UP_BOTTOM_GAP
+					: DESKTOP_BOTTOM_GAP;
+
+				section.style.setProperty(
+					"--tab-bottom-space",
+					`${wrapperHeight +
+					largestBottomGap +
+					SAFETY_GAP
+					}px`
+				);
+			};
+
+			const animateToBottom = (
+				direction: number,
+				duration = 0.4
+			) => {
+				const nextBottomGap = getBottomGap(direction);
+
+				if (nextBottomGap === currentBottomGap) return;
+
+				currentBottomGap = nextBottomGap;
+
+				tabAnimationRef.current?.kill();
+
+				tabAnimationRef.current = gsap.to(
+					tabWrapper,
+					{
+						top: calculateBottomTop(
+							currentBottomGap
+						),
+						duration,
+						ease: "power2.out",
+						overwrite: true,
+					}
+				);
+			};
+
+			const animateToInitialPosition = () => {
+				hasReachedStickyPosition = false;
+
+				tabAnimationRef.current?.kill();
+
+				tabAnimationRef.current = gsap.to(
+					tabWrapper,
+					{
+						top: 0,
+						duration: 0.6,
+						ease: "power3.out",
+						overwrite: true,
+					}
+				);
+			};
+
+			const updateViewportPosition = () => {
+				if (viewportUpdateFrame !== null) {
+					window.cancelAnimationFrame(
+						viewportUpdateFrame
+					);
+				}
+
+				viewportUpdateFrame =
+					window.requestAnimationFrame(() => {
+						viewportUpdateFrame = null;
+
+						updateBottomSpace();
+
+						if (!hasReachedStickyPosition) {
+							return;
+						}
+
+						tabAnimationRef.current?.kill();
+
+						gsap.set(tabWrapper, {
+							top: calculateBottomTop(
+								currentBottomGap
+							),
+						});
+					});
 			};
 
 			updateBottomSpace();
 
-			const animation = gsap.fromTo(
-				tabWrapper,
-				{
-					top: 0,
-				},
-				{
-					top: calculateBottomTop,
-					duration: 1.3,
-					ease: "power3.out",
-					paused: true,
-					overwrite: true,
-				}
-			);
-
 			const scrollTrigger = ScrollTrigger.create({
 				trigger: tabWrapper,
 				start: "top top",
-				onEnter: () => { animation.play(); },
-				onLeaveBack: () => { animation.reverse(); },
+				endTrigger: section,
+				end: "bottom bottom",
+
+				onEnter: () => {
+					hasReachedStickyPosition = true;
+
+					previousDirection = 1;
+					pendingDirection = 1;
+					directionStartScroll = window.scrollY;
+
+					currentBottomGap = isMobile()
+						? MOBILE_DOWN_BOTTOM_GAP
+						: DESKTOP_BOTTOM_GAP;
+
+					tabAnimationRef.current?.kill();
+
+					tabAnimationRef.current = gsap.to(
+						tabWrapper,
+						{
+							top: calculateBottomTop(
+								currentBottomGap
+							),
+							duration: 1.3,
+							ease: "power3.out",
+							overwrite: true,
+						}
+					);
+				},
+
+				onEnterBack: () => {
+					hasReachedStickyPosition = true;
+
+					previousDirection = -1;
+					pendingDirection = -1;
+					directionStartScroll = window.scrollY;
+
+					if (isMobile()) {
+						currentBottomGap =
+							MOBILE_UP_BOTTOM_GAP;
+
+						tabAnimationRef.current?.kill();
+
+						tabAnimationRef.current = gsap.to(
+							tabWrapper,
+							{
+								top: calculateBottomTop(
+									currentBottomGap
+								),
+								duration: 0.4,
+								ease: "power2.out",
+								overwrite: true,
+							}
+						);
+					}
+				},
+
+				onUpdate: (self) => {
+					if (
+						!hasReachedStickyPosition ||
+						!self.isActive
+					) {
+						return;
+					}
+
+					const direction = self.direction;
+					const currentScroll = window.scrollY;
+
+					if (direction !== pendingDirection) {
+						pendingDirection = direction;
+						directionStartScroll = currentScroll;
+						return;
+					}
+
+					const directionDistance = Math.abs(
+						currentScroll - directionStartScroll
+					);
+
+					if (
+						directionDistance <
+						DIRECTION_THRESHOLD
+					) {
+						return;
+					}
+
+					if (direction === previousDirection) {
+						return;
+					}
+
+					previousDirection = direction;
+					directionStartScroll = currentScroll;
+
+					if (direction === -1) {
+						animateToBottom(-1, 0.4);
+					} else {
+						animateToBottom(1, 0.4);
+					}
+				},
+
+				onLeaveBack: () => {
+					previousDirection = -1;
+					pendingDirection = -1;
+					directionStartScroll = window.scrollY;
+
+					animateToInitialPosition();
+				},
+
 				invalidateOnRefresh: true,
-				onRefresh: () => {
+
+				onRefresh: (self) => {
 					updateBottomSpace();
-					animation.invalidate();
+
+					if (
+						self.isActive &&
+						hasReachedStickyPosition
+					) {
+						gsap.set(tabWrapper, {
+							top: calculateBottomTop(
+								currentBottomGap
+							),
+						});
+					} else if (
+						self.scroll() <= self.start
+					) {
+						gsap.set(tabWrapper, {
+							top: 0,
+						});
+					}
 				},
 			});
 
-			tabAnimationRef.current = animation;
+			const visualViewport = window.visualViewport;
+
+			visualViewport?.addEventListener( "resize", updateViewportPosition );
+			visualViewport?.addEventListener( "scroll", updateViewportPosition );
+			window.addEventListener( "resize", updateViewportPosition );
+
 			tabScrollTriggerRef.current = scrollTrigger;
+
+			removeViewportListeners = () => {
+				visualViewport?.removeEventListener(
+					"resize",
+					updateViewportPosition
+				);
+
+				visualViewport?.removeEventListener(
+					"scroll",
+					updateViewportPosition
+				);
+
+				window.removeEventListener(
+					"resize",
+					updateViewportPosition
+				);
+
+				if (viewportUpdateFrame !== null) {
+					window.cancelAnimationFrame(
+						viewportUpdateFrame
+					);
+
+					viewportUpdateFrame = null;
+				}
+			};
 		}, section);
 
 		return () => {
+			removeViewportListeners();
+
 			tabAnimationRef.current?.kill();
 			tabScrollTriggerRef.current?.kill();
 
 			tabAnimationRef.current = null;
 			tabScrollTriggerRef.current = null;
 
-			section.style.removeProperty("--tab-bottom-space");
+			section.style.removeProperty(
+				"--tab-bottom-space"
+			);
 
 			context.revert();
 		};
@@ -94,13 +366,14 @@ const BlogListingCards = () => {
 	const handleCategoryChange = () => {
 		const section = sectionRef.current;
 		const tabWrapper = tabWrapperRef.current;
-		const animation = tabAnimationRef.current;
+		// const animation = tabAnimationRef.current;
 		const scrollTrigger = tabScrollTriggerRef.current;
 
 		if (!section || !tabWrapper) return;
 
 		scrollTrigger?.disable(false);
-		animation?.pause(0);
+		tabAnimationRef.current?.kill();
+		tabAnimationRef.current = null;
 
 		gsap.set(tabWrapper, {
 			top: 0,
@@ -120,7 +393,7 @@ const BlogListingCards = () => {
 
 			scrollEndTimer = window.setTimeout(() => {
 				window.removeEventListener("scroll", handleScrollEnd);
-				animation?.pause(0);
+				// animation?.pause(0);
 				gsap.set(tabWrapper, {
 					top: 0,
 				});
