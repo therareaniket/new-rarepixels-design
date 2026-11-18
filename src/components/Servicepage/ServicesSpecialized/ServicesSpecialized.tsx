@@ -4,10 +4,10 @@ import './servicesspeaiclaizes.css'
 
 const ServicesSpecialized = () => {
     return (
-        <section className='section' style={{ paddingTop: 0 }}>
+        <section className='section bg-[#000]' style={{ paddingTop: 0 }} >
             <div className="container">
                 <div className="services-special-wrapper flex items-center justify-between">
-                    <div className="services-special-left flex justify-between">
+                    <div className="services-special-left flex justify-between text-[#fff]">
                         <h2 className='font-semibold flex flex-col services-spec-h2-tablet'>
                             One Vision. <br /> One Team.<br /> Everything Connected.
                         </h2>

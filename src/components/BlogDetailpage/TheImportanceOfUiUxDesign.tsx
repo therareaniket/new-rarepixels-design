@@ -8,14 +8,14 @@ import SocialShareIcons from './SocialShareIcons/SocialShareIcons'
 const TheImportanceOfUiUxDesign = () => {
     return (
         <section id='blog-detail-section'>
-            <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
+            <div className="blog-detail-hero w-[100%] py-[80px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
-                    <div className="blog-detail-hero-text py-[80px] ">
-                        <div className="blog-detail-cover-image blog-detail-cover-image-for-tablet w-[100%] h-[562] bg-[black]">
+                    <div className="blog-detail-hero-text  ">
+                        <h1 className="text-[white] mb-[40px]">The Importance of UI/UX Design in Modern Web Development</h1>
+
+                        <div className="blog-detail-cover-image w-[100%] h-[562] bg-[black]">
                             <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/the-importance-of-uiux-design-in-modern-web-development.jpg" alt="blog-detail-image" width={1000} height={562}></Image>
                         </div>
-
-                        <h1 className="text-[white]">The Importance of UI/UX Design in Modern Web Development</h1>
 
                         <div className="blod-detail-type blog-detail-type-desktop flex items-center justify-between mt-[40px]">
                             <div className="blog-detail-author-wrapper flex items-center gap-[22px]">
@@ -29,7 +29,7 @@ const TheImportanceOfUiUxDesign = () => {
                                 </p>
                             </div>
 
-                            <div className="blod-detailcategories-wrapper flex items-center gap-[90px]">
+                            <div className="blod-detailcategories-wrapper flex items-center gap-[50px]">
                                 <div className="blog-post-date text-18 text-[white]">
                                     <p className="font-normal">Date</p>
                                     <p className="font-semibold">12th Sept 2024</p>
@@ -81,9 +81,9 @@ const TheImportanceOfUiUxDesign = () => {
 
             <div className="section bg-[#FBF8F5] relative">
                 <div className="blog-detail-content-wrapper blog-container-sm">
-                    <div className="blog-detail-cover-image blog-detail-cover-image-for-desktop w-[100%] h-[562] bg-[black]">
+                    {/* <div className="blog-detail-cover-image blog-detail-cover-image-for-desktop w-[100%] h-[562] bg-[black]">
                         <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/the-importance-of-uiux-design-in-modern-web-development.jpg" alt="blog-detail-image" width={1000} height={562}></Image>
-                    </div>
+                    </div> */}
 
                     <div className="blog-detail-reading-layout">
                         <SocialShareIcons currentBlogHref="/Blog/the-importance-of-ui-ux-design-in-modern-web-development" />

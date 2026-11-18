@@ -31,8 +31,8 @@ const BlogListingCards = () => {
 
 		const context = gsap.context(() => {
 			const DESKTOP_BOTTOM_GAP = 50;
-			const MOBILE_DOWN_BOTTOM_GAP = 50;
-			const MOBILE_UP_BOTTOM_GAP = 10;
+			const MOBILE_DOWN_BOTTOM_GAP = 30;
+			const MOBILE_UP_BOTTOM_GAP = 20 ;
 
 			const SAFETY_GAP = 30;
 			const DIRECTION_THRESHOLD = 12;
@@ -96,9 +96,7 @@ const BlogListingCards = () => {
 			const updateBottomSpace = () => {
 				const wrapperHeight = tabWrapper.offsetHeight;
 
-				const largestBottomGap = isMobile()
-					? MOBILE_UP_BOTTOM_GAP
-					: DESKTOP_BOTTOM_GAP;
+				const largestBottomGap = isMobile() ? MOBILE_UP_BOTTOM_GAP : DESKTOP_BOTTOM_GAP;
 
 				section.style.setProperty(
 					"--tab-bottom-space",
@@ -143,7 +141,7 @@ const BlogListingCards = () => {
 					tabWrapper,
 					{
 						top: 0,
-						duration: 0.6,
+						duration: 0.9,
 						ease: "power3.out",
 						overwrite: true,
 					}
@@ -230,7 +228,7 @@ const BlogListingCards = () => {
 								top: calculateBottomTop(
 									currentBottomGap
 								),
-								duration: 0.4,
+								duration: 1.4,
 								ease: "power2.out",
 								overwrite: true,
 							}

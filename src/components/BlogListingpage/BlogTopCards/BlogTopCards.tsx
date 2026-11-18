@@ -41,248 +41,262 @@ const BlogTopCards = () => {
 					}}
 				>
 					<SwiperSlide className='blog-top-swiper'>
-						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' loading='eager' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
-						</div>
-
-						<div className="blog-top-card-content">
-							<h2 className='h3 text-[white] text-[white] font-semibold mt-[30px]'>From Unknown to Unforgettable: How Branding Makes Businesses Recognisable</h2>
-
-							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
-								<div className="blog-author-name">
-									<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
-										<span>By Bina Yogesh</span>
-										|
-										<span>Oct 12, 2026</span>
-										|
-										<span>7 mins read</span>
-									</p>
-								</div>
-
-								<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
-									<span className='icon-linkedin'></span>
-									<span className='icon-instagram'></span>
-									<span className='icon-threads'></span>
-									<span className='icon-facebook'></span>
-									<span className='icon-twitter'></span>
-									<span className='icon-youtube'></span>
-								</div>
+						<Link href="/Blog/from-unknown-to-unforgettable-branding">
+							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
+								<Image className='w-[100%] h-[100%] object-cover' loading='eager' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
 
-							<p className='blog-redirect text-[white] text-[white] text-18 font-normal mt-[30px]'>Every business starts somewhere. A new name. A new idea. A website. A product. Perhaps a logo that represents the beginning of something ambitious.
-								<Link href="/Blog/from-unknown-to-unforgettable-branding" title='from-unknown-to-unforgettable-branding' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
-							</p>
-						</div>
+							<div className="blog-top-card-content">
+								<h2 className='h3 text-[white] text-[white] font-semibold mt-[30px]'>From Unknown to Unforgettable: How Branding Makes Businesses Recognisable</h2>
+
+								<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
+									<div className="blog-author-name">
+										<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
+											<span>By Bina Yogesh</span>
+											|
+											<span>Oct 12, 2026</span>
+											|
+											<span>7 mins read</span>
+										</p>
+									</div>
+
+									<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
+										<span className='icon-linkedin'></span>
+										<span className='icon-instagram'></span>
+										<span className='icon-threads'></span>
+										<span className='icon-facebook'></span>
+										<span className='icon-twitter'></span>
+										<span className='icon-youtube'></span>
+									</div>
+								</div>
+
+								<p className='blog-redirect text-[white] text-[white] text-18 font-normal mt-[30px]'>Every business starts somewhere. A new name. A new idea. A website. A product. Perhaps a logo that represents the beginning of something ambitious.
+									<span style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </span>
+								</p>
+							</div>
+						</Link>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/ux-falls-short.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
-						</div>
-
-						<div className="blog-top-card-content">
-							<h2 className='h3 text-[white] font-semibold mt-[30px]'>Why DIY UI/UX Falls Short and Your Business Needs Experts</h2>
-
-							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
-								<div className="blog-author-name">
-									<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
-										<span>By Bina Yogesh</span>
-										|
-										<span>Oct 12, 2026</span>
-										|
-										<span>7 mins read</span>
-									</p>
-								</div>
-
-								<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
-									<span className='icon-linkedin'></span>
-									<span className='icon-instagram'></span>
-									<span className='icon-threads'></span>
-									<span className='icon-facebook'></span>
-									<span className='icon-twitter'></span>
-									<span className='icon-youtube'></span>
-								</div>
+						<Link href="/Blog/diy-ui-ux-vs-experts-business-growth">
+							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
+								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/ux-falls-short.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
 
-							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>At some point, almost every business tries to handle UI/UX on its own. It makes sense in the beginning. You want to move fast, save costs, and keep control. 
-								<Link href="/Blog/diy-ui-ux-vs-experts-business-growth" title='diy-ui-ux-vs-experts-business-growth'  style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
-							</p>
-						</div>
+							<div className="blog-top-card-content">
+								<h2 className='h3 text-[white] font-semibold mt-[30px]'>Why DIY UI/UX Falls Short and Your Business Needs Experts</h2>
+
+								<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
+									<div className="blog-author-name">
+										<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
+											<span>By Bina Yogesh</span>
+											|
+											<span>Oct 12, 2026</span>
+											|
+											<span>7 mins read</span>
+										</p>
+									</div>
+
+									<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
+										<span className='icon-linkedin'></span>
+										<span className='icon-instagram'></span>
+										<span className='icon-threads'></span>
+										<span className='icon-facebook'></span>
+										<span className='icon-twitter'></span>
+										<span className='icon-youtube'></span>
+									</div>
+								</div>
+
+								<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>At some point, almost every business tries to handle UI/UX on its own. It makes sense in the beginning. You want to move fast, save costs, and keep control.
+									<span style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </span>
+								</p>
+							</div>
+						</Link>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
-						</div>
-
-						<div className="blog-top-card-content">
-							<h2 className='h3 text-[white] font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
-
-							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
-								<div className="blog-author-name">
-									<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
-										<span>By Bina Yogesh</span>
-										|
-										<span>June 25, 2026</span>
-										|
-										<span>7 mins read</span>
-									</p>
-								</div>
-
-								<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
-									<span className='icon-linkedin'></span>
-									<span className='icon-instagram'></span>
-									<span className='icon-threads'></span>
-									<span className='icon-facebook'></span>
-									<span className='icon-twitter'></span>
-									<span className='icon-youtube'></span>
-								</div>
+						<Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading">
+							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
+								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
 
-							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-								<Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading"  title='rarepixels-turns-2' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
-							</p>
-						</div>
+							<div className="blog-top-card-content">
+								<h2 className='h3 text-[white] font-semibold mt-[30px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h2>
+
+								<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
+									<div className="blog-author-name">
+										<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
+											<span>By Bina Yogesh</span>
+											|
+											<span>June 25, 2026</span>
+											|
+											<span>7 mins read</span>
+										</p>
+									</div>
+
+									<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
+										<span className='icon-linkedin'></span>
+										<span className='icon-instagram'></span>
+										<span className='icon-threads'></span>
+										<span className='icon-facebook'></span>
+										<span className='icon-twitter'></span>
+										<span className='icon-youtube'></span>
+									</div>
+								</div>
+
+								<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
+									<span style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </span>
+								</p>
+							</div>
+						</Link>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
-						</div>
-
-						<div className="blog-top-card-content">
-							<h2 className='h3 text-[white] font-semibold mt-[30px]'>Why Serious Businesses Invest in UX Masters, Not Just Creative Designers</h2>
-
-							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
-								<div className="blog-author-name">
-									<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
-										<span>By Bina Yogesh</span>
-										|
-										<span>May 29, 2026</span>
-										|
-										<span>7 mins read</span>
-									</p>
-								</div>
-
-								<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
-									<span className='icon-linkedin'></span>
-									<span className='icon-instagram'></span>
-									<span className='icon-threads'></span>
-									<span className='icon-facebook'></span>
-									<span className='icon-twitter'></span>
-									<span className='icon-youtube'></span>
-								</div>
+						<Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers">
+							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
+								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
 
-							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Every business wants to look good. A clean website.Modern visuals. Smooth animations. A stylish interface.
-								<Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='why-businesses-need-ux-master' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
-							</p>
-						</div>
+							<div className="blog-top-card-content">
+								<h2 className='h3 text-[white] font-semibold mt-[30px]'>Why Serious Businesses Invest in UX Masters, Not Just Creative Designers</h2>
+
+								<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
+									<div className="blog-author-name">
+										<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
+											<span>By Bina Yogesh</span>
+											|
+											<span>May 29, 2026</span>
+											|
+											<span>7 mins read</span>
+										</p>
+									</div>
+
+									<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
+										<span className='icon-linkedin'></span>
+										<span className='icon-instagram'></span>
+										<span className='icon-threads'></span>
+										<span className='icon-facebook'></span>
+										<span className='icon-twitter'></span>
+										<span className='icon-youtube'></span>
+									</div>
+								</div>
+
+								<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Every business wants to look good. A clean website.Modern visuals. Smooth animations. A stylish interface.
+									<span style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </span>
+								</p>
+							</div>
+						</Link>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Makes-Users-Lose-Interest.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
-						</div>
-
-						<div className="blog-top-card-content">
-							<h2 className='h3 text-[white] font-semibold mt-[30px]'>When UI/UX Loses Emotion, Users Lose Interest: The Crisis No One Talks About</h2>
-
-							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
-								<div className="blog-author-name">
-									<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
-										<span>By Bina Yogesh</span>
-										|
-										<span>May 14, 2026</span>
-										|
-										<span>7 mins read</span>
-									</p>
-								</div>
-
-								<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
-									<span className='icon-linkedin'></span>
-									<span className='icon-instagram'></span>
-									<span className='icon-threads'></span>
-									<span className='icon-facebook'></span>
-									<span className='icon-twitter'></span>
-									<span className='icon-youtube'></span>
-								</div>
+						<Link href="/Blog/emotion-in-ui-ux-and-user-loyalty" title='emotion-in-ui-ux-and-user-loyalty'>
+							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
+								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Makes-Users-Lose-Interest.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
 
-							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>There’s a strange pattern happening across the digital world. More apps. More websites. More platforms. More tools. And yet… everything feels the same.
-								<Link href="/Blog/emotion-in-ui-ux-and-user-loyalty" title='emotion-in-ui-ux-and-user-loyalty' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
-							</p>
-						</div>
+							<div className="blog-top-card-content">
+								<h2 className='h3 text-[white] font-semibold mt-[30px]'>When UI/UX Loses Emotion, Users Lose Interest: The Crisis No One Talks About</h2>
+
+								<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
+									<div className="blog-author-name">
+										<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
+											<span>By Bina Yogesh</span>
+											|
+											<span>May 14, 2026</span>
+											|
+											<span>7 mins read</span>
+										</p>
+									</div>
+
+									<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
+										<span className='icon-linkedin'></span>
+										<span className='icon-instagram'></span>
+										<span className='icon-threads'></span>
+										<span className='icon-facebook'></span>
+										<span className='icon-twitter'></span>
+										<span className='icon-youtube'></span>
+									</div>
+								</div>
+
+								<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>There’s a strange pattern happening across the digital world. More apps. More websites. More platforms. More tools. And yet… everything feels the same.
+									<span style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </span>
+								</p>
+							</div>
+						</Link>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Strategies-That-Can-Double-Your-Client-Retention.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
-						</div>
-
-						<div className="blog-top-card-content">
-							<h2 className='h3 text-[white] font-semibold mt-[30px]'>Exclusive UI/UX Strategies That Can Double Your Client Retention</h2>
-
-							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
-								<div className="blog-author-name">
-									<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
-										<span>By Bina Yogesh</span>
-										|
-										<span>May 14, 2026</span>
-										|
-										<span>7 mins read</span>
-									</p>
-								</div>
-
-								<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
-									<span className='icon-linkedin'></span>
-									<span className='icon-instagram'></span>
-									<span className='icon-threads'></span>
-									<span className='icon-facebook'></span>
-									<span className='icon-twitter'></span>
-									<span className='icon-youtube'></span>
-								</div>
+						<Link href="/Blog/ui-ux-strategies-client-retention" title='ui-ux-strategies-client-retention'>
+							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
+								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Strategies-That-Can-Double-Your-Client-Retention.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
 
-							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Getting Customers Is Difficult. Keeping Them Is Even Harder. Most businesses spend heavily on marketing, ads, outreach, and lead generation. 
-								<Link href="/Blog/ui-ux-strategies-client-retention" title='ui-ux-strategies-client-retention' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
-							</p>
-						</div>
+							<div className="blog-top-card-content">
+								<h2 className='h3 text-[white] font-semibold mt-[30px]'>Exclusive UI/UX Strategies That Can Double Your Client Retention</h2>
+
+								<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
+									<div className="blog-author-name">
+										<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
+											<span>By Bina Yogesh</span>
+											|
+											<span>May 14, 2026</span>
+											|
+											<span>7 mins read</span>
+										</p>
+									</div>
+
+									<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
+										<span className='icon-linkedin'></span>
+										<span className='icon-instagram'></span>
+										<span className='icon-threads'></span>
+										<span className='icon-facebook'></span>
+										<span className='icon-twitter'></span>
+										<span className='icon-youtube'></span>
+									</div>
+								</div>
+
+								<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Getting Customers Is Difficult. Keeping Them Is Even Harder. Most businesses spend heavily on marketing, ads, outreach, and lead generation.
+									<span style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </span>
+								</p>
+							</div>
+						</Link>
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
-							<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Turns-Social-Media-Traffic-into-Result.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
-						</div>
-
-						<div className="blog-top-card-content">
-							<h2 className='h3 text-[white] font-semibold mt-[30px]'>How UI/UX Design Decides Whether Your Social Media Traffic Stays or Leaves</h2>
-
-							<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
-								<div className="blog-author-name">
-									<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
-										<span>By Bina Yogesh</span>
-										|
-										<span>May 14, 2026</span>
-										|
-										<span>7 mins read</span>
-									</p>
-								</div>
-
-								<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
-									<span className='icon-linkedin'></span>
-									<span className='icon-instagram'></span>
-									<span className='icon-threads'></span>
-									<span className='icon-facebook'></span>
-									<span className='icon-twitter'></span>
-									<span className='icon-youtube'></span>
-								</div>
+						<Link href="/Blog/ui-ux-social-media-marketing-success" title='ui-ux-social-media-marketing-success'>
+							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
+								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/UX-Turns-Social-Media-Traffic-into-Result.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
 
-							<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Social Media Today Is Doing Its Job Better Than Ever Posts reach thousands. Ads drive clicks. Campaigns generate buzz.
-								<Link href="/Blog/ui-ux-social-media-marketing-success" title='ui-ux-social-media-marketing-success' style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </Link>
-							</p>
-						</div>
+							<div className="blog-top-card-content">
+								<h2 className='h3 text-[white] font-semibold mt-[30px]'>How UI/UX Design Decides Whether Your Social Media Traffic Stays or Leaves</h2>
+
+								<div className='blog-listing-author-wrapper flex items-center justify-between mt-[20px]'>
+									<div className="blog-author-name">
+										<p className='font-normal flex items-center gap-[6px] text-18 text-[#C6C6C6]'>
+											<span>By Bina Yogesh</span>
+											|
+											<span>May 14, 2026</span>
+											|
+											<span>7 mins read</span>
+										</p>
+									</div>
+
+									<div className="blog-social-share flex align-center gap-[20px] text-[#C6C6C6]">
+										<span className='icon-linkedin'></span>
+										<span className='icon-instagram'></span>
+										<span className='icon-threads'></span>
+										<span className='icon-facebook'></span>
+										<span className='icon-twitter'></span>
+										<span className='icon-youtube'></span>
+									</div>
+								</div>
+
+								<p className='blog-redirect text-[white] text-18 font-normal mt-[30px]'>Social Media Today Is Doing Its Job Better Than Ever Posts reach thousands. Ads drive clicks. Campaigns generate buzz.
+									<span style={{ color: '#ED0180' }}> Read More <span className="sr-only">about user experience vs visually attractive interfaces</span> </span>
+								</p>
+							</div>
+						</Link>
 					</SwiperSlide>
 				</Swiper>
 			</div>

@@ -17,13 +17,14 @@ const ServiceHero = () => {
                     <div className="services-hero-right w-[744px]">
                         <h1 className='text-[white]'> Everything Your <span className='text-[#ED0180]'>Brand</span> Needs to Move Forward.</h1>
 
-                        <p className='text-18 font-normal text-[white] mt-[108px] services-hero-subtitile'>From brand identity and digital design to development and social media, we bring strategy and creativity together to build solutions that solve real problems and create meaningful business impact.</p>
+                        <p className='text-18 font-normal text-[white] mt-[30px] services-hero-subtitile'>From brand identity and digital design to development and social media, we bring strategy and creativity together to build solutions that solve real problems and create meaningful business impact.</p>
 
                         <div className="services-hero-left services-hero-video-tablet hidden w-[790] h-[760px]">
-                            <video className='services-video' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/services-listing/hero/serv-hero-globe-white.mp4" autoPlay muted loop playsInline width={790} height={760}></video>
+                            <video className='services-video' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/services-listing/globe-video-4.mp4" autoPlay muted loop playsInline width={790} height={760}></video>
+                            {/* <video className='services-video' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/services-listing/hero/serv-hero-globe-white.mp4" autoPlay muted loop playsInline width={790} height={760}></video> */}
                         </div>
 
-                        <div className="services-stats-wrapper flex gap-[60px] mt-[30px]">
+                        <div className="services-stats-wrapper flex gap-[60px] mt-[108px]">
                             <div className="services-stat services-stat-1">
                                 <div className='se-stats-title flex items-center gap-[20px]'>
                                     <h2 className='text-[#ED0180]'>100+</h2>

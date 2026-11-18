@@ -45,7 +45,7 @@ const SocialShareIcons = ({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Share "${blogTitle}" on LinkedIn`}
-                    className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center cursor-pointer'
+                    className='w-[40px] h-[40px] rounded-[6px] bg-[#ED0180] font-[20px] text-white flex items-center justify-center cursor-pointer'
                 >
                     <span className="icon-linkedin" aria-hidden="true" />
                 </a>
@@ -55,7 +55,7 @@ const SocialShareIcons = ({
                     onClick={handleCopyLink}
                     aria-label={`Copy link to "${blogTitle}"`}
                     title="Copy blog link"
-                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center cursor-pointer"
+                    className="w-[40px] h-[40px] rounded-[6px] bg-[#ED0180] font-[20px] text-white flex items-center justify-center cursor-pointer"
                 >
                     <span className="icon-instagram" aria-hidden="true" />
                 </button>
@@ -65,7 +65,7 @@ const SocialShareIcons = ({
                     onClick={handleCopyLink}
                     aria-label={`Copy link to "${blogTitle}"`}
                     title="Copy blog link"
-                    className="w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center cursor-pointer"
+                    className="w-[40px] h-[40px] rounded-[6px] bg-[#ED0180] font-[20px] text-white flex items-center justify-center cursor-pointer"
                 >
                     <span className="icon-threads" aria-hidden="true" />
                 </button>
@@ -75,7 +75,7 @@ const SocialShareIcons = ({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Share "${blogTitle}" on Facebook`}
-                    className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center cursor-pointer'
+                    className='w-[40px] h-[40px] rounded-[6px] bg-[#ED0180] font-[20px] text-white flex items-center justify-center cursor-pointer'
                 >
                     <span className="icon-facebook" aria-hidden="true" />
                 </a>
@@ -85,7 +85,7 @@ const SocialShareIcons = ({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Share "${blogTitle}" on Twitter`}
-                    className='w-[40px] h-[40px] rounded-[6px] bg-[#040E36] font-[20px] text-white flex items-center justify-center cursor-pointer'
+                    className='w-[40px] h-[40px] rounded-[6px] bg-[#ED0180] font-[20px] text-white flex items-center justify-center cursor-pointer'
                 >
                     <span className="icon-twitter" aria-hidden="true"  />
                 </a>

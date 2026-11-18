@@ -9,18 +9,20 @@ import SocialShareIcons from './SocialShareIcons/SocialShareIcons';
 const AtRarePixelsWeDonDesignforBrandsThatDonKnowTheirAudience = () => {
     return (
         <section id='blog-detail-section'>
-            <div className="blog-detail-hero w-[100%] h-[529px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
+            <div className="blog-detail-hero w-[100%] py-[80px] mt-[68px] bg-[#040E36] flex items-center justify-center flex-col">
                 <div className="blog-container-sm">
-                    <div className="blog-detail-hero-text py-[80px] ">
-                    <div className="blog-detail-cover-image blog-detail-cover-image-for-tablet w-[100%] h-[562] bg-[black]">
-                        <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/build-your-brand.webp" alt="blog-detail-image" width={1000} height={562}></Image>
-                    </div>
+                    <div className="blog-detail-hero-text ">
+                        {/* <div className="blog-detail-cover-image blog-detail-cover-image-for-tablet w-[100%] h-[562] bg-[black]"> */}
 
-                        <h1 className="text-[white]">At RarePixels, We Don’t Design for Brands That Don’t Know Their Audience. Know Why?</h1>
+                        <h1 className="text-[white] mb-[40px]">At RarePixels, We Don’t Design for Brands That Don’t Know Their Audience. Know Why?</h1>
+
+                        <div className="blog-detail-cover-image w-[100%] h-[562] bg-[black]">
+                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/build-your-brand.webp" alt="blog-detail-image" width={1000} height={562}></Image>
+                        </div>
 
                         <div className="blod-detail-type blog-detail-type-desktop flex items-center justify-between mt-[40px]">
                             <div className="blog-detail-author-wrapper flex items-center gap-[22px]">
-                                <div className="blog-detail-author-img w-[90px] h-[90px] bg-[#D9D9D9] rounded-full">
+                                <div className="blog-detail-author-img w-[   px] h-[90px] bg-[#D9D9D9] rounded-full">
                                     <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/bina-patel-author.webp" alt="blog-detail-image" width={100} height={100}></Image>
                                 </div>
 
@@ -30,7 +32,7 @@ const AtRarePixelsWeDonDesignforBrandsThatDonKnowTheirAudience = () => {
                                 </p>
                             </div>
 
-                            <div className="blod-detailcategories-wrapper flex items-center gap-[90px]">
+                            <div className="blod-detailcategories-wrapper flex items-center gap-[50px]">
                                 <div className="blog-post-date text-18 text-[white]">
                                     <p className="font-normal">Date</p>
                                     <p className="font-semibold">30th Sept 2025</p>
@@ -81,9 +83,9 @@ const AtRarePixelsWeDonDesignforBrandsThatDonKnowTheirAudience = () => {
 
             <div className="section bg-[#FBF8F5] relative">
                 <div className="blog-detail-content-wrapper blog-container-sm">
-                    <div className="blog-detail-cover-image blog-detail-cover-image-for-desktop w-[100%] h-[562] bg-[black]">
+                    {/* <div className="blog-detail-cover-image blog-detail-cover-image-for-desktop w-[100%] h-[562] bg-[black]">
                         <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/build-your-brand.webp" alt="blog-detail-image" width={1000} height={562}></Image>
-                    </div>
+                    </div> */}
 
                     <div className="blog-detail-reading-layout">
                         <SocialShareIcons currentBlogHref="/Blog/why-our-branding-agency-rejects-brands-without-audience-clarity" />
