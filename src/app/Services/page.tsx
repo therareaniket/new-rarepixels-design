@@ -11,7 +11,7 @@ export default function Services() {
     return (
         <>
             <ServiceHero />
-            <ServicesSpecialized />
+            {/* <ServicesSpecialized /> */}
             <ServicesSection />
             <ServicesHowWeWork />
             <ServicesWhyBusinesses />

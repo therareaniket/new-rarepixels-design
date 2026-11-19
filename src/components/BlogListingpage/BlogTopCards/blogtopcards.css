@@ -134,6 +134,8 @@
 @media (max-width: 439px) { 
     .blog-top-card-image { height: 220px; }
     .blog-top-swiper { width: 92% !important; }
+    .blog-top-swiper.swiper-slide-prev .blog-top-card-image { padding-right: 50px; opacity: 0.5; }
+
 }
 
 @media (max-width: 400px) { 

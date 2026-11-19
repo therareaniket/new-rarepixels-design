@@ -32,7 +32,7 @@ const BlogListingCards = () => {
 		const context = gsap.context(() => {
 			const DESKTOP_BOTTOM_GAP = 50;
 			const MOBILE_DOWN_BOTTOM_GAP = 30;
-			const MOBILE_UP_BOTTOM_GAP = 20 ;
+			const MOBILE_UP_BOTTOM_GAP = 20;
 
 			const SAFETY_GAP = 30;
 			const DIRECTION_THRESHOLD = 12;
@@ -312,9 +312,9 @@ const BlogListingCards = () => {
 
 			const visualViewport = window.visualViewport;
 
-			visualViewport?.addEventListener( "resize", updateViewportPosition );
-			visualViewport?.addEventListener( "scroll", updateViewportPosition );
-			window.addEventListener( "resize", updateViewportPosition );
+			visualViewport?.addEventListener("resize", updateViewportPosition);
+			visualViewport?.addEventListener("scroll", updateViewportPosition);
+			window.addEventListener("resize", updateViewportPosition);
 
 			tabScrollTriggerRef.current = scrollTrigger;
 
@@ -361,50 +361,72 @@ const BlogListingCards = () => {
 		};
 	}, []);
 
+	const scrollResetTimerRef = useRef<number | null>(null);
+	const scrollListenerRef = useRef<(() => void) | null>(null);
+
 	const handleCategoryChange = () => {
 		const section = sectionRef.current;
 		const tabWrapper = tabWrapperRef.current;
-		// const animation = tabAnimationRef.current;
 		const scrollTrigger = tabScrollTriggerRef.current;
 
 		if (!section || !tabWrapper) return;
+
+		if (scrollResetTimerRef.current !== null) {
+			window.clearTimeout(scrollResetTimerRef.current);
+			scrollResetTimerRef.current = null;
+		}
+		
+		if (scrollListenerRef.current) {
+			window.removeEventListener("scroll", scrollListenerRef.current);
+			scrollListenerRef.current = null;
+		}
 
 		scrollTrigger?.disable(false);
 		tabAnimationRef.current?.kill();
 		tabAnimationRef.current = null;
 
-		gsap.set(tabWrapper, {
-			top: 0,
-		});
+		gsap.set(tabWrapper, { top: 0 });
 
-		const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+		const sectionTop =
+			section.getBoundingClientRect().top + window.scrollY;
 
-		window.scrollTo({
-			top: sectionTop,
-			behavior: "smooth",
-		});
+		if (window.scrollY > sectionTop) {
+			window.scrollTo({
+				top: sectionTop,
+				behavior: "auto",
+			});
+		}
 
-		let scrollEndTimer: number;
+		const finalizeReset = () => {
+			if (scrollListenerRef.current) {
+				window.removeEventListener("scroll", scrollListenerRef.current);
+				scrollListenerRef.current = null;
+			}
 
-		const handleScrollEnd = () => {
-			window.clearTimeout(scrollEndTimer);
-
-			scrollEndTimer = window.setTimeout(() => {
-				window.removeEventListener("scroll", handleScrollEnd);
-				// animation?.pause(0);
-				gsap.set(tabWrapper, {
-					top: 0,
-				});
+			requestAnimationFrame(() => {
+				gsap.set(tabWrapper, { top: 0 });
 				ScrollTrigger.refresh();
-				scrollTrigger?.enable();
-			}, 150);
+
+				if (scrollTrigger) {
+					scrollTrigger.enable();
+
+					if (window.scrollY > scrollTrigger.start && window.scrollY < scrollTrigger.end) {
+						scrollTrigger.refresh();
+					}
+				}
+			});
 		};
 
-		window.addEventListener("scroll", handleScrollEnd, {
-			passive: true,
-		});
+		const onScroll = () => {
+			if (scrollResetTimerRef.current !== null) {
+				window.clearTimeout(scrollResetTimerRef.current);
+			}
+			scrollResetTimerRef.current = window.setTimeout(finalizeReset, 120);
+		};
 
-		handleScrollEnd();
+		scrollListenerRef.current = onScroll;
+		window.addEventListener("scroll", onScroll, { passive: true });
+		scrollResetTimerRef.current = window.setTimeout(finalizeReset, 120);
 	};
 
 	return (

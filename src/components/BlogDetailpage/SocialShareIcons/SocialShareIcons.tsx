@@ -45,6 +45,7 @@ const SocialShareIcons = ({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Share "${blogTitle}" on LinkedIn`}
+                    title='Share blog'
                     className='w-[40px] h-[40px] rounded-[6px] bg-[#ED0180] font-[20px] text-white flex items-center justify-center cursor-pointer'
                 >
                     <span className="icon-linkedin" aria-hidden="true" />
@@ -74,6 +75,7 @@ const SocialShareIcons = ({
                     href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    title='Share blog'
                     aria-label={`Share "${blogTitle}" on Facebook`}
                     className='w-[40px] h-[40px] rounded-[6px] bg-[#ED0180] font-[20px] text-white flex items-center justify-center cursor-pointer'
                 >
@@ -84,6 +86,7 @@ const SocialShareIcons = ({
                     href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    title='Share blog'
                     aria-label={`Share "${blogTitle}" on Twitter`}
                     className='w-[40px] h-[40px] rounded-[6px] bg-[#ED0180] font-[20px] text-white flex items-center justify-center cursor-pointer'
                 >

@@ -41,7 +41,7 @@ const BlogTopCards = () => {
 					}}
 				>
 					<SwiperSlide className='blog-top-swiper'>
-						<Link href="/Blog/from-unknown-to-unforgettable-branding">
+						<Link href="/Blog/from-unknown-to-unforgettable-branding" title='from-unknown-to-unforgettable-branding'>
 							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
 								<Image className='w-[100%] h-[100%] object-cover' loading='eager' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/unknown-to-unforgettable-blog.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
@@ -78,7 +78,7 @@ const BlogTopCards = () => {
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<Link href="/Blog/diy-ui-ux-vs-experts-business-growth">
+						<Link href="/Blog/diy-ui-ux-vs-experts-business-growth" title='diy-ui-ux-vs-experts-business-growth'>
 							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
 								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/ux-falls-short.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
@@ -115,7 +115,7 @@ const BlogTopCards = () => {
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading">
+						<Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='rarepixels-turns-2-the-big-game-is-still-loading'>
 							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
 								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>
@@ -152,7 +152,7 @@ const BlogTopCards = () => {
 					</SwiperSlide>
 
 					<SwiperSlide className='blog-top-swiper'>
-						<Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers">
+						<Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='why-businesses-need-ux-masters-not-just-creative-designers'>
 							<div className="blog-top-card-image w-[785] h-[442] rounded-[20px] bg-[#040E36]">
 								<Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" width={1000} height={562} draggable={false}></Image>
 							</div>

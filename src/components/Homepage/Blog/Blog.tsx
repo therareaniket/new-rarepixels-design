@@ -1,7 +1,8 @@
 "use client";
 
-import Link from 'next/link';
-import './blog.css'
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import "./blog.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -9,7 +10,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Image from 'next/image';
+import Image from "next/image";
 
 const siteUrl = "https://rarepixelsdesign.in";
 
@@ -29,7 +30,9 @@ const shareBlog2 = {
 const encodedUrl2 = encodeURIComponent(shareBlog2.url);
 const encodedTitle2 = encodeURIComponent(shareBlog2.title);
 
-const handleCopyLink = async (url: string) => {
+const handleCopyLink = async (e: React.MouseEvent, url: string) => {
+    e.preventDefault();
+    e.stopPropagation();
     try {
         await navigator.clipboard.writeText(url);
         alert("Link copied!");
@@ -38,28 +41,117 @@ const handleCopyLink = async (url: string) => {
     }
 };
 
+const ShareButtons = ({
+    encodedBlogUrl,
+    encodedBlogTitle,
+    rawUrl,
+}: {
+    encodedBlogUrl: string;
+    encodedBlogTitle: string;
+    rawUrl: string;
+}) => (
+    <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]" onClick={(e) => e.stopPropagation()} >
+        <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedBlogUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on LinkedIn"
+        >
+            <span className="icon-linkedin"></span>
+        </a>
+
+        <button
+            type="button"
+            onClick={(e) => handleCopyLink(e, rawUrl)}
+            aria-label="Copy link to share on Instagram"
+        >
+            <span className="icon-instagram"></span>
+        </button>
+
+        <button
+            type="button"
+            onClick={(e) => handleCopyLink(e, rawUrl)}
+            aria-label="Copy link to share on Threads"
+        >
+            <span className="icon-threads"></span>
+        </button>
+
+        <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodedBlogUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Facebook"
+        >
+            <span className="icon-facebook"></span>
+        </a>
+
+        <a
+            href={`https://twitter.com/intent/tweet?url=${encodedBlogUrl}&text=${encodedBlogTitle}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Twitter"
+        >
+            <span className="icon-twitter"></span>
+        </a>
+
+        <a
+            href={`https://api.whatsapp.com/send?text=${encodedBlogTitle}%20${encodedBlogUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on WhatsApp"
+        >
+            <span className="icon-youtube"></span>
+        </a>
+    </div>
+);
 
 const Blog = () => {
+    const router = useRouter();
+
+    const navigateTo = (href: string) => () => {
+        router.push(href);
+    };
+
     return (
-        <section className='section blog-section'>
+        <section className="section blog-section">
             <div className="container">
                 <div className="hm-blog-title text-center">
-                    <h2 className='font-semibold'>Our Blog</h2>
+                    <h2 className="font-semibold">Our Blog</h2>
 
-                    <p className='font-normal text-18 w-[780px] website-subtitle-mt m-[auto]'>A collection of thoughts, learnings, and perspectives from our work in design, technology, and building impactful digital experiences.</p>
+                    <p className="font-normal text-18 w-[780px] website-subtitle-mt m-[auto]">
+                        A collection of thoughts, learnings, and perspectives from our work in design, technology, and building impactful digital experiences.
+                    </p>
                 </div>
 
                 <div className="hm-blog-wrapper flex align-start gap-[30px] mt-[60px]">
-                    <div className="hm-blog-left w-[785px] blog-card-desktop">
-                        <div className="hm-blog-image-l w-[100%] h-[442px] rounded-[20px] bg-[black] overflow-hidden">
-                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" draggable={false} width={1000} height={562}></Image>
-                        </div>
+                    <article
+                        title="rare-pixels-turns-2"
+                        onClick={navigateTo("/Blog/rarepixels-turns-2-the-big-game-is-still-loading")}
+                        className="hm-blog-left w-[785px] blog-card-desktop cursor-pointer"
+                    >
+                        <Link
+                            href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading"
+                            className="block hm-blog-image-l w-[100%] h-[442px] rounded-[20px] bg-[black] overflow-hidden"
+                        >
+                            <Image
+                                className="w-[100%] h-[100%] object-cover"
+                                src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp"
+                                alt="blog-detail-image"
+                                draggable={false}
+                                width={1000}
+                                height={562}
+                            />
+                        </Link>
 
-                        <h3 className='font-semibold mt-[30px] mb-[20px]'>RarePixels Turns 2. The Big Game Is Still Loading.</h3>
+                        <h3 className="font-semibold mt-[30px] mb-[20px]">
+                            <Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading">
+                                RarePixels Turns 2. The Big Game Is Still Loading.
+                            </Link>
+                        </h3>
 
                         <div className="hm-blog-author-wrapper flex items-center justify-between">
                             <div className="hm-blog-author-name">
-                                <p className='font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]'>
+                                <p className="font-normal flex items-center gap-[6px] text-18 text-[#8C8B8C]">
                                     <span>By Bina Yogesh</span>
                                     |
                                     <span>June 25, 2026</span>
@@ -68,50 +160,54 @@ const Blog = () => {
                                 </p>
                             </div>
 
-                            <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]">
-                                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" >
-                                    <span className="icon-linkedin"></span>
-                                </a>
-
-                                <button type="button" onClick={() => handleCopyLink(shareBlog.url)} aria-label="Copy link" >
-                                    <span className="icon-instagram"></span>
-                                </button>
-
-                                <button type="button" onClick={() => handleCopyLink(shareBlog.url)} aria-label="Copy link" >
-                                    <span className="icon-threads"></span>
-                                </button>
-
-                                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" >
-                                    <span className="icon-facebook"></span>
-                                </a>
-
-                                <a href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" >
-                                    <span className="icon-twitter"></span>
-                                </a>
-
-                                <a href={`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" >
-                                    <span className="icon-youtube"></span>
-                                </a>
-                            </div>
+                            <ShareButtons
+                                encodedBlogUrl={encodedUrl}
+                                encodedBlogTitle={encodedTitle}
+                                rawUrl={shareBlog.url}
+                            />
                         </div>
 
-                        <p className='blog-redirect text-18 font-normal mt-[30px]'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                            <Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='rare-pixels-turns-2' >Read More <span className="sr-only">about our two-year milestone article</span></Link>
+                        <p className="blog-redirect text-18 font-normal mt-[30px]">
+                            Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
+                            <Link
+                                href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading"
+                                className="text-[#ed0180] ml-1"
+                            >
+                                Read More <span className="sr-only">about our two-year milestone article</span>
+                            </Link>
                         </p>
-                    </div>
+                    </article>
 
                     <div className="hm-blog-right w-[785px]">
-                        <div className="hm-small-blog-card w-[100%] h-[434px] flex items-start justify-between blog-card-desktop">
-                            <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
-                                <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" draggable={false} width={1000} height={562}></Image>
-                            </div>
+                        <article
+                            title="why-businesses-need-ux-masters-not-just-creative-designers"
+                            onClick={navigateTo("/Blog/why-businesses-need-ux-masters-not-just-creative-designers")}
+                            className="hm-small-blog-card w-[100%] h-[434px] flex items-start justify-between blog-card-desktop cursor-pointer"
+                        >
+                            <Link
+                                href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers"
+                                className="block hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden shrink-0"
+                            >
+                                <Image
+                                    className="w-[100%] h-[100%] object-cover"
+                                    src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp"
+                                    alt="blog-detail-image"
+                                    draggable={false}
+                                    width={1000}
+                                    height={562}
+                                />
+                            </Link>
 
                             <div className="hm-blog-text w-[405px]">
-                                <h3 className='font-semibold'>Why Serious Businesses Invest in UX Masters, Not Just Creative Designers</h3>
+                                <h3 className="font-semibold">
+                                    <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers">
+                                        Why Serious Businesses Invest in UX Masters, Not Just Creative Designers
+                                    </Link>
+                                </h3>
 
                                 <div className="hm-blog-author-wrapper hm-blog-author-wrapper-2 flex flex-col gap-[14] mt-[20px]">
                                     <div className="hm-blog-author-name">
-                                        <p className='font-normal flex flex-wrap items-center gap-[6px] text-18 text-[#8C8B8C]'>
+                                        <p className="font-normal flex flex-wrap items-center gap-[6px] text-18 text-[#8C8B8C]">
                                             <span>By Bina Yogesh</span>
                                             |
                                             <span>June 25, 2026</span>
@@ -120,38 +216,24 @@ const Blog = () => {
                                         </p>
                                     </div>
 
-                                    <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]">
-                                        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" >
-                                            <span className="icon-linkedin"></span>
-                                        </a>
-
-                                        <button type="button" onClick={() => handleCopyLink(shareBlog2.url)} aria-label="Copy link" >
-                                            <span className="icon-instagram"></span>
-                                        </button>
-
-                                        <button type="button" onClick={() => handleCopyLink(shareBlog2.url)} aria-label="Copy link" >
-                                            <span className="icon-threads"></span>
-                                        </button>
-
-                                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" >
-                                            <span className="icon-facebook"></span>
-                                        </a>
-
-                                        <a href={`https://twitter.com/intent/tweet?url=${encodedUrl2}&text=${encodedTitle2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" >
-                                            <span className="icon-twitter"></span>
-                                        </a>
-
-                                        <a href={`https://api.whatsapp.com/send?text=${encodedTitle2}%20${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" >
-                                            <span className="icon-youtube"></span>
-                                        </a>
-                                    </div>
+                                    <ShareButtons
+                                        encodedBlogUrl={encodedUrl2}
+                                        encodedBlogTitle={encodedTitle2}
+                                        rawUrl={shareBlog2.url}
+                                    />
                                 </div>
 
-                                <p className='text-18 font-normal mt-[30px] blog-redirect'>A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
-                                    <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='why-businesses-need-ux-masters-not-just-creative-designers' >Read More <span className="sr-only">about our two-year milestone article</span></Link>
+                                <p className="text-18 font-normal mt-[30px] blog-redirect">
+                                    A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
+                                    <Link
+                                        href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers"
+                                        className="text-[#ed0180] ml-1"
+                                    >
+                                        Read More <span className="sr-only">about our two-year milestone article</span>
+                                    </Link>
                                 </p>
                             </div>
-                        </div>
+                        </article>
 
                         <div className="hm-blog-tablet-swiper hidden">
                             <Swiper
@@ -159,7 +241,6 @@ const Blog = () => {
                                 slidesPerView={2}
                                 spaceBetween={20}
                                 speed={1000}
-                                // loop={true}
                                 autoplay={{ delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: false }}
                                 breakpoints={{
                                     0: { slidesPerView: 1.1 },
@@ -168,17 +249,32 @@ const Blog = () => {
                                 }}
                             >
                                 <SwiperSlide>
-                                    <div className="blog-swiper-slide">
-                                        <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
-                                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp" alt="blog-detail-image" draggable={false} width={1000} height={562}></Image>
-                                        </div>
+                                    <div
+                                        title="rarepixels-turns-2"
+                                        onClick={navigateTo("/Blog/rarepixels-turns-2-the-big-game-is-still-loading")}
+                                        className="blog-swiper-slide cursor-pointer"
+                                    >
+                                        <Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" className="block hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden" >
+                                            <Image
+                                                className="w-[100%] h-[100%] object-cover"
+                                                src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/2nd-Anniversary-web.webp"
+                                                alt="blog-detail-image"
+                                                draggable={false}
+                                                width={1000}
+                                                height={562}
+                                            />
+                                        </Link>
 
                                         <div className="hm-blog-text w-[405px]">
-                                            <h3 className='font-semibold'>RarePixels Turns 2. The Big Game Is Still Loading.</h3>
+                                            <h3 className="font-semibold">
+                                                <Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading">
+                                                    RarePixels Turns 2. The Big Game Is Still Loading.
+                                                </Link>
+                                            </h3>
 
                                             <div className="hm-blog-author-wrapper hm-blog-author-wrapper-2 flex flex-col gap-[14] mt-[20px]">
                                                 <div className="hm-blog-author-name">
-                                                    <p className='font-normal flex flex-wrap items-center gap-[6px] text-18 text-[#8C8B8C]'>
+                                                    <p className="font-normal flex flex-wrap items-center gap-[6px] text-18 text-[#8C8B8C]">
                                                         <span>By Bina Yogesh</span>
                                                         |
                                                         <span>June 25, 2026</span>
@@ -187,52 +283,46 @@ const Blog = () => {
                                                     </p>
                                                 </div>
 
-                                                <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]">
-                                                    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" >
-                                                        <span className="icon-linkedin"></span>
-                                                    </a>
-
-                                                    <button type="button" onClick={() => handleCopyLink(shareBlog.url)} aria-label="Copy link" >
-                                                        <span className="icon-instagram"></span>
-                                                    </button>
-
-                                                    <button type="button" onClick={() => handleCopyLink(shareBlog.url)} aria-label="Copy link" >
-                                                        <span className="icon-threads"></span>
-                                                    </button>
-
-                                                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" >
-                                                        <span className="icon-facebook"></span>
-                                                    </a>
-
-                                                    <a href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" >
-                                                        <span className="icon-twitter"></span>
-                                                    </a>
-
-                                                    <a href={`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" >
-                                                        <span className="icon-youtube"></span>
-                                                    </a>
-                                                </div>
+                                                <ShareButtons encodedBlogUrl={encodedUrl} encodedBlogTitle={encodedTitle} rawUrl={shareBlog.url} />
                                             </div>
 
-                                            <p className='text-18 font-normal mt-[30px] blog-redirect'>Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
-                                                <Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" title='rarepixels-turns-' >Read More <span className="sr-only">about our two-year milestone article</span></Link>
+                                            <p className="text-18 font-normal mt-[30px] blog-redirect">
+                                                Two years of ideas turning into brands. Two years of challenges turning into opportunities. Two years of helping businesses become easier to notice, trust, and remember.
+                                                <Link href="/Blog/rarepixels-turns-2-the-big-game-is-still-loading" className="text-[#ed0180] ml-1" >
+                                                    Read More <span className="sr-only">about our two-year milestone article</span>
+                                                </Link>
                                             </p>
                                         </div>
                                     </div>
                                 </SwiperSlide>
 
                                 <SwiperSlide>
-                                    <div className="blog-swiper-slide">
-                                        <div className="hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden">
-                                            <Image className='w-[100%] h-[100%] object-cover' src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp" alt="blog-detail-image" draggable={false} width={1000} height={562}></Image>
-                                        </div>
+                                    <div
+                                        title="why-businesses-need-ux-masters-not-just-creative-designers"
+                                        onClick={navigateTo("/Blog/why-businesses-need-ux-masters-not-just-creative-designers")}
+                                        className="blog-swiper-slide cursor-pointer"
+                                    >
+                                        <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" className="block hm-small-blog-image w-[350px] h-[100%] rounded-[20px] bg-[black] overflow-hidden" >
+                                            <Image
+                                                className="w-[100%] h-[100%] object-cover"
+                                                src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/articles-image-set/Why-Serious-Businesses-Invest-in-UX-Masters.webp"
+                                                alt="blog-detail-image"
+                                                draggable={false}
+                                                width={1000}
+                                                height={562}
+                                            />
+                                        </Link>
 
                                         <div className="hm-blog-text w-[405px]">
-                                            <h3 className='font-semibold'>Why Serious Businesses Invest in UX Masters, Not Just Creative Designers</h3>
+                                            <h3 className="font-semibold">
+                                                <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers">
+                                                    Why Serious Businesses Invest in UX Masters, Not Just Creative Designers
+                                                </Link>
+                                            </h3>
 
                                             <div className="hm-blog-author-wrapper hm-blog-author-wrapper-2 flex flex-col gap-[14] mt-[20px]">
                                                 <div className="hm-blog-author-name">
-                                                    <p className='font-normal flex flex-wrap items-center gap-[6px] text-18 text-[#8C8B8C]'>
+                                                    <p className="font-normal flex flex-wrap items-center gap-[6px] text-18 text-[#8C8B8C]">
                                                         <span>By Bina Yogesh</span>
                                                         |
                                                         <span>June 25, 2026</span>
@@ -240,36 +330,14 @@ const Blog = () => {
                                                         <span>7 mins read</span>
                                                     </p>
                                                 </div>
-
-                                                <div className="hm-blog-social-share flex align-center gap-[20px] text-[#8C8B8C]">
-                                                    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" >
-                                                        <span className="icon-linkedin"></span>
-                                                    </a>
-
-                                                    <button type="button" onClick={() => handleCopyLink(shareBlog2.url)} aria-label="Copy link" >
-                                                        <span className="icon-instagram"></span>
-                                                    </button>
-
-                                                    <button type="button" onClick={() => handleCopyLink(shareBlog2.url)} aria-label="Copy link" >
-                                                        <span className="icon-threads"></span>
-                                                    </button>
-
-                                                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" >
-                                                        <span className="icon-facebook"></span>
-                                                    </a>
-
-                                                    <a href={`https://twitter.com/intent/tweet?url=${encodedUrl2}&text=${encodedTitle2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" >
-                                                        <span className="icon-twitter"></span>
-                                                    </a>
-
-                                                    <a href={`https://api.whatsapp.com/send?text=${encodedTitle2}%20${encodedUrl2}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" >
-                                                        <span className="icon-youtube"></span>
-                                                    </a>
-                                                </div>
+                                                <ShareButtons encodedBlogUrl={encodedUrl2} encodedBlogTitle={encodedTitle2} rawUrl={shareBlog2.url} />
                                             </div>
 
-                                            <p className='text-18 font-normal mt-[30px] blog-redirect'>A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
-                                                <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" title='why-businesses-need-ux-masters-not-just-creative-designers' >Read More <span className="sr-only">about user experience vs visually attractive interfaces</span></Link>
+                                            <p className="text-18 font-normal mt-[30px] blog-redirect">
+                                                A visually attractive interface may convince users to explore your platform once. But whether they stay, engage, and return depends entirely on experience.
+                                                <Link href="/Blog/why-businesses-need-ux-masters-not-just-creative-designers" className="text-[#ed0180] ml-1" >
+                                                    Read More <span className="sr-only">about user experience vs visually attractive interfaces</span>
+                                                </Link>
                                             </p>
                                         </div>
                                     </div>
@@ -281,18 +349,23 @@ const Blog = () => {
 
                         <div className="hm-blog-cta w-[100%] h-[222px] bg-[#040E36] rounded-[20px] mt-[30px] p-[30px] flex items-end justify-between">
                             <div className="hm-blog-cta-left w-[432px]">
-                                <h3 className='font-semibold text-[white]'>Ideas to Insights</h3>
+                                <h3 className="font-semibold text-[white]">Ideas to Insights</h3>
 
-                                <p className=' text-18 font-normal text-[#C6C6C6] mt-[20px]'>Thoughtful perspectives on design, development, branding, and digital strategy. Practical ideas shaped by real projects, real challenges, and real business outcomes.</p>
+                                <p className="text-18 font-normal text-[#C6C6C6] mt-[20px]">
+                                    Thoughtful perspectives on design, development, branding, and digital strategy. Practical ideas shaped by real projects, real challenges, and real business outcomes.
+                                </p>
                             </div>
 
-                            <Link href="/Insight" title="View All Categories" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg" >View All Categories <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                            <Link href="/Insight" title="View All Categories" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg" >
+                                View All Categories{" "}
+                                <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Blog
+export default Blog;
