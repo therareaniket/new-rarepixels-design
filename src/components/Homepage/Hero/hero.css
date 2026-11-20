@@ -1,13 +1,16 @@
 /* custom */
-.home-hero { height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; }
-.home-hero .hm-hero-wrapper { display: flex; flex-direction: column; justify-content: flex-end; }
-.hm-hero-text-wrapper h1 { font-size: 100px; line-height: 70px; }
+.home-hero { display: flex; flex-direction: column; justify-content: flex-end; }
+/* .hm-hero-sticky-inner { height: 100vh; }  */
+.home-hero .hm-hero-wrapper { display: flex; flex-direction: column-reverse; justify-content: flex-end; }
+.hm-hero-text-wrapper .h1 { font-size: 100px; line-height: 70px; }
+
+/* .hm-hero-btm-wrapper { box-shadow: 10px 0px 20px 20px rgba(175, 175, 175, 0.6); } */
 
 /* responsive */
 
 @media (max-width: 1799px) { 
     .hm-hero-btm-text-left { width: 420px; }
-    .hm-hero-text-wrapper h1 { font-size: 96px; }
+    .hm-hero-text-wrapper .h1 { font-size: 96px; }
 
     .hm-3d-model-artboard { width: 500px; height: 500px; bottom: 195px; }
 }
