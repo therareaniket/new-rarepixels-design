@@ -15,26 +15,22 @@ const HERO_STAGES = [
 	{
 		index: 0,
 		title: "UI/UX Design",
-		subtitle:
-			"Frictionless experiences designed specifically for your users, not adapted from a template.",
+		subtitle: "Frictionless experiences designed specifically for your users, not adapted from a template.",
 	},
 	{
 		index: 1,
 		title: "Web & App Development",
-		subtitle:
-			"Custom-engineered web and mobile products built for speed, scale, and reliability.",
+		subtitle: "Bespoke platforms, SaaS products, and e-commerce builds engineered from the ground up for your exact business requirements.",
 	},
 	{
 		index: 2,
 		title: "Brand Identity Design",
-		subtitle:
-			"Distinctive visual systems and brand stories that make people remember and trust you.",
+		subtitle: "Original marks, visual systems, and brand architectures conceived from scratch and owned entirely by you. ",
 	},
 	{
 		index: 3,
 		title: "Social Media Management",
-		subtitle:
-			"Consistent, strategy-led content and community growth tailored to your audience.",
+		subtitle: "Custom content strategies built around your brand voice, your audience behaviour, and your business goals. ",
 	},
 ] as const;
 
@@ -114,8 +110,7 @@ const Hero = () => {
 
 									<p className="text-18 flex flex-col gap-[18px] py-[30px] text-[#C6C6C6]">
 										<span className="font-normal">
-											From original brand identities to custom-engineered digital
-											products conceived from scratch, built to last.
+											From original brand identities to custom-engineered digital products conceived from scratch, built to last.
 										</span>
 
 										<span className="font-semibold">
@@ -123,11 +118,7 @@ const Hero = () => {
 										</span>
 									</p>
 
-									<Link
-										href="#"
-										title="Start Your Project"
-										className="inline-block text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link"
-									>
+									<Link href="#" title="Start Your Project" className="inline-block text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link" >
 										Start Your Project{" "}
 										<span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span>
 									</Link>

@@ -27,8 +27,9 @@ const CameraController = ({ x, y, z }: CameraControllerProps) => {
 			x,
 			y,
 			z,
-			duration: 1,
+			duration: 0.75,
 			ease: "power3.out",
+			overwrite: true,
 			onUpdate: () => {
 				camera.lookAt(0, 0, 0);
 			},
@@ -63,12 +64,12 @@ const Scene3D = ({ activeIndex = 0 }: Scene3DProps) => {
 	}, []);
 
 	return (
-		<div className="hm-hero-ui-ux-modal w-full h-full">
+		<div className="hm-hero-ui-ux-modal w-full h-full overflow-visible relative z-[99]">
 			<Canvas
 				camera={{ position: config.camera, fov: 25 }}
 				dpr={[1, 2]}
 				gl={{ alpha: true, antialias: true }}
-				className="canvas-3d-wrapper w-full h-full"
+				className="canvas-3d-wrapper w-full h-full overflow-visible"
 			>
 				<ambientLight intensity={0.5} />
 				<directionalLight position={[0, 0, 5]} intensity={0.01} color="#ffffff" />

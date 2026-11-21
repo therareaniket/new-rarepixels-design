@@ -4,6 +4,7 @@
 .home-hero .hm-hero-wrapper { display: flex; flex-direction: column-reverse; justify-content: flex-end; }
 .hm-hero-text-wrapper .h1 { font-size: 100px; line-height: 70px; }
 
+
 /* .hm-hero-btm-wrapper { box-shadow: 10px 0px 20px 20px rgba(175, 175, 175, 0.6); } */
 
 /* responsive */

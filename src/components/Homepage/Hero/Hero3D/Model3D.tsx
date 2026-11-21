@@ -16,18 +16,23 @@ interface Model3DProps {
 
 const MAX_TURN_Y = 0.60; // Left / right tracking angle (radians)
 const MAX_TURN_X = 0.30; // Up / down tracking angle (radians)
-const MAX_TILT_Z = 0.06; // Subtle banking tilt when moving horizontally
+const MAX_TILT_Z = 0.10; // Subtle banking tilt when moving horizontally
+
+const ENTRANCE_SCALE_MULTIPLIER = 1.45;
+const ENTRANCE_SPIN_Y = Math.PI * 1.5;
 
 const Model3D = ({
 	config,
 	idleResumeDelay = 1.5,
 }: Model3DProps) => {
 	const groupRef = useRef<THREE.Group>(null);
+	const entranceRef = useRef<THREE.Group>(null);
 	const pointerRef = useRef({ x: 0, y: 0 });
 	const hasInteractedRef = useRef(false);
 	const lastMoveTimeRef = useRef(-Infinity);
 	const autoBlendRef = useRef(1); // 1 = full auto-motion, 0 = full pointer tracking
 	const elapsedRef = useRef(0);
+	const entranceProgressRef = useRef(0); // 0 = scaled up & spun, 1 = settled at target scale & rotation
 
 	const { scene } = useGLTF(config.modelPath);
 	const clonedScene = useMemo(() => scene.clone(true), [scene]);
@@ -39,6 +44,12 @@ const Model3D = ({
 		autoBlendRef.current = 1;
 		pointerRef.current.x = 0;
 		pointerRef.current.y = 0;
+		entranceProgressRef.current = 0;
+
+		if (entranceRef.current) {
+			entranceRef.current.scale.setScalar(ENTRANCE_SCALE_MULTIPLIER);
+			entranceRef.current.rotation.set(0, -ENTRANCE_SPIN_Y, 0);
+		}
 	}, [config.modelPath]);
 
 	useEffect(() => {
@@ -83,6 +94,26 @@ const Model3D = ({
 		const dt = Math.min(delta, 0.05);
 		elapsedRef.current += dt;
 
+		// Settle entrance scale & spin into original target (1 and 0)
+		if (entranceRef.current && entranceProgressRef.current < 0.999) {
+			entranceProgressRef.current = THREE.MathUtils.damp(
+				entranceProgressRef.current,
+				1,
+				4.5,
+				dt
+			);
+			const t = entranceProgressRef.current;
+			const currentScale = THREE.MathUtils.lerp(
+				ENTRANCE_SCALE_MULTIPLIER,
+				1,
+				t
+			);
+			const currentSpinY = THREE.MathUtils.lerp(-ENTRANCE_SPIN_Y, 0, t);
+
+			entranceRef.current.scale.setScalar(currentScale);
+			entranceRef.current.rotation.set(0, currentSpinY, 0);
+		}
+
 		const nowSec = performance.now() / 1000;
 		const isActivelyInteracting =
 			hasInteractedRef.current && nowSec - lastMoveTimeRef.current < idleResumeDelay;
@@ -120,7 +151,13 @@ const Model3D = ({
 			rotation={[0, 0, 0]}
 			scale={config.scale}
 		>
-			<primitive object={clonedScene} />
+			<group
+				ref={entranceRef}
+				scale={ENTRANCE_SCALE_MULTIPLIER}
+				rotation={[0, -ENTRANCE_SPIN_Y, 0]}
+			>
+				<primitive object={clonedScene} />
+			</group>
 		</group>
 	);
 };
