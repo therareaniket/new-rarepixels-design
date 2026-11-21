@@ -69,10 +69,8 @@ const Industries = () => {
                     <div className="indust-headings flex flex-wrap justify-between">
                         <h2 className=''>Industries We Serve</h2>
 
-                        <p className='w-[680px] max-w-full flex flex-col justify-center text-18'>
-                            <span>Every industry is different.</span>
-
-                            <span>But the need to earn trust, create memorable experiences, and stay relevant isn&apos;t.</span>
+                        <p className='w-[540px] max-w-full flex flex-col justify-center text-18'>
+                            <span>Every industry is different but the need to earn trust, create memorable experiences, and stay relevant isn&apos;t.</span>
                         </p>
                     </div>
 
