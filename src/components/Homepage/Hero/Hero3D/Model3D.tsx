@@ -145,17 +145,8 @@ const Model3D = ({
 	});
 
 	return (
-		<group
-			ref={groupRef}
-			position={config.position}
-			rotation={[0, 0, 0]}
-			scale={config.scale}
-		>
-			<group
-				ref={entranceRef}
-				scale={ENTRANCE_SCALE_MULTIPLIER}
-				rotation={[0, -ENTRANCE_SPIN_Y, 0]}
-			>
+		<group ref={groupRef} position={config.position} rotation={[0, 0, 0]} scale={config.scale} >
+			<group ref={entranceRef} scale={ENTRANCE_SCALE_MULTIPLIER} rotation={[0, -ENTRANCE_SPIN_Y, 0]} >
 				<primitive object={clonedScene} />
 			</group>
 		</group>
