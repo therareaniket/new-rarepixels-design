@@ -41,11 +41,11 @@ const HERO_STAGES = [
 const Hero = () => {
 	const sectionRef = useRef<HTMLElement>(null);
 	const pinInnerRef = useRef<HTMLDivElement>(null);
-	const titleRef = useRef<HTMLHeadingElement>(null);
-	const subtitleRef = useRef<HTMLParagraphElement>(null);
 
 	const [activeIndex, setActiveIndex] = useState<number>(0);
+	const [scrollDirection, setScrollDirection] = useState<number>(1);
 	const currentIndexRef = useRef<number>(0);
+	const scrollDirRef = useRef<number>(1);
 
 	useEffect(() => {
 		const section = sectionRef.current;
@@ -56,42 +56,46 @@ const Hero = () => {
 			ScrollTrigger.create({
 				trigger: section,
 				start: "top top",
-				end: "+=300%", // 100vh initial + 300vh scroll = 400vh total scroll travel
+				end: "+=300%",
 				pin: pinTarget,
 				pinSpacing: true,
 				anticipatePin: 1,
-				scrub: 1,
+				scrub: true,
 				onUpdate: (self) => {
+					if (self.direction && self.direction !== scrollDirRef.current) {
+						scrollDirRef.current = self.direction;
+						setScrollDirection(self.direction);
+					}
+
 					const total = HERO_STAGES.length;
+					const clampedProgress = Math.min(self.progress / 0.92, 0.9999);
 					const nextIndex = Math.min(
 						total - 1,
-						Math.max(0, Math.floor(self.progress * total))
+						Math.max(0, Math.floor(clampedProgress * total))
 					);
 
 					if (nextIndex !== currentIndexRef.current) {
 						currentIndexRef.current = nextIndex;
 						setActiveIndex(nextIndex);
-
-						if (titleRef.current && subtitleRef.current) {
-							gsap.fromTo(
-								[titleRef.current, subtitleRef.current],
-								{ y: 18, opacity: 0 },
-								{
-									y: 0,
-									opacity: 1,
-									duration: 0.35,
-									stagger: 0.05,
-									ease: "power2.out",
-									overwrite: "auto",
-								}
-							);
-						}
 					}
 				},
 			});
 		}, sectionRef);
 
-		return () => ctx.revert();
+		const syncTriggers = () => {
+			ScrollTrigger.sort();
+			ScrollTrigger.refresh();
+		};
+
+		const refreshTimer = window.setTimeout(syncTriggers, 250);
+		window.addEventListener("load", syncTriggers);
+		document.fonts?.ready?.then(syncTriggers);
+
+		return () => {
+			window.clearTimeout(refreshTimer);
+			window.removeEventListener("load", syncTriggers);
+			ctx.revert();
+		};
 	}, []);
 
 	const activeStage = HERO_STAGES[activeIndex] ?? HERO_STAGES[0];
@@ -220,19 +224,10 @@ const Hero = () => {
 						</div>
 					</div>
 
-					{/* <div className="hm-hero-text-wrapper text-center pt-[152px] pb-[137px]">
-						<h2 ref={titleRef} className="font-extrabold h1">
-							{activeStage.title}
-						</h2>
-
-						<p ref={subtitleRef} className="text-18 font-normal mt-[32px]">
-							{activeStage.subtitle}
-						</p>
-					</div> */}
-
 					<div className="hm-hero-text-wrapper text-center pt-[152px] pb-[137px]">
 						<SlideUpText
 							triggerKey={activeIndex}
+							direction={scrollDirection}
 							text={activeStage.title}
 							subtitle={activeStage.subtitle}
 							className="font-extrabold h1"
