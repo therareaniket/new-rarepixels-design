@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Scene3D from "@/components/Homepage/Hero/Hero3D/Scene3D";
 import "./hero.css";
-import SlideUpText from "./SlideUpText";
+import DisintegrateText from "./DisintegrateText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -124,7 +124,7 @@ const Hero = () => {
 									</Link>
 								</div>
 
-								<div className="hm-3d-model-artboard w-[600px] h-[600px] flex items-center justify-center absolute left-[50%] translate-x-[-50%] bottom-[90px] overflow-visible">
+								<div className="hm-3d-model-artboard w-[600px] h-[600px] flex items-center justify-center absolute left-[50%] translate-x-[-50%] bottom-[90px] overflow-visible z-[99999]">
 									<Scene3D activeIndex={activeIndex} />
 								</div>
 
@@ -215,15 +215,17 @@ const Hero = () => {
 						</div>
 					</div>
 
-					<div className="hm-hero-text-wrapper text-center pt-[152px] pb-[137px]">
-						<SlideUpText
-							triggerKey={activeIndex}
-							direction={scrollDirection}
-							text={activeStage.title}
-							subtitle={activeStage.subtitle}
-							className="font-extrabold h1"
-							subtitleClassName="text-18 font-normal"
-						/>
+					<div className="hm-hero-text-wrapper relative overflow-hidden bg-white text-center pt-[152px] pb-[137px]">
+						<div className="relative z-10 text-[#010101]">
+							<DisintegrateText
+								triggerKey={activeIndex}
+								// direction={scrollDirection}
+								text={activeStage.title}
+								subtitle={activeStage.subtitle}
+								className="font-extrabold h1"
+								subtitleClassName="text-18 font-normal"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

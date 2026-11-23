@@ -14,7 +14,7 @@ interface Model3DProps {
 	idleResumeDelay?: number;
 }
 
-const MAX_TURN_Y = 0.60; // Left / right tracking angle (radians)
+const MAX_TURN_Y = 0.50; // Left / right tracking angle (radians)
 const MAX_TURN_X = 0.30; // Up / down tracking angle (radians)
 const MAX_TILT_Z = 0.10; // Subtle banking tilt when moving horizontally
 
@@ -68,7 +68,7 @@ const Model3D = ({
 			pointerRef.current.x = THREE.MathUtils.clamp(nx, -1, 1);
 			pointerRef.current.y = THREE.MathUtils.clamp(ny, -1, 1);
 			hasInteractedRef.current = true;
-			lastMoveTimeRef.current = performance.now() / 1000;
+			lastMoveTimeRef.current = performance.now() / 500;
 		};
 
 		const handlePointerLeave = () => {
