@@ -11,14 +11,14 @@ export const MODEL_CONFIG = [
     	modelPath: 'https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/3D-Models/final-brain.element.glb',
     	camera: [-0.6, -1.9, 9.9] as [number, number, number],
     	position: [0, -0.4, 0] as [number, number, number],
-    	scale: 1.2,
+    	scale: 1.1,
 	},
 	{
     	// Heart — Brand Identity Design
     	modelPath: 'https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/3D-Models/final-heart.element.glb',
     	camera: [2.8, 3.6, 10] as [number, number, number],
     	position: [-0.1, 0.1, 0.6] as [number, number, number],
-    	scale: 3.8,
+    	scale: 3.1,
 	},
 	{
     	// Hand — Social Media Management Services

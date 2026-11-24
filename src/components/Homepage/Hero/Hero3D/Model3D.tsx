@@ -14,12 +14,13 @@ interface Model3DProps {
 	idleResumeDelay?: number;
 }
 
-const MAX_TURN_Y = 0.50; // Left / right tracking angle (radians)
-const MAX_TURN_X = 0.30; // Up / down tracking angle (radians)
-const MAX_TILT_Z = 0.10; // Subtle banking tilt when moving horizontally
+const MAX_TURN_Y = 0.5;
+const MAX_TURN_X = 0.3;
+const MAX_TILT_Z = 0.1;
 
-const ENTRANCE_SCALE_MULTIPLIER = 1.45;
-const ENTRANCE_SPIN_Y = Math.PI * 1.5;
+// Subtle entrance so your exact config.scale and config.position stay intact
+const ENTRANCE_SCALE_MULTIPLIER = 1.06;
+const ENTRANCE_SPIN_Y = Math.PI * 0.35;
 
 const Model3D = ({
 	config,
@@ -29,18 +30,24 @@ const Model3D = ({
 	const entranceRef = useRef<THREE.Group>(null);
 	const pointerRef = useRef({ x: 0, y: 0 });
 	const hasInteractedRef = useRef(false);
-	const lastMoveTimeRef = useRef(-Infinity);
-	const autoBlendRef = useRef(1); // 1 = full auto-motion, 0 = full pointer tracking
+	const lastMoveTimeSecRef = useRef(-Infinity);
+	const autoBlendRef = useRef(1);
 	const elapsedRef = useRef(0);
-	const entranceProgressRef = useRef(0); // 0 = scaled up & spun, 1 = settled at target scale & rotation
+	const entranceProgressRef = useRef(0);
 
 	const { scene } = useGLTF(config.modelPath);
-	const clonedScene = useMemo(() => scene.clone(true), [scene]);
+	const clonedScene = useMemo(() => {
+		const copy = scene.clone(true);
+		copy.position.set(0, 0, 0);
+		copy.rotation.set(0, 0, 0);
+		copy.scale.set(1, 1, 1);
+		return copy;
+	}, [scene]);
 
 	useEffect(() => {
 		elapsedRef.current = 0;
 		hasInteractedRef.current = false;
-		lastMoveTimeRef.current = -Infinity;
+		lastMoveTimeSecRef.current = -Infinity;
 		autoBlendRef.current = 1;
 		pointerRef.current.x = 0;
 		pointerRef.current.y = 0;
@@ -50,15 +57,7 @@ const Model3D = ({
 			entranceRef.current.scale.setScalar(ENTRANCE_SCALE_MULTIPLIER);
 			entranceRef.current.rotation.set(0, -ENTRANCE_SPIN_Y, 0);
 		}
-	}, [config.modelPath]);
-
-	useEffect(() => {
-		const box = new THREE.Box3().setFromObject(clonedScene);
-		const center = box.getCenter(new THREE.Vector3());
-
-		// Shift mesh so its center sits at the origin (0, 0, 0)
-		clonedScene.position.sub(center);
-	}, [clonedScene]);
+	}, [config.modelPath, clonedScene]);
 
 	useEffect(() => {
 		const handlePointerMove = (e: PointerEvent) => {
@@ -68,14 +67,13 @@ const Model3D = ({
 			pointerRef.current.x = THREE.MathUtils.clamp(nx, -1, 1);
 			pointerRef.current.y = THREE.MathUtils.clamp(ny, -1, 1);
 			hasInteractedRef.current = true;
-			lastMoveTimeRef.current = performance.now() / 500;
+			lastMoveTimeSecRef.current = performance.now() / 1000;
 		};
 
 		const handlePointerLeave = () => {
 			pointerRef.current.x = 0;
 			pointerRef.current.y = 0;
-			// Allow auto-motion to take over right away when cursor leaves the viewport
-			lastMoveTimeRef.current = -Infinity;
+			lastMoveTimeSecRef.current = -Infinity;
 		};
 
 		window.addEventListener("pointermove", handlePointerMove, { passive: true });
@@ -94,31 +92,34 @@ const Model3D = ({
 		const dt = Math.min(delta, 0.05);
 		elapsedRef.current += dt;
 
-		// Settle entrance scale & spin into original target (1 and 0)
-		if (entranceRef.current && entranceProgressRef.current < 0.999) {
-			entranceProgressRef.current = THREE.MathUtils.damp(
-				entranceProgressRef.current,
+		if (entranceRef.current && entranceProgressRef.current < 1) {
+			entranceProgressRef.current = Math.min(
 				1,
-				4.5,
-				dt
+				THREE.MathUtils.damp(entranceProgressRef.current, 1, 7, dt)
 			);
 			const t = entranceProgressRef.current;
-			const currentScale = THREE.MathUtils.lerp(
-				ENTRANCE_SCALE_MULTIPLIER,
-				1,
-				t
-			);
-			const currentSpinY = THREE.MathUtils.lerp(-ENTRANCE_SPIN_Y, 0, t);
 
-			entranceRef.current.scale.setScalar(currentScale);
-			entranceRef.current.rotation.set(0, currentSpinY, 0);
+			if (t >= 0.998) {
+				entranceProgressRef.current = 1;
+				entranceRef.current.scale.setScalar(1);
+				entranceRef.current.rotation.set(0, 0, 0);
+			} else {
+				entranceRef.current.scale.setScalar(
+					THREE.MathUtils.lerp(ENTRANCE_SCALE_MULTIPLIER, 1, t)
+				);
+				entranceRef.current.rotation.set(
+					0,
+					THREE.MathUtils.lerp(-ENTRANCE_SPIN_Y, 0, t),
+					0
+				);
+			}
 		}
 
 		const nowSec = performance.now() / 1000;
 		const isActivelyInteracting =
-			hasInteractedRef.current && nowSec - lastMoveTimeRef.current < idleResumeDelay;
+			hasInteractedRef.current &&
+			nowSec - lastMoveTimeSecRef.current < idleResumeDelay;
 
-		// Smoothly blend to 0 while user is actively moving the pointer, and back to 1 when idle
 		const targetBlend = isActivelyInteracting ? 0 : 1;
 		autoBlendRef.current = THREE.MathUtils.damp(
 			autoBlendRef.current,
@@ -127,7 +128,6 @@ const Model3D = ({
 			dt
 		);
 
-		// Slower, smoother continuous look-around motion
 		const autoX = Math.sin(elapsedRef.current * 0.5) * 0.65;
 		const autoY = Math.sin(elapsedRef.current * 0.8 + 0.6) * 0.55;
 
@@ -145,8 +145,17 @@ const Model3D = ({
 	});
 
 	return (
-		<group ref={groupRef} position={config.position} rotation={[0, 0, 0]} scale={config.scale} >
-			<group ref={entranceRef} scale={ENTRANCE_SCALE_MULTIPLIER} rotation={[0, -ENTRANCE_SPIN_Y, 0]} >
+		<group
+			ref={groupRef}
+			position={config.position}
+			rotation={[0, 0, 0]}
+			scale={config.scale}
+		>
+			<group
+				ref={entranceRef}
+				scale={ENTRANCE_SCALE_MULTIPLIER}
+				rotation={[0, -ENTRANCE_SPIN_Y, 0]}
+			>
 				<primitive object={clonedScene} />
 			</group>
 		</group>
