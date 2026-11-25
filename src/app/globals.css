@@ -42,6 +42,8 @@
 .dark-backg:hover { background-color: transparent; border: 2px solid #ED0180; }
 
 
+
+
 /* TEXT UTILS */
 @layer base {
   h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { font-weight: 600; }

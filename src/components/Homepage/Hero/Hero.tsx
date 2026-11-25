@@ -281,9 +281,9 @@ const Hero = () => {
 						</div>
 					</div>
 
-					<div className="hm-hero-text-wrapper relative overflow-hidden bg-white text-center pt-[152px] pb-[137px]">
+					<div className="hm-hero-text-wrapper relative overflow-hidden bg-white text-center pt-[152px] pb-[137px] cursor-pointer">
 						<div className="relative text-[#010101]">
-							{/* <DisintegrateText
+							<DisintegrateText
 								triggerKey={activeIndex}
 								text={activeStage.title}
 								subtitle={activeStage.subtitle}
@@ -291,17 +291,8 @@ const Hero = () => {
 								subtitleClassName="text-18 font-normal"
 								onTransitionStart={handleTransitionStart}
 								onTransitionEnd={handleTransitionEnd}
-							/> */}
-
-							<ShatterText
-								triggerKey={activeIndex}
-								text={activeStage.title}
-								subtitle={activeStage.subtitle}
-								className="font-extrabold h1"
-								subtitleClassName="text-18 font-normal"
-								// onTransitionStart={handleTransitionStart}
-								// onTransitionEnd={handleTransitionEnd}
 							/>
+
 						</div>
 					</div>
 				</div>

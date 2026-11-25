@@ -143,7 +143,7 @@ const Testimonials = () => {
 
 	return (
 		<>
-			<section className="section hm-testimonial-section py-[60px]">
+			<section id="first-section" className="section hm-testimonial-section py-[60px]">
 				<div className="container">
 					<div className="hm-testimonial-title w-[850px] max-w-full">
 						<h2 className="font-semibold"> Proof Over Promises </h2>

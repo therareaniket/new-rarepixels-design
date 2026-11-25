@@ -17,7 +17,7 @@ import WhyChooseUs from "@/components/Homepage/WhyChooseUs/WhyChooseUs";
 export default function Home() {
     return (
         <>
-            <Hero />
+            <Hero />   
             {/* <GooeyHero /> */}
             <Testimonials />
             <About />
