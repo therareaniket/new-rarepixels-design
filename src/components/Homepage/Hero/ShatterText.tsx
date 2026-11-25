@@ -13,7 +13,8 @@ interface ShatterTextProps {
 	cols?: number;
 	rows?: number;
 	blastRadius?: number;
-	crackColor?: string;
+	accentColors?: string[];
+	bgColor?: string;
 }
 
 interface Point {
@@ -25,12 +26,22 @@ interface Shard {
 	poly: [Point, Point, Point];
 	cx: number;
 	cy: number;
+	// Normalized horizontal/radial position (0..1) for wave sweep
+	waveOrder: number;
+	// Scatter target around wrapper
+	blastX: number;
+	blastY: number;
+	blastRot: number;
+	blastScale: number;
+	// Current animated state
 	x: number;
 	y: number;
 	rot: number;
 	scale: number;
-	alpha: number;
-	crackOpacity: number;
+	crackGap: number; // 0 = solid locked text, 1 = fractured with visible seams
+	morph: number; // 0 = outgoing text, 1 = incoming text
+	accentColor: string | null;
+	accentStrength: number;
 }
 
 function wrapCanvasText(
@@ -143,26 +154,64 @@ function buildTextSnapshotCanvas(
 	return canvas;
 }
 
-function createShards(width: number, height: number, cols: number, rows: number): Shard[] {
-	const shards: Shard[] = [];
-	const cellW = width / cols;
-	const cellH = height / rows;
+function hasTextPixels(
+	ctx: CanvasRenderingContext2D,
+	poly: [Point, Point, Point],
+	dpr: number
+): boolean {
+	const minX = Math.max(0, Math.floor(Math.min(poly[0].x, poly[1].x, poly[2].x) * dpr));
+	const maxX = Math.ceil(Math.max(poly[0].x, poly[1].x, poly[2].x) * dpr);
+	const minY = Math.max(0, Math.floor(Math.min(poly[0].y, poly[1].y, poly[2].y) * dpr));
+	const maxY = Math.ceil(Math.max(poly[0].y, poly[1].y, poly[2].y) * dpr);
 
+	const w = Math.max(1, maxX - minX);
+	const h = Math.max(1, maxY - minY);
+	if (minX + w > ctx.canvas.width || minY + h > ctx.canvas.height) return false;
+
+	const data = ctx.getImageData(minX, minY, w, h).data;
+	for (let i = 3; i < data.length; i += 16) {
+		if (data[i] > 40) return true;
+	}
+	return false;
+}
+
+function createOrganicShards(
+	textWidth: number,
+	textHeight: number,
+	padX: number,
+	padY: number,
+	cols: number,
+	rows: number,
+	outCtx: CanvasRenderingContext2D,
+	inCtx: CanvasRenderingContext2D,
+	dpr: number,
+	blastRadius: number,
+	accentColors: string[],
+	bgColor: string
+): Shard[] {
+	const shards: Shard[] = [];
+	const cellW = textWidth / cols;
+	const cellH = textHeight / rows;
+
+	// Build heavily jittered mesh for jagged glass-like triangles (like video_1)
 	const pts: Point[][] = [];
 	for (let r = 0; r <= rows; r++) {
 		const rowPts: Point[] = [];
 		for (let c = 0; c <= cols; c++) {
 			const jitterX =
-				c === 0 || c === cols ? 0 : (Math.random() - 0.5) * cellW * 0.7;
+				c === 0 || c === cols ? 0 : (Math.random() - 0.5) * cellW * 0.95;
 			const jitterY =
-				r === 0 || r === rows ? 0 : (Math.random() - 0.5) * cellH * 0.7;
+				r === 0 || r === rows ? 0 : (Math.random() - 0.5) * cellH * 0.95;
 			rowPts.push({
-				x: c * cellW + jitterX,
-				y: r * cellH + jitterY,
+				x: c * cellW + jitterX + padX,
+				y: r * cellH + jitterY + padY,
 			});
 		}
 		pts.push(rowPts);
 	}
+
+	const centerX = padX + textWidth / 2;
+	const centerY = padY + textHeight / 2;
 
 	for (let r = 0; r < rows; r++) {
 		for (let c = 0; c < cols; c++) {
@@ -171,30 +220,72 @@ function createShards(width: number, height: number, cols: number, rows: number)
 			const p01 = pts[r + 1][c];
 			const p11 = pts[r + 1][c + 1];
 
-			const tris: [Point, Point, Point][] =
-				(r + c) % 2 === 0
-					? [
-							[p00, p10, p11],
-							[p00, p11, p01],
-					  ]
-					: [
-							[p00, p10, p01],
-							[p10, p11, p01],
-					  ];
+			// Randomize diagonal split per cell so shards aren't uniform
+			const splitFlip = Math.random() > 0.5;
+			const tris: [Point, Point, Point][] = splitFlip
+				? [
+						[p00, p10, p11],
+						[p00, p11, p01],
+				  ]
+				: [
+						[p00, p10, p01],
+						[p10, p11, p01],
+				  ];
 
 			for (const poly of tris) {
+				const activeInOut = hasTextPixels(outCtx, poly, dpr);
+				const activeInNext = hasTextPixels(inCtx, poly, dpr);
+
+				// Keep shards that contain either text OR ~18% empty-space debris shards
+				// (Empty-space shards filled with bgColor punch holes & fly around just like video_1)
+				const isDebrisShard = !activeInOut && !activeInNext;
+				if (isDebrisShard && Math.random() > 0.18) continue;
+
 				const cx = (poly[0].x + poly[1].x + poly[2].x) / 3;
 				const cy = (poly[0].y + poly[1].y + poly[2].y) / 3;
+
+				const dx = cx - centerX;
+				const dy = cy - centerY;
+				const radialAngle = Math.atan2(dy, dx);
+				const scatterAngle = radialAngle + (Math.random() - 0.5) * 1.6;
+				const dist = blastRadius * (0.25 + Math.random() * 0.85);
+
+				// Assign accent colors to ~22% of flying shards (pink/navy/bg punches)
+				let accentColor: string | null = null;
+				if (isDebrisShard) {
+					accentColor =
+						Math.random() < 0.45
+							? accentColors[Math.floor(Math.random() * accentColors.length)]
+							: bgColor;
+				} else if (Math.random() < 0.22) {
+					accentColor =
+						accentColors[Math.floor(Math.random() * accentColors.length)];
+				}
+
+				// Wave order from left (0) to right (1) + subtle vertical noise
+				const normX = Math.max(0, Math.min(1, (cx - padX) / textWidth));
+				const waveOrder = Math.max(
+					0,
+					Math.min(1, normX * 0.82 + Math.random() * 0.18)
+				);
+
 				shards.push({
 					poly,
 					cx,
 					cy,
+					waveOrder,
+					blastX: Math.cos(scatterAngle) * dist,
+					blastY: Math.sin(scatterAngle) * dist,
+					blastRot: (Math.random() - 0.5) * 5.2,
+					blastScale: 0.35 + Math.random() * 0.65,
 					x: 0,
 					y: 0,
 					rot: 0,
 					scale: 1,
-					alpha: 1,
-					crackOpacity: 0,
+					crackGap: 0,
+					morph: 0,
+					accentColor,
+					accentStrength: 0,
 				});
 			}
 		}
@@ -210,10 +301,11 @@ const ShatterText: React.FC<ShatterTextProps> = ({
 	direction = 1,
 	className = "",
 	subtitleClassName = "",
-	cols = 30,
-	rows = 10,
-	blastRadius = 320,
-	crackColor = "rgba(1, 1, 1, 0.2)",
+	cols = 42,
+	rows = 14,
+	blastRadius = 210,
+	accentColors = ["#ED0180", "#040E36", "#9333EA"],
+	bgColor = "#ffffff",
 }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const stageCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -259,9 +351,8 @@ const ShatterText: React.FC<ShatterTextProps> = ({
 		const textWidth = Math.max(1, Math.floor(rect.width));
 		const textHeight = Math.max(1, Math.floor(rect.height));
 
-		// Expand canvas around the wrapper so shards can blast in all directions
-		const padX = Math.max(240, Math.round(blastRadius * 0.85));
-		const padY = Math.max(220, Math.round(blastRadius * 0.75));
+		const padX = Math.max(190, Math.round(blastRadius * 0.95));
+		const padY = Math.max(140, Math.round(blastRadius * 0.75));
 		const stageWidth = textWidth + padX * 2;
 		const stageHeight = textHeight + padY * 2;
 		const stageLeft = rect.left - padX;
@@ -299,7 +390,10 @@ const ShatterText: React.FC<ShatterTextProps> = ({
 		);
 
 		const ctx = stageCanvas.getContext("2d");
-		if (!outSnapshot || !inSnapshot || !ctx) {
+		const outCtx = outSnapshot?.getContext("2d");
+		const inCtx = inSnapshot?.getContext("2d");
+
+		if (!outSnapshot || !inSnapshot || !ctx || !outCtx || !inCtx) {
 			container.style.minHeight = "";
 			gsap.set(targets, { opacity: 1 });
 			return;
@@ -312,85 +406,88 @@ const ShatterText: React.FC<ShatterTextProps> = ({
 		gsap.set(targets, { opacity: 0 });
 
 		const isUp = latestDirectionRef.current === -1;
-		const dirSign = isUp ? -1 : 1;
+		const shards = createOrganicShards(
+			textWidth,
+			textHeight,
+			padX,
+			padY,
+			cols,
+			rows,
+			outCtx,
+			inCtx,
+			dpr,
+			blastRadius,
+			accentColors,
+			bgColor
+		);
 
-		// Shards sit inside the text box area within the larger stage
-		const outShards = createShards(textWidth, textHeight, cols, rows).map((s) => ({
-			...s,
-			poly: s.poly.map((p) => ({ x: p.x + padX, y: p.y + padY })) as [Point, Point, Point],
-			cx: s.cx + padX,
-			cy: s.cy + padY,
-		}));
+		const renderFrame = () => {
+			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			ctx.clearRect(0, 0, stageWidth, stageHeight);
 
-		const inShards = createShards(textWidth, textHeight, cols, rows).map((s) => ({
-			...s,
-			poly: s.poly.map((p) => ({ x: p.x + padX, y: p.y + padY })) as [Point, Point, Point],
-			cx: s.cx + padX,
-			cy: s.cy + padY,
-		}));
-
-		const centerX = stageWidth / 2;
-		const centerY = stageHeight / 2;
-
-		// Scatter incoming shards all around the wrapper before converging
-		inShards.forEach((s) => {
-			const angle = Math.random() * Math.PI * 2;
-			const dist = blastRadius * (0.55 + Math.random() * 0.75);
-
-			s.x = Math.cos(angle) * dist;
-			s.y = Math.sin(angle) * dist + dirSign * 45;
-			s.rot = (Math.random() - 0.5) * 2.2;
-			s.scale = 0.6 + Math.random() * 0.45;
-			s.alpha = 0;
-			s.crackOpacity = 1;
-		});
-
-		const drawShardGroup = (shards: Shard[], snapshot: HTMLCanvasElement) => {
 			for (let i = 0; i < shards.length; i++) {
 				const s = shards[i];
-				if (s.alpha <= 0.01) continue;
+				if (s.scale <= 0.02) continue;
+
+				// Shrink vertices slightly toward centroid when cracked so white/bg crack lines appear inside letters
+				const shrink = 1 - s.crackGap * 0.14;
 
 				ctx.save();
-				ctx.globalAlpha = s.alpha;
 				ctx.translate(s.cx + s.x, s.cy + s.y);
 				ctx.rotate(s.rot);
 				ctx.scale(s.scale, s.scale);
 
 				ctx.beginPath();
-				ctx.moveTo(s.poly[0].x - s.cx, s.poly[0].y - s.cy);
-				ctx.lineTo(s.poly[1].x - s.cx, s.poly[1].y - s.cy);
-				ctx.lineTo(s.poly[2].x - s.cx, s.poly[2].y - s.cy);
+				for (let v = 0; v < 3; v++) {
+					const vx = (s.poly[v].x - s.cx) * shrink;
+					const vy = (s.poly[v].y - s.cy) * shrink;
+					if (v === 0) ctx.moveTo(vx, vy);
+					else ctx.lineTo(vx, vy);
+				}
 				ctx.closePath();
 				ctx.clip();
 
-				ctx.drawImage(
-					snapshot,
-					0,
-					0,
-					snapshot.width,
-					snapshot.height,
-					-s.cx,
-					-s.cy,
-					stageWidth,
-					stageHeight
-				);
+				// Outgoing text texture
+				if (s.morph < 1) {
+					ctx.globalAlpha = 1 - s.morph;
+					ctx.drawImage(
+						outSnapshot,
+						0,
+						0,
+						outSnapshot.width,
+						outSnapshot.height,
+						-s.cx,
+						-s.cy,
+						stageWidth,
+						stageHeight
+					);
+				}
 
-				if (s.crackOpacity > 0.02) {
-					ctx.strokeStyle = crackColor;
-					ctx.globalAlpha = s.alpha * s.crackOpacity;
-					ctx.lineWidth = 0.8;
-					ctx.stroke();
+				// Incoming text texture
+				if (s.morph > 0) {
+					ctx.globalAlpha = s.morph;
+					ctx.drawImage(
+						inSnapshot,
+						0,
+						0,
+						inSnapshot.width,
+						inSnapshot.height,
+						-s.cx,
+						-s.cy,
+						stageWidth,
+						stageHeight
+					);
+				}
+
+				// Flash brand/debris triangle fill while mid-flight (just like the purple/black shards in video_1)
+				if (s.accentColor && s.accentStrength > 0.02) {
+					ctx.globalAlpha = s.accentStrength;
+					ctx.fillStyle = s.accentColor;
+					ctx.fill();
 				}
 
 				ctx.restore();
 			}
-		};
-
-		const renderFrame = () => {
-			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-			ctx.clearRect(0, 0, stageWidth, stageHeight);
-			drawShardGroup(outShards, outSnapshot);
-			drawShardGroup(inShards, inSnapshot);
 		};
 
 		tickerFnRef.current = renderFrame;
@@ -413,70 +510,78 @@ const ShatterText: React.FC<ShatterTextProps> = ({
 		});
 		tlRef.current = tl;
 
-		// 1. Outgoing text blasts in all directions around the wrapper
-		outShards.forEach((s) => {
-			const dx = s.cx - centerX;
-			const dy = s.cy - centerY;
-			const distFromCenter = Math.hypot(dx, dy);
-			const maxDist = Math.hypot(textWidth / 2, textHeight / 2) || 1;
-			const radialRatio = Math.min(1, distFromCenter / maxDist);
+		// Directional wave sweep across the text (left->right on scroll down, right->left on scroll up)
+		const maxWaveDelay = 1;
 
-			// Blend radial outward angle with full 360-degree scatter
-			const radialAngle = Math.atan2(dy, dx);
-			const randomAngle = Math.random() * Math.PI * 2;
-			const angle = radialAngle + Math.sin(randomAngle) * 1.35;
-			const blast = blastRadius * (0.55 + Math.random() * 0.8);
+		shards.forEach((s) => {
+			const order = isUp ? 1 - s.waveOrder : s.waveOrder;
+			const startAt = order * maxWaveDelay;
 
-			const delay = radialRatio * 0.12;
-
+			// Phase 1: Hairline fracture lines appear right before the shard breaks loose
 			tl.to(
 				s,
 				{
-					x: Math.cos(angle) * blast,
-					y: Math.sin(angle) * blast - dirSign * 30,
-					rot: (Math.random() - 0.5) * 2.4,
-					scale: 0.65 + Math.random() * 0.35,
-					alpha: 0,
-					crackOpacity: 1,
-					duration: 1,
-					ease: "power2.out",
+					crackGap: 1,
+					duration: 0.14,
+					ease: "power1.out",
 				},
-				delay
-			);
-		});
-
-		// 2. Incoming shards fly in from all around the wrapper into place
-		const assembleStart = 0.16;
-		inShards.forEach((s) => {
-			const dx = s.cx - centerX;
-			const dy = s.cy - centerY;
-			const distFromCenter = Math.hypot(dx, dy);
-			const maxDist = Math.hypot(textWidth / 2, textHeight / 2) || 1;
-			const radialRatio = Math.min(1, distFromCenter / maxDist);
-
-			const delay = assembleStart + (1 - radialRatio) * 0.16;
-
-			tl.to(
-				s,
-				{
-					x: 0,
-					y: 0,
-					rot: 0,
-					scale: 1,
-					alpha: 1,
-					crackOpacity: 0,
-					duration: 1,
-					ease: "power3.out",
-				},
-				delay
-			);
+				startAt
+			)
+				// Phase 2: Shard blasts outward into the swirling debris field around the wrapper
+				.to(
+					s,
+					{
+						x: s.blastX,  
+						y: s.blastY,
+						rot: s.blastRot,
+						scale: s.blastScale,
+						accentStrength: s.accentColor ? 0.92 : 0,
+						duration: 0.34,
+						ease: "power3.out",
+					},
+					startAt + 0.08
+				)
+				// Phase 3: Mid-air swap to the incoming text shard & snap back into place with brief crack lines
+				.to(
+					s,
+					{
+						x: 0,
+						y: 0,
+						rot: 0,
+						scale: 1,
+						morph: 1,
+						accentStrength: 0,
+						duration: 0.44,
+						ease: "expo.inOut",
+					},
+					startAt + 0.42
+				)
+				// Phase 4: Residual fracture lines seal shut cleanly
+				.to(
+					s,
+					{
+						crackGap: 0,
+						duration: 1,
+						ease: "power2.out",
+					},
+					startAt + 0.78
+				);
 		});
 
 		return () => {
 			tl.kill();
 			cleanupVisuals();
 		};
-	}, [triggerKey, text, subtitle, cols, rows, blastRadius, crackColor]);
+	}, [
+		triggerKey,
+		text,
+		subtitle,
+		cols,
+		rows,
+		blastRadius,
+		accentColors,
+		bgColor,
+	]);
 
 	return (
 		<div ref={containerRef} className="relative">
