@@ -109,7 +109,8 @@ export default function AboutHeroSectionDesktop() {
         <section id="first-section" className="about-hero-section-desktop">
             <div className="about-hero-inner">
                 <div className="abt-hero-video" style={{ position: "relative" }}>
-                    <video ref={videoRef} src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-hero/rare-second-anniversary.mp4" playsInline loop onClick={handleTogglePlay} style={{ cursor: "pointer" }}></video>
+                    {/* <video ref={videoRef} src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-hero/rare-second-anniversary.mp4" playsInline loop onClick={handleTogglePlay} style={{ cursor: "pointer" }}></video> */}
+                    <video ref={videoRef} src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/aboutpage/about-hero/about-hero-video.mp4" playsInline loop onClick={handleTogglePlay} style={{ cursor: "pointer" }}></video>
 
                     {/* Center Play Button Overlay */}
                     {!isPlaying && (

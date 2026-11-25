@@ -188,6 +188,10 @@ const Hero = () => {
 										Start Your Project{" "}
 										<span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span>
 									</Link>
+
+									{/* <Link href="#" title="Click Me!" className="block">
+										Haha Hehe
+									</Link> */}
 								</div>
 
 								<div className="hm-3d-model-artboard w-[600px] h-[600px] flex items-center justify-center absolute left-[50%] translate-x-[-50%] bottom-[90px] overflow-visible z-[999]">
