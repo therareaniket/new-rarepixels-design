@@ -1,25 +1,78 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from "react";
-import "./scrolltotop.css"
+import {
+    useCallback,
+    useEffect,
+    useState,
+    type CSSProperties,
+} from "react";
+
+import "./scrolltotop.css";
+
+type ScrollButtonStyle = CSSProperties & {
+    "--fill-height": string;
+};
 
 const ScrollToTopButton = () => {
-    const [showButton, setShowButton] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
-    useEffect(() => {
-        const handleScroll = () => {
+    const updateScrollProgress = useCallback(() => {
         const firstSection = document.getElementById("first-section");
-            if (firstSection) {
-                const firstSectionHeight = firstSection.offsetHeight;
 
-                setShowButton(window.scrollY > firstSectionHeight);
-            }
-        };
+        const firstSectionTop = firstSection
+            ? firstSection.getBoundingClientRect().top + window.scrollY
+            : 0;
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        const maximumScroll =
+            document.documentElement.scrollHeight - window.innerHeight;
+
+        const scrollDistance = Math.max(
+            maximumScroll - firstSectionTop,
+            1
+        );
+
+        const currentScroll = Math.max(
+            window.scrollY - firstSectionTop,
+            0
+        );
+
+        const progress = Math.min(
+            Math.max(currentScroll / scrollDistance, 0),
+            1
+        );
+
+        setScrollProgress(progress);
     }, []);
 
+    useEffect(() => {
+        let animationFrameId: number | null = null;
+
+        const handleScroll = () => {
+            if (animationFrameId !== null) return;
+
+            animationFrameId = window.requestAnimationFrame(() => {
+                updateScrollProgress();
+                animationFrameId = null;
+            });
+        };
+
+        handleScroll();
+
+        window.addEventListener("scroll", handleScroll, {
+            passive: true,
+        });
+
+        window.addEventListener("resize", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleScroll);
+
+            if (animationFrameId !== null) {
+                window.cancelAnimationFrame(animationFrameId);
+            }
+        };
+    }, [updateScrollProgress]);
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -28,13 +81,29 @@ const ScrollToTopButton = () => {
         });
     };
 
-    if (!showButton) return null;
+    const buttonStyle: ScrollButtonStyle = {
+        "--fill-height": `${scrollProgress * 100}%`,
+    };
 
     return (
-        <button onClick={scrollToTop} className={`scroll-top-btn fixed bottom-6 right-6 z-50 bg-[#ED0180] text-white w-[48px] h-[48px] cursor-pointer flex items-center justify-center shadow-lg rounded-[10px] transition-transform transition-opacity duration-500 ease-out ${showButton ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0 pointer-events-none"}}`}>
-            <span className="block icon-hero-cta-arrow font-[14px] rotate-270"></span>
-        </button>
-    )
-}
+        <button
+            type="button"
+            onClick={scrollToTop}
+            className="scroll-top-btn"
+            style={buttonStyle}
+            aria-label="Scroll to top"
+        >
+            <span
+                className="scroll-top-btn__fill"
+                aria-hidden="true"
+            />
 
-export default ScrollToTopButton
+            <span
+                className="scroll-top-btn__icon icon-hero-cta-arrow"
+                aria-hidden="true"
+            />
+        </button>
+    );
+};
+
+export default ScrollToTopButton;
