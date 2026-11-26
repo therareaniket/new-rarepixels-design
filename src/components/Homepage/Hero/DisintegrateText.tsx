@@ -208,7 +208,7 @@ const DisintegrateText: React.FC<DisintegrateTextProps> = ({
 	triggerKey,
 	className = "",
 	subtitleClassName = "",
-	pixelSize = 2,
+	pixelSize = 3,
 	spread = 1.4,
 	onTransitionStart,
 	onTransitionEnd,

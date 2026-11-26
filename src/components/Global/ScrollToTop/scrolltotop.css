@@ -7,16 +7,25 @@
     width: 48px;
     height: 48px;
     padding: 0;
+    overflow: hidden;
+    /* background-color: #FBF9E9; */
+    border: 1px solid #ed0180;
+    border-radius: 10px;
+    color: #000;
+    cursor: pointer;
+    transition: border-color 1s ease, transform 1s ease;
+}
+
+.scroll-top-btn__layer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    background-color: #FBF9E9;
-    /* border: 1px solid #ed0180; */
-    border-radius: 10px;
-    color: #000000;
-    cursor: pointer;
-    transition: border-color 0.3s ease, transform 1s ease;
+    pointer-events: none;
 }
 
 .scroll-top-btn__fill {
@@ -24,17 +33,16 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     height: var(--fill-height);
+    overflow: hidden;
     background-color: #ed0180;
     pointer-events: none;
     will-change: height;
 }
 
 .scroll-top-btn__icon {
-    position: relative;
-    z-index: 2;
     display: block;
     color: #000000;
     font-size: 14px;
@@ -43,6 +51,9 @@
     pointer-events: none;
 }
 
+.scroll-top-btn__icon--filled {
+    color: #ffffff;
+}
 
 .scroll-top-btn:active {
     transform: translateY(0);
@@ -56,15 +67,19 @@
 /* Responsive */
 
 @media (max-width: 1799px) {
-    .scroll-top-btn { width: 40px; height: 40px; }
+    .scroll-top-btn,
+    .scroll-top-btn__layer { width: 40px; height: 40px; }
     .scroll-top-btn__icon { font-size: 12px; }
 }
 
 @media (max-width: 1439px) {
-    .scroll-top-btn { width: 36px; height: 36px; }
+    .scroll-top-btn,
+    .scroll-top-btn__layer { width: 36px; height: 36px; }
 }
 
 @media (max-width: 439px) {
-    .scroll-top-btn { right: 16px; bottom: 16px; width: 40px; height: 40px; border-radius: 8px; }
+    .scroll-top-btn { right: 16px; bottom: 16px; border-radius: 8px; }
+    .scroll-top-btn,
+    .scroll-top-btn__layer { width: 40px; height: 40px; }
     .scroll-top-btn__icon { font-size: 12px; }
 }
