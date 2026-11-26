@@ -26,7 +26,35 @@ export default function Footer() {
 
                             <p className="text-18 mt-[10px] text-[#C6C6C6]">Whether you&apos;re launching a new brand, designing a digital product, or scaling an existing business, we&apos;d love to hear your vision. Tell us about your project, and we&apos;ll help transform ideas into impactful digital experiences.</p>
 
-                            <Link href="#" title="Start Your Project" className="inline-block text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg">Start Your Project <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                            {/* <Link href="#" title="Start Your Project" className="inline-block text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg">Start Your Project <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link> */}
+
+                            {/* custom button */}
+
+
+                            <Link
+                                href="#"
+                                title="Start Your Project"
+                                className="cyber-cta-btn group relative mt-[28px] inline-flex h-[46px] items-center text-white transition-colors duration-200"
+                            >
+                                <span className="cyber-corner-blocks" aria-hidden="true">
+                                    <span className="cyber-box cyber-box-tl" />
+                                    <span className="cyber-box cyber-box-bl" />
+                                    <span className="cyber-box cyber-box-br" />
+                                </span>
+
+                                <span className="relative z-10 flex items-center pl-[50px] pr-[50px] text-18 tracking-[1px]">
+                                    Start Your Project
+                                    <span className="mm-cta icon-hero-cta-arrow ml-[12px] inline-block text-18 transition-transform duration-200 group-hover:translate-x-1" />
+                                </span>
+
+                                {/* 2 Staggered Brand Pink Boxes (#ED0180) */}
+                                <span className="cyber-pink-pixels" aria-hidden="true">
+                                    <span className="cyber-pink-box cyber-pink-lg" />
+                                    <span className="cyber-pink-box cyber-pink-sm" />
+                                </span>
+                            </Link>
+
+                            <div></div>
                         </div>
 
                         <div className="footer-social-wrapper footer-social-icon-desktop">

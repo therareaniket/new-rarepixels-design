@@ -44,25 +44,16 @@
 
 .scroll-top-btn__icon {
     display: block;
-    color: #000000;
+    color: #8C8B8C;
     font-size: 14px;
     line-height: 1;
     transform: rotate(270deg);
     pointer-events: none;
 }
 
-.scroll-top-btn__icon--filled {
-    color: #ffffff;
-}
-
-.scroll-top-btn:active {
-    transform: translateY(0);
-}
-
-.scroll-top-btn:focus-visible {
-    outline: 3px solid rgb(237 1 128 / 30%);
-    outline-offset: 1px;
-}
+.scroll-top-btn__icon--filled { color: #ffffff; }
+.scroll-top-btn:active { transform: translateY(0); }
+.scroll-top-btn:focus-visible { outline: 3px solid rgb(237 1 128 / 30%); outline-offset: 1px; }
 
 /* Responsive */
 

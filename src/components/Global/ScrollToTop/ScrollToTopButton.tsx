@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useState, type CSSProperties, } from "react";
+import {
+    useCallback,
+    useEffect,
+    useState,
+    type CSSProperties,
+} from "react";
+
 import "./scrolltotop.css";
 
 type ScrollButtonStyle = CSSProperties & {
@@ -84,6 +90,7 @@ const ScrollToTopButton = () => {
             <span className="scroll-top-btn__layer" aria-hidden="true">
                 <span className="scroll-top-btn__icon icon-hero-cta-arrow" />
             </span>
+
 
             <span className="scroll-top-btn__fill" aria-hidden="true">
                 <span className="scroll-top-btn__layer">
