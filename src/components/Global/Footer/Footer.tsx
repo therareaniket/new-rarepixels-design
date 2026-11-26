@@ -31,16 +31,16 @@ export default function Footer() {
                             {/* custom button */}
 
 
-                            <Link href="/Contact" title="Start Your Project" className="cyber-cta-btn group relative mt-[28px] inline-flex h-[46px] items-center text-white transition-colors duration-200" >
+                            <Link href="/Contact" title="Start Your Project" className="cyber-cta-btn group relative mt-[28px] inline-flex h-[40px] items-center text-white transition-colors duration-200" >
                                 <span className="cyber-corner-blocks" aria-hidden="true">
                                     <span className="cyber-box cyber-box-tl" />
                                     <span className="cyber-box cyber-box-bl" />
                                     <span className="cyber-box cyber-box-br" />
                                 </span>
 
-                                <span className="relative z-10 flex items-center pl-[45px] pr-[35px] text-18 tracking-[1px] website-link-text">
+                                <span className="relative z-10 flex items-center pl-[45px] pr-[35px] text-14 tracking-[1px] website-link-text">
                                     Start Your Project
-                                    <span className="mm-cta icon-hero-cta-arrow ml-[12px] inline-block text-[12px] transition-transform duration-200 group-hover:translate-x-1 font-normal" />
+                                    <span className="mm-cta icon-hero-cta-arrow ml-[12px] inline-block text-[10px] transition-transform duration-200 group-hover:translate-x-1 font-normal" />
                                 </span>
 
                                 {/* 2 Staggered Brand Pink Boxes (#ED0180) */}
