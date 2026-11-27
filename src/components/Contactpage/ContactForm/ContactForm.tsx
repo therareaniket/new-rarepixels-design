@@ -114,13 +114,32 @@ const ContactForm = () => {
                                     </div>
                                 </div>
                                 <p className="text-18 font-normal mt-[20px] mb-[40px] w-[268px]">No long forms. No guessing games. No waiting around. Book a free 30-minute discovery call and tell us what&apos;s on your mind. We&apos;ll come prepared with questions, ideas, and a clear perspective on where RarePixels can make a difference.</p>
-                                <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" target="_blank" title="Book A Call" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] block cnct-cta-for-desktop website-link w-[max-content]">Book A Call <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                                <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" title="Book A Call" target="_blank" className="cnct-cta-for-desktop cyber-cta-btn cyber-white-bg group relative inline-flex h-[40px] items-center text-white transition-colors duration-200" >
+                                    <span className="relative z-10 flex items-center pl-[20px] pr-[35px] text-14 tracking-[1px] website-link-text white-bg">
+                                        Book A Call
+                                    </span>
+
+                                    <span className="cyber-pink-pixels" aria-hidden="true">
+                                        <span className="cyber-pink-box cyber-pink-lg" />
+                                        <span className="cyber-pink-box cyber-pink-sm" />
+                                    </span>
+                                </Link>
                             </div>
 
                             <div className="contact-cta-phone w-[208px] h-[219px] absolute bottom-[20px] right-[20px]">
                                 <Image className="w-[100%] h-[100%] object-contain" src="https://pub-ab3a45b6cf574e698e4911642d8b38de.r2.dev/images/contactpage/contact-form/contact-cta-image.svg" alt="contact-call" width={208} height={219} draggable={false}></Image>
                             </div>
-                            <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" target="_blank" title="Book A Call" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link block w-[max-content] cnct-cta-for-tablet">Book A Call <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+
+                            <Link href="https://outlook.office.com/book/RarePixelsDesign@rarepixelsdesign.com/" title="Book A Call" target="_blank" className="cnct-cta-for-tablet cyber-cta-btn cyber-white-bg group relative inline-flex h-[40px] items-center text-white transition-colors duration-200" >
+                                <span className="relative z-10 flex items-center pl-[20px] pr-[35px] text-14 tracking-[1px] website-link-text white-bg">
+                                    Book A Call
+                                </span>
+
+                                <span className="cyber-pink-pixels" aria-hidden="true">
+                                    <span className="cyber-pink-box cyber-pink-lg" />
+                                    <span className="cyber-pink-box cyber-pink-sm" />
+                                </span>
+                            </Link>
                         </div>
                     </div>
 
@@ -178,11 +197,17 @@ const ContactForm = () => {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                title="Submit"
-                                className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] w-[max-content] website-link cursor-pointer disabled:opacity-50"
+                                title="Start Your Project"
+                                className="cyber-cta-btn cyber-white-bg w-[max-content] group relative mt-[28px] inline-flex h-[40px] items-center text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {loading ? 'Sending...' : 'Submit'}{' '}
-                                <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span>
+                                <span className="relative z-10 flex items-center pl-[20px] pr-[35px] text-14 tracking-[1px] website-link-text white-bg">
+                                    {loading ? 'Sending...' : 'Start Your Project'}
+                                </span>
+
+                                <span className="cyber-pink-pixels" aria-hidden="true">
+                                    <span className="cyber-pink-box cyber-pink-lg" />
+                                    <span className="cyber-pink-box cyber-pink-sm" />
+                                </span>
                             </button>
 
                             {statusText && (

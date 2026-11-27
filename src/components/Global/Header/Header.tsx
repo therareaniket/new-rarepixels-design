@@ -251,7 +251,18 @@ const Header = () => {
                             <div className="mm-connect-us flex justify-between">
                                 <div className="mm-slogan-cta">
                                     <p className="h3 mb-[30px]">Elevate Your Brand</p>
-                                    <Link href="#" title="Start Your Project" className="inline-block text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link">Start Your Project <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link>
+                                    {/* <Link href="#" title="Start Your Project" className="inline-block text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link">Start Your Project <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span></Link> */}
+
+                                    <Link href="/Contact" title="Start Your Project" className="cyber-cta-btn cyber-white-bg group relative mt-[28px] inline-flex h-[40px] items-center text-white transition-colors duration-200" >
+                                        <span className="relative z-10 flex items-center pl-[20px] pr-[35px] text-14 tracking-[1px] website-link-text white-bg">
+                                            Start Your Project
+                                        </span>
+
+                                        <span className="cyber-pink-pixels" aria-hidden="true">
+                                            <span className="cyber-pink-box cyber-pink-lg" />
+                                            <span className="cyber-pink-box cyber-pink-sm" />
+                                        </span>
+                                    </Link>
                                 </div>
 
                                 <div className="mm-contact-socials flex gap-[80px]">

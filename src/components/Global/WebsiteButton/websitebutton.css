@@ -1,0 +1,46 @@
+.website-link {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #ED0180;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.website-link__label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.mm-fill-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.website-link .mm-cta {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.website-link:not(:disabled):hover .mm-cta {
+  transform: translateX(4px);
+}
+
+/* Optional dark background variant */
+.dark-backg {
+  background-color: #061651;
+  color: #ffffff;
+  border: 2px solid transparent;
+}
+
+.dark-backg:not(:disabled):hover {
+  border-color: #ED0180;
+}

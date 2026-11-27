@@ -1,4 +1,6 @@
 "use client";
+
+import WebsiteButton from '@/components/Global/WebsiteButton/websiteButton';
 import './inquiryform.css'
 import Image from "next/image";
 import { useState } from "react";
@@ -17,7 +19,7 @@ const InquiryForm = () => {
     const [statusText, setStatusText] = useState('');
 
     const handleCheckboxChange = (option: string) => {
-        setSelectedServices((prev) => prev.includes(option) ? prev.filter((item) => item !== option) : [...prev, option] );
+        setSelectedServices((prev) => prev.includes(option) ? prev.filter((item) => item !== option) : [...prev, option]);
         if (validationError) setValidationError('');
     };
 
@@ -125,17 +127,17 @@ const InquiryForm = () => {
                     <div className="hm-inquiry-detail mt-[70px] mb-[50px] hm-inquiry-tablet">
                         <div className="hm-inquiry-field mb-[20px]">
                             <h3 className="font-normal">{' '}My name is {' '}
-                            <input className='text-16 border-b border-[#c6c6c6] pl-[10px] ' type="text" name="name" id="name" placeholder='enter name*' value={name} onChange={(e) => { setName(e.target.value); if (validationError) setValidationError(''); }} /></h3>
+                                <input className='text-16 border-b border-[#c6c6c6] pl-[10px] ' type="text" name="name" id="name" placeholder='enter name*' value={name} onChange={(e) => { setName(e.target.value); if (validationError) setValidationError(''); }} /></h3>
                         </div>
 
                         <div className="hm-inquiry-field mb-[20px]">
                             <h3 className="font-normal">and I want to discuss a potential project. You can email me at
-                            <input className='text-16 border-b border-[#c6c6c6] pl-[10px] ' type="email" name="email" id="email" value={email} placeholder='enter email*' onChange={(e) => { setEmail(e.target.value); if (validationError) setValidationError(''); }} /></h3>
+                                <input className='text-16 border-b border-[#c6c6c6] pl-[10px] ' type="email" name="email" id="email" value={email} placeholder='enter email*' onChange={(e) => { setEmail(e.target.value); if (validationError) setValidationError(''); }} /></h3>
                         </div>
 
                         <div className="hm-inquiry-field mb-[20px]">
                             <h3 className="font-normal">{' '} or reach me on {' '}
-                            <input className='text-16 border-b border-[#c6c6c6] pl-[10px]' type="tel" name="phone" id="phone" value={phone} placeholder='your phone*' onChange={(e) => { setPhone(e.target.value); if (validationError) setValidationError(''); }} /></h3>
+                                <input className='text-16 border-b border-[#c6c6c6] pl-[10px]' type="tel" name="phone" id="phone" value={phone} placeholder='your phone*' onChange={(e) => { setPhone(e.target.value); if (validationError) setValidationError(''); }} /></h3>
                         </div>
 
                         <div className="hm-inquiry-text-area flex flex-col mt-[10px]">
@@ -161,10 +163,23 @@ const InquiryForm = () => {
 
                     {validationError && (<p className="mb-[20px] text-16 font-medium text-red-600"> {validationError} </p>)}
 
-                    <button type="submit" disabled={loading} title="Start your Project" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] w-[max-content] website-link cursor-pointer disabled:opacity-50" >
-                        {loading ? 'Sending...' : 'Start your Project'}{' '}
-                        <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span>
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        title="Start Your Project"
+                        className="cyber-cta-btn cyber-white-bg group relative mt-[28px] inline-flex h-[40px] items-center text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span className="relative z-10 flex items-center pl-[20px] pr-[35px] text-14 tracking-[1px] website-link-text white-bg">
+                            {loading ? 'Sending...' : 'Start Your Project'}
+                        </span>
+
+                        <span className="cyber-pink-pixels" aria-hidden="true">
+                            <span className="cyber-pink-box cyber-pink-lg" />
+                            <span className="cyber-pink-box cyber-pink-sm" />
+                        </span>
                     </button>
+
+                    {/* <WebsiteButton /> */}
 
                     {statusText && (
                         <p className="mt-[20px] font-medium text-16 text-green-600">

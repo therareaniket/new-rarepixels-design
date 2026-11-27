@@ -356,9 +356,20 @@ const Blog = () => {
                                 </p>
                             </div>
 
-                            <Link href="/Insight" title="View All Categories" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg" >
+                            {/* <Link href="/Insight" title="View All Categories" className="text-20 px-[20px] py-[10px] bg-[#ED0180] text-white rounded-[30px] website-link dark-backg" >
                                 View All Categories{" "}
                                 <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span>
+                            </Link> */}
+
+                            <Link href="/Insight" title="View All Categories" className="cyber-cta-btn group relative mt-[28px] inline-flex h-[40px] items-center text-white transition-colors duration-200" >
+                                <span className="relative z-10 flex items-center pl-[20px] pr-[35px] text-14 tracking-[1px] website-link-text">
+                                    View All Categories{" "}
+                                </span>
+
+                                <span className="cyber-pink-pixels" aria-hidden="true">
+                                    <span className="cyber-pink-box cyber-pink-lg" />
+                                    <span className="cyber-pink-box cyber-pink-sm" />
+                                </span>
                             </Link>
                         </div>
                     </div>
