@@ -79,8 +79,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   transition: all 0.3s ease-in;
 }
 
-.cyber-cta-btn { border-left: 1px solid #fff; }
-
+.cyber-cta-btn { border-left: 1px solid #fff; cursor: pointer; }
 
 .cyber-cta-btn:hover.cyber-cta-btn::after { border-bottom: 1px solid #ed0180; border-right: 1px solid #ed0180;}
 
@@ -223,6 +222,8 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
     .text-80 { font-size: 56px; line-height: 56px; }
 	.text-20 { font-size: 16px; line-height: 20px; }
 	.text-14 { font-size: 12px; line-height: 20px; }
+
+
 }
 
 /* Low Height Resolution for small laptops */

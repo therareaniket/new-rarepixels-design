@@ -44,6 +44,203 @@ const HERO_STAGES = [
 	},
 ] as const;
 
+const WAVE_CONFIG = {
+	turnsPerLetter: 2,        // Full 360° disc spins per character (2 = 720°)
+	letterSpinDuration: 1.15, // Duration of each letter's spin (seconds)
+	waveStagger: 0.035,       // Left-to-right delay between consecutive letters (seconds)
+};
+
+function formatGlyph(char: string) {
+	return char === " " ? "\u00A0" : char;
+}
+
+function createDiscSlot(char: string, width: number) {
+	const slot = document.createElement("span");
+	slot.className = "disc-wave-slot";
+	slot.style.width = `${width}px`;
+
+	const disc = document.createElement("span");
+	disc.className = "disc-wave-disc";
+
+	const glyph = document.createElement("span");
+	glyph.className = "disc-wave-glyph";
+	glyph.textContent = formatGlyph(char);
+
+	disc.appendChild(glyph);
+	slot.appendChild(disc);
+	return { slot, disc, glyph };
+}
+
+const DiscWaveText = ({ text }: { text: string }) => {
+	const lineRef = useRef<HTMLSpanElement>(null);
+	const rulerRef = useRef<HTMLSpanElement>(null);
+	const prevTextRef = useRef<string>(text);
+	const hasMountedRef = useRef<boolean>(false);
+	const tlRef = useRef<gsap.core.Timeline | null>(null);
+
+	useEffect(() => {
+		const line = lineRef.current;
+		const ruler = rulerRef.current;
+		if (!line || !ruler) return;
+
+		const measureCharWidth = (ch: string) => {
+			if (!ch) return 0;
+			ruler.textContent = formatGlyph(ch);
+			return ruler.getBoundingClientRect().width;
+		};
+
+		const renderStatic = (phrase: string) => {
+			line.innerHTML = "";
+			line.setAttribute("aria-label", phrase);
+			for (const ch of phrase) {
+				line.appendChild(createDiscSlot(ch, measureCharWidth(ch)).slot);
+			}
+		};
+
+		if (!hasMountedRef.current) {
+			hasMountedRef.current = true;
+			prevTextRef.current = text;
+			renderStatic(text);
+			return;
+		}
+
+		const fromPhrase = prevTextRef.current;
+		prevTextRef.current = text;
+		if (fromPhrase === text) return;
+
+		tlRef.current?.kill();
+
+		const maxLen = Math.max(fromPhrase.length, text.length);
+		const fromPadLeft = Math.floor((maxLen - fromPhrase.length) / 2);
+		const toPadLeft = Math.floor((maxLen - text.length) / 2);
+
+		const pairs = Array.from({ length: maxLen }, (_, i) => {
+			const fromChar = fromPhrase[i - fromPadLeft] || "";
+			const toChar = text[i - toPadLeft] || "";
+			return {
+				fromChar,
+				toChar,
+				fromWidth: measureCharWidth(fromChar),
+				toWidth: measureCharWidth(toChar),
+			};
+		});
+
+		line.innerHTML = "";
+		line.setAttribute("aria-label", text);
+
+		const nodes = pairs.map((pair) => {
+			const built = createDiscSlot(pair.fromChar, pair.fromWidth);
+			if (!pair.fromChar) {
+				gsap.set(built.disc, { scale: 0, opacity: 0 });
+			}
+			line.appendChild(built.slot);
+			return built;
+		});
+
+		const masterTl = gsap.timeline({
+			onComplete: () => {
+				renderStatic(text);
+			},
+		});
+		tlRef.current = masterTl;
+
+		const totalRotation = 360 * WAVE_CONFIG.turnsPerLetter;
+		const halfSpin = WAVE_CONFIG.letterSpinDuration * 0.5;
+
+		pairs.forEach((pair, index) => {
+			const { slot, disc, glyph } = nodes[index];
+			const startTime = index * WAVE_CONFIG.waveStagger;
+
+			const isAppearing = !pair.fromChar && Boolean(pair.toChar);
+			const isDisappearing = Boolean(pair.fromChar) && !pair.toChar;
+
+			masterTl.to(
+				slot,
+				{
+					width: pair.toWidth,
+					duration: WAVE_CONFIG.letterSpinDuration,
+					ease: "power3.inOut",
+				},
+				startTime
+			);
+
+			masterTl.to(
+				disc,
+				{
+					rotation: totalRotation,
+					duration: WAVE_CONFIG.letterSpinDuration,
+					ease: "power3.inOut",
+				},
+				startTime
+			);
+
+			if (isAppearing) {
+				glyph.textContent = formatGlyph(pair.toChar);
+				masterTl.to(
+					disc,
+					{
+						scale: 1,
+						opacity: 1,
+						duration: WAVE_CONFIG.letterSpinDuration * 0.75,
+						ease: "power2.out",
+					},
+					startTime + WAVE_CONFIG.letterSpinDuration * 0.15
+				);
+			} else if (isDisappearing) {
+				masterTl.to(
+					disc,
+					{
+						scale: 0,
+						opacity: 0,
+						duration: WAVE_CONFIG.letterSpinDuration * 0.75,
+						ease: "power2.in",
+					},
+					startTime
+				);
+			} else {
+				masterTl.to(
+					disc,
+					{
+						scale: 0.82,
+						duration: halfSpin,
+						ease: "power2.in",
+					},
+					startTime
+				);
+				masterTl.call(
+					() => {
+						glyph.textContent = formatGlyph(pair.toChar);
+					},
+					undefined,
+					startTime + halfSpin
+				);
+				masterTl.to(
+					disc,
+					{
+						scale: 1,
+						duration: halfSpin,
+						ease: "power2.out",
+					},
+					startTime + halfSpin
+				);
+			}
+		});
+	}, [text]);
+
+	useEffect(() => {
+		return () => {
+			tlRef.current?.kill();
+		};
+	}, []);
+
+	return (
+		<>
+			<span ref={lineRef} className="disc-wave-line" />
+			<span ref={rulerRef} className="disc-wave-line disc-wave-measure" aria-hidden="true" />
+		</>
+	);
+};
+
 const Hero = () => {
 	const sectionRef = useRef<HTMLElement>(null);
 	const pinInnerRef = useRef<HTMLDivElement>(null);
@@ -181,7 +378,7 @@ const Hero = () => {
 					</div>
 
 					<div className="hm-hero-text-wrapper relative overflow-hidden bg-white text-center pt-[152px] pb-[137px]">
-						<h2 className="h1">{activeStage.title}</h2>
+						<h2 className="h1"><DiscWaveText text={activeStage.title} /></h2>
 
 						<div className="mt-[32px]">
 							<p className="text-18 font-normal">{activeStage.subtitle}</p>

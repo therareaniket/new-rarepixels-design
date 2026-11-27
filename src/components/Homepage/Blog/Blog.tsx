@@ -361,7 +361,7 @@ const Blog = () => {
                                 <span className="mm-cta inline-block ml-[12px] icon-hero-cta-arrow text-[16px]"></span>
                             </Link> */}
 
-                            <Link href="/Insight" title="View All Categories" className="cyber-cta-btn group relative mt-[28px] inline-flex h-[40px] items-center text-white transition-colors duration-200" >
+                            <Link href="/Insight" title="View All Categories" className="cyber-cta-btn group relative inline-flex h-[40px] items-center text-white transition-colors duration-200" >
                                 <span className="relative z-10 flex items-center pl-[20px] pr-[35px] text-14 tracking-[1px] website-link-text">
                                     View All Categories{" "}
                                 </span>
